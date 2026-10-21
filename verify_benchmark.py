@@ -34,6 +34,8 @@ def verify(root):
                 metadata["sample_index"] != row["sample_index"] or
                 metadata["candidates"] != 512 or metadata["steps"] != 128):
             raise ValueError("Case configuration mismatch")
+        if metadata.get("model_mode", "eval") != plan.get("model_mode", "eval"):
+            raise ValueError("Case inference mode mismatch")
         for stage in ("raw", "enhanced"):
             values = metrics[stage]
             if values["candidate_count"] != 512 or len(values["official_valid"]) != 512:

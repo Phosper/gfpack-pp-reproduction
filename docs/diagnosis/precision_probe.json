@@ -1,0 +1,30 @@
+{
+  "scope": "Synthetic unit-square diagnostic; no candidate or metric threshold changes",
+  "rows": [
+    {
+      "designed_overlap": 0.0,
+      "native_max_intersection": 0.0,
+      "float64_reference_intersection": 0.0
+    },
+    {
+      "designed_overlap": 0.001,
+      "native_max_intersection": 0.0,
+      "float64_reference_intersection": 0.0010000000000000009
+    },
+    {
+      "designed_overlap": 0.004,
+      "native_max_intersection": 0.0078125,
+      "float64_reference_intersection": 0.0040000000000000036
+    },
+    {
+      "designed_overlap": 0.006,
+      "native_max_intersection": 0.0078125,
+      "float64_reference_intersection": 0.006000000000000005
+    },
+    {
+      "designed_overlap": 0.01,
+      "native_max_intersection": 0.0078125,
+      "float64_reference_intersection": 0.010000000000000009
+    }
+  ]
+}

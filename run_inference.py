@@ -82,6 +82,8 @@ def parse_args(argv=None):
     parser.add_argument("--steps", type=int, default=128)
     parser.add_argument("--smoke", action="store_true",
                         help="Mark a reduced run as smoke only, not benchmark evidence")
+    parser.add_argument("--upstream-model-mode", action="store_true",
+                        help="Diagnostic only: retain upstream's default train mode/dropout during no-grad inference; no training")
     args = parser.parse_args(argv)
     if args.sample_index < 0:
         parser.error("--sample-index must be nonnegative")
@@ -277,10 +279,13 @@ def run(args):
         "extensions": str(args.extensions) if args.extensions else None,
         "command": sys.argv, "gpu_logical_device": 0,
         "cuda_visible_devices": os.environ.get("CUDA_VISIBLE_DEVICES"),
-        "execution": "Direct single GPU; model.eval(); torch.no_grad(); no DDP; no training",
+        "execution": "Direct single GPU; torch.no_grad(); no DDP; no training",
+        "model_mode": "upstream_default_train_dropout" if args.upstream_model_mode else "eval",
         "differences_from_official_entrypoint": [
             "Fixed sample index instead of random.randint(0, 128)",
-            "Explicit eval() disables dropout left active by the official entrypoint",
+            ("Diagnostic upstream default model mode retained; dropout active; no training"
+             if args.upstream_model_mode else
+             "Explicit eval() disables dropout left active by the official entrypoint"),
             "Raw tensors saved before vali_res can modify a cloned prediction",
             "PNG files use the official visualize helper with equal-aspect axes",
         ],
@@ -363,7 +368,11 @@ def run(args):
         state_dict = torch.load(args.checkpoint, **load_options)
         model.load_state_dict(state_dict, strict=True)
         del state_dict
-        model.eval()
+        if args.upstream_model_mode:
+            model.train()
+        else:
+            model.eval()
+        metadata["model_training_flag"] = model.training
         torch.cuda.synchronize(device)
         sample_started = time.perf_counter()
         with torch.no_grad():

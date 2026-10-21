@@ -62,6 +62,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, required=True, help="Existing environment/resources/upstream root")
     parser.add_argument("--output", type=Path, required=True, help="New full-benchmark output directory")
+    parser.add_argument("--upstream-model-mode", action="store_true",
+                        help="Retain upstream default model/dropout mode during no-grad inference; no training")
     args = parser.parse_args()
     root, output = args.root.resolve(), args.output.resolve()
     runner = Path(__file__).resolve().with_name("run_inference.py")
@@ -89,6 +91,7 @@ def main():
     plan = {"started_utc": datetime.now(timezone.utc).isoformat(), "upstream_commit": commit,
             "sample_indices": list(range(128)), "candidates": 512, "steps": 128, "seed_per_case": 3407,
             "precision": "FP32", "training": False, "input_sha256": frozen,
+            "model_mode": "upstream_default_train_dropout" if args.upstream_model_mode else "eval",
             "official_overlap_area_threshold": 50, "strict_overlap_area_tolerance": 1e-9,
             "failures_retained": True, "case_timeout_seconds": 900}
     save(output / "plan.json", plan)
@@ -102,6 +105,8 @@ def main():
                    "--dataset", str(dataset), "--polygons", str(root / "resources/data/polygons"),
                    "--extensions", str(root / "extensions"), "--sample-index", str(index),
                    "--candidates", "512", "--steps", "128", "--output", str(case)]
+        if args.upstream_model_mode:
+            command.append("--upstream-model-mode")
         row = {"sample_index": index, "status": "failed"}
         try:
             with (output / ("sample_%03d.log" % index)).open("w", encoding="utf-8") as log:
@@ -112,6 +117,8 @@ def main():
                 metrics = json.loads((case / "metrics.json").read_text())
                 if meta["status"] != "completed" or meta["sample_index"] != index:
                     raise ValueError("Case metadata mismatch")
+                if meta.get("model_mode", "eval") != plan["model_mode"]:
+                    raise ValueError("Inference model mode mismatch")
                 for path, sha in meta["source_sha256"].items():
                     if path in frozen and sha != frozen[path]:
                         raise ValueError("Frozen input changed")
