@@ -32,6 +32,8 @@ bash run_server.sh full
 .venv/bin/python -u run_benchmark.py --root . --output results/validation_128
 ```
 
+结束后执行 `.venv/bin/python verify_benchmark.py results/validation_128`，验证覆盖、配置、输出哈希及汇总计算。也可以用 `bash run_pipeline.sh results/validation_128` 一次完成评测和校验；校验通过不等于排布效果全部合格。
+
 完整入口按顺序运行样本 0–127，每例 512 个候选、128 步、seed 3407，不训练、不调参。它在运行前冻结输入和源码 SHA256，要求官方源码版本匹配且工作区无修改；每例保留候选、轨迹、图、指标、元信息和日志。输出目录必须不存在，避免覆盖历史结果。
 
 `summary.json` 随每例完成而更新，明确区分运行失败、没有官方有效候选和严格零交叠检查失败。平均最佳利用率分别报告“仅有有效候选的样本”和“全部 128 例、失败计零”两种口径。严格几何检查只覆盖选中的最佳有效候选，不代表所有候选都通过。`status=completed` 只代表 128 例程序执行完成，不能直接当作论文指标复现成功。
