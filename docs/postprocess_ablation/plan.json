@@ -1,0 +1,48 @@
+{
+  "samples": [
+    25,
+    45,
+    46,
+    47,
+    54,
+    62,
+    99,
+    115,
+    0,
+    17,
+    35,
+    56,
+    74,
+    91,
+    109,
+    127
+  ],
+  "sources": {
+    "pred": "raw_actions",
+    "gt": "gt_actions"
+  },
+  "paths": [
+    "gap_only",
+    "repair_only",
+    "repair_then_gap"
+  ],
+  "planned_jobs": 96,
+  "outputs_per_job": [
+    "float64",
+    "float32"
+  ],
+  "representatives_per_sample": 1,
+  "gt_controls": 16,
+  "height": 1200.0,
+  "horizontal_walls": null,
+  "repair_epsilon": 1.0,
+  "repair_max_iterations": 2000,
+  "worker_timeout_seconds": 15.0,
+  "input_policy": "Frozen raw representative and original GT, no normalization, clamping or reselection",
+  "gap_policy": "Unmodified official rm_spacing_all, x/y/x/y/x; numeric width8000 unused by gap code",
+  "rollback_policy": "Repair internal failure rollback retained; no external guard rollback of gap outputs",
+  "candidate_selection_caveat": "Representative indices previously selected using enhanced outputs; this is paired development analysis, not an unbiased raw selection or a 512-candidate evaluation",
+  "training": false,
+  "new_sampling": false,
+  "manifest_sha256": "9b0fd899a72e29027906751fe9caf4386f760eddf3d17124a5b9fe49732090c6"
+}

@@ -1,0 +1,223 @@
+{
+  "status": "verified",
+  "native_controls": 8,
+  "cases": [
+    {
+      "name": "unbounded_x_-100.0",
+      "passed": true,
+      "native": {
+        "actions_xy": [
+          [
+            -102.5078125,
+            0.0
+          ],
+          [
+            -92.4921875,
+            0.0
+          ]
+        ],
+        "status": "converged",
+        "iterations": 1,
+        "rolled_back": false,
+        "diagnostics": {
+          "initial_max_pairwise_area": 50.0,
+          "initial_sum_pairwise_area": 50.0,
+          "best_attempt_max_pairwise_area": 0.0,
+          "best_attempt_sum_pairwise_area": 0.0,
+          "returned_max_pairwise_area": 0.0,
+          "returned_sum_pairwise_area": 0.0,
+          "returned_within_bounds": true,
+          "initial_geometry_measured": true,
+          "candidate_evaluations": 6,
+          "clipper_decimal_precision": 2,
+          "separation_clearance": 0.015625,
+          "evaluation_limit": 100000,
+          "time_limit_seconds": 8.0,
+          "elapsed_seconds": 3.063e-05,
+          "horizontal_domain": "unbounded"
+        }
+      },
+      "reference": {
+        "status": "measured",
+        "piece_count": 2,
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "pair_count_over_50": 0,
+        "pair_count_over_1e_9": 0,
+        "positive_area_pair_count": 0,
+        "total_polygon_area": 200.0,
+        "original_polygon_area": 200.0,
+        "rigid_area_absolute_error": 0.0,
+        "sum_pairwise_overlap_fraction": 0.0,
+        "bounds_xyxy": [
+          -102.5078125,
+          0.0,
+          -82.4921875,
+          10.0
+        ],
+        "span_x": 20.015625,
+        "span_y": 10.0,
+        "bbox_utilization": 0.9992193598750976,
+        "strip_utilization": 0.9992193598750976,
+        "strip_height": 10.0,
+        "height_violation": 0.0,
+        "lower_y_violation": 0.0,
+        "upper_y_violation": 0.0,
+        "within_strip": true,
+        "eps50_overlap_valid": true,
+        "strict_overlap_valid": true,
+        "eps50_strip_valid": true,
+        "strict_strip_valid": true,
+        "zero_rotation_vector_count": 0,
+        "top_pairs": [],
+        "horizontal_domain": "infinite_strip_no_x_wall",
+        "area_eps": 50.0,
+        "strict_area_eps": 1e-09,
+        "boundary_eps": 1e-09
+      }
+    },
+    {
+      "name": "legal_unmoved_x_-100.0",
+      "passed": true
+    },
+    {
+      "name": "unbounded_x_9000.0",
+      "passed": true,
+      "native": {
+        "actions_xy": [
+          [
+            8997.4921875,
+            0.0
+          ],
+          [
+            9007.5078125,
+            0.0
+          ]
+        ],
+        "status": "converged",
+        "iterations": 1,
+        "rolled_back": false,
+        "diagnostics": {
+          "initial_max_pairwise_area": 50.0,
+          "initial_sum_pairwise_area": 50.0,
+          "best_attempt_max_pairwise_area": 0.0,
+          "best_attempt_sum_pairwise_area": 0.0,
+          "returned_max_pairwise_area": 0.0,
+          "returned_sum_pairwise_area": 0.0,
+          "returned_within_bounds": true,
+          "initial_geometry_measured": true,
+          "candidate_evaluations": 6,
+          "clipper_decimal_precision": 2,
+          "separation_clearance": 0.015625,
+          "evaluation_limit": 100000,
+          "time_limit_seconds": 8.0,
+          "elapsed_seconds": 1.6247e-05,
+          "horizontal_domain": "unbounded"
+        }
+      },
+      "reference": {
+        "status": "measured",
+        "piece_count": 2,
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "pair_count_over_50": 0,
+        "pair_count_over_1e_9": 0,
+        "positive_area_pair_count": 0,
+        "total_polygon_area": 200.0,
+        "original_polygon_area": 200.0,
+        "rigid_area_absolute_error": 0.0,
+        "sum_pairwise_overlap_fraction": 0.0,
+        "bounds_xyxy": [
+          8997.4921875,
+          0.0,
+          9017.5078125,
+          10.0
+        ],
+        "span_x": 20.015625,
+        "span_y": 10.0,
+        "bbox_utilization": 0.9992193598750976,
+        "strip_utilization": 0.9992193598750976,
+        "strip_height": 10.0,
+        "height_violation": 0.0,
+        "lower_y_violation": 0.0,
+        "upper_y_violation": 0.0,
+        "within_strip": true,
+        "eps50_overlap_valid": true,
+        "strict_overlap_valid": true,
+        "eps50_strip_valid": true,
+        "strict_strip_valid": true,
+        "zero_rotation_vector_count": 0,
+        "top_pairs": [],
+        "horizontal_domain": "infinite_strip_no_x_wall",
+        "area_eps": 50.0,
+        "strict_area_eps": 1e-09,
+        "boundary_eps": 1e-09
+      }
+    },
+    {
+      "name": "legal_unmoved_x_9000.0",
+      "passed": true
+    },
+    {
+      "name": "vertical_outside_-1.0",
+      "passed": true
+    },
+    {
+      "name": "vertical_outside_1.0",
+      "passed": true
+    },
+    {
+      "name": "zero_iterations_rollback",
+      "passed": true
+    },
+    {
+      "name": "official_gap_height_regression_visible",
+      "passed": true,
+      "reference": {
+        "status": "measured",
+        "piece_count": 1,
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "pair_count_over_50": 0,
+        "pair_count_over_1e_9": 0,
+        "positive_area_pair_count": 0,
+        "total_polygon_area": 1199.9999999999998,
+        "original_polygon_area": 1200.0,
+        "rigid_area_absolute_error": 2.2737367544323206e-13,
+        "sum_pairwise_overlap_fraction": 0.0,
+        "bounds_xyxy": [
+          0.0018555908203125,
+          0.002,
+          1.0018555908203124,
+          1200.002
+        ],
+        "span_x": 0.9999999999999999,
+        "span_y": 1200.0,
+        "bbox_utilization": 1.0,
+        "strip_utilization": 1.0,
+        "strip_height": 1200.0,
+        "height_violation": 0.0019999999999527063,
+        "lower_y_violation": 0.0,
+        "upper_y_violation": 0.0019999999999527063,
+        "within_strip": false,
+        "eps50_overlap_valid": true,
+        "strict_overlap_valid": true,
+        "eps50_strip_valid": false,
+        "strict_strip_valid": false,
+        "zero_rotation_vector_count": 0,
+        "top_pairs": [],
+        "horizontal_domain": "infinite_strip_no_x_wall",
+        "area_eps": 50.0,
+        "strict_area_eps": 1e-09,
+        "boundary_eps": 1e-09
+      }
+    }
+  ],
+  "metric_controls": {
+    "status": "passed",
+    "checks": 12,
+    "scope": "independent CPU fixtures, not real-case reproduction evidence"
+  },
+  "extension_sha256": "d7a28f5a7f3a04f90a983dd9473306903b70e5f2f32c2674f585837617859957",
+  "scope": "API/geometry controls, not repair efficacy on real candidates"
+}

@@ -5,6 +5,7 @@
 #include <chrono>
 #include <limits>
 #include <stdexcept>
+#include <utility>
 
 namespace gfpack_repair {
 using Point = std::pair<double, double>;
@@ -43,9 +44,9 @@ inline Box box(const Poly& p) {
     return b;
 }
 
-inline bool inside(const Box& b, double w, double h) {
-    return b[0] >= -bounds_tol && b[1] >= -bounds_tol &&
-           b[2] <= w + bounds_tol && b[3] <= h + bounds_tol;
+inline bool inside(const Box& b, double w, double h, bool horizontal_strip=false) {
+    return b[1] >= -bounds_tol && b[3] <= h + bounds_tol &&
+           (horizontal_strip || (b[0] >= -bounds_tol && b[2] <= w + bounds_tol));
 }
 
 inline double intersection(const Poly& a, const Box& ab, const Poly& b, const Box& bb) {
@@ -61,14 +62,15 @@ struct Measurement {
     bool in_bounds = true;
 };
 
-inline Measurement measure(const Layout& layout, double w, double h, const TimePoint& started) {
+inline Measurement measure(const Layout& layout, double w, double h, const TimePoint& started,
+                           bool horizontal_strip=false) {
     Measurement m;
     const size_t n = layout.size();
     m.pairs.resize(n*n, 0);
     for (const auto& p : layout) {
         check_time(started);
         m.boxes.push_back(box(p));
-        m.in_bounds = m.in_bounds && inside(m.boxes.back(), w, h);
+        m.in_bounds = m.in_bounds && inside(m.boxes.back(), w, h, horizontal_strip);
     }
     for (size_t i = 0; i < n; ++i) for (size_t j = i+1; j < n; ++j) {
         check_time(started);
@@ -88,9 +90,11 @@ inline std::pair<double,double> projection(const Poly& p, Point u) {
     return {lo, hi};
 }
 
-inline std::pair<double,double> travel(const Box& b, Point u, double w, double h) {
+inline std::pair<double,double> travel(const Box& b, Point u, double w, double h,
+                                     bool horizontal_strip=false) {
     double lo = -std::numeric_limits<double>::infinity(), hi = -lo;
     for (int axis = 0; axis < 2; ++axis) {
+        if (horizontal_strip && axis == 0) continue;
         const double v = axis == 0 ? u.first : u.second;
         if (std::abs(v) < 1e-14) continue;
         const double extent = axis == 0 ? w : h;
@@ -123,9 +127,10 @@ inline std::vector<Point> axes_for(const Poly& a, const Poly& b, const TimePoint
     return axes;
 }
 
-inline py::dict repair(std::vector<int> ids, std::vector<double> rotates,
-                      std::vector<Point> actions, Layout polys,
-                      double width, double height, double eps=1., int max_iterations=2000) {
+inline py::dict repair_impl(std::vector<int> ids, std::vector<double> rotates,
+                           std::vector<Point> actions, Layout polys,
+                           double width, double height, double eps, int max_iterations,
+                           bool horizontal_strip) {
     const size_t n = ids.size();
     if (!n || n > 2048 || n != rotates.size() || n != actions.size() ||
         !std::isfinite(width) || !std::isfinite(height) || width <= 0 || height <= 0 ||
@@ -158,7 +163,7 @@ inline py::dict repair(std::vector<int> ids, std::vector<double> rotates,
     int iterations = 0, evaluations = 0;
     std::string status;
     try {
-    initial = measure(layout,width,height,started);
+    initial = measure(layout,width,height,started,horizontal_strip);
     current = initial;
     initial_measured = true;
     if (!initial.in_bounds) status = "infeasible_bounds";
@@ -184,8 +189,8 @@ inline py::dict repair(std::vector<int> ids, std::vector<double> rotates,
                     const auto ap = projection(layout[i],u), bp = projection(layout[j],u);
                     double separation = bp.second - ap.first + clearance;
                     if (separation <= 0) continue;
-                    const auto at = travel(current.boxes[i],u,width,height);
-                    const auto bt = travel(current.boxes[j],u,width,height);
+                    const auto at = travel(current.boxes[i],u,width,height,horizontal_strip);
+                    const auto bt = travel(current.boxes[j],u,width,height,horizontal_strip);
                     // tA-tB=separation, with both new polygons inside the strip.
                     double lo = std::max(at.first,bt.first+separation);
                     double hi = std::min(at.second,bt.second+separation);
@@ -220,7 +225,8 @@ inline py::dict repair(std::vector<int> ids, std::vector<double> rotates,
                         const Point b{actions[j].first+tb*u.first,actions[j].second+tb*u.second};
                         const Poly pa = placed(rotated[i],a), pb = placed(rotated[j],b);
                         const Box ba = box(pa), bb = box(pb);
-                        if (!inside(ba,width,height) || !inside(bb,width,height)) continue;
+                        if (!inside(ba,width,height,horizontal_strip) ||
+                            !inside(bb,width,height,horizontal_strip)) continue;
                         // Unmoved pair intersections stay cached; recompute every pair
                         // touching either moved piece, including all third parties.
                         double total = 0;
@@ -250,7 +256,7 @@ inline py::dict repair(std::vector<int> ids, std::vector<double> rotates,
         if (!found) { status = "stalled"; break; }
         actions[best_i]=best_a; actions[best_j]=best_b;
         layout[best_i]=best_pa; layout[best_j]=best_pb;
-        const auto updated = measure(layout,width,height,started);
+        const auto updated = measure(layout,width,height,started,horizontal_strip);
         if (!updated.in_bounds || !(updated.total < current.total)) {
             status = "stalled"; break;
         }
@@ -288,10 +294,29 @@ inline py::dict repair(std::vector<int> ids, std::vector<double> rotates,
     diagnostics["evaluation_limit"] = evaluation_limit;
     diagnostics["time_limit_seconds"] = time_limit_seconds;
     diagnostics["elapsed_seconds"] = std::chrono::duration<double>(std::chrono::steady_clock::now()-started).count();
+    if (horizontal_strip) diagnostics["horizontal_domain"] = "unbounded";
     py::dict result;
     result["actions_xy"] = actions; result["status"] = status;
     result["iterations"] = iterations; result["rolled_back"] = !success;
     result["diagnostics"] = diagnostics;
     return result;
+}
+
+// Preserve the bounded-container API and its default behavior for prior rounds.
+inline py::dict repair(std::vector<int> ids, std::vector<double> rotates,
+                       std::vector<Point> actions, Layout polys,
+                       double width, double height, double eps=1., int max_iterations=2000) {
+    return repair_impl(std::move(ids),std::move(rotates),std::move(actions),std::move(polys),
+                       width,height,eps,max_iterations,false);
+}
+
+// Infinite horizontal strip: only 0 <= y <= height constrains travel. The dummy
+// width is ignored by geometry checks; finite-coordinate input guards above
+// remain numerical-safety checks, and do not impose left or right container walls.
+inline py::dict repair_strip(std::vector<int> ids, std::vector<double> rotates,
+                             std::vector<Point> actions, Layout polys,
+                             double height, double eps=1., int max_iterations=2000) {
+    return repair_impl(std::move(ids),std::move(rotates),std::move(actions),std::move(polys),
+                       1.,height,eps,max_iterations,true);
 }
 }  // namespace gfpack_repair

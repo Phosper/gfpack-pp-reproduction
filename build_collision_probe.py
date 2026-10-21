@@ -106,6 +106,10 @@ def main():
           py::arg("ids"), py::arg("rotates"), py::arg("actions"), py::arg("polys"),
           py::arg("width"), py::arg("height"), py::arg("eps") = 1.,
           py::arg("max_iterations") = 2000);
+    m.def("overlap_repair_strip", &gfpack_repair::repair_strip,
+          py::arg("ids"), py::arg("rotates"), py::arg("actions"), py::arg("polys"),
+          py::arg("height"), py::arg("eps") = 1.,
+          py::arg("max_iterations") = 2000);
 '''
         patched = patched.replace(needle, needle + repair_binding)
         (args.output / "repair.patch").write_text("".join(difflib.unified_diff(
@@ -149,7 +153,8 @@ def main():
         report.update(repair_header_sha256=sha256(build / repair_header.name),
                       repair_main_sha256=sha256(build / "main.cpp"),
                       repair_patch_sha256=sha256(args.output / "repair.patch"),
-                      repair_entry_point="collision_probe.overlap_repair")
+                      repair_entry_point="collision_probe.overlap_repair",
+                      strip_repair_entry_point="collision_probe.overlap_repair_strip")
     if result.returncode == 0:
         report["extension_sha256"] = sha256(extension)
     if args.paper_constraints:

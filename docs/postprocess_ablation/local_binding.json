@@ -1,0 +1,28 @@
+{
+  "scope": "Exact round7 local source bytes, new strip API with bounded API preserved",
+  "source_sha256": {
+    "build_collision_probe.py": "fbe545ff3a9f9e319283e30d45c02c4637b8e826df6bc2c0f42df51a0bf66603",
+    "collision_repair.hpp": "b422342b149f48c3b8c1044b99e722bbab8c607eb790cec945a54f6862de67ca",
+    "postprocess_metrics.py": "635a5160c4f8dff9390cdae45242bd9b1b0a196d8e45b1059fb9f82170dbe093",
+    "run_postprocess_ablation.py": "7a6df69e1706e108fc596ed68541d27ca8f039bab2dbe0bf8d99d89427d33bfb",
+    "check_strip_controls.py": "f1d6efa5b870e2559c0f6073903464a0351bec9facae86f842dd1006b99046b7",
+    "verify_postprocess_ablation.py": "909c2ea82e10fcdce398c2c0aef99a1b00eb8dc8bbe3cac588719e7ba79fd5f5",
+    "plot_postprocess_ablation.py": "223a62c597c322f7799fe59726b37c5fd643d00d1859115dd157f5da8b871838",
+    "check_collision_saved_cases.py": "0b1a58706a9232157e525fbbbe47b3e5d1e59a955da3745863f49f5f22b86c12"
+  },
+  "archive_sha256": "ad85910c5ae5227b2310f2080745ecb968eae25718562ced89436f3dacf93aac",
+  "evidence_sha256": {
+    "build.json": "79eccf434d6dbfff9520b6ab0dbfd2e2a76c9e38383ee80b532c0c34e8647fdb",
+    "failure_controls.json": "827dd0b334c8a8897f6589923b5a3ecfb2bdd28312f14ebeffeb8764b467a004",
+    "legacy_controls.json": "cbdf883646233a6d2f5818f716d074ecf882eb8c8ba66fc73f8736375ae0c517",
+    "metric_controls_extended.json": "84ade378e2f89424ad5838c41839e667594f4469f3623925af1a39372a5d8e68",
+    "plan.json": "b9c2b460a260bdcc33749d03ede60100b642f0c4ee39b0b3bef4a44534d5d459",
+    "README.md": "46833f34447ec814fa78a66af715de4743ec4b3ae899c0a6b515f8783735c365",
+    "representatives.png": "3409def0c94ae9db2490f356fb5044a15ce6d06e4a0c8949dc786ac932a1f464",
+    "strip_controls.json": "388538c7f7bdb3faed63266a02e9039c3738dcc847f2e8d67717ee4c9d1f87fb",
+    "strip_repair.patch": "04268d4e4160a6a5d8ec1d307fa3bf2032ce10921747e686a929460585492d34",
+    "verification.json": "46f1c9cf966acae59a094b9e832a88892e89015b1ad19fed677a3894c472ba89"
+  },
+  "local_readback_output_hashes_checked": 195,
+  "local_remote_source_build_and_verifier_bindings_verified": true
+}

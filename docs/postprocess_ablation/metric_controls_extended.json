@@ -1,0 +1,13 @@
+{
+  "metric_fixtures": {
+    "status": "passed",
+    "checks": 12,
+    "scope": "independent CPU fixtures, not real-case reproduction evidence"
+  },
+  "all_failed_planned_slots": 192,
+  "all_failed_retained": 192,
+  "unique_inputs_retained": 32,
+  "all_failed_feasible_fraction": 0.0,
+  "status": "passed",
+  "scope": "Failure-denominator control, not real experiment outcomes"
+}
