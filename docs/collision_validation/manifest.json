@@ -1,0 +1,2640 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "created_utc": "2026-10-21T07:47:12.712891+00:00",
+  "scope": "16 fixed development/regression cases; not independent generalization evidence; no inference or training",
+  "configuration": {
+    "sample_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127
+    ],
+    "candidates": 512,
+    "steps": 128,
+    "seed_per_case": 3407,
+    "precision": "FP32",
+    "training": false,
+    "model_mode": "upstream_default_train_dropout",
+    "upstream_commit": "ff75815e24ec50cd7fa8b2abdec1acfe0b55be95",
+    "official_overlap_area_threshold": 50,
+    "strict_overlap_area_tolerance": 1e-09,
+    "dental_strip_height": 1200,
+    "reference_width": 8000,
+    "width_policy": "no arbitrary widening",
+    "reference_geometry": "float64; original diagnosis retained without recomputation",
+    "tensor_load": "torch.load(map_location='cpu', weights_only=True)"
+  },
+  "selection": {
+    "failure_samples": [
+      25,
+      45,
+      46,
+      47,
+      54,
+      62,
+      99,
+      115
+    ],
+    "success_samples": [
+      0,
+      17,
+      35,
+      56,
+      74,
+      91,
+      109,
+      127
+    ],
+    "success_population_count": 120,
+    "success_population_order": "ascending sample_index among official-valid enhanced cases",
+    "success_positions_zero_based": [
+      0,
+      17,
+      34,
+      51,
+      68,
+      85,
+      102,
+      119
+    ],
+    "success_position_algorithm": "p_i = (i * (N - 1)) // (K - 1), i=0..K-1, N=120, K=8",
+    "candidate_policy": "diagnose_results.selection; same enhanced-selected index for raw and enhanced",
+    "failure_selection_note": "Minimum official thresholded overlap then highest utilization; not minimum exact overlap"
+  },
+  "baseline_evidence": {
+    "files": [
+      {
+        "root": "results",
+        "path": "plan.json",
+        "sha256": "08b80374266c0413dc9e2e42de96dc280a93d7b92ca3174b66f47b0d208baa8e"
+      },
+      {
+        "root": "results",
+        "path": "summary.json",
+        "sha256": "20f00edcef4425671096440ed55a74ee0259d08e8226e45b597daaa32d17fe61"
+      },
+      {
+        "root": "results",
+        "path": "verification.json",
+        "sha256": "575cbb760a158c34f87e8a94f00746a36645d51694d883b2bd030a5736ffe493"
+      },
+      {
+        "root": "diagnosis",
+        "path": "diagnosis.json",
+        "sha256": "04f024f5c359f34da9ba82ac6225e6616a495660f679cb8b5f02af0df7233bf0"
+      }
+    ],
+    "recorded_frozen_input_mapping_canonical_sha256": "d4b6b9f9388dd2638c48da115b765d3f1cd1e13bd5e46a19246281301f3cce9a",
+    "portable_frozen_input_inventory_sha256": "ac2316582f7a64bc147964eae6767572bcf53bdfa01628cc13a9b4847fb69fc4",
+    "frozen_input_inventory": [
+      {
+        "path": "runner/run_benchmark.py",
+        "sha256": "07370f569a77c115953c648f30f12ab71511e4beb52069cf19ae2e0a5cfbed6b",
+        "source_key_sha256": "ce7edd14dca2959c17500a6ae69f508086f70c5e555dc948d0fbcdb10335d847"
+      },
+      {
+        "path": "runner/run_inference.py",
+        "sha256": "52acb81beb2da5a89ada1cbf68ae5ffe8b42e81e2d8ca5858213517bc224da7b",
+        "source_key_sha256": "a7c3ef3599c43855fe9ef47a06e51633c2559d6c8709ed749ad41e4f736d5da3"
+      },
+      {
+        "path": "extensions/calutil.cpython-310-x86_64-linux-gnu.so",
+        "sha256": "4a43a363cd7f9fdd3edf728822acffbd04c7251a5b898bb9750d891f1d03afbf",
+        "source_key_sha256": "17cc778be4e31a3aecfaafde98c0ba50f15dc17d7a7c2e8d46862040c5227ad5"
+      },
+      {
+        "path": "extensions/calutil.cpython-311-x86_64-linux-gnu.so",
+        "sha256": "4a43a363cd7f9fdd3edf728822acffbd04c7251a5b898bb9750d891f1d03afbf",
+        "source_key_sha256": "5901cbdea72fe7a3bc9a82d287edd187a6182b4fbbcf5cc79180c23111a276e8"
+      },
+      {
+        "path": "extensions/calutil.cpython-39-x86_64-linux-gnu.so",
+        "sha256": "6a73bb9f156471413fa6a1472d5f82115363b36f6550ce47f09fac56d888fec1",
+        "source_key_sha256": "8e1e56e937251582899e7eb658387298acea61264436828e1a1c334a55e8abef"
+      },
+      {
+        "path": "extensions/rmspacing.cpython-310-x86_64-linux-gnu.so",
+        "sha256": "f71085718207f1fc7bc34a3046edbfe3b2e6fb80662851bbfb3ed6b669dac87a",
+        "source_key_sha256": "1c2715096a1fac2a3f8efbbbdf4f12e70823dc5b4c0f10a60a5ce24ef7ff9815"
+      },
+      {
+        "path": "extensions/rmspacing.cpython-311-x86_64-linux-gnu.so",
+        "sha256": "f71085718207f1fc7bc34a3046edbfe3b2e6fb80662851bbfb3ed6b669dac87a",
+        "source_key_sha256": "af5ed88957a4dfa26e2502ab1618d3fa82393cc5d80bdcfa261ec8cdb5a347e7"
+      },
+      {
+        "path": "extensions/rmspacing.cpython-39-x86_64-linux-gnu.so",
+        "sha256": "d92763331bed614dbc5262015b5d1b7dbdba1e028c3fc87232f989fab62b007f",
+        "source_key_sha256": "68e4c2293dad8886ae5afed0441840e16656d26e70efc76bdc074882dc0b5def"
+      },
+      {
+        "path": "resources/checkpoints/score_model.pth",
+        "sha256": "e3585572100e61c5f3112a8925e7add420b70c8c7a8f23e29be97788ad3c5643",
+        "source_key_sha256": "80ac8dbc1022a2c9b56cb2c9e5a298861e061386ef80f92440045612d149c6e6"
+      },
+      {
+        "path": "resources/data/datasets/dataset_dental_vali_128.pkl",
+        "sha256": "dffdd191803ddfeb7701d9012b1f38dd88f01ee9333747a19ba86e18870848e0",
+        "source_key_sha256": "203bca0b08867711ea38ff78e06086e445f7d2d017a3e9fae9589777162f436c"
+      },
+      {
+        "path": "resources/data/polygons/0.txt",
+        "sha256": "c17ed58387187af4f457d6c1b288dc19562bd31c71ac848b595a5426eca01d43",
+        "source_key_sha256": "816f58c427e3d19e02cd02c258cd79a54d3d9fa8f8b13644be66fc8e9b299892"
+      },
+      {
+        "path": "resources/data/polygons/1.txt",
+        "sha256": "dd9c9b97ae5a56d595bfc02e7a02d70b23713a57c81b1fa5d37e9436f1cf351d",
+        "source_key_sha256": "5e4b0c6af32b878dea0d0b29f097d8a693fae5f6b938eceaa145d630af964823"
+      },
+      {
+        "path": "resources/data/polygons/10.txt",
+        "sha256": "0b94c6c5a266e5d789fabdced9d5c9756a6581712c914eb293e88ed398158e18",
+        "source_key_sha256": "034d9ad70c3c1a8521b335b55b9979f31327d245fdd87710a60abda2ed236360"
+      },
+      {
+        "path": "resources/data/polygons/100.txt",
+        "sha256": "71ba68c30c8cdf2dfce31a20a6d89d0c079dc0b4d2d7806b1ef2eaeda9ae0124",
+        "source_key_sha256": "2029ac141e063cb425c09919e029f273d4e6d824c2193bfbbc305f97d0b9b53a"
+      },
+      {
+        "path": "resources/data/polygons/101.txt",
+        "sha256": "9549e1980824567b5850012c1618d6acc4db8f95bc2a9f72886f2862195fba8e",
+        "source_key_sha256": "92eb7aa6324f2e0b7e7366df30e1a50e452ad1bb92d0a9aecaa22c3f8c930a67"
+      },
+      {
+        "path": "resources/data/polygons/102.txt",
+        "sha256": "806b832bfdc4caf72e6f961cc1d79ca8915111f0b880397f2f51b4f270921067",
+        "source_key_sha256": "14b607709dc04b43f7e9f31681c334c877baf9e4cd18ef881071b81afce74243"
+      },
+      {
+        "path": "resources/data/polygons/103.txt",
+        "sha256": "2757cb3655d1b2bf36ac38b1b6b0cb7a7ef19253ba1cea7e9b9bed895a41d755",
+        "source_key_sha256": "868172851c6575511cf166b0b2be6edc912a2ccf7f54ac7ebb42eb4933bff98d"
+      },
+      {
+        "path": "resources/data/polygons/104.txt",
+        "sha256": "b66a359dd0ab2b379d4c6146d4f322b3786ae60757aa0aa4ba04422791f2a306",
+        "source_key_sha256": "fc8933c27030105e55b4c90b480c432ab59fa6d6cd507db8fa371d42b9fc08bc"
+      },
+      {
+        "path": "resources/data/polygons/105.txt",
+        "sha256": "5f665b14ca2114338dea30fa64e100c775c95fe3884d7034866eea8fb6fa5e4a",
+        "source_key_sha256": "7682478d4145d7ba6f4f177d0880cdeaf2722b8a1a8707ee26a71cd762c12d62"
+      },
+      {
+        "path": "resources/data/polygons/106.txt",
+        "sha256": "a4526892e29ede666ed4f0bacb5b385254c1a7e3bd4866a0cba97c619b5906c5",
+        "source_key_sha256": "a218584d0906ebecd590fda920fc12e23c15cbd159bc7bea0f2c8121d12ef34f"
+      },
+      {
+        "path": "resources/data/polygons/107.txt",
+        "sha256": "6333446bba5c0f969140452cfc65417b8fbfcd7d9f5bdb145f269f862b872101",
+        "source_key_sha256": "b60ab02c4fd08b1ac729a2885b60a0adbba842ea54e50eb42c5a40f778021dee"
+      },
+      {
+        "path": "resources/data/polygons/108.txt",
+        "sha256": "057202b226936da259856b96b50a87234d47da995c6394b07097bf79a8ae1fd1",
+        "source_key_sha256": "2abf18501b6491fa2bc3dde331771199cf885f55baaa45f0732f005ed92aef06"
+      },
+      {
+        "path": "resources/data/polygons/109.txt",
+        "sha256": "d6fe4e3bdbf2cf781d97137a210e71d939ba4c18912c9ac923ac42ff66c9d53f",
+        "source_key_sha256": "6e45a614f652b7e9726991e1c47733394d25890b9ec5a0aeec224feb462f3acb"
+      },
+      {
+        "path": "resources/data/polygons/11.txt",
+        "sha256": "aa00d81ff9c1557f3515b7f62a8e8724ecda7391a4f4ecb1e007d0198658353c",
+        "source_key_sha256": "0b476009835bdee5d5f4d4fbfe0f91831211caeb8e8904e09652347218dbee12"
+      },
+      {
+        "path": "resources/data/polygons/110.txt",
+        "sha256": "bd45aa1d999eecd8d35467adbed83a057285559a869d280ddbfbcfa5ec4162bb",
+        "source_key_sha256": "e7e196543538df40ca0502f3c53038769714fc41b11adb7047e436a51c452d50"
+      },
+      {
+        "path": "resources/data/polygons/111.txt",
+        "sha256": "0065f5520bc87e957f9e1c0fb6b346302250fdbd83435f5bca4d348b2d39112f",
+        "source_key_sha256": "d86342b4b1d11c244b25b9830a88536ae2d13f3577a72741de72353d69b92c2d"
+      },
+      {
+        "path": "resources/data/polygons/112.txt",
+        "sha256": "71bcb6a92ddff0a7e0651d9ea25ca67a2d969492b92c3513caef5a4a0a89f357",
+        "source_key_sha256": "017b2d2446c93e33757acb2dc1ddffb8a541b23a6dd33427ad861b216b77953a"
+      },
+      {
+        "path": "resources/data/polygons/113.txt",
+        "sha256": "20d563bb526e70dd5c2d315ff77e27a8ca2de618ac5e7b7b774c556995711109",
+        "source_key_sha256": "5e39c86204b6c69c9b0c7c233a76dc50e340dd4fd64429b58f8b5101050a1904"
+      },
+      {
+        "path": "resources/data/polygons/114.txt",
+        "sha256": "bd5a7f09ccd8267a9732700e0785c6cb380851fd104cd1bcdded51a8064173a1",
+        "source_key_sha256": "3650a69352636d343e5bc587095284156c1e317fff0cfdecfba1b2a8fea61499"
+      },
+      {
+        "path": "resources/data/polygons/115.txt",
+        "sha256": "e527c44791bc7ea1d403bb6eabe7eb490526036bfa838530cde508b6ac78c0be",
+        "source_key_sha256": "5cb77ffbb3baa0f73cff0b66760f0d3e24cb90bc5b6bc419db91f0b56aaf3f7d"
+      },
+      {
+        "path": "resources/data/polygons/116.txt",
+        "sha256": "838e04f654c1f6e697deac4a5d0ccf6961fd2646185f7120e47f4d6f0f26cf09",
+        "source_key_sha256": "97bfd47d0f2dd28fd5e03ac6ba7ede431e9646b14e35866f4297a8473814b718"
+      },
+      {
+        "path": "resources/data/polygons/117.txt",
+        "sha256": "c31558646668fe5660ea6c19483a2ad654fc39bf820fdc8fa182506c391cdede",
+        "source_key_sha256": "243ed6433c686397a8dbbcf3363d517ab244c3be745690a673098843c822ec1b"
+      },
+      {
+        "path": "resources/data/polygons/118.txt",
+        "sha256": "4f4b483e432b3a24963abdbaf8afb18368caf686b7de5727e4661265d4428931",
+        "source_key_sha256": "845cce82aabfdd1d43e5a0dbdf90a353a9b8546ea8894e9f6802e58a0432dae6"
+      },
+      {
+        "path": "resources/data/polygons/119.txt",
+        "sha256": "b462e598f0f66bd113a5c0a9e68d3b3a90fc904a5493cb03b624d0df330538c7",
+        "source_key_sha256": "e53ac4a0812b231b29ab83bac5849510abb0f50c90c844249f894a4f9726b638"
+      },
+      {
+        "path": "resources/data/polygons/12.txt",
+        "sha256": "4873b533af9b7cd0e643f0c52aea6782fb3eac084160c545348ac1e95a6849bd",
+        "source_key_sha256": "265b38cf2bb811784288fa8a086f4e454a1dd3ede6783a8dd6ac5c5886c22adb"
+      },
+      {
+        "path": "resources/data/polygons/120.txt",
+        "sha256": "e5d95595195db9f2e4c701cb11ce47b443d03ab2bbbe6188a1db05ec2998509d",
+        "source_key_sha256": "d57004eadd53500c575ff63b282dc678be2a3df702e99de7f46863ffa770df63"
+      },
+      {
+        "path": "resources/data/polygons/121.txt",
+        "sha256": "26fb22677e1cd8a31c1a69aa8378765c9205c539e341ee18fd9f035eb97dc4da",
+        "source_key_sha256": "2a233cbc3c67248c00ccb4f0d5b76a54580b66373697d91e793190c0fb867435"
+      },
+      {
+        "path": "resources/data/polygons/122.txt",
+        "sha256": "b147908dfab085c5029dc91c7b3c17fa3c067b5e51fcad5f2ebb9caf6b69630d",
+        "source_key_sha256": "acb07fe0dd54fc59b83fc09e929b02488624ccd57fd5b651fcbd913b69bbef29"
+      },
+      {
+        "path": "resources/data/polygons/123.txt",
+        "sha256": "3a985da1f2845a5d3b6a06daf6cfe969a92da52de3642bbe2ed99fbccb9aaf1b",
+        "source_key_sha256": "d12ce1c055d89e8eb14aaa0139abf74e5ef622452238ce964d52b92eef2f98bc"
+      },
+      {
+        "path": "resources/data/polygons/124.txt",
+        "sha256": "7ae5a37576f9aafbcf399c7d88e72848644da2957098b0b0058dedbcb071bf46",
+        "source_key_sha256": "c90886223e5fe313a010d5b7e86c5e440f34ee98733a82b95d6284264a8ec710"
+      },
+      {
+        "path": "resources/data/polygons/125.txt",
+        "sha256": "194635c34d684c6aef7f8737908dfa40b8a356144eb988f19404d7cc87dadf92",
+        "source_key_sha256": "27fc99a3be68e962fdd844d1b5f422f2e2168eaab59214b0d3e8d6db13274134"
+      },
+      {
+        "path": "resources/data/polygons/126.txt",
+        "sha256": "2a09172fb1c54fe3e59b21b91cc7fa78e8d08dc914c3c5100f227d5a66f8799e",
+        "source_key_sha256": "c595efe7be8f5844e9190f1fbd1dab89fcdb395b27f2c812a2b749ea082765a7"
+      },
+      {
+        "path": "resources/data/polygons/127.txt",
+        "sha256": "eb00e4e96926d289737a8bd25d607aa011ec3aaa3e98f8d4131cec636b73462b",
+        "source_key_sha256": "9250eceedde0563f5d00f9fccb8db13cc5c6e71a29eea021eb93c975d825bb58"
+      },
+      {
+        "path": "resources/data/polygons/128.txt",
+        "sha256": "ef7c503fd94b1383faba588d25074f6ee67de34a2d543d78b09bd1bcff024c85",
+        "source_key_sha256": "47f73afce88c3506eab1aeabac015f7dae2ce7d1f91f5257f41389dd9272b826"
+      },
+      {
+        "path": "resources/data/polygons/129.txt",
+        "sha256": "2d43ed280956062c3dc3474be704c73b5b0d78d47f2b656be07e54432ac8e0ce",
+        "source_key_sha256": "040d79f7b97f164c75f4687373ff06a9f57382e14e9408c45c560ae642b0df4f"
+      },
+      {
+        "path": "resources/data/polygons/13.txt",
+        "sha256": "863fdacfb0dc0a62b5ce578152af5b29a4d5af27f1dc9e2c1ed582ba8946c604",
+        "source_key_sha256": "bd2c0b75f0894ba36ddcee95a76021c2dc247735e56e93fffaef045af15ef6f2"
+      },
+      {
+        "path": "resources/data/polygons/130.txt",
+        "sha256": "1304ccf48ff232f7ba9d99af53b6db8d3b7093275254a4df04e133d7b01de647",
+        "source_key_sha256": "f0e8d8daeb0e3d531889d64a018d9be18f9f933d3ab50fefad39d240c10d2a73"
+      },
+      {
+        "path": "resources/data/polygons/131.txt",
+        "sha256": "eeac273fc7285be164e27a60a66b3f12f65daf8e22f15f64555d48dc9a159b17",
+        "source_key_sha256": "1aaf5edf1a6c588faeb39cbaf2d0e265a8704224974682a2ae4c2def78c07a6f"
+      },
+      {
+        "path": "resources/data/polygons/132.txt",
+        "sha256": "728ca7d74331a9228b0f75d202ec5fbd919b203aba6a39bb005c7a23508e6e6a",
+        "source_key_sha256": "c62d59bc1a3c4152484672eac72e5d1b1c67fe329baa3e8447598beb03a8db7a"
+      },
+      {
+        "path": "resources/data/polygons/133.txt",
+        "sha256": "a908263ecf38fd9035e1273ffb9195f40502406053f6af64492a2aeae7bd1932",
+        "source_key_sha256": "10f60953fd82fd330899d01731de82c8c63176a9709de5fadae4819069fc8a8b"
+      },
+      {
+        "path": "resources/data/polygons/134.txt",
+        "sha256": "72b6402092ccae9505b05bfdff866aa78b144e8854a152b1325c37f715930f02",
+        "source_key_sha256": "8811cf18ffc5e8882aca60aef5f557ab648925aa575142ea19cd2ce0aa772302"
+      },
+      {
+        "path": "resources/data/polygons/135.txt",
+        "sha256": "8dcabd9312dd6316aea6e834ae04ef907604e08547a841eb0183945ea1774a49",
+        "source_key_sha256": "fe6e64f57c809b12f91027a133e2a3f1e211dd18bdada2cedc05b2cf504c41a5"
+      },
+      {
+        "path": "resources/data/polygons/136.txt",
+        "sha256": "671d9300ea9b1f686c8ad05834c0b8810a97a7dc8a71f1c08f0a5982eb0161e9",
+        "source_key_sha256": "b85216d8c67474ad3da3cb4f4d2bd3f1003253a10011cbc5e3da74711352bc9b"
+      },
+      {
+        "path": "resources/data/polygons/137.txt",
+        "sha256": "ce8ee62c66ba7784c99b8f0f93a05762f2ae56b1505adb5f413fa09ce0203f9c",
+        "source_key_sha256": "a35c5e4447041e8a3e2855e29e7e857112d0f94befe96eef354dc573dc9eda8a"
+      },
+      {
+        "path": "resources/data/polygons/138.txt",
+        "sha256": "09de3fa26c8f34014009f6cc5d441012e4dbca366193de466a44fee5f5d2d432",
+        "source_key_sha256": "6ff2e28e9fa312c4f27666b4f0d0179ac0a55d8adb6ee06c429494debc933a0c"
+      },
+      {
+        "path": "resources/data/polygons/139.txt",
+        "sha256": "427e6b0b382d22ec66b3d36f3950b85b8727c231c476a93d1e302f96c276487f",
+        "source_key_sha256": "fa05292e8d82800514ea228a6be15e82d07d1da36f1e4c0cfc1553287b7c2df2"
+      },
+      {
+        "path": "resources/data/polygons/14.txt",
+        "sha256": "920ea1d885243060686618a99eecf0c556a5043c55eb4195d02ea438073b4111",
+        "source_key_sha256": "9e670effc74c93b6044ac8c6fde00d2499e883badfcf1ad496b03f8394559f55"
+      },
+      {
+        "path": "resources/data/polygons/140.txt",
+        "sha256": "1709adc29b9ade5e3a2ebb8f784790c282c19cd800f68db073a532ceb5743ab6",
+        "source_key_sha256": "1c17db3bf24ec5b4285dc657345f9347d34e0ce7b4684760abf221bf1909270d"
+      },
+      {
+        "path": "resources/data/polygons/141.txt",
+        "sha256": "1d6a7d812a70109901370dde3db25de3e9aaa9551c96303c732436b7ab864d4d",
+        "source_key_sha256": "030a5c62c1e159e3fe42e97ab245010497aa872684d94bc136792cacfe762638"
+      },
+      {
+        "path": "resources/data/polygons/142.txt",
+        "sha256": "9fb00e307e103c40149340fe96b16ec7ef0057d6d80c26dacd0a714aa611f328",
+        "source_key_sha256": "311f26e780255dd44e158935da183bfbcf7e61cd3cff6dd67aa129a6d31fa20a"
+      },
+      {
+        "path": "resources/data/polygons/143.txt",
+        "sha256": "77b337a3d2328c44720f02241b31a183c274fd4f9d8ffb0d4595b390b1df3414",
+        "source_key_sha256": "e03e015bbdda38b3d381c537af2cdac6c4a11c18357fbe4eb288e0c09a8ee232"
+      },
+      {
+        "path": "resources/data/polygons/144.txt",
+        "sha256": "2019337d3722654004b11dde8fc390c2ff413b44690da923f6d4f3a04e8fbe07",
+        "source_key_sha256": "923abe07bd615e56e1eef8f99389f0be50ff12620aa96451766e3f931bd13610"
+      },
+      {
+        "path": "resources/data/polygons/145.txt",
+        "sha256": "5b8787cd13b6aaae86ede34b71e31dfc677e3237ceed637660841ec02b2d6fbf",
+        "source_key_sha256": "ecbd83bb96d48a52afca6f1582d92c7e2022889f99dc808724ac6c838e9631cf"
+      },
+      {
+        "path": "resources/data/polygons/146.txt",
+        "sha256": "ef262989bee92830771ed6e5efb3377e7897397b12f93d7f2173d27157f29e86",
+        "source_key_sha256": "5ecdce5ad8940bdb3bb4e295a9dc4020b48e17899e81ba659a897e07857d94c9"
+      },
+      {
+        "path": "resources/data/polygons/147.txt",
+        "sha256": "81129d3ac5276c08116eda80a3480462c82194ffa41bf0e11c3eaf14cd717e8f",
+        "source_key_sha256": "5804a2924ac7174aec37ab4f3334b4fa4f85414015e0bbffd04a4b5df7f1d27d"
+      },
+      {
+        "path": "resources/data/polygons/148.txt",
+        "sha256": "9b08cd3f7db966ac52ed8b22596235341604aace41e746a053a05645dd8e4e1a",
+        "source_key_sha256": "a6ec2981243a64a7d1d35423eecac888638d09f119ced674815b2619d9dcb3c1"
+      },
+      {
+        "path": "resources/data/polygons/149.txt",
+        "sha256": "de994e66c4a53fcb63fec372b4562c7d85db3fb535e00da86411aa247e74ee0e",
+        "source_key_sha256": "261d9604e35e69cfa37ed91af8f7f40002e8b3540ffac5faaebf8beb0766c8c9"
+      },
+      {
+        "path": "resources/data/polygons/15.txt",
+        "sha256": "9b5bb05fd2a91e9a29f6897649d6cabc5ff6de07739e61f13f09ce43774418d1",
+        "source_key_sha256": "0963941e36140087a579a89705c176578916716f2f58eda6ef35883365d5313a"
+      },
+      {
+        "path": "resources/data/polygons/150.txt",
+        "sha256": "6fa50885b967de5dc34ef0f8097fa940d8474a2997534e4227846d6a3ab56574",
+        "source_key_sha256": "48be9c65a9a03cb18e0cfe25379a3f91fcebe34e13d62b0c2f88ed23e35f769d"
+      },
+      {
+        "path": "resources/data/polygons/151.txt",
+        "sha256": "bccf5e4a7f54e1a498b6af76427c80eef9f6c7ae4acb609ed54c1bdf0b7b16d6",
+        "source_key_sha256": "b361d8c8c0c4c6f15c09a860bb2baee98ce292243485d8a63ec0ecca5cd1d433"
+      },
+      {
+        "path": "resources/data/polygons/152.txt",
+        "sha256": "6af0bc1c044fffe1acf584466c907a694d5dbd68bab943d0473e53e20caa46f0",
+        "source_key_sha256": "4d60b0deeff9a8c5fe1bb128fa0664cb557d9bdacae42116c3cd22d0d5aca897"
+      },
+      {
+        "path": "resources/data/polygons/153.txt",
+        "sha256": "5e32b8d4a5a5378d3914ea17a4ec779a70c0c20a65a36e7703b745116be2a544",
+        "source_key_sha256": "b084d9a8c48d4190c73c8e0a3f263c49670677cffd9bd641fcece4624de58963"
+      },
+      {
+        "path": "resources/data/polygons/154.txt",
+        "sha256": "4093a274894c7d5f3b8ebfacd1edb1592a78908f88cdd444b07d4d52a2c2e96c",
+        "source_key_sha256": "9f80e7240b0d4c10241f73adb01fa74fc58c46daa332c9a2021761caf33b8da2"
+      },
+      {
+        "path": "resources/data/polygons/155.txt",
+        "sha256": "11356cf22da9273df6e5343e7f09caef5d91e7487d6d1096adb6717469f9f8fc",
+        "source_key_sha256": "0b7f044e0c9b5b8c0348240351560634004deb1a98fcb392aca019db80f2f391"
+      },
+      {
+        "path": "resources/data/polygons/156.txt",
+        "sha256": "6678415a72f72cb72608ae11180f8c886b27de27975230abccdfa5cca5a160ac",
+        "source_key_sha256": "8b0ce2162013ad5fda161ad3dcb090b0d475a4413de7270af0eef5ad1884005b"
+      },
+      {
+        "path": "resources/data/polygons/157.txt",
+        "sha256": "488d4e0f2c5c4203d352feaaf4925128e8a48d63ee4a8546373d77a1bedda66b",
+        "source_key_sha256": "f5e5bba8ab10e0c33a6b281f81340b2a5cd80bd771137afbb68655b6ba42d237"
+      },
+      {
+        "path": "resources/data/polygons/158.txt",
+        "sha256": "60dee07f5d2ee838540f8e79c1d64b162937b8e638f948207b224d082ae0835b",
+        "source_key_sha256": "6090286392cf7dfa060bc78f1fedb7790f33472c551bb75f5423a6be4a21ba5a"
+      },
+      {
+        "path": "resources/data/polygons/159.txt",
+        "sha256": "14704d2ebc098e8d456c1bb2ef8c87a12aeee5281b3eda893211d1f2cb66b988",
+        "source_key_sha256": "82fca062a26e4143bcf7c2cbdc58837d8a403414d519988841ba9cfd137c9fc1"
+      },
+      {
+        "path": "resources/data/polygons/16.txt",
+        "sha256": "b8ddbb2f4666962268af9f3fcce2029c60f1de584aa59e11158d5b7508f5365a",
+        "source_key_sha256": "7bd21bf215f8333945dc983558c7a83e0c1924c08afcd70af99a6b1b88b7eed6"
+      },
+      {
+        "path": "resources/data/polygons/160.txt",
+        "sha256": "9da6907d34f5fdfc4e430483e6eca9c5a3b37c28c429c1581d2063f59345bb53",
+        "source_key_sha256": "42ea0d522c3b353ebfee8af7ef7b6287db636c9658067a069c718e142a7256e9"
+      },
+      {
+        "path": "resources/data/polygons/161.txt",
+        "sha256": "92b4a4deca408d6ecb99434185c14583bbecbca0ef0eb21b32c9bc05cc56d429",
+        "source_key_sha256": "8167aaee63989677ab833f4dda18ab32450c85f304b2090e4dcb2090c8b07ce5"
+      },
+      {
+        "path": "resources/data/polygons/162.txt",
+        "sha256": "8e69d0f12041697aff1482275d5397128b986cb24a20059067ccad441c8bd6d7",
+        "source_key_sha256": "92556c7fb993709d3b53ed3052591b6546cc48a710686550553e609bc150e857"
+      },
+      {
+        "path": "resources/data/polygons/163.txt",
+        "sha256": "7a0303aad77847da790ea3cde471599ecc555da19d52c0d41ab79755a53edbc9",
+        "source_key_sha256": "07299bf502a8d8cd7dab9d6095f6ba56f4f665ac5d1b6f5b85f455e7462cf190"
+      },
+      {
+        "path": "resources/data/polygons/164.txt",
+        "sha256": "1bc28549a3e7e4f7eb8eb216088228a4dcc97cd81aa70088e515c7c54b9b08fe",
+        "source_key_sha256": "11c76ea055f54755571a247b5ba31737b90f9e9c371d5f7f5d405aec3b28911d"
+      },
+      {
+        "path": "resources/data/polygons/165.txt",
+        "sha256": "aac92224f548be985197326fc146353db6f4ae3673bd861d62b61d26e0da1cf9",
+        "source_key_sha256": "a8ae5b8b2f76b099859fe2fee7b005f9fa6fa37e9603d838eb4da1bd3b4c3dcc"
+      },
+      {
+        "path": "resources/data/polygons/166.txt",
+        "sha256": "0aacd6da8a5b76474d0bdf8699b67d6b2db5e559392d339f1fac37f94254177c",
+        "source_key_sha256": "de37331a2baab0354cf8c3ea9f02f182da30c64cc8edede8f4495aee43464596"
+      },
+      {
+        "path": "resources/data/polygons/167.txt",
+        "sha256": "577d58351e94093e1d5f1d2b7378076ba967632a364cec369dbdf973da020fe0",
+        "source_key_sha256": "922c8e677cf7c6628448f39e1b593ca364cb0af0cdb1c78a2ed39358b6f2001e"
+      },
+      {
+        "path": "resources/data/polygons/168.txt",
+        "sha256": "6aff2652d56daf7d37cf7e80aa24c5bfc3bd0404a632bd0d95861c9859d0df89",
+        "source_key_sha256": "4bebb0f854fb492fec041bd8352051b04796f4abf08768bd7afea3f9b5153d39"
+      },
+      {
+        "path": "resources/data/polygons/169.txt",
+        "sha256": "f294eafd0aabc3279ab627f68df1219a3b9063b8cf5ad32ec695eade9a131cc6",
+        "source_key_sha256": "1cb182c1d76517e50baf075c6f206bdbae410292fc3cca342e23cae41a7f1c6c"
+      },
+      {
+        "path": "resources/data/polygons/17.txt",
+        "sha256": "d6a09b037998123f5cda6f27e6f88281c7d5182db530b067033683bdd1a38458",
+        "source_key_sha256": "b5b7de7d4c64361ac5697267c6bdfbb68f0b3f6927221f3490cfd732c1aaa224"
+      },
+      {
+        "path": "resources/data/polygons/170.txt",
+        "sha256": "892b894b3998106b0fc9cd93dda8a84db6f830e841aa05ccfa5db30d310484d3",
+        "source_key_sha256": "2601ba0fa0a2cbb6b06fba843e60136411c80a6a4737a2195690ef55ea3e3ed6"
+      },
+      {
+        "path": "resources/data/polygons/171.txt",
+        "sha256": "5c8e576877d6666c2ce4d0898499346c3543092ea8957f3ee54d4ffd8572e16b",
+        "source_key_sha256": "1438bbb1b1791d71b9472cf7f132121a48ebd40ae310f380843b3832a089504d"
+      },
+      {
+        "path": "resources/data/polygons/172.txt",
+        "sha256": "dcbbaf6cbb8551125250e6394ee9244a112259cbe0039ebf0d15dd9187a741f6",
+        "source_key_sha256": "df4eefd624e7b4278072592c251aade6dd49770a440763c38fd95f64e6b56cde"
+      },
+      {
+        "path": "resources/data/polygons/173.txt",
+        "sha256": "f507ef88a0732ec5487e3e87835d1aee46db4a15897f4b60839ba8018eed58bc",
+        "source_key_sha256": "6a10f94816e8df573e3a2494b451af10ef52785a5bb03210468b6f837a489fd7"
+      },
+      {
+        "path": "resources/data/polygons/174.txt",
+        "sha256": "12cf849f78464369e6a082ded0afdac3b65b998fd6ae31d3371ae6a2becbc4f5",
+        "source_key_sha256": "e8add044dd6c87cd987a9489735875021112bb2430ae24ca725a70e78465a29d"
+      },
+      {
+        "path": "resources/data/polygons/175.txt",
+        "sha256": "c8634cbfd5c24438f326bb6d7581adf9779d8101237d9af341a09170f7b07fc0",
+        "source_key_sha256": "1c2d9229d6cb7e59903e2d0525b62a738b0b7750de43fa1518f757e2694060c7"
+      },
+      {
+        "path": "resources/data/polygons/176.txt",
+        "sha256": "f7377a96daa0506fa4c244aba8eb42d78e323125c706f5477250ce34289d4eef",
+        "source_key_sha256": "927d991617d830c7b42fa527e7c3709e6454a828d649a84d4f949f0cbc0fafca"
+      },
+      {
+        "path": "resources/data/polygons/177.txt",
+        "sha256": "9b6e9145332c2c41507e284af8fa9e992e7c10d7ebe51e3d1f4ce15f1ef33257",
+        "source_key_sha256": "1eac59eeb0c306631cd63d044351dd76ce830d2ec7e48c5d9c3b4b910f658278"
+      },
+      {
+        "path": "resources/data/polygons/178.txt",
+        "sha256": "771b2bcd0ae96c31cf2f23c680e20555d76f430272d4f88a8e452dadb1d7ac69",
+        "source_key_sha256": "37840962e5aba60eba0e7961dbb63a3d9f0d017f2e5f89b9d764be0e9dd13069"
+      },
+      {
+        "path": "resources/data/polygons/179.txt",
+        "sha256": "0d2c6ff29624a2d43b0a3b9bb1b465cd37cfd1f1f33652e7bbeca847729923a9",
+        "source_key_sha256": "356affb974d497b47c6c6c84369cf1580a16a7fe1cca66f8912e3d3d86a81731"
+      },
+      {
+        "path": "resources/data/polygons/18.txt",
+        "sha256": "b8e43503fc9d590665bcb48cda0fe6a39288a1ab74ebef044ace3a41e41851da",
+        "source_key_sha256": "58c7d9eefa99f01380882687c11333f7cbc120d4215e4b4a8f5ebc162fc04c74"
+      },
+      {
+        "path": "resources/data/polygons/180.txt",
+        "sha256": "f73d02aa0695e5560f8c1167fbe57056349dc5aa33a82eafef83492c7789461c",
+        "source_key_sha256": "97e1ea3422eb970f570ba1d92812079a93e7f54584facb73e7ba827c410d7ff0"
+      },
+      {
+        "path": "resources/data/polygons/181.txt",
+        "sha256": "809aa0455cc1b0e74e79d5829309f78877db675b60cd7ec930d1f2dcc67ea8b2",
+        "source_key_sha256": "db03b9d8ac2b515888a5d5e903c0307f4061bc7cd2cb59ca6e468f44f895e2a4"
+      },
+      {
+        "path": "resources/data/polygons/182.txt",
+        "sha256": "927b2fda93eee5eb35b7035001e5f589a2a462b0695caed06196f357296cba58",
+        "source_key_sha256": "3c8392d7a4e90ce7f2ab390857999c90316ac46667de413ddb4434f683f3f008"
+      },
+      {
+        "path": "resources/data/polygons/183.txt",
+        "sha256": "ddb67a83c7352d5943049c3ad6c9718d524b85a71124f5eb4b41ef0a7f62184d",
+        "source_key_sha256": "f7e2cc5571eb4b6ed9ecd6ef42d6775ba81cb8c6ff20c4833cb19456ec69cfd6"
+      },
+      {
+        "path": "resources/data/polygons/184.txt",
+        "sha256": "0ab04384705db1a64c4987c221e158c02b962b8f8d28c7ec544f8ebdc82b5cf9",
+        "source_key_sha256": "1780508b39412549d45d43ad700b7ca59b03637beb3d6803e2ecf3c1f2c26eb1"
+      },
+      {
+        "path": "resources/data/polygons/185.txt",
+        "sha256": "9ffdd34dfc4a36221f7fd8b824c9aa08bb35c20e3a958b0d42faa25b03bd773d",
+        "source_key_sha256": "b5555592b403e86f9b5f0de65cb64429346664b2a92ac44b5eb308ec206c46fb"
+      },
+      {
+        "path": "resources/data/polygons/186.txt",
+        "sha256": "b4ffec369af6ff2b37c4e4dee047cdd229915bb7106227ddd30a131fa44b42b3",
+        "source_key_sha256": "a2785dd430376b0625abd6424492a99b85a56ce4e30ca5a93a832b2e6bbbe87e"
+      },
+      {
+        "path": "resources/data/polygons/187.txt",
+        "sha256": "96aea6c9e5bcdb21e700803f58a9fdfd99a819cb7747eaf5073d68b9f5e820ab",
+        "source_key_sha256": "08b4698247af740ca1b682def4e5124cf65ae87aa792771e8a7736b79bebe6ae"
+      },
+      {
+        "path": "resources/data/polygons/188.txt",
+        "sha256": "3f00f491ea257e176a2e3eef465747df6566d4d53117c3cb1b9584feb52be8d9",
+        "source_key_sha256": "6506f384f4f7da05ed0dfd5dfb2b2fa8f6dc465c98f984b3774699e80410e513"
+      },
+      {
+        "path": "resources/data/polygons/189.txt",
+        "sha256": "2d14ac522077ebcd55020902b7065fca7024c37a60f27c9bd1f60ca062a13397",
+        "source_key_sha256": "149c371d9d362c7e938bf77d3132c88eea11e95eec418ae6d0f0bee42ecce592"
+      },
+      {
+        "path": "resources/data/polygons/19.txt",
+        "sha256": "f951c9b390ede6d4aa4c562825b692151e93d8c4dda25ef5fa0f7dbabc14a864",
+        "source_key_sha256": "c33a081fc512b3db6c4d243a9044d1a8356eff4758878b95fe1a108bb6d02657"
+      },
+      {
+        "path": "resources/data/polygons/190.txt",
+        "sha256": "c6eef322994eb6dba42c6ca20d45e994195fea7e00c5673fb07f4676ea6374bd",
+        "source_key_sha256": "b5d04cd015d6e0f16ec4091f2184b6b9355e83a442f7935fb059a07636a1f322"
+      },
+      {
+        "path": "resources/data/polygons/191.txt",
+        "sha256": "bc7c74e8dddfe783095449bb69c3c71cb26fae98283fc79e3dde852349798a3a",
+        "source_key_sha256": "4b11098f70c6d0c84c0802de6aaf068504f9385c133e3854b065532e6888ed46"
+      },
+      {
+        "path": "resources/data/polygons/192.txt",
+        "sha256": "4d8f0226e7df938d968ac7d26e521c3c1e1d0fa6ca1128a9b6694bcad77a2f67",
+        "source_key_sha256": "7448dec7fdf39813aea63f45fad617462c9150ce51c8971f9e30976483536fde"
+      },
+      {
+        "path": "resources/data/polygons/193.txt",
+        "sha256": "d6a382fe036ca5e0f2ae67c706e509b53d9c9cb18b408377443c5aa539e1cbcb",
+        "source_key_sha256": "ad07a2a08677ab8f18f62b5a4a39e8c6c44a10108936708f0385c716f586d96e"
+      },
+      {
+        "path": "resources/data/polygons/194.txt",
+        "sha256": "f2091478529920206ed004b1a32c68065e3c599becf1467a34370079aaa5c9f5",
+        "source_key_sha256": "34302d2b8d9eef34760976f0a9b7a70efb45eb9d2f7ae3dc5b835b0e0f2eb201"
+      },
+      {
+        "path": "resources/data/polygons/195.txt",
+        "sha256": "66b507e194b2e53b124b795cc728de77a2b8c2dd5ef8b2eff0ab194df9f67bcb",
+        "source_key_sha256": "a5bc7dab0cf5a7f337a38f062b759b284561b3c0442f7ae9b476528973ae6794"
+      },
+      {
+        "path": "resources/data/polygons/196.txt",
+        "sha256": "3e4a58953e958ea5cabfa5d8cb98473d6ceab9a8e1bf29b0bcab164c9888838d",
+        "source_key_sha256": "7d3b5f7076e4eae1adb57242dfeb5d8bc61293d11e2d9da5b09785f381ae4809"
+      },
+      {
+        "path": "resources/data/polygons/197.txt",
+        "sha256": "2358a270f343f23a60e64832aacdf65c60524ca959b2bbe3d8738abd15b077c3",
+        "source_key_sha256": "414678218720d274aa89ab4cc961c1bbc782daba127230f6d15e0a61a3758506"
+      },
+      {
+        "path": "resources/data/polygons/198.txt",
+        "sha256": "bc4c37d5380ced23498de76958455573401c41151f24e9434a6b30c807cbb36d",
+        "source_key_sha256": "66591f09aa4525a789dee468cba890b87cd469d8b68f490944cf7447ca343ea6"
+      },
+      {
+        "path": "resources/data/polygons/199.txt",
+        "sha256": "ff1c3fb96a8a243963e95e243ca439634bad3058b7f1767680a60006de297dc1",
+        "source_key_sha256": "0d57498d20d01eec9442b00ee27027f26fcd49eff3c9de4d37da22c7edb25bf6"
+      },
+      {
+        "path": "resources/data/polygons/2.txt",
+        "sha256": "1d873c333ed4edf89785e68ca348c2f96c542e774e345ea04621d86e7980d664",
+        "source_key_sha256": "b4f874bec43559edf91409359f1e784bef4197f53e226568a3bfedd0ea3c2db9"
+      },
+      {
+        "path": "resources/data/polygons/20.txt",
+        "sha256": "2d3369cb61a9d80a51c3091d24032eaae42222a3b997dd190d2a67374d68fed8",
+        "source_key_sha256": "8a3680c3215ada45ff41971ff14c2d9c19bc28fddbdf52e2d091062d805fc2c6"
+      },
+      {
+        "path": "resources/data/polygons/200.txt",
+        "sha256": "bce90517a3a4f6afbd488074e23dfa963d77b3b81448b3f2f95ed7c8897ba86f",
+        "source_key_sha256": "95af04945ec6f837082bff40ae9ec701c30643c9d9a36e7a317ca499d52d2a21"
+      },
+      {
+        "path": "resources/data/polygons/201.txt",
+        "sha256": "79818a4889f8af40bcaa8a276eb8a378c73411a0b17855b638df582b76c46019",
+        "source_key_sha256": "d02a10358e48928aac615b4f82499ddd77d2c88343822d52a2bf3954eaaad0e6"
+      },
+      {
+        "path": "resources/data/polygons/202.txt",
+        "sha256": "44c2cabdc3f8a2855d06abb4feee2135490b49f35c50644977ff75c3c9ceb802",
+        "source_key_sha256": "ddf1ab03b7d20a56f167a3a6a260383b3e3d53cb42ca5fa15165cbc33267a84c"
+      },
+      {
+        "path": "resources/data/polygons/203.txt",
+        "sha256": "a552b8612f52b83184c8d97e50d852809349910e67602cd658775b263cbd378f",
+        "source_key_sha256": "4aeb2f5611c143c986a5ca23def9afee539fed905fa3c51b18f4e9f76675c3ca"
+      },
+      {
+        "path": "resources/data/polygons/204.txt",
+        "sha256": "848a15715dba6d45860a26ae7ba206e40fc4fb6ec4c334393aded9e4fb4eeda1",
+        "source_key_sha256": "bc295ab7d752a9709a14bfd2098e52176433ecb8477f201d781c40ac85dfcc45"
+      },
+      {
+        "path": "resources/data/polygons/205.txt",
+        "sha256": "67a1533d75abc1adf89cf2bcab9f8218c048dc866b9eeb2e7301fb9daa765c1e",
+        "source_key_sha256": "6e11df67e757b5c17f19c2619d14ac11fdc891a9e3b965cbeb455a2c9160851b"
+      },
+      {
+        "path": "resources/data/polygons/206.txt",
+        "sha256": "886b4ac4141b7aa0b856cfce96743c97a70d034aa0958b69bde1822b6d30a18e",
+        "source_key_sha256": "2ffd15149a427c44d612737ea24b4d1acb942e6049c1bfa654561a55694d916f"
+      },
+      {
+        "path": "resources/data/polygons/207.txt",
+        "sha256": "b00c7997df87a8e7c6e593210d8e0b5b1967ac52f335e7abd52110119af24561",
+        "source_key_sha256": "ccc09849d1d2d52ad7790e9946f3db44de42463144ab78293e5093d9a37f86c2"
+      },
+      {
+        "path": "resources/data/polygons/208.txt",
+        "sha256": "4a2cb149327ecc8c2976ff6ec6209c743f5ec09f19e39aa2091ae0d2cb1bff23",
+        "source_key_sha256": "5e663b02ee8c967cc8efb2ab8c749e9a73a2774c91f3807b35a095eb94bfd2d0"
+      },
+      {
+        "path": "resources/data/polygons/209.txt",
+        "sha256": "33f025b72845c126f6b3e9252c6d88314939b04445d90b9b7095a977f34ab132",
+        "source_key_sha256": "2c6120a57ed7b60a219220ca9e3b39fe4e7ceadd146516bebbcca77ae2a1f826"
+      },
+      {
+        "path": "resources/data/polygons/21.txt",
+        "sha256": "9c5654cf85d600f98066a23cf09a8a5494b862323cfe81fe8f3e6718bc2553d2",
+        "source_key_sha256": "db90aa8e0b046fd7a7ac22b40363b078fa6027d3a3ec31c18c76d6a7383e9b85"
+      },
+      {
+        "path": "resources/data/polygons/210.txt",
+        "sha256": "1002dbfcf11907b078e9b6b1da0d47c7f1b2de97cde489640588169d881e892d",
+        "source_key_sha256": "c8e577eeaad36588db2a8f1734947861c0aa1af0fb970702ed164132e9b9105d"
+      },
+      {
+        "path": "resources/data/polygons/211.txt",
+        "sha256": "e7a68bbffe076b45e7036d96d5e1df23e0b919613be3384eb1eced39b0311c31",
+        "source_key_sha256": "4685232e322cf2c81c117922efb2896414ab260a594952a5af10410010a8b2db"
+      },
+      {
+        "path": "resources/data/polygons/212.txt",
+        "sha256": "491793b52e4fb2d57184afe99a714988f0c2b073cc2ee8714fbce3a8b95f847c",
+        "source_key_sha256": "0c3705a3267dda02848a528f96b8bb64fa5ab2d95adbe4983d28141f90f059a0"
+      },
+      {
+        "path": "resources/data/polygons/213.txt",
+        "sha256": "853955dcebf45dd44c599019a7e1b38a76f7679044f495f22daa8f647a9e815b",
+        "source_key_sha256": "bcc7d981bc8581c0c80b13ee25e7feefc1864431349da258a90595176968ae20"
+      },
+      {
+        "path": "resources/data/polygons/214.txt",
+        "sha256": "055a18c6a03d54a138a6ea57ff70cb8e97f80099a5dd722b6a9d9a1f4b5ba778",
+        "source_key_sha256": "ee6cb0f68368e8ae1fc9a6801b6fb0b9015ff8e9b758ef565e7cc8f5c9b79570"
+      },
+      {
+        "path": "resources/data/polygons/215.txt",
+        "sha256": "d98eadd6d008efa09cf2564ebaf63fee3a89713804bd54a6137d075308f931a3",
+        "source_key_sha256": "4dd50f0a728ebdb072c7d9893cdd896ab8a378452c087e26fa959ce1c4a4aa93"
+      },
+      {
+        "path": "resources/data/polygons/216.txt",
+        "sha256": "9a5022119f6847f5b42f1254523f518beba34c4bd181a236f91d0a1d73121c5a",
+        "source_key_sha256": "3de55a7be240d6b20017915e2124858504ec83331ba082445ac16b3a688015a7"
+      },
+      {
+        "path": "resources/data/polygons/217.txt",
+        "sha256": "c093a8eccb04371b436f20a9e507800dc877e98e5e6b45f879cd4dd597580bc7",
+        "source_key_sha256": "8c7e8a2c95d7b1e6b67e42774407d01f800ab9768a354c609ee5a385b3e06e5b"
+      },
+      {
+        "path": "resources/data/polygons/218.txt",
+        "sha256": "e6afed2b3f8bbf311145a0167c0efe231fb92001e19674079992d9dd0841e637",
+        "source_key_sha256": "5b5aac5dd4d120b21ac2201e1dcfc2e8a06d272033c5a22da821644a65a43237"
+      },
+      {
+        "path": "resources/data/polygons/219.txt",
+        "sha256": "6169a1b4022bc0e1dd7be82fb12804023a4754e77138d5fceca6c53cdf42fa5b",
+        "source_key_sha256": "b6247f119550df9a376533d2cd0dcdfda4cc1549c8bddf97bf83bdd6127d2590"
+      },
+      {
+        "path": "resources/data/polygons/22.txt",
+        "sha256": "d64296047b6b25a530ea4ee9f4479ffdd2452004574170d483175c9584a4857f",
+        "source_key_sha256": "504170d619724d53544ad0f66f866e8740c4d5469717ad4c171c18fe33735203"
+      },
+      {
+        "path": "resources/data/polygons/220.txt",
+        "sha256": "6979237b05705a140640a84bc759376a3c252b4af13f28e4877a9bf0de5a5b7c",
+        "source_key_sha256": "41b96fe5405fd1c0bf2471f267ac6abdf1657af650168706bda2983c60ee8586"
+      },
+      {
+        "path": "resources/data/polygons/221.txt",
+        "sha256": "0ab007913e7ad37cd4669b040143d783aca5fc64948dcbac64b7d68e63b2908f",
+        "source_key_sha256": "35c907d21f3d7e02cb44e06ac6d9d8a720e5b93b563a628dd10c0476e8bc2486"
+      },
+      {
+        "path": "resources/data/polygons/222.txt",
+        "sha256": "3a79284b04a55f9671b723896477d10e525110b3e6584c4b239ff1923db99449",
+        "source_key_sha256": "29e61566ae4bc993cd0b167e6e73a08a260d09557d590b884fdc289f35de09c6"
+      },
+      {
+        "path": "resources/data/polygons/223.txt",
+        "sha256": "57143a29e184695f5116199a5b0b5b7357cb170e04894b7b7ffb7f14c75f92d7",
+        "source_key_sha256": "29b7cb1ad3a5f2a4c9cb5bb6582ff6cab51553edc64ffb72dc4d8e7e8c9faca6"
+      },
+      {
+        "path": "resources/data/polygons/224.txt",
+        "sha256": "d0cb2d2a2d15307254cf7038de588ff1cf161c237e2fbdf75afb7a6403dc9112",
+        "source_key_sha256": "63c514f437693bfa1edb7870f58d046b768521b3b21f6497d588ec67ff0213a3"
+      },
+      {
+        "path": "resources/data/polygons/225.txt",
+        "sha256": "46c3b201cfcc231a4a0e83da40245e48df9ac6349507630ec649f383f00693bc",
+        "source_key_sha256": "2fdcb62a900828ac53fb2d3020cb7d405a8dc996d4e6a54cb92e326358eef867"
+      },
+      {
+        "path": "resources/data/polygons/226.txt",
+        "sha256": "f9669cc43e51c9f22e02130d1313f4c95d9fa35c99c52e09261738df89f7f12a",
+        "source_key_sha256": "43d9576d6cfed10d5095a40e9df03d996efd71875a45f2a26cf9919dc911e509"
+      },
+      {
+        "path": "resources/data/polygons/227.txt",
+        "sha256": "690a1fdcba6f15af52f37bd23cf6542ae713c19a1fa6e9f856cc9386802268c6",
+        "source_key_sha256": "7900d680370aff30747d4383a26512a23170fa5b408e316f952f0e12e2b5e849"
+      },
+      {
+        "path": "resources/data/polygons/228.txt",
+        "sha256": "064b5adc71886b0370fde97547b3f44d54d893a2216961e55efa61fd9548d5e4",
+        "source_key_sha256": "40fe90d9a40fbe11d4bb4bd4f4011a0d6b51205763acc4f9d72f1b11c7e956a2"
+      },
+      {
+        "path": "resources/data/polygons/229.txt",
+        "sha256": "dda9fd5bd57e3f2ae57a16ac4f3fa68cb48450d8c0fb12136ee6ae6475a6c405",
+        "source_key_sha256": "1fc9f9f50393488b5cf67e4a38d11504eeb70e024850012c2524c80cc4ed74d7"
+      },
+      {
+        "path": "resources/data/polygons/23.txt",
+        "sha256": "4db0f809ba974b51cdac0bb006c0d22d5d94333349451229e60df1b1bd63eaf3",
+        "source_key_sha256": "9bc94efe512a4f32067b872bcdaa9fb7b26a8b616a2a7c35d4d5d23bb8b7fd77"
+      },
+      {
+        "path": "resources/data/polygons/230.txt",
+        "sha256": "11ec75e0c6191438b267c733640498e06ae32f50f437b87ffc07c6fa8c74ccff",
+        "source_key_sha256": "f16cb5134590539e3e5b092cbf7227a2b7381c0ee83e7e62514bc6a12a328fdb"
+      },
+      {
+        "path": "resources/data/polygons/231.txt",
+        "sha256": "6adf0f553937d2f166dc085330b26d03ddf17d1e2c45dc7fac8eb8e868331de0",
+        "source_key_sha256": "d9a9b4b266f5a25c5b4840f62ee7e904271eab693f748e76d04f79a3a7b611d4"
+      },
+      {
+        "path": "resources/data/polygons/232.txt",
+        "sha256": "52cd8dd84f69e5d2629b5eeca0c6093f2cc1a9d2c5c4c03a58a47aae4fe5ff11",
+        "source_key_sha256": "42a4e3872d5a09d67a97069bcf984f1231f1ea3960fbfb66d214b12d2fb71962"
+      },
+      {
+        "path": "resources/data/polygons/233.txt",
+        "sha256": "c22147b7f8004b3c7a305945a7f20a8c130ea047125bf578d07e488b38f43bf0",
+        "source_key_sha256": "b973a1651365b2c40ff7027467c40379a10dad3ad6fff9501b1a85c51f8f76ce"
+      },
+      {
+        "path": "resources/data/polygons/234.txt",
+        "sha256": "4dde78510964a4c2c800df280c694737f2f47c1928afb074c1cb7e0939d2e9b2",
+        "source_key_sha256": "3c785ec16fae11171a8fc8446710629d49f616c8389fce57d92230f4fd68b5c2"
+      },
+      {
+        "path": "resources/data/polygons/235.txt",
+        "sha256": "223367ab3d0e0917eeff57d3fb8438367c9ba309383f6565b871498d52a2dae5",
+        "source_key_sha256": "65efc811e08b64dc942af7baf87df3ee96f35505dfea4c5e22a45d4a5f798659"
+      },
+      {
+        "path": "resources/data/polygons/236.txt",
+        "sha256": "6046a116ed9dfa46774cccb814557ca8d1b4c60e160c53da2bc677fba9979d34",
+        "source_key_sha256": "3d5ea4b8231a6926735979b8cbb3351266919b4c7ddea56bfb03ab317a9fa92b"
+      },
+      {
+        "path": "resources/data/polygons/237.txt",
+        "sha256": "f77dee594970b9e91fd98272c1e97145dc7c27766e7c631caf46030c1de2abd0",
+        "source_key_sha256": "92816a65c4adb23aad634bcac681b19efa8bc2cded0c59df0f8a309c52fca6fa"
+      },
+      {
+        "path": "resources/data/polygons/238.txt",
+        "sha256": "c2dfc7481eeb36b57fb9dbd1833536057fcfc64cc821d45566423c37ad2a2766",
+        "source_key_sha256": "d2a44d8fcb0f1c83f133db959c0bf4499edc9f7bc76fe8886c731e9bfe459e0f"
+      },
+      {
+        "path": "resources/data/polygons/239.txt",
+        "sha256": "ab1e57054b6c1799f9b96126f180adc29afad08d59a64da551ed8a3482c1abec",
+        "source_key_sha256": "11e3b3bfce96da71826edd4b66c466d7b0afb67faa83950ba08e06fea3489d5e"
+      },
+      {
+        "path": "resources/data/polygons/24.txt",
+        "sha256": "137c6c7e7d5d29852ae348618616881a2dc58f7217ab3baeb54ece69496fbf02",
+        "source_key_sha256": "2cf383926eb6e828feac7e0099f6e6e8e80103a03c89d2b1335000f5331a2257"
+      },
+      {
+        "path": "resources/data/polygons/240.txt",
+        "sha256": "7f003405b05b84915a4052909f0a111a24440b2def6bec855af8263bcd0f6d69",
+        "source_key_sha256": "a344cc603b74e5cb92de317c8c572d2c04b461511c5650e4224b7f0620e4ffd5"
+      },
+      {
+        "path": "resources/data/polygons/241.txt",
+        "sha256": "402d2ace8e9b85e6ae89945b3afbf47882c7a170f4a2b33553d7dd6bb95bd73c",
+        "source_key_sha256": "6e1794de095f0bf565af8d9e272c085c9b122dd15b2be02068414408d18ae119"
+      },
+      {
+        "path": "resources/data/polygons/242.txt",
+        "sha256": "046856599c34c9aeef1e9489e78491d08617dbbbdc723633e47ed88e97cc176f",
+        "source_key_sha256": "ef7f257b3e2273e48960308cd0a84646168b2f14d4b2653476da355719feac04"
+      },
+      {
+        "path": "resources/data/polygons/243.txt",
+        "sha256": "f4c7759b5cc526aaa3a115ea38c195d77deb5bfe1d45f9c4965a1100c0449b97",
+        "source_key_sha256": "2cfba04682c597bf5de069d27af47b709df7e59e6998a031e6914ae7dd187823"
+      },
+      {
+        "path": "resources/data/polygons/244.txt",
+        "sha256": "30cff304aa92da0002c39d729d6a03d4667b16bb43c5e64059c54bc5da590357",
+        "source_key_sha256": "32a949ce2acfcb1a0a5956277cb2217a19e03e09e00e7363715f1350510163ec"
+      },
+      {
+        "path": "resources/data/polygons/245.txt",
+        "sha256": "f825b0de05eb444525a72ccb28aaea7b624ba9fbfa81d775ce0b43fd5e5df975",
+        "source_key_sha256": "1cec8d3fccd3e9171aa662f72a0e3ef3c5578f282783a88cdaaf3825d520a7d6"
+      },
+      {
+        "path": "resources/data/polygons/246.txt",
+        "sha256": "61816abd62c92a5bfcca903a90743261c98ff51b09ebe083496ef143e10e3e8b",
+        "source_key_sha256": "df4e5507054e4c74c4fb1a2c7af77f77604ad8e3726d861c19b54367b5c06ead"
+      },
+      {
+        "path": "resources/data/polygons/247.txt",
+        "sha256": "973f7fd4bf3c8cc666234e109a9077191de1676b7d0a63618403a973d7503378",
+        "source_key_sha256": "2ffca0c06d05026d7c98952c2ca810b0e1d644e9d80c25c3e0a610d8b5ab26b1"
+      },
+      {
+        "path": "resources/data/polygons/248.txt",
+        "sha256": "cf2e27756ea2928d69ce85cfbe5c6a58279e57dcdaa277d857837e745aa54b42",
+        "source_key_sha256": "85ce5ba3d868bd56777329e636eeaf488a6af5aa4bfe6f39afab47b86548cdb6"
+      },
+      {
+        "path": "resources/data/polygons/249.txt",
+        "sha256": "5d4ac38e3269a40956067c24d3b68f9e31da5f8760c55357444be40c86c32bf6",
+        "source_key_sha256": "d1f2e026bdfa3dd7f8fdb2a33969e2022d5992ebd423ed7c95fbe4bb439d2c83"
+      },
+      {
+        "path": "resources/data/polygons/25.txt",
+        "sha256": "354cb2552568ac10e23a45ed481f2d801b900d4da3718767b80d8bcd0c813666",
+        "source_key_sha256": "cac3daa3444bc2456429821c6bd10a78d6a54b8344998eb9d100bf641126fe5e"
+      },
+      {
+        "path": "resources/data/polygons/250.txt",
+        "sha256": "bc688dd3f8e1b5f4d18157f830d6e4cd5c4506f39702ee98683ff74b8daba96b",
+        "source_key_sha256": "8b95201a8bb99cc0c3a29785069cd04eef22d178ee32c9d1348d11e95f8117f7"
+      },
+      {
+        "path": "resources/data/polygons/251.txt",
+        "sha256": "a7f117f82db57443ecd4138a23f8c35ba60546af8c60e068221e4096c7b1b86b",
+        "source_key_sha256": "609047fa8d752a54dfd9bca1b1cdc5463a73fbda0db9277ea52432039adae761"
+      },
+      {
+        "path": "resources/data/polygons/252.txt",
+        "sha256": "bd1e77f591936270225a039a99812869ad45441a37390bf6706989a64bb7abac",
+        "source_key_sha256": "85013be6a9f03feedffb1c34062d06995ff62d1a2077b0216aff28810bcc5615"
+      },
+      {
+        "path": "resources/data/polygons/253.txt",
+        "sha256": "2f7f7fce610d0081a7ff82586ec9fb8cdf5b8bb9d751ced6df15bbc07577e6fe",
+        "source_key_sha256": "1c79677214e9ebdc08361dc46fd65ae0c9b1e8c1999db0bfff9188d9bcd34b07"
+      },
+      {
+        "path": "resources/data/polygons/254.txt",
+        "sha256": "5e6b182d369097e29f4da3fbcad42eeaee847e7bfa9f14b5219ddbd5c7ff89c2",
+        "source_key_sha256": "824df0695cd7b0ed911515678e1cddd09f82311a791dca1de747628dbc543123"
+      },
+      {
+        "path": "resources/data/polygons/255.txt",
+        "sha256": "0373da5081f7b80c7fa70867a42160aa050886f080ebf84e2ffca50d422222d9",
+        "source_key_sha256": "89c06f991e050b504382a9aed0b6b746e26b3a9326027c2eb971af2742b2f8fc"
+      },
+      {
+        "path": "resources/data/polygons/256.txt",
+        "sha256": "9554229a7df7e7da1f06de8a40ce431e7c8bc44282fae27fd3ce477e63675e3f",
+        "source_key_sha256": "14fd701079e30609cb3426757a8de611ec3df935ed5b5ccd9e2d15c066c4c841"
+      },
+      {
+        "path": "resources/data/polygons/257.txt",
+        "sha256": "27066de439011067f0d604b00c2f1323f3863177931ce6708b381c49d51a7ea5",
+        "source_key_sha256": "4fd0b4035baeb7b6c157a4020e72b9fc1a2fce955eba85e86146199e2379ba21"
+      },
+      {
+        "path": "resources/data/polygons/258.txt",
+        "sha256": "6ff4f968eea46c4107dc2576d41ac14b87b47d503204678d73fa2f07cd9ebbab",
+        "source_key_sha256": "3aeb73315e7339d5f720eb789f28a7a0174e57f9fac0903b73a7c460372e7730"
+      },
+      {
+        "path": "resources/data/polygons/259.txt",
+        "sha256": "123b3ec67973eccac1162b40f4293e9f320db3ec527a9738797669479014f70b",
+        "source_key_sha256": "a3ffa2e1bf2eba38cd8fb4177e52bd52b79aef3a6f9695f4b1aad0cc2aa9a4bb"
+      },
+      {
+        "path": "resources/data/polygons/26.txt",
+        "sha256": "7a15705321c3eae4955bd17f60facb1760b1bcad24b9ba2be16f6d75093c62c6",
+        "source_key_sha256": "037cc360268a6ebe512f751f19df7e0f39dbe8444d9c4a9d8b256afc2a68d226"
+      },
+      {
+        "path": "resources/data/polygons/260.txt",
+        "sha256": "90dbfc81b1808c6bddebd0e6e79a9ebfb661d19c72d0c741a90af3fd16ebccfd",
+        "source_key_sha256": "0e5a7fe80f0fefaf3a75fc2292845b0c2cf281b599245f1f533abf9de5d48257"
+      },
+      {
+        "path": "resources/data/polygons/261.txt",
+        "sha256": "49f57f550266270cb345061c0d316b1b3819b060280163d99a942ee4e215eaa7",
+        "source_key_sha256": "3803483c20c91c18ea854839dc6f28f08b978d2874f1fd1fbd877a33d4f621e8"
+      },
+      {
+        "path": "resources/data/polygons/262.txt",
+        "sha256": "06f98b92968d72847ea963824e16bf8b437db8d0b34e897c6db93fcc2e8f1600",
+        "source_key_sha256": "16f72c292fe8799bab8d93900e9c8650570f6efbc10a41aa2c484f59eed5bba8"
+      },
+      {
+        "path": "resources/data/polygons/263.txt",
+        "sha256": "253ad03023a522087c82c15a34fe49eabbc6ae05d879775fc5d4f7a788252f76",
+        "source_key_sha256": "78f71bae263ca9fca1ca7508857844c58090a3d97668ec850aea6dae124ea50a"
+      },
+      {
+        "path": "resources/data/polygons/264.txt",
+        "sha256": "17927d1c2c9f2febd3a15042b339e9a9549c6cbc6b4e7dd26d2d903428ee5d56",
+        "source_key_sha256": "38f56ae362e064c217e36e071dd1d2c515ff57bb9e4f18721d1c2a15f41c70ec"
+      },
+      {
+        "path": "resources/data/polygons/265.txt",
+        "sha256": "8e4f1bfc50a104bb16acb09e8e1c7a45f5ba4b5f74d3806a12aacfff142e7ee9",
+        "source_key_sha256": "ab8e35218c569f9a78cad1ed0f961a42d54956281a356ac87525696bb8d756f4"
+      },
+      {
+        "path": "resources/data/polygons/266.txt",
+        "sha256": "a7c8ab8960aa20960d02c7f7487a484a265f4ac190a6851a7ea9d64db5194706",
+        "source_key_sha256": "48d88c36a7cb7e13c7e91282f6a4944fb8f71a89da0fa78f8b74357c267efba3"
+      },
+      {
+        "path": "resources/data/polygons/267.txt",
+        "sha256": "fe4346793a3ef5abcabb3ce17dc7802d1916924cbb98401a4de8c70df222e5e7",
+        "source_key_sha256": "d4ef3cc8cc00b0da1f04d36ac38592329e64cc0a91bcaa7e7a10a494461764de"
+      },
+      {
+        "path": "resources/data/polygons/268.txt",
+        "sha256": "8951d6a877e70bc1f7ea8001c50caeeb698b431ba96b4b5d7a97f1c2aac9d281",
+        "source_key_sha256": "92ab321c386a71bd19a5ccd3ac85052093699802c9e439418414f789ae8ca69d"
+      },
+      {
+        "path": "resources/data/polygons/269.txt",
+        "sha256": "85eed1db6253e9a78245fb87350d28fdd3f28f9aabf6f966a27326aedd6a1d84",
+        "source_key_sha256": "a58388576bbaa7a15582544a339f362cd44a133796c1c780d49123f7004a53a7"
+      },
+      {
+        "path": "resources/data/polygons/27.txt",
+        "sha256": "40ff3d586a688e6a97595ff640f20f8db6fb97dfd8fe70b4d0a4b8275bd808d6",
+        "source_key_sha256": "c28bc59178a3f3d133344627ebaa9a91c202eaa7585aba486f67d890e53f948c"
+      },
+      {
+        "path": "resources/data/polygons/270.txt",
+        "sha256": "9e39caeaf424de79a702b94aaffcf36edc8dbe3252336cffd26e995a4252d3a2",
+        "source_key_sha256": "fb10e51bae755eb6d69198abcc55297a3a70d7475c7a94eccc4818ab0c55cb72"
+      },
+      {
+        "path": "resources/data/polygons/271.txt",
+        "sha256": "46e2d683500e7aba15c3bd3eec667f51e0a83b92c6ddd200e20fd836d0c3bfb5",
+        "source_key_sha256": "9d5cce89508344f04193e4f3d296cc5c3e0986756492a530618cc2e28b003d72"
+      },
+      {
+        "path": "resources/data/polygons/272.txt",
+        "sha256": "440fd4eaac8e7c147f128a58ba3e6fbdfe6a487bd51ef3eace5e5187810ff553",
+        "source_key_sha256": "7bd3f6a095d8b733888bc58eca190019357f7db928fdd76a169ce38dda20be95"
+      },
+      {
+        "path": "resources/data/polygons/273.txt",
+        "sha256": "805763156fd98ed7f1d5cd3c28dfd75763e41e93529778aa7d806b3cca7124f4",
+        "source_key_sha256": "44201131f44607cbe63790bc47bb951e4717303a43f5a34d762e2b97e6e73a2a"
+      },
+      {
+        "path": "resources/data/polygons/274.txt",
+        "sha256": "56a384d70115097daf854b753503e66dd8801502ba29931edb1cff8ea906bd8d",
+        "source_key_sha256": "7588f44a12f37668f243bb7e33c46a0eac1129661c61c698ea33ccb95f10d61d"
+      },
+      {
+        "path": "resources/data/polygons/275.txt",
+        "sha256": "8746761e38b06486de661eb019cda18e94581221420303304ccf3e5a6b3e2093",
+        "source_key_sha256": "1cd1d32cb217f78e97adb67ed47322039111093584e46f7b829260e0a1d62c1c"
+      },
+      {
+        "path": "resources/data/polygons/276.txt",
+        "sha256": "8255c8be04f92d02425b22f6fca966100c4742e03b6a0e9a05fc75012a21e6bb",
+        "source_key_sha256": "c6a76f6cc2e0f3e5efa07ffcd99639f2d02b79a9bbb6bc66b306406f1b3ee623"
+      },
+      {
+        "path": "resources/data/polygons/277.txt",
+        "sha256": "3363c77a3406cc31f8c36ef1d633fe09cac03a5a6edf8eb7b5de779d19173aa6",
+        "source_key_sha256": "9c72b7a9dc42d9901aa0f8f93b872d8d70200fee367eeb92c9ff49c329cfbae7"
+      },
+      {
+        "path": "resources/data/polygons/278.txt",
+        "sha256": "1c6a86d877da97094004e813dfa0d69e31b2ecc779bfa404a628b4823083a666",
+        "source_key_sha256": "3d9a22bce01388bae51c7b2e0d7ebf326666e395a70e8d2a6b259ac126fb9826"
+      },
+      {
+        "path": "resources/data/polygons/279.txt",
+        "sha256": "de2efd9593312869ffeb74397e17a5698ba0346c1d57974af86bf9c4eef1683d",
+        "source_key_sha256": "bff3ccd4f61b3cff1695c4985c70b156280a2f00c9841b368b159bc6b4648ca1"
+      },
+      {
+        "path": "resources/data/polygons/28.txt",
+        "sha256": "5bf3af1faca727dd10599561aa5c69eb3936ae00360039a1d6042406180d4573",
+        "source_key_sha256": "557603f84b8fc2879d516fb79cae86c4922b34055cb1889110427f46523d91af"
+      },
+      {
+        "path": "resources/data/polygons/280.txt",
+        "sha256": "544f0df4dac6ddb85c8c55e50ca2358db0b00c8d7469b68520a4031c2fe28ab4",
+        "source_key_sha256": "48e3b94bcd7bf09005622b19f49de145a7f36ad7c8fb5a54c9f64657e1cb7da9"
+      },
+      {
+        "path": "resources/data/polygons/281.txt",
+        "sha256": "92523b5596538940eb160ec8f4f037613f75e342428921888c7e78238d47d507",
+        "source_key_sha256": "cf810aabaab432ecc8e396282b636ef301d0d22a43a3ad1d39d2d22eb43ef2e6"
+      },
+      {
+        "path": "resources/data/polygons/282.txt",
+        "sha256": "4d336759de5e0959bf81d2ae5e785e8d472c6089c094f8ba6c967739d778bc82",
+        "source_key_sha256": "216fc5702f3c8bb85c96b0b99269b834d80501734dce856334a3097b135d3cce"
+      },
+      {
+        "path": "resources/data/polygons/283.txt",
+        "sha256": "e53a8457b54652c0cfff2efd77097725e51bb5756431d8c9e7bd494dc349d54f",
+        "source_key_sha256": "91fe9b78fb0e74015c359e0d1df1602d77172767d9edcbdcb37cc634bf12d6c2"
+      },
+      {
+        "path": "resources/data/polygons/284.txt",
+        "sha256": "a01f5c02a48000922830d905545a10506854df91dd8e641c8294047efece699d",
+        "source_key_sha256": "170092d86d5004b9ce27a540c87e0a669d64d111184208632feaefcd8c50d481"
+      },
+      {
+        "path": "resources/data/polygons/285.txt",
+        "sha256": "0a22cc942a9ddaf3b13eaac4659974bf47615cfa6f0d579758f2b05bb32d1e74",
+        "source_key_sha256": "37a7c5e97448ac60fea8329131cab7a2ead05ab929834cce673de6bec7df87fe"
+      },
+      {
+        "path": "resources/data/polygons/286.txt",
+        "sha256": "4c1bdd631d2d0633282b0cdc0158742123099bf22f8ff9981e1d818aee54926f",
+        "source_key_sha256": "a00fbc45f528a852961520232ccfd3a4dc369b787ddca2e49e2d9263881d1f13"
+      },
+      {
+        "path": "resources/data/polygons/287.txt",
+        "sha256": "96a0576e84c32fe7c425ac4a4c889bf291a0526d575153728e80468db7aa2232",
+        "source_key_sha256": "c8eeb1b7d2ab50758cf7e0cf56941ac732514e00bc26592449ff23025226bf6e"
+      },
+      {
+        "path": "resources/data/polygons/288.txt",
+        "sha256": "4ec7ac1f20703e3aecc60aa7813047c927680539c32c80186bbe68d688b7155e",
+        "source_key_sha256": "0a576522c73ed2b5a047813652df94434f946cde2e2ed57921d507d166c16157"
+      },
+      {
+        "path": "resources/data/polygons/289.txt",
+        "sha256": "ff609ca25ec7176baa717c5fca77a29b2d8d1d696f9ff94dbec4b441bce9e330",
+        "source_key_sha256": "0d8da11e6fff04be212b8c6b131b18a1e949b386af10989866789b4d0a7e1569"
+      },
+      {
+        "path": "resources/data/polygons/29.txt",
+        "sha256": "627adb59714162326376600165abb8a851409059a0dae316dba437e527f55ac5",
+        "source_key_sha256": "c19b4b45d73df38665aa96f758105b121e3545cb3f285383997f952fc6a6152b"
+      },
+      {
+        "path": "resources/data/polygons/290.txt",
+        "sha256": "2aed240997be07b9b966717b8dee0621697de72e4785ffce26dd07f42b369d22",
+        "source_key_sha256": "08f7d5b8d82726c835bab7fbc721747466b354967d89bfb212832a07269f158e"
+      },
+      {
+        "path": "resources/data/polygons/291.txt",
+        "sha256": "aed0c0035e812eecf80b737cee153a3f4f4771d8070d6530286f258eee3ff1e1",
+        "source_key_sha256": "ba92ea13d1a2df1a7220aadc3afbf55d83dfc7321cd21be0a5eb2ffd41c720e2"
+      },
+      {
+        "path": "resources/data/polygons/292.txt",
+        "sha256": "5b44070b96e65743666cd4d9b6224962b10952dc634adf59cd6db2a8247ce71c",
+        "source_key_sha256": "f83a2ebb98855ede56d3a89f2c37e8f950bc7a2ba23ef10388058bc0e8694a14"
+      },
+      {
+        "path": "resources/data/polygons/293.txt",
+        "sha256": "6f9ae403213a778e0917b85f772802ba9274c1203be25f75fb2f89c6a40ff920",
+        "source_key_sha256": "16d26820752c8143670f8346a1f3dfc1a32d05b36331e0123b3eb1ac6d492941"
+      },
+      {
+        "path": "resources/data/polygons/294.txt",
+        "sha256": "5b9d4e905bcc32496da46066329f80eecb513b69b3565f1e6ed795f5c84cc24a",
+        "source_key_sha256": "1cd8b8374ce91cf60e376b2f7880252dfda7635761ff33fb0c084400f3135d73"
+      },
+      {
+        "path": "resources/data/polygons/295.txt",
+        "sha256": "dd5921d2cebe4ffd854808dcebc3d18773234330b825b3b0b2af07e1b0700931",
+        "source_key_sha256": "41efb75a37b45a32a3123a27a42af99a9acad553f33af85070a7d4ea47578851"
+      },
+      {
+        "path": "resources/data/polygons/296.txt",
+        "sha256": "bd09cd89f6ff5453af89d9633803f15c84846a15803d85e7f1aa71c8d9f7d348",
+        "source_key_sha256": "6fd5be6fd8a13f5ec1945cd23a8f343368b0402391e009d56fdf2fdde6561cc0"
+      },
+      {
+        "path": "resources/data/polygons/297.txt",
+        "sha256": "cd1d1485010ebc99979664479bcbbe1ccba56c656191175cfb7aaa20730e3d74",
+        "source_key_sha256": "c6570e0d5423870b68d1f8587657ceeb807e851060f73ca239b0a9c980e4e860"
+      },
+      {
+        "path": "resources/data/polygons/298.txt",
+        "sha256": "22358f03f46360f5248c072436d1313feb5e3e5b3821c641a8412b55fae6dba9",
+        "source_key_sha256": "d3ccaaf7fc5e26c95adaa95c6c1bbcdcd399b66b980bf61d35c682774e930ade"
+      },
+      {
+        "path": "resources/data/polygons/299.txt",
+        "sha256": "217857710bfc72f17084e6a8554dc2f3887e89b5080daad0d43467881d3c65a5",
+        "source_key_sha256": "58d160f8bfdcf978b27efebee8f09f0786050a4eaf03e2cdf30b53db09c3a8eb"
+      },
+      {
+        "path": "resources/data/polygons/3.txt",
+        "sha256": "c6a129d7b56fe67aca515ed12c0f55a7fda3369ffa3941485d0bee67e43e96dc",
+        "source_key_sha256": "09ea3f6646c853803b0f5febbeba15a5f60e4aa6ee0b161b826b2e839e7445f9"
+      },
+      {
+        "path": "resources/data/polygons/30.txt",
+        "sha256": "b0d55c3185f53f8a8d18f05969c58ee3164018affa00083167e720c6e8d7d4da",
+        "source_key_sha256": "00bb247df389047ffd770a184fe1158314f7784a65ecd5203b4f3167cf6b3fe9"
+      },
+      {
+        "path": "resources/data/polygons/300.txt",
+        "sha256": "088c493e77d999112d6f467fee18274a72346874d13836b92e4189757c11f79e",
+        "source_key_sha256": "477940f54abcdf790e3570947f78a870a259a1dc84fa748b01ce2fe0f557b32c"
+      },
+      {
+        "path": "resources/data/polygons/301.txt",
+        "sha256": "b861b6e5571d5e1747cf289029d8b11c2e5a0db4299139231f3bfa1399bfaafd",
+        "source_key_sha256": "bb70ce064aa0ceb87b282195c368d01552ca7ec070636d9a8ea1e2f5a1268128"
+      },
+      {
+        "path": "resources/data/polygons/302.txt",
+        "sha256": "398ee0fbc6c96bfcf03eb530b2d431d1a3a09eb5d225793cf92bcf5a185dbe9f",
+        "source_key_sha256": "4d8c8bf67e2d7fa2c2fe2f1ced551c48673a1f0e3286bbb2ccd9024ab3aebb80"
+      },
+      {
+        "path": "resources/data/polygons/303.txt",
+        "sha256": "e529374437c9d037104b137f27f1750f775311c7af01c08d95213abb843b57c9",
+        "source_key_sha256": "d8959dba5e2619dbbb5076e4542be0b439d4251d25cf668ef6cd41e435a1ea59"
+      },
+      {
+        "path": "resources/data/polygons/304.txt",
+        "sha256": "dc4a855f4edec3e303ce5da169a95594e1cf87f440344fac62eb126d29968128",
+        "source_key_sha256": "3fa5ba5838af74c24a1222703d9a2a63d395fb3b49cfc78d7a0d759cce3b5608"
+      },
+      {
+        "path": "resources/data/polygons/305.txt",
+        "sha256": "45a42673f06887d335f0803e012f0318bcd857041526254b7d1ef78b7a5f1cbd",
+        "source_key_sha256": "c984a88349b953ed5f8647abe29ab32b6a7b740dbc4fd8b15eba7a6ff9dbcc6e"
+      },
+      {
+        "path": "resources/data/polygons/306.txt",
+        "sha256": "3b613392dc28ac91610fb49df6fbd6979278a402e6b85ede146afe121a5295e1",
+        "source_key_sha256": "231dcc75c40069d5c59940c023477f6a100a74eae5950a55ab60f59d2a1b1ab8"
+      },
+      {
+        "path": "resources/data/polygons/307.txt",
+        "sha256": "a7db028c7cdd92114c3618cfab4497b7ce667aeb376d239691eb6d7ac40cc800",
+        "source_key_sha256": "48fd8b1dcb604078b72dcfd67903b52b3c9c45494bf94e701e5d11e802d816ec"
+      },
+      {
+        "path": "resources/data/polygons/308.txt",
+        "sha256": "d6f71353c1718bc86b65054fb8e67af967c38356e8ff941c2d62b00fe5591589",
+        "source_key_sha256": "21d748c9b48d7afafa7a6d5ce992ee74c4c23181cb60b8aed83a2e9a005c2d55"
+      },
+      {
+        "path": "resources/data/polygons/309.txt",
+        "sha256": "2952d940a798eb29fb46e72367933c0d4d67f3b7ca6d2d0280b3ce7d1a972e07",
+        "source_key_sha256": "161f36442c975ae3831d9d9866985e9649568f4d6db6b31843a0feb6bfad433c"
+      },
+      {
+        "path": "resources/data/polygons/31.txt",
+        "sha256": "66dba694bc308a04c8ac94d19fc4d005d2a354af94f6724baf8843d17fae41a5",
+        "source_key_sha256": "c154cb890c8f4d86520da64f346e82ef73323121975acdd24f65acbcaa1fa12f"
+      },
+      {
+        "path": "resources/data/polygons/310.txt",
+        "sha256": "e6b34171409ca4adb1d059657d709af01e1d7aa75d873fc8120d9f2171671633",
+        "source_key_sha256": "4159258f86ed212e416325ff6624af9bf365051da24861b29cce45004fa13e3b"
+      },
+      {
+        "path": "resources/data/polygons/311.txt",
+        "sha256": "d7b550b4be742f1ae409bcb4ac2027dea27aa2e8bb250fcf2dfa6bb6dcf3b928",
+        "source_key_sha256": "6824ade8ececab321c5d1acf6e7de15101ea9a7a43a60d570eb4fb55a1e1ad27"
+      },
+      {
+        "path": "resources/data/polygons/312.txt",
+        "sha256": "868aa0737ad21f9b1dea9781df1a9974ac0cabc2d4b47c15112dafca0e3946cd",
+        "source_key_sha256": "08b82d3bd8fcfc0bc01b89821fbf009d15387dc035c5d336dae5e41f180e9cae"
+      },
+      {
+        "path": "resources/data/polygons/313.txt",
+        "sha256": "ba93a477c69ea594b4bab6fdea4e0ce509260fd54f4d2a8f1074c45d5b963a1b",
+        "source_key_sha256": "7e173f0bc880281ed23fbb521a21b856d2374c47ae1d4d918362aa48754f4550"
+      },
+      {
+        "path": "resources/data/polygons/314.txt",
+        "sha256": "e793466ee408fa7432f99020a5ceb5c6c6eba07eb3e0ef06894a1d24ce24c961",
+        "source_key_sha256": "0d4f150101c5ec30eeae85bae4345b878c9ad814766a49372beb1c1e8db05e8a"
+      },
+      {
+        "path": "resources/data/polygons/315.txt",
+        "sha256": "b58c665b7504b307dacc6362c48a06f8956fe8812406334afedf69e72bbc5d4e",
+        "source_key_sha256": "b8693421d7edde20682b734a22d90734b58bc4514c6ac23db13929c71c5c9df1"
+      },
+      {
+        "path": "resources/data/polygons/316.txt",
+        "sha256": "c6283ce8675b8ed9a134bf48904eb0c0b1a91657e0b8026c455c84e080784fec",
+        "source_key_sha256": "30bbdd74b1c7a8e67915eac03550bad9bd7b948122b4d3010f71a3e9086db506"
+      },
+      {
+        "path": "resources/data/polygons/317.txt",
+        "sha256": "e79eb38cc4c3ddbc3ef7db1cb768db41581d46120835b35a70e91f1ac7389ac6",
+        "source_key_sha256": "e3aeefae1c422b82050fa84c7e386c084e41c553ffcfd35e26dbf49fd7ca9403"
+      },
+      {
+        "path": "resources/data/polygons/318.txt",
+        "sha256": "b14439a35e2eb8884e3ce6a68ac111be2fa9bea79753f3f72ad9eaa4a8238f00",
+        "source_key_sha256": "fd2ca606b74e851adcbc942a9053ce9b8f67fc2144baf479b32bc6fcaf9c7660"
+      },
+      {
+        "path": "resources/data/polygons/319.txt",
+        "sha256": "545fe8f921591e88b52e4619f661d3ddddcd3879bcea5744cb02c5be7593ccea",
+        "source_key_sha256": "94d91c42dec64c506c9a0663e17f3fecc1a86e1e417f07dd59b875fdde8487ba"
+      },
+      {
+        "path": "resources/data/polygons/32.txt",
+        "sha256": "c0ed77b1114db5ca58078bfce4c980fb939df5de05f5dc2175959322706d00bf",
+        "source_key_sha256": "de67d3d665841e61a34a03aa3b3871e003f57b5b990a58c6ea5ac52a762195a5"
+      },
+      {
+        "path": "resources/data/polygons/320.txt",
+        "sha256": "3554611e390f3c3bf78a7eb25eccf01688796c2bb8f93acdfe64a22f77c9a052",
+        "source_key_sha256": "f06baaee74cc5017d4f44c5f43a544ac1a7e40a7ade583b8e98adfb40f0660d3"
+      },
+      {
+        "path": "resources/data/polygons/321.txt",
+        "sha256": "28b1074fde19a5d5a3a905d510cfe2888d1b1eb3e4ddfea80d585dafcdb173a0",
+        "source_key_sha256": "8f73d20751ccdfe6a05f69b321566087e8a5994171c7ef2dcbf3eac8e01080b0"
+      },
+      {
+        "path": "resources/data/polygons/322.txt",
+        "sha256": "91e3a255778d8cc8e3b2e6fe0b2cb3a4b7e5d175bca6f913b90928ac525bbf62",
+        "source_key_sha256": "a36b3e819759121d28f86000e009818e1c993d1ad780a313a519651162dfbe7c"
+      },
+      {
+        "path": "resources/data/polygons/323.txt",
+        "sha256": "c0be5087c30b5b537371d9e62e1fca6fc073569eccf8de5333b43b009ba74117",
+        "source_key_sha256": "a67e90fb8fa158abd1be6dc6ad9167f4beb8f3be47c19cfeba17633220d81ad3"
+      },
+      {
+        "path": "resources/data/polygons/324.txt",
+        "sha256": "83ced6f42756b24d331d3c632c395f31b65ba87079d0651716e6b032e3ea24fb",
+        "source_key_sha256": "e82d08918d7ad73462b0e2d7d00ef260018777ab4f05793344d699a59d3f424f"
+      },
+      {
+        "path": "resources/data/polygons/325.txt",
+        "sha256": "7cb6f0f1cb17d1773eb1fa4d5a3e3b5bb7c1754cb217cb2f198b977f4f2660bd",
+        "source_key_sha256": "308a618b2e91f76265beda5ebfeffb3a80bd977ac2e3504cf35cdf1d6497d720"
+      },
+      {
+        "path": "resources/data/polygons/326.txt",
+        "sha256": "2a4186d376939fea4b3e486f839ec2c3d00ba5f6eb265a0a57c3025a91d42e38",
+        "source_key_sha256": "7c44aa1e2bc6eca5bd13739116c87aad4a7ac2b1ded867c93ce3f9618e8c1e53"
+      },
+      {
+        "path": "resources/data/polygons/327.txt",
+        "sha256": "26386e42aee12b9bdd98e7350223926cbf262ceff8489deeaf7f23ea803b700f",
+        "source_key_sha256": "57328a26b84314212f11ce6856bbfbee2cd6978b9d240ec5d311b21284a74e09"
+      },
+      {
+        "path": "resources/data/polygons/328.txt",
+        "sha256": "b056013942f3cc9c37d57c82be00e13cecf4b8224d6f0a722e6c9a49df2eb98e",
+        "source_key_sha256": "b833303a671452025f81013a7863f64b0da6f4c76fd30bfc8712d8b7c5d124a7"
+      },
+      {
+        "path": "resources/data/polygons/329.txt",
+        "sha256": "d9f04cadf539d24e7e7c846fd634c55f94299b8b49071dd4ef8c88146674ddf6",
+        "source_key_sha256": "e5a8bbb9bfafb9afa6e24d62d185dd5d45ee9965f7a55350dd814a0ea161dfde"
+      },
+      {
+        "path": "resources/data/polygons/33.txt",
+        "sha256": "f1f8730cdb8706e6d26c8e57940821d3db9d0dbbe3ddec78888aa7e885e62391",
+        "source_key_sha256": "265770dcb1c1b1107a757c30e31067de3159675bfb44d67b4c40f0abccce9ca9"
+      },
+      {
+        "path": "resources/data/polygons/330.txt",
+        "sha256": "275abc97aca4581ac69bcceec20834bbfb07a84028cc816d3a90dd6ad2e10702",
+        "source_key_sha256": "7f4ea58c6c77c7d3ba206e4005eddc66a06dba0cb95e994bb64ece7b7844a3ad"
+      },
+      {
+        "path": "resources/data/polygons/331.txt",
+        "sha256": "0f3ee23e46b13a0b1f82668b3df06ee08848d52aa783035bcb68da94b1daaaff",
+        "source_key_sha256": "a6f4e132771c36fad8477bf22ca73913d32cc3b3df44dc3836db21b02c966d8b"
+      },
+      {
+        "path": "resources/data/polygons/332.txt",
+        "sha256": "86e01705831d583e0e531ee82f7519be622d53694391fb0e1cc142b3fc76c6b5",
+        "source_key_sha256": "91a817bc589807283baf4d1a7da98e7671a9a694efaf693a5a85799150c311e6"
+      },
+      {
+        "path": "resources/data/polygons/333.txt",
+        "sha256": "82b21e307723254a122a304c6df7703e8da5b1bbbe6c42ecbfeab2e8526ddf98",
+        "source_key_sha256": "55524e40ee9b70835ae163e5b3b6adc8bc79134f2bd7bd12d76a315eef3e76f4"
+      },
+      {
+        "path": "resources/data/polygons/334.txt",
+        "sha256": "f5a871960a1fbfecebab1d9f714ca0e947a932ba42b362c7329fdb8d0999cfa0",
+        "source_key_sha256": "f12ce15d158f93938a6c3633414e1e61d39c2dfe7f1ee83cb00292e97c1d2912"
+      },
+      {
+        "path": "resources/data/polygons/335.txt",
+        "sha256": "e5abad067f9cca0541a51cf7e900ee36d0bb39fdf721bdf3bae91477536b63f2",
+        "source_key_sha256": "4d839d395723037ed26a0e4ba5ea86e8808009a57c85a49503f9221ee0e917c4"
+      },
+      {
+        "path": "resources/data/polygons/336.txt",
+        "sha256": "1119db7fd1f28e782ff180a3582631ce6bfc222ec1efa06ad64bcbf97fc66f5a",
+        "source_key_sha256": "486f76347eeef978a4cc3afd312fb21d2e9114eb1e3d2558e8111dec46595889"
+      },
+      {
+        "path": "resources/data/polygons/337.txt",
+        "sha256": "ea4976dc81a0c73a6e537c5d8cd268fad4dc7eb86ad1c9cb7fed0d084b04e1d6",
+        "source_key_sha256": "02d406b17520d355f5307efbbc3b6aea420c5246272e4809637edb68c5bb4d81"
+      },
+      {
+        "path": "resources/data/polygons/338.txt",
+        "sha256": "7c0fba7574411eaf437f508187e80c164f052d9aab39a65ccf27164f8328b39d",
+        "source_key_sha256": "b4547ede5a692bda2e7d4c245263f981af6fdb3e5f8ad5cddc50e22508fcda70"
+      },
+      {
+        "path": "resources/data/polygons/339.txt",
+        "sha256": "d1e07f46d2acbd07813e3fa253c9966942d205c8c4694ded873818d1990c27e0",
+        "source_key_sha256": "0bcdba23ae7b58b29843c6ccc0de671c5ed774f0b27c204946e85e7d92ff959d"
+      },
+      {
+        "path": "resources/data/polygons/34.txt",
+        "sha256": "cf25ad138aab9947cdf100d937358f462ad316196a1715a24867b3d8f0a32a5c",
+        "source_key_sha256": "03961974187ed642bbd36f69fa6cbc1422c0c23ab0d3a17b543200ea6021faeb"
+      },
+      {
+        "path": "resources/data/polygons/340.txt",
+        "sha256": "4d4e258fe8ad76a969fd8b835b659a902bff41ae4717a84dd880dd5dd7d46d1a",
+        "source_key_sha256": "1a5c2f732a65b8ff91ccf8d900175886654a99bfc6aed3de4a942cce95b90486"
+      },
+      {
+        "path": "resources/data/polygons/341.txt",
+        "sha256": "4609d071cefeed95a29169554b4069db77ee88b23133292655d087cfe4f1625b",
+        "source_key_sha256": "4ef2750854e6cd73ac0f54c39dd62c69e76729495b6f92071ff0b8e7cf460ae1"
+      },
+      {
+        "path": "resources/data/polygons/342.txt",
+        "sha256": "abd7b77b450b560f3398fd79c39dce528dd142ffff26238773856f27486e6839",
+        "source_key_sha256": "a88bfae082dc1b3d2fefbdaaa5672bf846696be264059df9542df3764658ffba"
+      },
+      {
+        "path": "resources/data/polygons/343.txt",
+        "sha256": "8e69ffb6ca6a7c6fb43dd5d4557270fc8bebf0dfdb73edecb658ee1c847e8137",
+        "source_key_sha256": "0bab9caafdee7f2e9acb8498eaf004a832739a0b676b73f1b60a4b9824baf9fb"
+      },
+      {
+        "path": "resources/data/polygons/344.txt",
+        "sha256": "1888f2f44c51f45fe47ebbb340c6c6f58fabfee8f6eeee25346b88c84cbb806b",
+        "source_key_sha256": "c4c8968b1629c0ef6288678f01ce808ecf7c804af3d029b22ee1a4859c445298"
+      },
+      {
+        "path": "resources/data/polygons/345.txt",
+        "sha256": "93dad0edbde3e03104a18378a177eb80fd05d4d6bd845e42cac014066bdfdf1a",
+        "source_key_sha256": "1c865f1d6a90abd7b0a6d8e92a9edec64aca3864bec650f10d0bd6282893e63f"
+      },
+      {
+        "path": "resources/data/polygons/346.txt",
+        "sha256": "1b9fb92711c08a36c52ccc893a2454ba03aa16cca5a0fb49362dcb3147aa9ae3",
+        "source_key_sha256": "1f5283e9dca0e90dd0e3c0ee07379634f6daf830894ac700a8dc7f358887acfb"
+      },
+      {
+        "path": "resources/data/polygons/347.txt",
+        "sha256": "00555fdae733f1fadcf2d6d520cd6beb926fbcd0f726c4d9c2d53b0c1b9f750c",
+        "source_key_sha256": "788e050cf112ea4d617b1f20fc205f5e6592a79f47c2c0f9388a2511cade70bb"
+      },
+      {
+        "path": "resources/data/polygons/348.txt",
+        "sha256": "8d0f510ec1d709c2697bc2f57e6b6f7fdf4cd3db15bdae218816793236d9cf1a",
+        "source_key_sha256": "4d454693130b00eb29060ce645c2599306280f085199d6d298378ce2437900be"
+      },
+      {
+        "path": "resources/data/polygons/349.txt",
+        "sha256": "54ac0238e82adff68545aaa7581cec621dbbaf5118fdfbf5a8bf770f1a8cadbb",
+        "source_key_sha256": "d0843e63215cf107fa9be2a0db2416102087c3ccb543f0480ab9659d4fb8dcc2"
+      },
+      {
+        "path": "resources/data/polygons/35.txt",
+        "sha256": "931c183921222eb04c533f0e1f582fcfacaf1a15155315c2c467135e11e75d23",
+        "source_key_sha256": "bc56ccd226fd494d42157fabaa6a3dde6a9be8e170cfb84902b6bbddd8192669"
+      },
+      {
+        "path": "resources/data/polygons/350.txt",
+        "sha256": "2683f8c884f9201012e19e97f10f35246e35c75fa1014a040bf9efcc46d78939",
+        "source_key_sha256": "b47878413bfeff6a3e5a4ea95f1d85cde8e0130499c9cf364629a752c7178cab"
+      },
+      {
+        "path": "resources/data/polygons/351.txt",
+        "sha256": "b55e91319c37318ddfc6d22ea65810290ab48386f11868ed4a631ccd9fc5ba9e",
+        "source_key_sha256": "033776486d5c2466b9601116ad0aa21f21b689560a602a24ae3f5f55e08f32da"
+      },
+      {
+        "path": "resources/data/polygons/352.txt",
+        "sha256": "960ff5144cfb8a92a14f4ace7944d7d13d75543d7c585d8b02d5cc0171b45357",
+        "source_key_sha256": "510e95fb48ee1070c674a2a8f2db8c7be8a560525926520691987c2711eec850"
+      },
+      {
+        "path": "resources/data/polygons/353.txt",
+        "sha256": "bb19033db2335e0b2407ea4fdebe31f4d5bcd4977aaaafb0057bb0d4bc3a594d",
+        "source_key_sha256": "8f78e40c7280eae7c2621678aaef1cc8faf440bd41082a55df97266ecb1f059f"
+      },
+      {
+        "path": "resources/data/polygons/354.txt",
+        "sha256": "fc237ab0e637c6ab657d4114d6325001026e87c9c71b2fda3fc353e72e90b9e3",
+        "source_key_sha256": "02a19c0ed535f86eb9affb29891655236c35b6cd9ea70ce8b846df165f5b77f0"
+      },
+      {
+        "path": "resources/data/polygons/355.txt",
+        "sha256": "6f296054929f9d2aeedb0ecdca5872369f4f95e6e12458a25f5fbb7515889b29",
+        "source_key_sha256": "38064db094c868dfd74d2ae98178e88a5736e2198df603b952fcb4b8f6488003"
+      },
+      {
+        "path": "resources/data/polygons/356.txt",
+        "sha256": "26e85d19d077451578823d053fa5616121dfda46fd6bc7ed5d2159b98fe0f24f",
+        "source_key_sha256": "f5cd3171faa195b0cfdc2216dd8971b34ee6dbabfe419d84751a28326fd612f6"
+      },
+      {
+        "path": "resources/data/polygons/357.txt",
+        "sha256": "92dfa67952377d9338a68ef4fe66d31c9034b5d1f9fbedf364a18e95755bf6f6",
+        "source_key_sha256": "b32332ba2073569bd47ed0618d69db3df67c525bf34218cc5fff6df2102831fc"
+      },
+      {
+        "path": "resources/data/polygons/358.txt",
+        "sha256": "b57782b45a12809e01eb338c495d98db997557ee418ff3ac81ad94a71e99c1df",
+        "source_key_sha256": "e59f1676574308c99e5c7d30ad7c121651f3b4338e3577e5c4ed11c3ba0f83db"
+      },
+      {
+        "path": "resources/data/polygons/359.txt",
+        "sha256": "cb319ce920712ed560824735ccf343f71e876dafffa5637eca1d68a0c02147d3",
+        "source_key_sha256": "6480276282fd9b8f20f90955a49093af7a17afd2a744df09f41e6de8581554ff"
+      },
+      {
+        "path": "resources/data/polygons/36.txt",
+        "sha256": "9f1af670dcae352fc42f11ac805c819940cd8a7af89170e05dcc540aec22eb19",
+        "source_key_sha256": "3ba24f905ea61447888098f7aa36aa0a5fd285e2e2636ea37cd4093f923818ba"
+      },
+      {
+        "path": "resources/data/polygons/360.txt",
+        "sha256": "fb3a0bb4103f709c0d1d1038d873277a73a265b285364d9fe041ef49e1e1e95f",
+        "source_key_sha256": "f35e85250e0b1ec25adddff3accb710b12fb66dbd373688631acfdd57735faa4"
+      },
+      {
+        "path": "resources/data/polygons/361.txt",
+        "sha256": "06a969553a86f7aff5b427be4117a41c8dd9d9997e36b7a145d19d8ac7730cc1",
+        "source_key_sha256": "284403a2a9dd264ab04471b64a8d7dc94bce8cd664b4831377ccfe44761f55ef"
+      },
+      {
+        "path": "resources/data/polygons/362.txt",
+        "sha256": "b4a00ab4bab8f70eda54ae1a6445e9dc5d938c89e630a4696bb4a413b9ce56f6",
+        "source_key_sha256": "31c19f9ef7d74a15223ee1918133549a91c648afe7fa2e65b28a065ebd4859f1"
+      },
+      {
+        "path": "resources/data/polygons/363.txt",
+        "sha256": "668663a4ce188216f75c952e888771b3512a860bf15015f3ddee407c35e28432",
+        "source_key_sha256": "d3c88fe63e64727e81855448afe224d89ccec87473817391a51da475145c9b53"
+      },
+      {
+        "path": "resources/data/polygons/364.txt",
+        "sha256": "35ceb50d1f8295f5bb4f77f15743bbb7ad82b69648561d2a4e65241b34abcc83",
+        "source_key_sha256": "8a92bfed3ecc674ddeb429c2b24e6e9aff3ca5822b982d5af4e1dac268b9f93d"
+      },
+      {
+        "path": "resources/data/polygons/365.txt",
+        "sha256": "3cef471986199a81b6f86d6ee567c82b282797ef4fb2cfa66f0624cd011c6c04",
+        "source_key_sha256": "ecd87aebf426e51cbc09976c623f372724c22163c3bb8adafb5cdba619e51446"
+      },
+      {
+        "path": "resources/data/polygons/366.txt",
+        "sha256": "fc7c33f36999e0cf6c63ed79c6862f89d312d060e39195dbe5d9f26406f08ff0",
+        "source_key_sha256": "59bd818e18c5e0e82675150fc119e8793187620248dac16b1f6dbf7103ffd4ef"
+      },
+      {
+        "path": "resources/data/polygons/367.txt",
+        "sha256": "783ef1238dd169b3003fb97b3fb26a7e6394ee66dd19229fa30c99a08dd832ec",
+        "source_key_sha256": "588ec0d7f693699c93632b24d7f0d5357976e39c0203d5b1ff6a3ebe97db0958"
+      },
+      {
+        "path": "resources/data/polygons/368.txt",
+        "sha256": "56f490810da348f6996e7b29cd42428b8f3f5cfb14ff254cb40de2dfd9727725",
+        "source_key_sha256": "e7649613c5b06cfd5d117bec0e782a44df8a96ee74dd8ea8d7cc2f2701fc5c5e"
+      },
+      {
+        "path": "resources/data/polygons/369.txt",
+        "sha256": "0239d86d9b25fba44e637c34f8ffd5930fef92161d9a6883a0c9ef5314a7ffb5",
+        "source_key_sha256": "5d51e879178e7de2d600cce3396800b3c6e35c499b569f538a97640b370c84a1"
+      },
+      {
+        "path": "resources/data/polygons/37.txt",
+        "sha256": "15f69983cbec7462f153dce7dd214e670634299b53c78bcd4d11a8cbcafcaba1",
+        "source_key_sha256": "cc2c5eacf5d5ad5ba30802b48017a1b5e14a33239c9cb6e5bd243aaed2d77549"
+      },
+      {
+        "path": "resources/data/polygons/370.txt",
+        "sha256": "fee3a38110572d3a3048d361140912a830ed0da79f20d61d1126347227d784dd",
+        "source_key_sha256": "d32ef1515419e5f3e2e631f9519247e0fa6f5948f0217b600c3ef481e1db3f6d"
+      },
+      {
+        "path": "resources/data/polygons/371.txt",
+        "sha256": "4c6b902b0278fffd5bb66799ab6dc5423a4bd5e22a52725c5c210d086f972082",
+        "source_key_sha256": "39ec2ca96513fb3832c0b3c5698c8e91c0fe31c2929e537dac7bef033af4ec9c"
+      },
+      {
+        "path": "resources/data/polygons/372.txt",
+        "sha256": "192ead788d7167dabb389d0caad791505b2444e7d0716d69c5deef6a3f6b3539",
+        "source_key_sha256": "fa14bb1e7dcab9330e0dd1f43aae3c32057c91a2887a58ad669335d453a2c17f"
+      },
+      {
+        "path": "resources/data/polygons/373.txt",
+        "sha256": "330467ac3aade99075ddb9ee0309699676891fa14104ae30e297259de5576cbd",
+        "source_key_sha256": "7b1de5c5c03cde8f90f51b8f03b1ae77cd1aab22cb4dcd5b99e7f6ab8570f7ce"
+      },
+      {
+        "path": "resources/data/polygons/374.txt",
+        "sha256": "e9c941382ca60b71eb92f3751bfb32f1707623f6e942be4a859e1043121f2fc1",
+        "source_key_sha256": "c415b13ec372874d8322d8d9e9cb257d5191d84d51b551ce46cdabe16bfdc570"
+      },
+      {
+        "path": "resources/data/polygons/375.txt",
+        "sha256": "ce0234d7f8e6ffc776019de4225745dcd49b239d6ecdd69af0328fcc374ab447",
+        "source_key_sha256": "d1d0f9a599675078e323da3b41790d6a37fa928e108a8591125c6738d3437888"
+      },
+      {
+        "path": "resources/data/polygons/376.txt",
+        "sha256": "9a4ae1cd421420c0228bd369ae7dad43a561123a012f0b826efa187226649d22",
+        "source_key_sha256": "51a977b65a38fc7ba40f0a6044b75d5f1d1a81f3e294249069c3205b9ff418b9"
+      },
+      {
+        "path": "resources/data/polygons/377.txt",
+        "sha256": "eda017f3e7b2464904389bd6bb1a19bad50827d8901c6e0fb50b7d8daba6376b",
+        "source_key_sha256": "e1fac2d9930f87cc05990f544185a350cc7aeff2855a74d67b6844ad89cce031"
+      },
+      {
+        "path": "resources/data/polygons/378.txt",
+        "sha256": "b59adbcac387b67d86c84f06b40630792670ab65857ce079f85c6a2038fdd190",
+        "source_key_sha256": "b559df039761ef898b746f8a95fc251b3220aaeede1dd0bdecd749c3ea7dfdc5"
+      },
+      {
+        "path": "resources/data/polygons/379.txt",
+        "sha256": "d04f2db7c7a7d9ebcd872925ad25ea5801840ab1d86fbae12a0e81e24f5a69af",
+        "source_key_sha256": "b8520f878f55ffe3811342bf47297b6d8fa2a20f57da0f80e0abe1d10ff819c0"
+      },
+      {
+        "path": "resources/data/polygons/38.txt",
+        "sha256": "95ddf570417789dd6ed08a91591b35927bad1dd8e6ef6dd10e9eaee706be9b0c",
+        "source_key_sha256": "141309033fdc6751c3acf24db980d5583f3fe29747055152df8eb0d0673a873b"
+      },
+      {
+        "path": "resources/data/polygons/380.txt",
+        "sha256": "7392a1c12b94d93038335d90982f05dcf4559e9b900cc9da57ba4a9fd445d2da",
+        "source_key_sha256": "98fbf251498016d4734ed2fc41f3342982f9c7edb2467f8cb0a8353077e71c05"
+      },
+      {
+        "path": "resources/data/polygons/381.txt",
+        "sha256": "008366fa744490e0921a4a4ef4d39fa65828679aff97749528985aa8db808099",
+        "source_key_sha256": "6bea379bafc7a77c06500b1d2fc66d23e1c59aa8271894f1e188295304a5a7a2"
+      },
+      {
+        "path": "resources/data/polygons/382.txt",
+        "sha256": "8721f38300a0d0fa2e7d94d25b0a485c5747cc57c2089037f37e6206762fd185",
+        "source_key_sha256": "79f101b4415f2009bc19daf6aa9b0006b9b453948229d812fa16cc297ab21d6b"
+      },
+      {
+        "path": "resources/data/polygons/383.txt",
+        "sha256": "b5c43c5a5f14b16adfae62fc998dfb62bd55c86c97a1da2b2580931310122131",
+        "source_key_sha256": "4053f73bee5d689818c29b2f657ef70f1dcbf5a0101c0164b920785b3d54a4c5"
+      },
+      {
+        "path": "resources/data/polygons/384.txt",
+        "sha256": "8bd6e0b27cdc19768244ec46b8a32bd59eb5d59f5ad45f8fd92fa5c6b687f307",
+        "source_key_sha256": "ac76aae3aab9301385e7cfee3035bf150740359a0143c093b3a6f3f2c1a99c3c"
+      },
+      {
+        "path": "resources/data/polygons/385.txt",
+        "sha256": "ed08dfe15f8d96414ab2816d1a05c4d81c40a78eefbfac0cea5215640d054018",
+        "source_key_sha256": "99ca1532944ae1d7d4bb7214714152fe815c1f8e7c918b6bbc22d7d15646a520"
+      },
+      {
+        "path": "resources/data/polygons/386.txt",
+        "sha256": "d26df2321fa0fdc7f9eab996b78f66a663d8e50ca7b99a52e9593b3671cd4cce",
+        "source_key_sha256": "f368980163e79edd317c031d8840864f127ba4b75730fc85c26b7cb360532178"
+      },
+      {
+        "path": "resources/data/polygons/387.txt",
+        "sha256": "e77b57e48510115d5691b927d7b62b270acad789b19bc37c706a9bda6a6ea119",
+        "source_key_sha256": "5c94b0df8d4ba15ca527aedff1ffc083a86546dc1d51c1f44745319cd727ce0b"
+      },
+      {
+        "path": "resources/data/polygons/388.txt",
+        "sha256": "5e9860d8562e5d5e98d9db9e0c8a101f9c9de70f84a456a928b3695d2a914993",
+        "source_key_sha256": "33cda5c8f6ba93270370b75166e85bef1c91fb33b9ce906735ac9ae8125a401a"
+      },
+      {
+        "path": "resources/data/polygons/389.txt",
+        "sha256": "0fa852608e104d2a059188a739ae5177884669ced2964eae26f05b513fe478d4",
+        "source_key_sha256": "697b94234e07ef69b026d2f0a0ef5a7df392e58fbd11369d6fd35825ab40719e"
+      },
+      {
+        "path": "resources/data/polygons/39.txt",
+        "sha256": "3cb499933937a3d10c07a2dd660ea15608123b0134b5630fb1ea0cf0d237f589",
+        "source_key_sha256": "8854f6ddee344e836f7772d580aa18144b073b95166825360e20bf7b1a3e2ad7"
+      },
+      {
+        "path": "resources/data/polygons/390.txt",
+        "sha256": "10fd261030ad355fe2bb14a21783665472bb090ce654b695039b94e2acd59573",
+        "source_key_sha256": "9c0bc8faa25d8c8e43aad7e36d9299927e339df48251e5bdb2d9fc320e144b75"
+      },
+      {
+        "path": "resources/data/polygons/391.txt",
+        "sha256": "5b7634579a3a15411e5d44bc94c862360bb0f0a135fb5c4650b007e754010dca",
+        "source_key_sha256": "8ef6fe10f479d4b8a7b115f5f2919795abe1c57d28023945caa74ce1742e294d"
+      },
+      {
+        "path": "resources/data/polygons/392.txt",
+        "sha256": "4bee3aa5350504fc7adc4864157a72cd587cf962bf1e8b9eeb1c770785897161",
+        "source_key_sha256": "c913bf746dfb74dd015b1aa0a30c92236cc138355597dd7bbb1e4b8f852afaa8"
+      },
+      {
+        "path": "resources/data/polygons/393.txt",
+        "sha256": "5d95a1edbde4262ac03adf188c84655f6b0b82587e0a19437daf049bb607cbb8",
+        "source_key_sha256": "65d7a7d4232b22b54eee4b9962f24e589cea660cea17867b36a1b9820118e314"
+      },
+      {
+        "path": "resources/data/polygons/394.txt",
+        "sha256": "30b6bf94e8f7f6261ba2222aee3c2545d138b8c19a51931167e6df1d6bc99194",
+        "source_key_sha256": "5f9d8db694aed0a89ffe6ba9ea71b5b4a2a049c8cfafe85f210f8dc468be60ea"
+      },
+      {
+        "path": "resources/data/polygons/395.txt",
+        "sha256": "ac649241dd3720a1607c3a99e02c85f01919a65b635f18f168165eed0402c611",
+        "source_key_sha256": "38cac4202c332ad31dc3b4d0fa3207a059d1271f9b0746db1cde954996c96041"
+      },
+      {
+        "path": "resources/data/polygons/396.txt",
+        "sha256": "c96bc1da814a5a36d4216fdda2720c88eedda67c6c5c894b15cd2d833a6224c7",
+        "source_key_sha256": "8165262d18405e86e717b36f9954226e767a7247a3355c80cfbd8dd60c4051ea"
+      },
+      {
+        "path": "resources/data/polygons/397.txt",
+        "sha256": "6dfac3f5705177491640c42051b542277eab20f06f04f58be0925a159478980f",
+        "source_key_sha256": "d06aff93af43a70b79207c1d4bc17708f3a50e7d57b01e0281727ac2f5eb2d47"
+      },
+      {
+        "path": "resources/data/polygons/398.txt",
+        "sha256": "c1edb0343f3fcd966505b9a0559896b4afbb0597718f13a1930bca8930813475",
+        "source_key_sha256": "8d0ed51cd5c4b6d628d4547236292db88c8b207c9ea21b1fd6ee8fffbb728d8b"
+      },
+      {
+        "path": "resources/data/polygons/399.txt",
+        "sha256": "ec1cf0385659d156e50454e8c69d9037ff10edf49e182f7d9c5c8dd8a4c24635",
+        "source_key_sha256": "feea300da93069126a3e116b51377920070e095661d838e89878e73619a617f4"
+      },
+      {
+        "path": "resources/data/polygons/4.txt",
+        "sha256": "4ecb394c101d391cd91d72cbae58deeeb8e89d8a78ba2d4a724fc0b03b951497",
+        "source_key_sha256": "87628e3c861add35bdb1accb034c32d8406858839ba72a909aa7cfd0dcdbb135"
+      },
+      {
+        "path": "resources/data/polygons/40.txt",
+        "sha256": "1f191016f595aa72ecbabd9efbe6b72c0e02af21457b16bd176c91b3cafee354",
+        "source_key_sha256": "48c530600e3dd950073f53703c3f6855d228ca702a8ab761083c7ee877211df4"
+      },
+      {
+        "path": "resources/data/polygons/400.txt",
+        "sha256": "86dc56681ffa200f45e09278cd2d4fa7bd3ebaec25309de7adb501b0a41957fe",
+        "source_key_sha256": "2b5bd9899dcff270e16b2cd27a13995b28d830d24c7cf1ce8ea1b400980f084c"
+      },
+      {
+        "path": "resources/data/polygons/401.txt",
+        "sha256": "60f26ec6d398f8bad849573e2f1df3a18782440e44900ac48b8399066d85e53c",
+        "source_key_sha256": "e5200a55a0a6c8d9a7464ae283dee43c7ac0780989e68babb4000c04f8dc2d9e"
+      },
+      {
+        "path": "resources/data/polygons/402.txt",
+        "sha256": "04ae50274d1a9e0365531bf0bc7d02ea4463652634b133af9283d11b3b1e0b88",
+        "source_key_sha256": "824d8b7b0ecd0d919ea322975fa709a21b773b2f8cf264843b524821698567de"
+      },
+      {
+        "path": "resources/data/polygons/403.txt",
+        "sha256": "ad3e26bde7a52dab69307ef13162a8f021c6367c814ddfb698459c3ce912e42a",
+        "source_key_sha256": "ecae58b0ed86b168c74b00cdd65b4416f1131a947f1974f0f6f5bc78f1df6665"
+      },
+      {
+        "path": "resources/data/polygons/404.txt",
+        "sha256": "9913a0ceebea4d4e78170f49b4f303c36835bf076d0ceb90b66cf39a7a39dd14",
+        "source_key_sha256": "e96b12d00209c06fd35cf0a1b4368ab210a5d243a7b47a4d26a1e283367d71b2"
+      },
+      {
+        "path": "resources/data/polygons/405.txt",
+        "sha256": "8840dc688ac6a4c9bf6b56609625083d610736e3e8f37a3c50174fe075df5213",
+        "source_key_sha256": "acee69a4d8c985f1d78d7c66c08d7a1637570f40c31da11d0cde419eda927c21"
+      },
+      {
+        "path": "resources/data/polygons/406.txt",
+        "sha256": "3c60d94f106ce34d1a28cd32794b117f17c4d35c3a3232d9c393f17993e9c7f5",
+        "source_key_sha256": "0709d7a23fb5daf540aa59c42e0d2d3fc013b1185f8e9503322d16ce35bd196e"
+      },
+      {
+        "path": "resources/data/polygons/407.txt",
+        "sha256": "0a85c761c7f9df43abed4ce076e42b782cac809842bd430653775db6960a3f78",
+        "source_key_sha256": "f81c8328e8fb80a31b7e1296cc6fa038c48ba2fc92191b892de7f14c770ebee5"
+      },
+      {
+        "path": "resources/data/polygons/408.txt",
+        "sha256": "da5730d87063b9ecdccc3cf92d29bc2605d4f7986f1ea5eb4447f5689cf22c70",
+        "source_key_sha256": "4cb3a1ef951bfb66ffc8c64b063d1a757cbb9cb404399fa1fdfeba0ecd57f604"
+      },
+      {
+        "path": "resources/data/polygons/409.txt",
+        "sha256": "256c98d6ac6b61fd37eef4a1f14e2922c88b98ac3cfcd7d8c6c9c8068a384aca",
+        "source_key_sha256": "3bbd97f984f34cafa0a4eb12a4a394fd6f348501bf0494d2836e361522aac9eb"
+      },
+      {
+        "path": "resources/data/polygons/41.txt",
+        "sha256": "6dabdcb219fc5418dcca405065955b01db5e480b9c037e83766623b66d7d272f",
+        "source_key_sha256": "9ad0c340b707b24ecf1611ac96b9998ecdd5aa28ebe3d493be7bc6ff98ae82e2"
+      },
+      {
+        "path": "resources/data/polygons/410.txt",
+        "sha256": "3d793299c79c71373b2a9e1ffdc1d9ae85db91e9f4a88f50d0c2f7ed5634d11c",
+        "source_key_sha256": "e8119db60caf202e5e6f4cb5938c6086c548b299924b2d4e79eda431f9d18264"
+      },
+      {
+        "path": "resources/data/polygons/411.txt",
+        "sha256": "2ef7d67b62e30da75b5966fc1423eac593dbd667120448fb0fc1e169c54827cb",
+        "source_key_sha256": "74715df8594d17f00ec478b2660abb69b5a32c0762be1eafaa9da5bcc9556b4d"
+      },
+      {
+        "path": "resources/data/polygons/412.txt",
+        "sha256": "1adeb3d5026d8418efcdf6b456b985dec64280124f7ff87caa8588ff834c75b3",
+        "source_key_sha256": "37059fad80800c6457944fc21c8e20d01cfa6b6ea373650f6477d287a361afd4"
+      },
+      {
+        "path": "resources/data/polygons/413.txt",
+        "sha256": "9e00112fbbcf83d4bd9e62656e3246968b9b7bb8215badca5676e1f2f3c53c4f",
+        "source_key_sha256": "27115c9a081e911037f5b32a0cf89c02caea80815fdb9c72aea82cb8fe79d7fb"
+      },
+      {
+        "path": "resources/data/polygons/414.txt",
+        "sha256": "f0d80ae3ea773e31cd10cd46258a39338d8fd9020c27a12ae2815a6949e86741",
+        "source_key_sha256": "abae9706fd9b2de81f5799bb7eb4bdefb15ad35e9b75f458dffe4e1f56493319"
+      },
+      {
+        "path": "resources/data/polygons/415.txt",
+        "sha256": "7a5b1e16272fd6ee9bcacf861097073972b4d2321646bfa9eeb7c6bb390f385b",
+        "source_key_sha256": "560c69f404aeebb7562d706a29ed2629e6031b3f7540a9d49dbf3be4d113f4a4"
+      },
+      {
+        "path": "resources/data/polygons/416.txt",
+        "sha256": "9bac86ed25167b0ce700610c7b56cd75e9220868be8288f22c999aa105cf0a25",
+        "source_key_sha256": "c4160ac415b96523610ac769f7efcfafb791fdd96a4dfafbe2b35aacb5566e60"
+      },
+      {
+        "path": "resources/data/polygons/417.txt",
+        "sha256": "f5c6edb521cd752ff74b620b10c615d8dc7c22f73edc8c8582ce4f9fcfd1a006",
+        "source_key_sha256": "180bbec7f5f86c2c15c3fd70904563ccfc149ddb6139efd07a50f6c733681df4"
+      },
+      {
+        "path": "resources/data/polygons/418.txt",
+        "sha256": "064183699ea3b5bf7807476724c0859f16b66728e3784ee9ef096a057c1adf68",
+        "source_key_sha256": "8893dd2531a3718d36e2b78441f18e9455cbdb34d2f42aef8e5e3cacee389bce"
+      },
+      {
+        "path": "resources/data/polygons/419.txt",
+        "sha256": "3779a9ec4f6d9cfa577eac5b9112fdcffee91f865f3644b02b6d75e455c32871",
+        "source_key_sha256": "8c26cf1b56a5b68d13b71d26814115a1b78f1e81d8c1f9ae15a03329832fcc86"
+      },
+      {
+        "path": "resources/data/polygons/42.txt",
+        "sha256": "278d00fd8ac1aa6980e0de1a4d13f061ca59d6f610ead72fdb65b2fa5f353099",
+        "source_key_sha256": "8ae425257df3661daf4789171de4f39c498c66e59a3435cbd719215d84ea3512"
+      },
+      {
+        "path": "resources/data/polygons/420.txt",
+        "sha256": "0d31312b04271c81b915aca96a3f978159b2cba9578bc8f1f7ebf564075a1132",
+        "source_key_sha256": "038f7142a1a1bf144cd879ea1902ebe04797d352c70b0b543e758e5625cb9276"
+      },
+      {
+        "path": "resources/data/polygons/421.txt",
+        "sha256": "5d7c41bf6aa3dabdde8b1e195f020384d20b3158e5ccf2a226732dc9714257c5",
+        "source_key_sha256": "27def350264a58600648d8aaa336f2081a70d11c7705e99adc0c2f4d482f5c06"
+      },
+      {
+        "path": "resources/data/polygons/422.txt",
+        "sha256": "63160c1befd322c2b501c3feef5cdaf65eac0d29e1ab7f94be31cb152a22c710",
+        "source_key_sha256": "644f2e4798a06fb4197e9ac363408e46fc020415b260c8206de94564336fe88b"
+      },
+      {
+        "path": "resources/data/polygons/423.txt",
+        "sha256": "70d98abba1285fef2827916f939a21555a6cb7d605267ad6c7368572f99fc6ed",
+        "source_key_sha256": "5e68946c697318b08e6d83011ffd152f4c2141b63bd878768524d52f07f56e26"
+      },
+      {
+        "path": "resources/data/polygons/424.txt",
+        "sha256": "359e9ca72206d9e1ea76b57e359570aab95769e5e3cda2f7c54d76899f0bd553",
+        "source_key_sha256": "1f79439971eebf5c3dcaa8158b3e4cd776442c3c8178b43d5a9df53b2766bad4"
+      },
+      {
+        "path": "resources/data/polygons/425.txt",
+        "sha256": "ecde88617f84d55111bfbb8cf40ff615506e897492129d5c1aa0553979dff825",
+        "source_key_sha256": "564f5c72b96336bebeea10ce7667d99d5ac76fb99e573934fd033798f4ec2309"
+      },
+      {
+        "path": "resources/data/polygons/426.txt",
+        "sha256": "78d86d489880fc40d8806f4aa0ee4b5239eaa2c8cfef11be753c1e251ad225ce",
+        "source_key_sha256": "fdf5bf4c92313e0a3e6e41f63d2037e0c0419c09d1430afb917da5e64c95873c"
+      },
+      {
+        "path": "resources/data/polygons/427.txt",
+        "sha256": "c397b3f84b4786f4d1af78d87269c7a4a644e42a8135fe6bcbb3fce8c5178916",
+        "source_key_sha256": "7631b827f7a77764a05fd700e86c945058520a8bed6569727141d3253cf0b249"
+      },
+      {
+        "path": "resources/data/polygons/428.txt",
+        "sha256": "29c463df340ac69b88f4c473de3596bd9d2cc8c5f4b25793e1d8cf4cbb063945",
+        "source_key_sha256": "7eee70e1db7126722c8178161ac337a511854207fbb38a11e9961e3633138587"
+      },
+      {
+        "path": "resources/data/polygons/429.txt",
+        "sha256": "0c6acf7ffeecc6594ea489fda070fc2d741492cea7142dff12f1a7e91fbba82d",
+        "source_key_sha256": "a7f7df161c766d0fb46e29f2a63c9bb3b37373466132f4df5d0279477adfce8a"
+      },
+      {
+        "path": "resources/data/polygons/43.txt",
+        "sha256": "6dbddb968ea9cff712b153f2ec83668fff16ee87642ac59eef166f14f575be8e",
+        "source_key_sha256": "1fd75717656d685439e41ae2287733884bfabd7f0048558ce098813b7026750a"
+      },
+      {
+        "path": "resources/data/polygons/430.txt",
+        "sha256": "72577350f1cd85307f10257605e02fe74202833b063bad02726855be0862f3a2",
+        "source_key_sha256": "88d4c4493d3114660475818edc91e3bbb47a81916d19ced8443a0fef160ec8df"
+      },
+      {
+        "path": "resources/data/polygons/431.txt",
+        "sha256": "019a9564409101af92ba565bd54bce81794b085f39ee08ad08767731fffd7303",
+        "source_key_sha256": "52ad8211a8d0cd28e6bb978056fd8cf11444aaa0984718b968e6ac71251083ef"
+      },
+      {
+        "path": "resources/data/polygons/432.txt",
+        "sha256": "292f60578dee6765cb7282233885868da3b16a771ec48f1fea2dc86b40b64b9f",
+        "source_key_sha256": "bcc5cb69b5a656d6550176ac4c66ad033cae06029b9206d5f24768830414acc4"
+      },
+      {
+        "path": "resources/data/polygons/433.txt",
+        "sha256": "393870d776c46de64b6a4bb3a30a2ff43224efe507977690fa24ceb8c6f0eb72",
+        "source_key_sha256": "752834816e62a0c649c3bc62f4eb3a615467116f14ebbebc15c955f35ee79f70"
+      },
+      {
+        "path": "resources/data/polygons/434.txt",
+        "sha256": "e34acd666031b139e116c77a4b495ecec26ce9533002b3ea8eef296e3a2c27b2",
+        "source_key_sha256": "61a946fe016c3a840d8146953d4d337855cc4b4fcf9345dfc0808c037a2244fa"
+      },
+      {
+        "path": "resources/data/polygons/435.txt",
+        "sha256": "fb61a934c1ab968120b0e263cf17dc926d9d5834808ee78c51d002ad28f2099e",
+        "source_key_sha256": "d74aaa21ebd17397ce83659b7165e412f21ebdbf884797b3c9fbc62186674127"
+      },
+      {
+        "path": "resources/data/polygons/436.txt",
+        "sha256": "6c7f2d9e0c9c7af4fd10ded014317f1f33d4a57951b04d36578cbafedf9ea79a",
+        "source_key_sha256": "c06233893c0197844c879b7bccdb8e04ce4d242ba5d7cac2474544709093fe15"
+      },
+      {
+        "path": "resources/data/polygons/437.txt",
+        "sha256": "9097c281a3fb68aa54057da97f942a27e82b74cbee0d34c9f61fb901ca71c827",
+        "source_key_sha256": "291d675c3fcaa234b20d09786ea4024bc38879b85989f7d035659f858315da26"
+      },
+      {
+        "path": "resources/data/polygons/438.txt",
+        "sha256": "00aeda2893c45d771cfb7db480a9845a8195e4f4eae3b02e9aa389108f9700a7",
+        "source_key_sha256": "441322e4930ae13b1f121595a9a262d9d5890b8871df743262cc8bd415542154"
+      },
+      {
+        "path": "resources/data/polygons/439.txt",
+        "sha256": "0e278fbd1dbad8e7d1ce628b8b968e219e22089369a473f341c447f3f3d3cdd0",
+        "source_key_sha256": "cce46fb6e7487bc66f65a8e4bc51feb31666b428a30949e2d06e663c7a29f789"
+      },
+      {
+        "path": "resources/data/polygons/44.txt",
+        "sha256": "8fb2d35e8557ada1272779a81f6db0615a032507d1abf88fb974239cae792787",
+        "source_key_sha256": "e8cbbd2fdc6f39529d90bbad2851b339db68f8db10dadf32db5de00fbb074713"
+      },
+      {
+        "path": "resources/data/polygons/45.txt",
+        "sha256": "601592ff5385f8afd77ccf3773e11346e209e1f8f751ebcf47a0fd807c4be01b",
+        "source_key_sha256": "e9da316829d9d9b4618423cd9fb55ed25b7d63a6ba60a85b15ecebe2560fbaa5"
+      },
+      {
+        "path": "resources/data/polygons/46.txt",
+        "sha256": "04c8e4ca7e468681d7cbab9804c3b979711742de6c2f864e180381b61e990cd7",
+        "source_key_sha256": "acac1cb15619cf9815e8c00efd76af8e75932f8a4f99a1b1f09e9a81c540db2b"
+      },
+      {
+        "path": "resources/data/polygons/47.txt",
+        "sha256": "29cee91f33a4d9d05f8b532453ff3e43ab84c492f8534d36a3b4d458e9a7300b",
+        "source_key_sha256": "c29e7d36b9919ec285f8514b6e4e50fb8e25e4b291ef77d9691790de562a5912"
+      },
+      {
+        "path": "resources/data/polygons/48.txt",
+        "sha256": "7284d900fc768c969c9f4118d4966a46804d3c78ee92ad850d3cb78a554b59fd",
+        "source_key_sha256": "e66508b072264002f458c641002e316f8553d3c4b22fcbbfa2918a18514f7b67"
+      },
+      {
+        "path": "resources/data/polygons/49.txt",
+        "sha256": "6cea312af06b54a1a0eef971f8f1b8576d2df8a5261f1a7eca4b07e83b4fa83f",
+        "source_key_sha256": "e5b40ce5c411e4c2df4cd5af79352407b4783373fb6093b21a61fb8e88506f45"
+      },
+      {
+        "path": "resources/data/polygons/5.txt",
+        "sha256": "53b21b8a6f29fc29d0bf3f9503800ba5e65e456d1a5f0d57e7da77056d24e09b",
+        "source_key_sha256": "5136c44f338c7cb5b0f9e80f8e4e51987637bbf6888213318a39499226983214"
+      },
+      {
+        "path": "resources/data/polygons/50.txt",
+        "sha256": "2c808ad9877731de00929fdf8cdc651ea033d9027812872393d8b8919185e48b",
+        "source_key_sha256": "a8b62cfd113483109398c5b361928608ce07d8cfe0990850c653df0a77ec1266"
+      },
+      {
+        "path": "resources/data/polygons/51.txt",
+        "sha256": "7616e6e62db6c13f8de8e5cde8c3571ddb90810909b40251c7da28fadca9827c",
+        "source_key_sha256": "a5f0ec2d0c83bf19cfcb138f7ef25248a8b0845bc4557e4262037112906eba83"
+      },
+      {
+        "path": "resources/data/polygons/52.txt",
+        "sha256": "fa5e608a17c7f24fed024144ee97102e57f1961483714828d7dec7fd0f4e35f7",
+        "source_key_sha256": "cbc1abf400d15f83fdc96a9a3342a25ae7d0e6227542bde16c1985a3eb56e0ad"
+      },
+      {
+        "path": "resources/data/polygons/53.txt",
+        "sha256": "b63353be820aac44535a5c476c29058cdbbc1b2891c07489f03a6c2359444152",
+        "source_key_sha256": "2959a7dffeade1bd686a48fb8c14b3f3d0e17a38071560f2eaaf0b6bdf7c3c3a"
+      },
+      {
+        "path": "resources/data/polygons/54.txt",
+        "sha256": "b3f593b4cf54db1f828cf89f0b68ccc64ae5e39fb4d3831e22197d586ae71537",
+        "source_key_sha256": "bf7e986543d9796412cd8b615c1427b1a21f34329c433afb05c8b968ba4190e0"
+      },
+      {
+        "path": "resources/data/polygons/55.txt",
+        "sha256": "6e9ac41d5b4479f711bef304d419f39c84dcb759783e1c455337784fa30ee414",
+        "source_key_sha256": "68dd6b496000786434ca8d584cf628da0ca7937586e4d4c98817c329881bf7e3"
+      },
+      {
+        "path": "resources/data/polygons/56.txt",
+        "sha256": "9208150573b47a6e7cd02e71ba2ab5c5a7d3e92126d8178135defb714f3cf008",
+        "source_key_sha256": "9680dec09a03e8871be9cf8043a446d5abce080ab5e0ab23abfed8c38ca77a3a"
+      },
+      {
+        "path": "resources/data/polygons/57.txt",
+        "sha256": "4d6e17749155b39736eb06d28bba79927fe6ac513a4d2002cdf29de15d9e8916",
+        "source_key_sha256": "3338c1b0a8709fbb02212a74c207ec227e80eeceade2c7d8ba9223922571113b"
+      },
+      {
+        "path": "resources/data/polygons/58.txt",
+        "sha256": "5fafc90a85294b9a7755182c96254cbd8895a9b098bd35e2dff57c0e6cdb93c3",
+        "source_key_sha256": "bc03179e8a15c92ff870dc7f52b82f621893702110285b43a6682a604e4a3c10"
+      },
+      {
+        "path": "resources/data/polygons/59.txt",
+        "sha256": "ad59425c7eefc2827b398367bf3f5f491723dfbbf0634cd35c99939e9e41fe6e",
+        "source_key_sha256": "26bc84963619ea38f2520f23587b4cf65353b2c9936d8ae8a6c80d0c43fffe34"
+      },
+      {
+        "path": "resources/data/polygons/6.txt",
+        "sha256": "02d04f2078b2bc1e9ed760f02a40449457f61301d005dde14813e0bb547144af",
+        "source_key_sha256": "4d08f53cae1f31f49de3cb72d030aa8734077908cde6c280698353a9a6496926"
+      },
+      {
+        "path": "resources/data/polygons/60.txt",
+        "sha256": "ea80292b4ca59d93c2fbf7f511f1780e2101925dddccc0adba67d64d887f03a7",
+        "source_key_sha256": "e2a07b8d2ee4fc86be999c9ecf5dac6df6c2b2a774b96f807323d4005d9c076b"
+      },
+      {
+        "path": "resources/data/polygons/61.txt",
+        "sha256": "54a51918bb197e3f49c09273c6ba01807ef0cda01114d896f0d71d17bffcdf75",
+        "source_key_sha256": "6dc883e8297ef82bbfd16da64f329fa864fc8bef9ef4230a531ea85b32f971fa"
+      },
+      {
+        "path": "resources/data/polygons/62.txt",
+        "sha256": "b7ddf915425c9a25e6295c9630777388e87857c0e41d6001f58634fc34ba2603",
+        "source_key_sha256": "ccafabf3beaf0500255cee4c88884affe57f5fa4309860fd113d3674575092a8"
+      },
+      {
+        "path": "resources/data/polygons/63.txt",
+        "sha256": "30f35a041da91e409356b7e21435a97d8bfda29e5d7ca2b0370ffab0f4d6b8ca",
+        "source_key_sha256": "9b58e064e52d68a53d221def9565aedc2863deb7e2ac1570aa779f5f860e1949"
+      },
+      {
+        "path": "resources/data/polygons/64.txt",
+        "sha256": "13b09a193bad20c258396fb0a75e46ff4a8ebbdbaaef0428c5ee884d412d8051",
+        "source_key_sha256": "14294ab5a205d5e3a3f6b11a494919c2cb5d3d07b4274e9a942ffaacabda80f9"
+      },
+      {
+        "path": "resources/data/polygons/65.txt",
+        "sha256": "48aa0b36a05dc80d6b6a784d5870b519fd6f37a7184c55815351e85f800894c2",
+        "source_key_sha256": "8760708eada360b82ae41518141147dfc1f64989768c5c0931ca172b85f6fefc"
+      },
+      {
+        "path": "resources/data/polygons/66.txt",
+        "sha256": "5c21182c22a31d983a608dc9dc321fd6fe36c8a40941d884a47f997a5bd6a34f",
+        "source_key_sha256": "1e3f1429dc1c89858fd30430dee24c03d9487949b5a238de0a4ec84a6671fca7"
+      },
+      {
+        "path": "resources/data/polygons/67.txt",
+        "sha256": "3c1a766c675726a657df7ceee5bfd9c9524cb8be480ed2d9c35e13406cb39be4",
+        "source_key_sha256": "15f848bd6c0f7cf92659c8457b4c6be3e4e6cf5e3eff6c940390603eab72b1ed"
+      },
+      {
+        "path": "resources/data/polygons/68.txt",
+        "sha256": "5531b81c4860923fa1bb5ce7ac7d1e1c1c480b5674e0a15cadc80e8f7b997d02",
+        "source_key_sha256": "3814de33f5f90a2b202e8a45a35440bd0f0b3d9b74b564db0d9d41a35f12a7b7"
+      },
+      {
+        "path": "resources/data/polygons/69.txt",
+        "sha256": "469a9bf390d811f29fd1bb5180460fb6b32c643fbdc9fc811839f32afc423432",
+        "source_key_sha256": "7a29b15f6a498325246a153bc4765bac0c7c0ab0e009557853d6da944216b1ba"
+      },
+      {
+        "path": "resources/data/polygons/7.txt",
+        "sha256": "efce33748cd60fa028fc87afad3ec767340420d040830242e939a6c583c06f2d",
+        "source_key_sha256": "95b2d57358ce7a664344cdcaddcf56ee990ffd5f92a37160f76601a58ba92f09"
+      },
+      {
+        "path": "resources/data/polygons/70.txt",
+        "sha256": "0fe7baa7c940d6e47f4bee0e0bfd829f1386aaef792f0ec3647fe13ddee52783",
+        "source_key_sha256": "d070b5a4bc8b08b5828b0ee10fab0dd7458e294a63be6e029a49e1f0ae0d7f4b"
+      },
+      {
+        "path": "resources/data/polygons/71.txt",
+        "sha256": "afd02148c72283df8a6f73b0171fdf62fc83641d893fb4aad6baac81d3a39956",
+        "source_key_sha256": "decb66d5085152d01a3eee6b568e59972367e2e3b62bc6aff88775ea8a3e44e3"
+      },
+      {
+        "path": "resources/data/polygons/72.txt",
+        "sha256": "3be3987bd9d68af2f705448892613fc170ecae3e3f2731ff3c4ff3ebea980e7d",
+        "source_key_sha256": "b02d43cf8070bc7de096ff51b107d7a19d470d7da75acea6378cf2fa39152072"
+      },
+      {
+        "path": "resources/data/polygons/73.txt",
+        "sha256": "452c4723d15399d00d98e630d1f6fcbfc1af53e40329522e3049594da39ef3bd",
+        "source_key_sha256": "64d105919427ed1dc16d9985e5accfd2549f3567788a33a7c31386a689fb7f63"
+      },
+      {
+        "path": "resources/data/polygons/74.txt",
+        "sha256": "f9e16def9cac5ee3f4236ece3492e2332f118eb99ac95bca35cb10a84f26d8ce",
+        "source_key_sha256": "810ac9b589c82a745ba7a02cfe3f57ff1390b134f80e8e96964395f6ceb79989"
+      },
+      {
+        "path": "resources/data/polygons/75.txt",
+        "sha256": "fc84af2adb9d826adb67e94abd67a5270e7a5a7b61dd236cc92e012262d56043",
+        "source_key_sha256": "b0539de39145c54d08dc0b4e27ade612205dfd99f9a56b8a44ea51781cc4989b"
+      },
+      {
+        "path": "resources/data/polygons/76.txt",
+        "sha256": "68a1c531fb39f9431f7e56dfb5fdac31e46004551b94ba0fd0616574388559a0",
+        "source_key_sha256": "433fd6dd6fef72aaa1c30029913db2b4c05af6996fad9253d51b0b4ce49cb090"
+      },
+      {
+        "path": "resources/data/polygons/77.txt",
+        "sha256": "397051bff61fa9fa2f8e8bb40e6542232a67ee5da8673713d16fbe5a0c797903",
+        "source_key_sha256": "11e233b335327f728e143ba61061e4c9dfaa121742c3b3b7de13ee5e86521cb5"
+      },
+      {
+        "path": "resources/data/polygons/78.txt",
+        "sha256": "5bbfd4d78a975de19c0caf036834ced4c3aae8e1ee7dafe6302fee60e4073409",
+        "source_key_sha256": "b0aa1f332413b1216fbd849706b3f068cfb955020c729e18f0de174ac6a42d76"
+      },
+      {
+        "path": "resources/data/polygons/79.txt",
+        "sha256": "e2cc66bf136cfdd73a909d1c947585dc83abe842aa3fed633a4927e89ae70638",
+        "source_key_sha256": "ed97e83411a253bae87091d518de0c694368937ab64fbef40634d97d59e4df61"
+      },
+      {
+        "path": "resources/data/polygons/8.txt",
+        "sha256": "6b5332f5e001db1fcbd99c2a386ad5543414d8536737035e3bc59a443f2bbe71",
+        "source_key_sha256": "8e9a07afad3875de32cf3fa0fbc98b3de175466d01249ce35fcedba166fdae24"
+      },
+      {
+        "path": "resources/data/polygons/80.txt",
+        "sha256": "a906cb51fe0f7aeab06fd035d5375856a9f46075410e24f7c254d0132d8457b2",
+        "source_key_sha256": "76bfe172b63f9d58552a9fd784059c85e6a74cf94f323ef682b4b2e351d8d7d9"
+      },
+      {
+        "path": "resources/data/polygons/81.txt",
+        "sha256": "85986b8ffb1258d772fb87a83e29c614f73f3f88c45203409e028a622ba56d10",
+        "source_key_sha256": "48cee3ee3066cf42a5954ad1c465677558135cd2b32fbe2a4f483a8c9a529486"
+      },
+      {
+        "path": "resources/data/polygons/82.txt",
+        "sha256": "7abb6628974f2e441b0e5ed817583be28150195751a0c16a3a196127fa8f7f46",
+        "source_key_sha256": "2908a4f0a855f4777cd223731cb02050129679929da73a5c628de063d9829420"
+      },
+      {
+        "path": "resources/data/polygons/83.txt",
+        "sha256": "4c82706080a5d977445e9f4f68aa24c5c6ef9a9e1bcbfa3328e5f9abc9872023",
+        "source_key_sha256": "d0bd7d1d5941d363e8e65abd67d2ee015aba5513fa00606fe76ca8f17dbd134b"
+      },
+      {
+        "path": "resources/data/polygons/84.txt",
+        "sha256": "ec8d4b4cda808d0f612e65d3353ec8cc37b45936507a4cfb332f37734769938d",
+        "source_key_sha256": "4f02590836e57167b3273cb4c42cc37805c290a16ffc9a504b8361c326a185eb"
+      },
+      {
+        "path": "resources/data/polygons/85.txt",
+        "sha256": "9025b3dbd1a209e68df08c273629194bdf8eee8f79746607857e06806e133663",
+        "source_key_sha256": "0e4577e1936adbf859be5b27035ec4a6ccd7d4c4ccd3b0003f9c50c2717f3631"
+      },
+      {
+        "path": "resources/data/polygons/86.txt",
+        "sha256": "dfc5620d472efe67deff10a727290152b57cb7ce6a8e5d2130b76f77ccdc4301",
+        "source_key_sha256": "8cad5d454fa842f26de58d5422c5aa642a36c0b93b7606d36219f2ec3c2c4b93"
+      },
+      {
+        "path": "resources/data/polygons/87.txt",
+        "sha256": "fd785b30bab035db1f3919ac1af99605bbe13c5e6ab5a423c92b33340039753c",
+        "source_key_sha256": "5c909a6fccc165a207d86ee897246702967dec8d6fa6d33755cfffbc8b3a971d"
+      },
+      {
+        "path": "resources/data/polygons/88.txt",
+        "sha256": "2b5aef41d85846478bf4f228d1fec26a0a71038161fa27f8d2c7a9d84eacdfa4",
+        "source_key_sha256": "3b584c74e28c4221cb615658c679bdaa64034c07f30594063b3dea8922ce2c9a"
+      },
+      {
+        "path": "resources/data/polygons/89.txt",
+        "sha256": "946dc1e601b9b8960210e12518704a9e015c9d99f25a713d05f6385cd7d124d8",
+        "source_key_sha256": "fb99df0d4412ab3e9f4f9d1dc01344dac2e9fca84bd07ea037cd2f06830df316"
+      },
+      {
+        "path": "resources/data/polygons/9.txt",
+        "sha256": "b3ffcfa5f9cc06972ad1649da5b2a9ac6f8f2bf0254b4c046d58ac7352f7fe0d",
+        "source_key_sha256": "cafa38bf05987183c8514c5a332df00bba147f052bc2a7e3b4a35fcb34b8aa8d"
+      },
+      {
+        "path": "resources/data/polygons/90.txt",
+        "sha256": "d0ddc5a95f851eb535ae92f0464691ff1d7a309a1630e4da95b8c69987d75717",
+        "source_key_sha256": "189599d502566d19f516d61678b74dd3c359d4e72ce737f59c27edebe4f520fb"
+      },
+      {
+        "path": "resources/data/polygons/91.txt",
+        "sha256": "a04b90f70a416bf115658542140343fa14e03c0c6b4299c8184e9962759ed6e7",
+        "source_key_sha256": "0cf06003d495940315a9063140f9c5207db4fc86878ed97c68e4efd515b31deb"
+      },
+      {
+        "path": "resources/data/polygons/92.txt",
+        "sha256": "b0ad2056fb87262ef70b5722f22005576e0aa3a35aa35821b12772bad05515a4",
+        "source_key_sha256": "f760a106a0af1c8b84e1e8584949ab4c26381f8d11fe319aa110e3c9e6937ca3"
+      },
+      {
+        "path": "resources/data/polygons/93.txt",
+        "sha256": "6e6161763a1058b5fbecfe56f09f26220d5b6f75276773a7b505e640a9f81df8",
+        "source_key_sha256": "945775b0689067a9d98e63b8caf1d5bbaf70f2e41eaaeb2bec3a0769469a1cfc"
+      },
+      {
+        "path": "resources/data/polygons/94.txt",
+        "sha256": "b432390d037b495b86a9cb026af81c8a02542497e38e956516f5765f3451f6a6",
+        "source_key_sha256": "af98e0bd7f09fdb7a59292713570625caa516de4236678207d881aa1aeb85856"
+      },
+      {
+        "path": "resources/data/polygons/95.txt",
+        "sha256": "baadb8dcb265317ea871c2a2bd2f06e15c776eddf1a8cd33a0f436bb02e5430a",
+        "source_key_sha256": "2d2d44492793b1e09ba08f9b4776960bb02c7eb106fe626fc4e4c38098b8845a"
+      },
+      {
+        "path": "resources/data/polygons/96.txt",
+        "sha256": "f9e39c75e3ae5c05b2613d3068db94c6a5b9fcb971c062e4e6a48ec177417b2d",
+        "source_key_sha256": "7d1c5a6030d768c79a2edd25f0a8be14fc206637f6945bacacb90af96b3b792a"
+      },
+      {
+        "path": "resources/data/polygons/97.txt",
+        "sha256": "cbf289a0671768ec1aca91e54c72fd5406f0f2c3613fbc11a4f4d5f5e52076a9",
+        "source_key_sha256": "b077bfd4df235b3f09302d89562dbfc66d52f7294f7a3d2f5eef0c8aca5ea346"
+      },
+      {
+        "path": "resources/data/polygons/98.txt",
+        "sha256": "a5ffa467b2422bfa1208b0d007f7e614c3b914987fbadf104131a1a5624c3cb7",
+        "source_key_sha256": "f928171fb075676ca54fd7a0e859fff0d4ce929369fe2d909a19ff26e01228e9"
+      },
+      {
+        "path": "resources/data/polygons/99.txt",
+        "sha256": "f9f32142e38abb8906c7021733e16b566f831f6693c880c1acad38932699a0eb",
+        "source_key_sha256": "857577229c54906782de21120dbde9d09f7c1d3e211ca2d82d8188e2ad84b9b8"
+      },
+      {
+        "path": "upstream/src/__init__.py",
+        "sha256": "3fe847fa1d102d482c0b4b5f6a926fa7db0f2abbaf6eb26b99f07d1b5915a373",
+        "source_key_sha256": "675d417c3b77c8b73590d0e65a0c5bb65397f596ced20f7c3de077e26f8ebe68"
+      },
+      {
+        "path": "upstream/src/evaluate.py",
+        "sha256": "07c77a8f36a944a0fbf62f23d011c36b78915004cb8e8872589f198127d10bc2",
+        "source_key_sha256": "031462f2916cdad274907b86f1e101665192c9d24c7b2449d4e9c3b8f02414fb"
+      },
+      {
+        "path": "upstream/src/geometry_utils.py",
+        "sha256": "993aa3e361558de96f88dec634316c3059f1c14ef7aadb33890de772f0cdf294",
+        "source_key_sha256": "0df02af88016087666549b5fa028978d3572cd5ff8630adfcbe13c66263721d3"
+      },
+      {
+        "path": "upstream/src/gnn_feature.py",
+        "sha256": "15d048e4b893db28b384909a0275077d753495a7bc4d49c3499f9151e2b7474a",
+        "source_key_sha256": "800e3443eec15636be8de74650f037002e01cde472d662852d089414b05223a7"
+      },
+      {
+        "path": "upstream/src/score_model.py",
+        "sha256": "67cb8aa5580d4ee5f4224effa2ff69e6e03d1fd76bfeaa18b0030369198af7cf",
+        "source_key_sha256": "f2b40d57c31c82b3e53b74d2046cc72ab5c46cbd94523a3ca87bcf2dea988cce"
+      },
+      {
+        "path": "upstream/src/sde.py",
+        "sha256": "d87ee1ee73af86e8f04ad7b1ab27cb73eb9eb638ef89734013127e4655f83848",
+        "source_key_sha256": "f84d17b9224dd9841f3f419c60c9f2bcf20ef30cd80c4e9ee6e93e413f390ad4"
+      },
+      {
+        "path": "upstream/src/train.py",
+        "sha256": "6529a0188fd159e3d6cc43bc269e1b9b76923ce3fe75483ca388bb837f856523",
+        "source_key_sha256": "d3ff1c7ad862cf7fe6d5bca9443219ff549df64b546bfd138b0bfe70bff42733"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "covered_cases": 128,
+      "completed_cases": 128,
+      "failed_cases": 0,
+      "verified_output_files": 57856,
+      "frozen_input_files": 457,
+      "scope": "Coverage/configuration, full saved output hashes, unchanged inputs, summary recomputation; not a new independent geometry recomputation"
+    },
+    "validation_scope": "Completed verified baseline, summary recomputation, diagnosis binding, selected saved-file hashes/configuration; original source files and unselected output tensors are not reverified here"
+  },
+  "implementation_files": [
+    {
+      "path": "freeze_collision_inputs.py",
+      "sha256": "ba9baed9cf8b967540c0991f1b070847c22e6b420a9397fcf6baed15b7ebaec8"
+    },
+    {
+      "path": "diagnose_results.py",
+      "sha256": "89cf4d3280cde1864cf9294579321e11a524bd5337d1df5d4f84586b15221494"
+    },
+    {
+      "path": "run_benchmark.py",
+      "sha256": "8d6c2100e36c7fc16e106e50a92332941a5e72ab0075fa90e9720c74a4d7b170"
+    }
+  ],
+  "cases": [
+    {
+      "sample_index": 25,
+      "group": "failure_development",
+      "candidate_index": 391,
+      "path": "cases/sample_025.json",
+      "sha256": "6ea5b4d7d8c3eaff8ec1c79562f699b5c3c96abe637148b8e03865da28fa76fa"
+    },
+    {
+      "sample_index": 45,
+      "group": "failure_development",
+      "candidate_index": 271,
+      "path": "cases/sample_045.json",
+      "sha256": "092154a6f576962adf86decc0756e639abc2ce25d8f7485d5afb928d4589713b"
+    },
+    {
+      "sample_index": 46,
+      "group": "failure_development",
+      "candidate_index": 224,
+      "path": "cases/sample_046.json",
+      "sha256": "cc325efb85386a02ebfda290ee2f0ef4143dc38301fc3e7b556f1ef520d32e1d"
+    },
+    {
+      "sample_index": 47,
+      "group": "failure_development",
+      "candidate_index": 190,
+      "path": "cases/sample_047.json",
+      "sha256": "33cf19ad5be364b94c7fb73f9b6b8b539a5d63dc6f850c3788e70fdddacc0a16"
+    },
+    {
+      "sample_index": 54,
+      "group": "failure_development",
+      "candidate_index": 11,
+      "path": "cases/sample_054.json",
+      "sha256": "d8f48cd0eb284ac57e5b0be1615295ec3c57aaf553af399bb3627acf1896036e"
+    },
+    {
+      "sample_index": 62,
+      "group": "failure_development",
+      "candidate_index": 347,
+      "path": "cases/sample_062.json",
+      "sha256": "368daa213e0e1d862dc7aaa40fbafeaa42bcc432559a97dc5342f94778923a49"
+    },
+    {
+      "sample_index": 99,
+      "group": "failure_development",
+      "candidate_index": 303,
+      "path": "cases/sample_099.json",
+      "sha256": "ac31e2e7c45f7ba3dd71827519f5492003c5b594b3cc0ba60545f3eb85f0b8fd"
+    },
+    {
+      "sample_index": 115,
+      "group": "failure_development",
+      "candidate_index": 15,
+      "path": "cases/sample_115.json",
+      "sha256": "109838398c51c2cc6fced579ff56855c8b3101572d448e9c459249f15435e315"
+    },
+    {
+      "sample_index": 0,
+      "group": "success_regression",
+      "candidate_index": 88,
+      "path": "cases/sample_000.json",
+      "sha256": "71f1788b0c2d2a628508d48b3130d0f20756d0f0c4785a6ed3cdc6a9beee867e"
+    },
+    {
+      "sample_index": 17,
+      "group": "success_regression",
+      "candidate_index": 330,
+      "path": "cases/sample_017.json",
+      "sha256": "7d95d3cedff4ff1ae422a65b1f28fb683179911ef023d01c20b7993064cde733"
+    },
+    {
+      "sample_index": 35,
+      "group": "success_regression",
+      "candidate_index": 493,
+      "path": "cases/sample_035.json",
+      "sha256": "cb3b7333b3868e32349ad17ab48050e586c56eba3536803ed4896e71e854daba"
+    },
+    {
+      "sample_index": 56,
+      "group": "success_regression",
+      "candidate_index": 321,
+      "path": "cases/sample_056.json",
+      "sha256": "6a45ba2beb65784098465ecb47492172a8a9f87ac268a9ac8c1000e61be01375"
+    },
+    {
+      "sample_index": 74,
+      "group": "success_regression",
+      "candidate_index": 336,
+      "path": "cases/sample_074.json",
+      "sha256": "3e7a0084d4f249084324ba77c7fd0f0a7db41a5758b7b917c17ff873b4fb2225"
+    },
+    {
+      "sample_index": 91,
+      "group": "success_regression",
+      "candidate_index": 20,
+      "path": "cases/sample_091.json",
+      "sha256": "5cbbe42534270cce50a86714322c540e689a0e707bf60735216cc3fdbd118205"
+    },
+    {
+      "sample_index": 109,
+      "group": "success_regression",
+      "candidate_index": 460,
+      "path": "cases/sample_109.json",
+      "sha256": "cb46cdd23b41094d545903291b7512d4cebc1f06552e062f5a98dfbf7af178b7"
+    },
+    {
+      "sample_index": 127,
+      "group": "success_regression",
+      "candidate_index": 183,
+      "path": "cases/sample_127.json",
+      "sha256": "5a99b10bb2dfd14bbbf3ccc9352319103e7fd23acb234841dfa9d4859a58e098"
+    }
+  ]
+}

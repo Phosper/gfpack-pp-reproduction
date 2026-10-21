@@ -1,0 +1,64 @@
+--- pinned/main.cpp
++++ probe/main.cpp
+@@ -533,6 +533,8 @@
+     solution = Intersect(subject, clip, FillRule::NonZero);
+     return solution;
+ }
++thread_local int probe_iterations = 0;
++thread_local bool probe_early_return = false;
+ void rm_overlap(vector<int> ids,vector<double>rotates,
+                 vector<pair<double,double>> & actions,
+                 vector<vector<pair<double,double>>> polys,
+@@ -576,6 +578,7 @@
+     //std::cout << "actions[0] = " << actions[0].first << ", " << actions[0].second << std::endl;
+     //.......................................
+     for(int ep=0;ep<2000;ep++){
++        probe_iterations = ep + 1;
+         //cout<<"ep "<<ep<<endl;
+         double v[ids.size()][2]={};
+         bool inserted=false;
+@@ -716,6 +719,7 @@
+                 actions[i].first-=mx;
+                 actions[i].second-=my;
+             }
++            probe_early_return = true;
+             return ;
+         }
+     }
+@@ -763,9 +767,35 @@
+ }
+ 
+ 
+-PYBIND11_MODULE(rmspacing, m) {
++PYBIND11_MODULE(collision_probe, m) {
+     m.doc() = "pybind11 rm_spacing"; // optional module docstring
+     m.def("rm_spacing_all", &rm_spacing_all, "A function that removes spacing");
++    m.def("overlap_probe", [](vector<int> ids, vector<double> rotates,
++             vector<pair<double,double>> actions,
++             vector<vector<pair<double,double>>> polys, double width, double height, double eps) {
++        if (ids.empty() || ids.size() != rotates.size() || ids.size() != actions.size()
++            || !std::isfinite(width) || !std::isfinite(height) || width <= 0 || height <= 0
++            || !std::isfinite(eps) || eps < 0)
++            throw std::invalid_argument("Invalid probe dimensions");
++        for (size_t i = 0; i < ids.size(); ++i) {
++            if (ids[i] < 0 || (size_t)ids[i] >= polys.size() || polys[ids[i]].size() < 3
++                || !std::isfinite(rotates[i]) || !std::isfinite(actions[i].first)
++                || !std::isfinite(actions[i].second))
++                throw std::invalid_argument("Invalid probe input");
++            for (auto p : polys[ids[i]])
++                if (!std::isfinite(p.first) || !std::isfinite(p.second))
++                    throw std::invalid_argument("Nonfinite vertex");
++        }
++        probe_iterations = 0;
++        probe_early_return = false;
++        rm_overlap(ids, rotates, actions, polys, width, height, eps);
++        py::dict result;
++        result["actions_xy"] = actions;
++        result["iterations"] = probe_iterations;
++        result["return_path"] = probe_early_return ? "no_collision_before_boundary_update" : "iteration_limit";
++        return result;
++    });
++
+ }
+ 
+ 

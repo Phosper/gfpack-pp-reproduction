@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "verified",
+  "verified_utc": "2026-10-21T07:52:03.438227+00:00",
+  "method": "Independent Python float64 transforms and Shapely intersections; standalone direct rectangle arithmetic separately audited",
+  "absolute_geometry_tolerance": 1e-07,
+  "software": {
+    "python": "3.13.5",
+    "shapely": "2.1.2"
+  },
+  "scope": "Local downloaded JSON/patch evidence, saved worker outputs, remote-provided digests, and local script digests; no native extension rerun or downloaded raw tensor/source re-verification",
+  "remote_file_hashes": [
+    {
+      "path": "controls/controls.json",
+      "sha256": "f33355c5ba1cf059264c0ff86c8279057d21c451941b92aa964ffc85631dc4b7",
+      "expected_sha256": "f33355c5ba1cf059264c0ff86c8279057d21c451941b92aa964ffc85631dc4b7",
+      "passed": true
+    },
+    {
+      "path": "frozen_inputs/manifest.json",
+      "sha256": "9b0fd899a72e29027906751fe9caf4386f760eddf3d17124a5b9fe49732090c6",
+      "expected_sha256": "9b0fd899a72e29027906751fe9caf4386f760eddf3d17124a5b9fe49732090c6",
+      "passed": true
+    },
+    {
+      "path": "build.json",
+      "sha256": "6de37e49c5621820e186ef7e46928d4f2c78f0cd271495e5ca281b5440bff57f",
+      "expected_sha256": "6de37e49c5621820e186ef7e46928d4f2c78f0cd271495e5ca281b5440bff57f",
+      "passed": true
+    },
+    {
+      "path": "instrumentation.patch",
+      "sha256": "454c9d68b1cd96cd8c917f266111492b9ff2fe3456452b7fc238a67682dd6f37",
+      "expected_sha256": "454c9d68b1cd96cd8c917f266111492b9ff2fe3456452b7fc238a67682dd6f37",
+      "passed": true
+    }
+  ],
+  "local_script_hashes": [
+    {
+      "path": "build_collision_probe.py",
+      "sha256": "79200ce24f35936c176cde9145b332529976ab7629dfec9c679fde5fadc1ffd9",
+      "expected_sha256": "79200ce24f35936c176cde9145b332529976ab7629dfec9c679fde5fadc1ffd9",
+      "passed": true
+    },
+    {
+      "path": "check_collision_controls.py",
+      "sha256": "aff1c2b588043510e40b5e9a2e50f4accf0c6ce6619c1fdbeeecda04f033fdb2",
+      "expected_sha256": "aff1c2b588043510e40b5e9a2e50f4accf0c6ce6619c1fdbeeecda04f033fdb2",
+      "passed": true
+    },
+    {
+      "path": "freeze_collision_inputs.py",
+      "sha256": "ba9baed9cf8b967540c0991f1b070847c22e6b420a9397fcf6baed15b7ebaec8",
+      "expected_sha256": "ba9baed9cf8b967540c0991f1b070847c22e6b420a9397fcf6baed15b7ebaec8",
+      "passed": true
+    }
+  ],
+  "manifest_sidecar_verified": true,
+  "frozen_cases": 16,
+  "frozen_geometry_variants_recomputed": 64,
+  "max_frozen_geometry_absolute_delta": 1.5916157281026244e-12,
+  "controls_gate_pass": false,
+  "controls_passed": 4,
+  "controls_failed": 7,
+  "controls_total": 11,
+  "control_geometry_variants_recomputed": 22,
+  "direct_rectangle_cases_verified": 9
+}
