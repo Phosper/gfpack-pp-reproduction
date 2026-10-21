@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "passed": 11,
+  "checks": [
+    "four_config_input_scales",
+    "same_epsilon_four_configurations",
+    "matched_physical_sigma_inputs_equal_between_sigma_profiles",
+    "sigma_1000_endpoint_common_t_one",
+    "zero_score_paired_ratio_one",
+    "conditional_oracle_residual_zero",
+    "source_unweighted_loss_N_scaling",
+    "masked_polygons_excluded",
+    "dropout_rng_paired_four_configurations",
+    "caller_rng_restored",
+    "partial_run_preserves_all_planned_denominators"
+  ],
+  "oracle_note": "A synthetic conditional oracle tests arithmetic only; a true marginal score is not expected to make every conditional-noise residual zero."
+}

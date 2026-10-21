@@ -1,0 +1,39 @@
+{
+  "source_url": "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Xue_GFPack_Attention-Driven_Gradient_ICCV_2025_supplemental.zip",
+  "archive_bytes": 171436303,
+  "archive_sha256": "f4d9662fa7ff0950485111cc08673bde3bfc79fb5796d28745456e6f9f7e2a4d",
+  "member_count": 2324,
+  "uncompressed_bytes": 220092607,
+  "extensions": {
+    ".svg": 1,
+    ".jpg": 1522,
+    ".png": 769,
+    ".pkl": 1,
+    ".py": 1,
+    ".pdf": 1,
+    ".mp4": 1,
+    ".md": 1
+  },
+  "non_media_members": [
+    {
+      "name": "Datasets/Puzzle/boundary.pkl",
+      "bytes": 2873480,
+      "sha256": "5fe2c2185daad09278f983d8932cb0ed5ad5a047d274e0b6ff176d18692ba2d6"
+    },
+    {
+      "name": "Datasets/Puzzle/genPuzzle.py",
+      "bytes": 14541,
+      "sha256": "a173935dc6208a6b37f0628ce4cbb3b1e2c1e2f895318b4efed048188d80297a"
+    },
+    {
+      "name": "GFPackpp_Supplementary_Material.pdf",
+      "bytes": 5584246,
+      "sha256": "37acb61646d49fc6098489f7eb68cf571e8b87fffae57c8a3d433ce1ec08f2c9"
+    },
+    {
+      "name": "README.md",
+      "bytes": 908,
+      "sha256": "f6b3ac13d1877bbb76f89d8df2ca6df5ca83e839aa9dbe59d0a60b8e17aea4de"
+    }
+  ]
+}

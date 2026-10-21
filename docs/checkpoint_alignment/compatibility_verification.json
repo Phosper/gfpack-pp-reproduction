@@ -1,0 +1,153 @@
+{
+  "status": "verified",
+  "verification_scope": "CPU noise, recorded coverage/pairing and summary arithmetic",
+  "report_file": "compatibility.json",
+  "report_sha256": "8493ea55067e77bf292dcffc10b925f8cb09291f618c471da595e7cb271b7c25",
+  "diagnostic_script_sha256": "27924b52d9efbc21fbfa96bf32322860c96eae750657de44ea7bb566ca7209aa",
+  "verifier_sha256": "352c58d402dd235e81db5205826cf0cbf5ce7f515f8f9172b71b3d8c369f7338",
+  "verifier_pytorch": "2.6.0+cu124",
+  "coverage": {
+    "planned_grid_cells": 96,
+    "measured_grid_cells": 96,
+    "planned_noisy_placements": 384,
+    "measured_noisy_placements": 384,
+    "unmeasured_noisy_placements": 0
+  },
+  "comparison_tolerance": {
+    "absolute": 2e-06,
+    "relative": 5e-06
+  },
+  "pooled_summaries": [
+    {
+      "grid_group": "fixed_t",
+      "sigma_min": 1.0,
+      "rotation_feature_scale": 500.0,
+      "grid_cells": 14,
+      "channel_ratio_to_paired_zero_score": [
+        0.6080448365021334,
+        0.5557842999188192,
+        0.44912126732057117,
+        0.4487835742745826
+      ],
+      "translation_ratio_to_paired_zero_score": 0.5822596726649667,
+      "rotation_ratio_to_paired_zero_score": 0.448955915036986,
+      "all_channel_ratio_to_paired_zero_score": 0.5141560943956425
+    },
+    {
+      "grid_group": "fixed_t",
+      "sigma_min": 1.0,
+      "rotation_feature_scale": 1000.0,
+      "grid_cells": 14,
+      "channel_ratio_to_paired_zero_score": [
+        1.554565832485215,
+        1.247997930468748,
+        19.230461482737137,
+        19.71127798658744
+      ],
+      "translation_ratio_to_paired_zero_score": 1.4033063143570572,
+      "rotation_ratio_to_paired_zero_score": 19.465894541965067,
+      "all_channel_ratio_to_paired_zero_score": 10.63130493190893
+    },
+    {
+      "grid_group": "fixed_t",
+      "sigma_min": 0.1,
+      "rotation_feature_scale": 500.0,
+      "grid_cells": 14,
+      "channel_ratio_to_paired_zero_score": [
+        0.8523386643661686,
+        0.7925258134145091,
+        0.7057678401784413,
+        0.7053788173607675
+      ],
+      "translation_ratio_to_paired_zero_score": 0.8228272153419541,
+      "rotation_ratio_to_paired_zero_score": 0.7055773541378395,
+      "all_channel_ratio_to_paired_zero_score": 0.7629254148100708
+    },
+    {
+      "grid_group": "fixed_t",
+      "sigma_min": 0.1,
+      "rotation_feature_scale": 1000.0,
+      "grid_cells": 14,
+      "channel_ratio_to_paired_zero_score": [
+        1.6258045755653394,
+        1.3058624447529514,
+        19.340707210965338,
+        19.852496478180228
+      ],
+      "translation_ratio_to_paired_zero_score": 1.4679462602712017,
+      "rotation_ratio_to_paired_zero_score": 19.591306164818917,
+      "all_channel_ratio_to_paired_zero_score": 10.726992529672257
+    },
+    {
+      "grid_group": "matched_sigma",
+      "sigma_min": 1.0,
+      "rotation_feature_scale": 500.0,
+      "grid_cells": 10,
+      "channel_ratio_to_paired_zero_score": [
+        0.575961811383011,
+        0.5082326935045212,
+        0.4085906481920239,
+        0.3779661134322433
+      ],
+      "translation_ratio_to_paired_zero_score": 0.5424170905753818,
+      "rotation_ratio_to_paired_zero_score": 0.39303317204634947,
+      "all_channel_ratio_to_paired_zero_score": 0.46519410702253877
+    },
+    {
+      "grid_group": "matched_sigma",
+      "sigma_min": 1.0,
+      "rotation_feature_scale": 1000.0,
+      "grid_cells": 10,
+      "channel_ratio_to_paired_zero_score": [
+        1.6079700828293328,
+        1.2627162624215724,
+        19.183764538444247,
+        18.960735828841763
+      ],
+      "translation_ratio_to_paired_zero_score": 1.4369735694224481,
+      "rotation_ratio_to_paired_zero_score": 19.07046440648606,
+      "all_channel_ratio_to_paired_zero_score": 10.552484705416155
+    },
+    {
+      "grid_group": "matched_sigma",
+      "sigma_min": 0.1,
+      "rotation_feature_scale": 500.0,
+      "grid_cells": 10,
+      "channel_ratio_to_paired_zero_score": [
+        0.6855176904080716,
+        0.6458321349234807,
+        0.6034460277594244,
+        0.6025328327718029
+      ],
+      "translation_ratio_to_paired_zero_score": 0.66586232030249,
+      "rotation_ratio_to_paired_zero_score": 0.602982118369528,
+      "all_channel_ratio_to_paired_zero_score": 0.6333568347891692
+    },
+    {
+      "grid_group": "matched_sigma",
+      "sigma_min": 0.1,
+      "rotation_feature_scale": 1000.0,
+      "grid_cells": 10,
+      "channel_ratio_to_paired_zero_score": [
+        1.1870787322938103,
+        1.0245731697194689,
+        16.65127660831604,
+        17.186997285691298
+      ],
+      "translation_ratio_to_paired_zero_score": 1.106593353228003,
+      "rotation_ratio_to_paired_zero_score": 16.923426429509593,
+      "all_channel_ratio_to_paired_zero_score": 9.282995823687877
+    }
+  ],
+  "negative_controls": [
+    "duplicate_grid_rejected",
+    "tampered_mse_rejected"
+  ],
+  "endpoint_scope": "Four recorded endpoint fields checked; no GPU score was recomputed.",
+  "limits": [
+    "384 paired evaluations are not 384 independent layouts.",
+    "Model scores, dropout masks and matched inputs were not independently regenerated; their recorded hashes/RNG fields were checked.",
+    "Only the local diagnostic script input hash was rechecked; checkpoint/data were not rehashed here.",
+    "Two GTs and descriptive grid summaries cannot identify training provenance or packing success."
+  ]
+}

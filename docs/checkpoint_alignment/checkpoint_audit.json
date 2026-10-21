@@ -1,0 +1,6724 @@
+{
+  "schema_version": 1,
+  "status": "audit_complete_not_reproduction_validation",
+  "inputs": {
+    "checkpoint": {
+      "sha256": "e3585572100e61c5f3112a8925e7add420b70c8c7a8f23e29be97788ad3c5643",
+      "bytes": 42600941
+    },
+    "archive": {
+      "sha256": "23ed01a4664e193ea158d194eda7cd8c9e3c3cbfa17152221e580751d3c0cc97",
+      "bytes": 358228192
+    },
+    "used_dataset": {
+      "sha256": "dffdd191803ddfeb7701d9012b1f38dd88f01ee9333747a19ba86e18870848e0",
+      "bytes": 262128
+    },
+    "asset_provenance": {
+      "sha256": "1b408dd3d709f70e36947f7af0d2d3299d284eeec651b9bab138d5b88b6d3d2d",
+      "bytes": 134368
+    }
+  },
+  "checkpoint": {
+    "load_mode": "torch.load(map_location=cpu, weights_only=True)",
+    "audit_torch_version": "2.12.1+cu130",
+    "container_type": "OrderedDict",
+    "wrapper_keys": null,
+    "tensor_count": 298,
+    "state_dict_elements": 10621276,
+    "tensor_storage_bytes": 42485104,
+    "group_counts": {
+      "action_encoder": {
+        "tensor_count": 6,
+        "elements": 8640
+      },
+      "geo_feature": {
+        "tensor_count": 43,
+        "elements": 584440
+      },
+      "output_layer": {
+        "tensor_count": 2,
+        "elements": 516
+      },
+      "t_embed": {
+        "tensor_count": 3,
+        "elements": 8352
+      },
+      "transformer_model": {
+        "tensor_count": 244,
+        "elements": 10019328
+      }
+    },
+    "observed_shapes": {
+      "action_first_weight": [
+        64,
+        4
+      ],
+      "main_output_weight": [
+        4,
+        128
+      ],
+      "main_encoder_feedforward_weight": [
+        2048,
+        128
+      ],
+      "geometry_feedforward_weight": [
+        2048,
+        64
+      ],
+      "fourier_vector": [
+        32
+      ]
+    },
+    "observed_layer_indices": {
+      "main_encoder": {
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "count": 8,
+        "contiguous_from_zero": true
+      },
+      "main_decoder": {
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "count": 8,
+        "contiguous_from_zero": true
+      },
+      "geometry_encoder": {
+        "indices": [
+          0,
+          1
+        ],
+        "count": 2,
+        "contiguous_from_zero": true
+      }
+    },
+    "boundary_named_tensor_keys": [],
+    "state_metadata": {
+      "": {
+        "version": 1
+      },
+      "t_embed": {
+        "version": 1
+      },
+      "t_embed.0": {
+        "version": 1
+      },
+      "t_embed.1": {
+        "version": 1
+      },
+      "t_embed.2": {
+        "version": 1
+      },
+      "t_embed.3": {
+        "version": 1
+      },
+      "action_encoder": {
+        "version": 1
+      },
+      "action_encoder.0": {
+        "version": 1
+      },
+      "action_encoder.1": {
+        "version": 1
+      },
+      "action_encoder.2": {
+        "version": 1
+      },
+      "action_encoder.3": {
+        "version": 1
+      },
+      "action_encoder.4": {
+        "version": 1
+      },
+      "action_encoder.5": {
+        "version": 1
+      },
+      "geo_feature": {
+        "version": 1
+      },
+      "geo_feature.initLin": {
+        "version": 1
+      },
+      "geo_feature.initLin.0": {
+        "version": 1
+      },
+      "geo_feature.initLin.1": {
+        "version": 1
+      },
+      "geo_feature.conv1": {
+        "version": 1
+      },
+      "geo_feature.conv1.lin": {
+        "version": 1
+      },
+      "geo_feature.conv2": {
+        "version": 1
+      },
+      "geo_feature.conv2.lin": {
+        "version": 1
+      },
+      "geo_feature.conv3": {
+        "version": 1
+      },
+      "geo_feature.conv3.lin": {
+        "version": 1
+      },
+      "geo_feature.conv4": {
+        "version": 1
+      },
+      "geo_feature.conv4.lin": {
+        "version": 1
+      },
+      "geo_feature.global_fc": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.0": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.0.self_attn": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.0.self_attn.out_proj": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.0.linear1": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.0.dropout": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.0.linear2": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.0.norm1": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.0.norm2": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.0.dropout1": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.0.dropout2": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.1": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.1.self_attn": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.1.self_attn.out_proj": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.1.linear1": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.1.dropout": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.1.linear2": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.1.norm1": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.1.norm2": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.1.dropout1": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.layers.1.dropout2": {
+        "version": 1
+      },
+      "geo_feature.transformer_encoder.norm": {
+        "version": 1
+      },
+      "geo_feature.att_pool": {
+        "version": 1
+      },
+      "geo_feature.att_pool.attn": {
+        "version": 1
+      },
+      "geo_feature.att_pool.attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model": {
+        "version": 1
+      },
+      "transformer_model.encoder": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.0": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.0.self_attn": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.0.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.0.linear1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.0.dropout": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.0.linear2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.0.norm1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.0.norm2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.0.dropout1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.0.dropout2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.1.self_attn": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.1.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.1.linear1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.1.dropout": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.1.linear2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.1.norm1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.1.norm2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.1.dropout1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.1.dropout2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.2.self_attn": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.2.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.2.linear1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.2.dropout": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.2.linear2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.2.norm1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.2.norm2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.2.dropout1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.2.dropout2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.3": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.3.self_attn": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.3.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.3.linear1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.3.dropout": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.3.linear2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.3.norm1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.3.norm2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.3.dropout1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.3.dropout2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.4": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.4.self_attn": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.4.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.4.linear1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.4.dropout": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.4.linear2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.4.norm1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.4.norm2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.4.dropout1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.4.dropout2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.5": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.5.self_attn": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.5.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.5.linear1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.5.dropout": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.5.linear2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.5.norm1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.5.norm2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.5.dropout1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.5.dropout2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.6": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.6.self_attn": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.6.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.6.linear1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.6.dropout": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.6.linear2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.6.norm1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.6.norm2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.6.dropout1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.6.dropout2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.7": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.7.self_attn": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.7.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.7.linear1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.7.dropout": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.7.linear2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.7.norm1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.7.norm2": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.7.dropout1": {
+        "version": 1
+      },
+      "transformer_model.encoder.layers.7.dropout2": {
+        "version": 1
+      },
+      "transformer_model.encoder.norm": {
+        "version": 1
+      },
+      "transformer_model.decoder": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0.self_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0.multihead_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0.multihead_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0.linear1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0.dropout": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0.linear2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0.norm1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0.norm2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0.norm3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0.dropout1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0.dropout2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.0.dropout3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1.self_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1.multihead_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1.multihead_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1.linear1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1.dropout": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1.linear2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1.norm1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1.norm2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1.norm3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1.dropout1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1.dropout2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.1.dropout3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2.self_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2.multihead_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2.multihead_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2.linear1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2.dropout": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2.linear2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2.norm1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2.norm2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2.norm3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2.dropout1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2.dropout2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.2.dropout3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3.self_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3.multihead_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3.multihead_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3.linear1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3.dropout": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3.linear2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3.norm1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3.norm2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3.norm3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3.dropout1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3.dropout2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.3.dropout3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4.self_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4.multihead_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4.multihead_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4.linear1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4.dropout": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4.linear2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4.norm1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4.norm2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4.norm3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4.dropout1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4.dropout2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.4.dropout3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5.self_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5.multihead_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5.multihead_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5.linear1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5.dropout": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5.linear2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5.norm1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5.norm2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5.norm3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5.dropout1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5.dropout2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.5.dropout3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6.self_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6.multihead_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6.multihead_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6.linear1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6.dropout": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6.linear2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6.norm1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6.norm2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6.norm3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6.dropout1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6.dropout2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.6.dropout3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7.self_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7.self_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7.multihead_attn": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7.multihead_attn.out_proj": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7.linear1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7.dropout": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7.linear2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7.norm1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7.norm2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7.norm3": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7.dropout1": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7.dropout2": {
+        "version": 1
+      },
+      "transformer_model.decoder.layers.7.dropout3": {
+        "version": 1
+      },
+      "transformer_model.decoder.norm": {
+        "version": 1
+      },
+      "output_layer": {
+        "version": 1
+      }
+    },
+    "all_tensor_shapes": [
+      {
+        "key": "action_encoder.0.bias",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "action_encoder.0.weight",
+        "shape": [
+          64,
+          4
+        ],
+        "dtype": "torch.float32",
+        "elements": 256
+      },
+      {
+        "key": "action_encoder.2.bias",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "action_encoder.2.weight",
+        "shape": [
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 4096
+      },
+      {
+        "key": "action_encoder.4.bias",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "action_encoder.4.weight",
+        "shape": [
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 4096
+      },
+      {
+        "key": "geo_feature.att_pool.attn.in_proj_bias",
+        "shape": [
+          192
+        ],
+        "dtype": "torch.float32",
+        "elements": 192
+      },
+      {
+        "key": "geo_feature.att_pool.attn.in_proj_weight",
+        "shape": [
+          192,
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 12288
+      },
+      {
+        "key": "geo_feature.att_pool.attn.out_proj.bias",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.att_pool.attn.out_proj.weight",
+        "shape": [
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 4096
+      },
+      {
+        "key": "geo_feature.att_pool.query",
+        "shape": [
+          1,
+          1,
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.conv1.bias",
+        "shape": [
+          16
+        ],
+        "dtype": "torch.float32",
+        "elements": 16
+      },
+      {
+        "key": "geo_feature.conv1.lin.weight",
+        "shape": [
+          16,
+          16
+        ],
+        "dtype": "torch.float32",
+        "elements": 256
+      },
+      {
+        "key": "geo_feature.conv2.bias",
+        "shape": [
+          16
+        ],
+        "dtype": "torch.float32",
+        "elements": 16
+      },
+      {
+        "key": "geo_feature.conv2.lin.weight",
+        "shape": [
+          16,
+          32
+        ],
+        "dtype": "torch.float32",
+        "elements": 512
+      },
+      {
+        "key": "geo_feature.conv3.bias",
+        "shape": [
+          16
+        ],
+        "dtype": "torch.float32",
+        "elements": 16
+      },
+      {
+        "key": "geo_feature.conv3.lin.weight",
+        "shape": [
+          16,
+          48
+        ],
+        "dtype": "torch.float32",
+        "elements": 768
+      },
+      {
+        "key": "geo_feature.conv4.bias",
+        "shape": [
+          56
+        ],
+        "dtype": "torch.float32",
+        "elements": 56
+      },
+      {
+        "key": "geo_feature.conv4.lin.weight",
+        "shape": [
+          56,
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 3584
+      },
+      {
+        "key": "geo_feature.global_fc.bias",
+        "shape": [
+          8
+        ],
+        "dtype": "torch.float32",
+        "elements": 8
+      },
+      {
+        "key": "geo_feature.global_fc.weight",
+        "shape": [
+          8,
+          1
+        ],
+        "dtype": "torch.float32",
+        "elements": 8
+      },
+      {
+        "key": "geo_feature.initLin.0.bias",
+        "shape": [
+          16
+        ],
+        "dtype": "torch.float32",
+        "elements": 16
+      },
+      {
+        "key": "geo_feature.initLin.0.weight",
+        "shape": [
+          16,
+          3
+        ],
+        "dtype": "torch.float32",
+        "elements": 48
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.0.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.0.linear1.weight",
+        "shape": [
+          2048,
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 131072
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.0.linear2.bias",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.0.linear2.weight",
+        "shape": [
+          64,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 131072
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.0.norm1.bias",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.0.norm1.weight",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.0.norm2.bias",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.0.norm2.weight",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.0.self_attn.in_proj_bias",
+        "shape": [
+          192
+        ],
+        "dtype": "torch.float32",
+        "elements": 192
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.0.self_attn.in_proj_weight",
+        "shape": [
+          192,
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 12288
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.0.self_attn.out_proj.bias",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.0.self_attn.out_proj.weight",
+        "shape": [
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 4096
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.1.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.1.linear1.weight",
+        "shape": [
+          2048,
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 131072
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.1.linear2.bias",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.1.linear2.weight",
+        "shape": [
+          64,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 131072
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.1.norm1.bias",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.1.norm1.weight",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.1.norm2.bias",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.1.norm2.weight",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.1.self_attn.in_proj_bias",
+        "shape": [
+          192
+        ],
+        "dtype": "torch.float32",
+        "elements": 192
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.1.self_attn.in_proj_weight",
+        "shape": [
+          192,
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 12288
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.1.self_attn.out_proj.bias",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.transformer_encoder.layers.1.self_attn.out_proj.weight",
+        "shape": [
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 4096
+      },
+      {
+        "key": "geo_feature.transformer_encoder.norm.bias",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "geo_feature.transformer_encoder.norm.weight",
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 64
+      },
+      {
+        "key": "output_layer.bias",
+        "shape": [
+          4
+        ],
+        "dtype": "torch.float32",
+        "elements": 4
+      },
+      {
+        "key": "output_layer.weight",
+        "shape": [
+          4,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 512
+      },
+      {
+        "key": "t_embed.0.W",
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "elements": 32
+      },
+      {
+        "key": "t_embed.2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "t_embed.2.weight",
+        "shape": [
+          128,
+          64
+        ],
+        "dtype": "torch.float32",
+        "elements": 8192
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.multihead_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.multihead_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.multihead_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.multihead_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.norm3.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.norm3.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.0.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.multihead_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.multihead_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.multihead_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.multihead_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.norm3.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.norm3.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.1.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.multihead_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.multihead_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.multihead_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.multihead_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.norm3.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.norm3.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.2.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.multihead_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.multihead_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.multihead_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.multihead_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.norm3.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.norm3.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.3.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.multihead_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.multihead_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.multihead_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.multihead_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.norm3.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.norm3.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.4.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.multihead_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.multihead_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.multihead_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.multihead_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.norm3.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.norm3.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.5.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.multihead_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.multihead_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.multihead_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.multihead_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.norm3.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.norm3.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.6.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.multihead_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.multihead_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.multihead_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.multihead_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.norm3.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.norm3.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.layers.7.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.decoder.norm.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.decoder.norm.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.0.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.encoder.layers.0.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.0.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.0.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.0.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.0.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.0.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.0.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.0.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.encoder.layers.0.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.encoder.layers.0.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.0.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.encoder.layers.1.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.encoder.layers.1.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.1.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.1.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.1.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.1.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.1.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.1.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.1.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.encoder.layers.1.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.encoder.layers.1.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.1.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.encoder.layers.2.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.encoder.layers.2.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.2.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.2.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.2.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.2.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.2.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.2.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.2.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.encoder.layers.2.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.encoder.layers.2.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.2.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.encoder.layers.3.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.encoder.layers.3.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.3.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.3.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.3.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.3.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.3.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.3.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.3.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.encoder.layers.3.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.encoder.layers.3.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.3.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.encoder.layers.4.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.encoder.layers.4.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.4.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.4.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.4.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.4.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.4.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.4.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.4.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.encoder.layers.4.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.encoder.layers.4.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.4.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.encoder.layers.5.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.encoder.layers.5.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.5.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.5.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.5.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.5.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.5.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.5.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.5.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.encoder.layers.5.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.encoder.layers.5.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.5.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.encoder.layers.6.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.encoder.layers.6.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.6.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.6.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.6.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.6.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.6.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.6.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.6.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.encoder.layers.6.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.encoder.layers.6.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.6.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.encoder.layers.7.linear1.bias",
+        "shape": [
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 2048
+      },
+      {
+        "key": "transformer_model.encoder.layers.7.linear1.weight",
+        "shape": [
+          2048,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.7.linear2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.7.linear2.weight",
+        "shape": [
+          128,
+          2048
+        ],
+        "dtype": "torch.float32",
+        "elements": 262144
+      },
+      {
+        "key": "transformer_model.encoder.layers.7.norm1.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.7.norm1.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.7.norm2.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.7.norm2.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.7.self_attn.in_proj_bias",
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "elements": 384
+      },
+      {
+        "key": "transformer_model.encoder.layers.7.self_attn.in_proj_weight",
+        "shape": [
+          384,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 49152
+      },
+      {
+        "key": "transformer_model.encoder.layers.7.self_attn.out_proj.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.layers.7.self_attn.out_proj.weight",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 16384
+      },
+      {
+        "key": "transformer_model.encoder.norm.bias",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      },
+      {
+        "key": "transformer_model.encoder.norm.weight",
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "elements": 128
+      }
+    ],
+    "cannot_infer_from_weights": [
+      "training sigma_min/sigma_max or SDE kind",
+      "action translation units or rotation feature scale",
+      "attention head counts",
+      "dropout probability or train/eval inference mode",
+      "Fourier initialization distribution scale",
+      "training epochs, optimizer state, learning rate or EMA use",
+      "loss weighting or training/validation/test membership",
+      "identity with the paper checkpoint or reported architecture",
+      "requires_grad flags or a universal trainable-parameter count"
+    ],
+    "interpretation": "Names and tensor shapes support compatibility checks. They do not establish the historical training configuration; state_dict elements can include frozen parameters and buffers."
+  },
+  "archive": {
+    "entry_count": 449,
+    "uncompressed_bytes": 444343350,
+    "all_file_reads_crc_checked": true,
+    "all_members": [
+      {
+        "member": "data/",
+        "bytes": 0,
+        "directory": true,
+        "crc32": "00000000"
+      },
+      {
+        "member": "data/ckpt/",
+        "bytes": 0,
+        "directory": true,
+        "crc32": "00000000"
+      },
+      {
+        "member": "data/ckpt/dental.pth",
+        "bytes": 42600941,
+        "directory": false,
+        "crc32": "76f92f20",
+        "sha256": "e3585572100e61c5f3112a8925e7add420b70c8c7a8f23e29be97788ad3c5643"
+      },
+      {
+        "member": "data/polygons/",
+        "bytes": 0,
+        "directory": true,
+        "crc32": "00000000"
+      },
+      {
+        "member": "data/polygons/dental/",
+        "bytes": 0,
+        "directory": true,
+        "crc32": "00000000"
+      },
+      {
+        "member": "data/polygons/dental/0.txt",
+        "bytes": 902,
+        "directory": false,
+        "crc32": "a17a8261",
+        "sha256": "c17ed58387187af4f457d6c1b288dc19562bd31c71ac848b595a5426eca01d43"
+      },
+      {
+        "member": "data/polygons/dental/1.txt",
+        "bytes": 4795,
+        "directory": false,
+        "crc32": "a709d5ad",
+        "sha256": "dd9c9b97ae5a56d595bfc02e7a02d70b23713a57c81b1fa5d37e9436f1cf351d"
+      },
+      {
+        "member": "data/polygons/dental/10.txt",
+        "bytes": 1319,
+        "directory": false,
+        "crc32": "ee12ff98",
+        "sha256": "0b94c6c5a266e5d789fabdced9d5c9756a6581712c914eb293e88ed398158e18"
+      },
+      {
+        "member": "data/polygons/dental/100.txt",
+        "bytes": 902,
+        "directory": false,
+        "crc32": "d3181eb5",
+        "sha256": "71ba68c30c8cdf2dfce31a20a6d89d0c079dc0b4d2d7806b1ef2eaeda9ae0124"
+      },
+      {
+        "member": "data/polygons/dental/101.txt",
+        "bytes": 943,
+        "directory": false,
+        "crc32": "8a1bc4b7",
+        "sha256": "9549e1980824567b5850012c1618d6acc4db8f95bc2a9f72886f2862195fba8e"
+      },
+      {
+        "member": "data/polygons/dental/102.txt",
+        "bytes": 724,
+        "directory": false,
+        "crc32": "2fd65ced",
+        "sha256": "806b832bfdc4caf72e6f961cc1d79ca8915111f0b880397f2f51b4f270921067"
+      },
+      {
+        "member": "data/polygons/dental/103.txt",
+        "bytes": 856,
+        "directory": false,
+        "crc32": "dab6b286",
+        "sha256": "2757cb3655d1b2bf36ac38b1b6b0cb7a7ef19253ba1cea7e9b9bed895a41d755"
+      },
+      {
+        "member": "data/polygons/dental/104.txt",
+        "bytes": 1021,
+        "directory": false,
+        "crc32": "6648efcf",
+        "sha256": "b66a359dd0ab2b379d4c6146d4f322b3786ae60757aa0aa4ba04422791f2a306"
+      },
+      {
+        "member": "data/polygons/dental/105.txt",
+        "bytes": 3553,
+        "directory": false,
+        "crc32": "573a9659",
+        "sha256": "5f665b14ca2114338dea30fa64e100c775c95fe3884d7034866eea8fb6fa5e4a"
+      },
+      {
+        "member": "data/polygons/dental/106.txt",
+        "bytes": 1092,
+        "directory": false,
+        "crc32": "fa8289a2",
+        "sha256": "a4526892e29ede666ed4f0bacb5b385254c1a7e3bd4866a0cba97c619b5906c5"
+      },
+      {
+        "member": "data/polygons/dental/107.txt",
+        "bytes": 721,
+        "directory": false,
+        "crc32": "56c85d41",
+        "sha256": "6333446bba5c0f969140452cfc65417b8fbfcd7d9f5bdb145f269f862b872101"
+      },
+      {
+        "member": "data/polygons/dental/108.txt",
+        "bytes": 722,
+        "directory": false,
+        "crc32": "086ec42a",
+        "sha256": "057202b226936da259856b96b50a87234d47da995c6394b07097bf79a8ae1fd1"
+      },
+      {
+        "member": "data/polygons/dental/109.txt",
+        "bytes": 872,
+        "directory": false,
+        "crc32": "193188b9",
+        "sha256": "d6fe4e3bdbf2cf781d97137a210e71d939ba4c18912c9ac923ac42ff66c9d53f"
+      },
+      {
+        "member": "data/polygons/dental/11.txt",
+        "bytes": 950,
+        "directory": false,
+        "crc32": "a523806b",
+        "sha256": "aa00d81ff9c1557f3515b7f62a8e8724ecda7391a4f4ecb1e007d0198658353c"
+      },
+      {
+        "member": "data/polygons/dental/110.txt",
+        "bytes": 821,
+        "directory": false,
+        "crc32": "c0c89717",
+        "sha256": "bd45aa1d999eecd8d35467adbed83a057285559a869d280ddbfbcfa5ec4162bb"
+      },
+      {
+        "member": "data/polygons/dental/111.txt",
+        "bytes": 1315,
+        "directory": false,
+        "crc32": "10a38ade",
+        "sha256": "0065f5520bc87e957f9e1c0fb6b346302250fdbd83435f5bca4d348b2d39112f"
+      },
+      {
+        "member": "data/polygons/dental/112.txt",
+        "bytes": 870,
+        "directory": false,
+        "crc32": "5448580f",
+        "sha256": "71bcb6a92ddff0a7e0651d9ea25ca67a2d969492b92c3513caef5a4a0a89f357"
+      },
+      {
+        "member": "data/polygons/dental/113.txt",
+        "bytes": 2255,
+        "directory": false,
+        "crc32": "c5edaa4a",
+        "sha256": "20d563bb526e70dd5c2d315ff77e27a8ca2de618ac5e7b7b774c556995711109"
+      },
+      {
+        "member": "data/polygons/dental/114.txt",
+        "bytes": 1209,
+        "directory": false,
+        "crc32": "1495400f",
+        "sha256": "bd5a7f09ccd8267a9732700e0785c6cb380851fd104cd1bcdded51a8064173a1"
+      },
+      {
+        "member": "data/polygons/dental/115.txt",
+        "bytes": 1274,
+        "directory": false,
+        "crc32": "a83034bd",
+        "sha256": "e527c44791bc7ea1d403bb6eabe7eb490526036bfa838530cde508b6ac78c0be"
+      },
+      {
+        "member": "data/polygons/dental/116.txt",
+        "bytes": 1627,
+        "directory": false,
+        "crc32": "2b44def2",
+        "sha256": "838e04f654c1f6e697deac4a5d0ccf6961fd2646185f7120e47f4d6f0f26cf09"
+      },
+      {
+        "member": "data/polygons/dental/117.txt",
+        "bytes": 755,
+        "directory": false,
+        "crc32": "3effa79a",
+        "sha256": "c31558646668fe5660ea6c19483a2ad654fc39bf820fdc8fa182506c391cdede"
+      },
+      {
+        "member": "data/polygons/dental/118.txt",
+        "bytes": 713,
+        "directory": false,
+        "crc32": "ccd93954",
+        "sha256": "4f4b483e432b3a24963abdbaf8afb18368caf686b7de5727e4661265d4428931"
+      },
+      {
+        "member": "data/polygons/dental/119.txt",
+        "bytes": 2103,
+        "directory": false,
+        "crc32": "7dc5ea23",
+        "sha256": "b462e598f0f66bd113a5c0a9e68d3b3a90fc904a5493cb03b624d0df330538c7"
+      },
+      {
+        "member": "data/polygons/dental/12.txt",
+        "bytes": 1907,
+        "directory": false,
+        "crc32": "52e67c03",
+        "sha256": "4873b533af9b7cd0e643f0c52aea6782fb3eac084160c545348ac1e95a6849bd"
+      },
+      {
+        "member": "data/polygons/dental/120.txt",
+        "bytes": 1520,
+        "directory": false,
+        "crc32": "2c94737b",
+        "sha256": "e5d95595195db9f2e4c701cb11ce47b443d03ab2bbbe6188a1db05ec2998509d"
+      },
+      {
+        "member": "data/polygons/dental/121.txt",
+        "bytes": 1161,
+        "directory": false,
+        "crc32": "a2c81ab9",
+        "sha256": "26fb22677e1cd8a31c1a69aa8378765c9205c539e341ee18fd9f035eb97dc4da"
+      },
+      {
+        "member": "data/polygons/dental/122.txt",
+        "bytes": 1090,
+        "directory": false,
+        "crc32": "b906b23e",
+        "sha256": "b147908dfab085c5029dc91c7b3c17fa3c067b5e51fcad5f2ebb9caf6b69630d"
+      },
+      {
+        "member": "data/polygons/dental/123.txt",
+        "bytes": 2399,
+        "directory": false,
+        "crc32": "14f21951",
+        "sha256": "3a985da1f2845a5d3b6a06daf6cfe969a92da52de3642bbe2ed99fbccb9aaf1b"
+      },
+      {
+        "member": "data/polygons/dental/124.txt",
+        "bytes": 2687,
+        "directory": false,
+        "crc32": "0fa41451",
+        "sha256": "7ae5a37576f9aafbcf399c7d88e72848644da2957098b0b0058dedbcb071bf46"
+      },
+      {
+        "member": "data/polygons/dental/125.txt",
+        "bytes": 875,
+        "directory": false,
+        "crc32": "9bc305b5",
+        "sha256": "194635c34d684c6aef7f8737908dfa40b8a356144eb988f19404d7cc87dadf92"
+      },
+      {
+        "member": "data/polygons/dental/126.txt",
+        "bytes": 844,
+        "directory": false,
+        "crc32": "b9b57364",
+        "sha256": "2a09172fb1c54fe3e59b21b91cc7fa78e8d08dc914c3c5100f227d5a66f8799e"
+      },
+      {
+        "member": "data/polygons/dental/127.txt",
+        "bytes": 834,
+        "directory": false,
+        "crc32": "6130d4a3",
+        "sha256": "eb00e4e96926d289737a8bd25d607aa011ec3aaa3e98f8d4131cec636b73462b"
+      },
+      {
+        "member": "data/polygons/dental/128.txt",
+        "bytes": 1009,
+        "directory": false,
+        "crc32": "31c0e6c4",
+        "sha256": "ef7c503fd94b1383faba588d25074f6ee67de34a2d543d78b09bd1bcff024c85"
+      },
+      {
+        "member": "data/polygons/dental/129.txt",
+        "bytes": 1738,
+        "directory": false,
+        "crc32": "35af760f",
+        "sha256": "2d43ed280956062c3dc3474be704c73b5b0d78d47f2b656be07e54432ac8e0ce"
+      },
+      {
+        "member": "data/polygons/dental/13.txt",
+        "bytes": 1093,
+        "directory": false,
+        "crc32": "95037cb2",
+        "sha256": "863fdacfb0dc0a62b5ce578152af5b29a4d5af27f1dc9e2c1ed582ba8946c604"
+      },
+      {
+        "member": "data/polygons/dental/130.txt",
+        "bytes": 829,
+        "directory": false,
+        "crc32": "a5682c33",
+        "sha256": "1304ccf48ff232f7ba9d99af53b6db8d3b7093275254a4df04e133d7b01de647"
+      },
+      {
+        "member": "data/polygons/dental/131.txt",
+        "bytes": 1179,
+        "directory": false,
+        "crc32": "19793ac9",
+        "sha256": "eeac273fc7285be164e27a60a66b3f12f65daf8e22f15f64555d48dc9a159b17"
+      },
+      {
+        "member": "data/polygons/dental/132.txt",
+        "bytes": 1332,
+        "directory": false,
+        "crc32": "c1eeb50a",
+        "sha256": "728ca7d74331a9228b0f75d202ec5fbd919b203aba6a39bb005c7a23508e6e6a"
+      },
+      {
+        "member": "data/polygons/dental/133.txt",
+        "bytes": 1809,
+        "directory": false,
+        "crc32": "fce8391a",
+        "sha256": "a908263ecf38fd9035e1273ffb9195f40502406053f6af64492a2aeae7bd1932"
+      },
+      {
+        "member": "data/polygons/dental/134.txt",
+        "bytes": 1275,
+        "directory": false,
+        "crc32": "232a8425",
+        "sha256": "72b6402092ccae9505b05bfdff866aa78b144e8854a152b1325c37f715930f02"
+      },
+      {
+        "member": "data/polygons/dental/135.txt",
+        "bytes": 785,
+        "directory": false,
+        "crc32": "21aa8abf",
+        "sha256": "8dcabd9312dd6316aea6e834ae04ef907604e08547a841eb0183945ea1774a49"
+      },
+      {
+        "member": "data/polygons/dental/136.txt",
+        "bytes": 968,
+        "directory": false,
+        "crc32": "72bd30ed",
+        "sha256": "671d9300ea9b1f686c8ad05834c0b8810a97a7dc8a71f1c08f0a5982eb0161e9"
+      },
+      {
+        "member": "data/polygons/dental/137.txt",
+        "bytes": 567,
+        "directory": false,
+        "crc32": "de22a3b1",
+        "sha256": "ce8ee62c66ba7784c99b8f0f93a05762f2ae56b1505adb5f413fa09ce0203f9c"
+      },
+      {
+        "member": "data/polygons/dental/138.txt",
+        "bytes": 902,
+        "directory": false,
+        "crc32": "07422a79",
+        "sha256": "09de3fa26c8f34014009f6cc5d441012e4dbca366193de466a44fee5f5d2d432"
+      },
+      {
+        "member": "data/polygons/dental/139.txt",
+        "bytes": 1026,
+        "directory": false,
+        "crc32": "21ca2390",
+        "sha256": "427e6b0b382d22ec66b3d36f3950b85b8727c231c476a93d1e302f96c276487f"
+      },
+      {
+        "member": "data/polygons/dental/14.txt",
+        "bytes": 952,
+        "directory": false,
+        "crc32": "4a7684b2",
+        "sha256": "920ea1d885243060686618a99eecf0c556a5043c55eb4195d02ea438073b4111"
+      },
+      {
+        "member": "data/polygons/dental/140.txt",
+        "bytes": 1243,
+        "directory": false,
+        "crc32": "40cd0034",
+        "sha256": "1709adc29b9ade5e3a2ebb8f784790c282c19cd800f68db073a532ceb5743ab6"
+      },
+      {
+        "member": "data/polygons/dental/141.txt",
+        "bytes": 1105,
+        "directory": false,
+        "crc32": "a7785bcb",
+        "sha256": "1d6a7d812a70109901370dde3db25de3e9aaa9551c96303c732436b7ab864d4d"
+      },
+      {
+        "member": "data/polygons/dental/142.txt",
+        "bytes": 1663,
+        "directory": false,
+        "crc32": "32964059",
+        "sha256": "9fb00e307e103c40149340fe96b16ec7ef0057d6d80c26dacd0a714aa611f328"
+      },
+      {
+        "member": "data/polygons/dental/143.txt",
+        "bytes": 1718,
+        "directory": false,
+        "crc32": "f15ce5ab",
+        "sha256": "77b337a3d2328c44720f02241b31a183c274fd4f9d8ffb0d4595b390b1df3414"
+      },
+      {
+        "member": "data/polygons/dental/144.txt",
+        "bytes": 1067,
+        "directory": false,
+        "crc32": "f8498f4e",
+        "sha256": "2019337d3722654004b11dde8fc390c2ff413b44690da923f6d4f3a04e8fbe07"
+      },
+      {
+        "member": "data/polygons/dental/145.txt",
+        "bytes": 944,
+        "directory": false,
+        "crc32": "9a6bcd13",
+        "sha256": "5b8787cd13b6aaae86ede34b71e31dfc677e3237ceed637660841ec02b2d6fbf"
+      },
+      {
+        "member": "data/polygons/dental/146.txt",
+        "bytes": 889,
+        "directory": false,
+        "crc32": "935670d7",
+        "sha256": "ef262989bee92830771ed6e5efb3377e7897397b12f93d7f2173d27157f29e86"
+      },
+      {
+        "member": "data/polygons/dental/147.txt",
+        "bytes": 739,
+        "directory": false,
+        "crc32": "f3bd84b8",
+        "sha256": "81129d3ac5276c08116eda80a3480462c82194ffa41bf0e11c3eaf14cd717e8f"
+      },
+      {
+        "member": "data/polygons/dental/148.txt",
+        "bytes": 1170,
+        "directory": false,
+        "crc32": "14ac1602",
+        "sha256": "9b08cd3f7db966ac52ed8b22596235341604aace41e746a053a05645dd8e4e1a"
+      },
+      {
+        "member": "data/polygons/dental/149.txt",
+        "bytes": 2061,
+        "directory": false,
+        "crc32": "30a7c56a",
+        "sha256": "de994e66c4a53fcb63fec372b4562c7d85db3fb535e00da86411aa247e74ee0e"
+      },
+      {
+        "member": "data/polygons/dental/15.txt",
+        "bytes": 1007,
+        "directory": false,
+        "crc32": "45429631",
+        "sha256": "9b5bb05fd2a91e9a29f6897649d6cabc5ff6de07739e61f13f09ce43774418d1"
+      },
+      {
+        "member": "data/polygons/dental/150.txt",
+        "bytes": 936,
+        "directory": false,
+        "crc32": "40f7ca9f",
+        "sha256": "6fa50885b967de5dc34ef0f8097fa940d8474a2997534e4227846d6a3ab56574"
+      },
+      {
+        "member": "data/polygons/dental/151.txt",
+        "bytes": 724,
+        "directory": false,
+        "crc32": "e5f4f871",
+        "sha256": "bccf5e4a7f54e1a498b6af76427c80eef9f6c7ae4acb609ed54c1bdf0b7b16d6"
+      },
+      {
+        "member": "data/polygons/dental/152.txt",
+        "bytes": 556,
+        "directory": false,
+        "crc32": "7750fbfd",
+        "sha256": "6af0bc1c044fffe1acf584466c907a694d5dbd68bab943d0473e53e20caa46f0"
+      },
+      {
+        "member": "data/polygons/dental/153.txt",
+        "bytes": 486,
+        "directory": false,
+        "crc32": "8f66f98a",
+        "sha256": "5e32b8d4a5a5378d3914ea17a4ec779a70c0c20a65a36e7703b745116be2a544"
+      },
+      {
+        "member": "data/polygons/dental/154.txt",
+        "bytes": 569,
+        "directory": false,
+        "crc32": "fdca8c07",
+        "sha256": "4093a274894c7d5f3b8ebfacd1edb1592a78908f88cdd444b07d4d52a2c2e96c"
+      },
+      {
+        "member": "data/polygons/dental/155.txt",
+        "bytes": 871,
+        "directory": false,
+        "crc32": "6f0470ae",
+        "sha256": "11356cf22da9273df6e5343e7f09caef5d91e7487d6d1096adb6717469f9f8fc"
+      },
+      {
+        "member": "data/polygons/dental/156.txt",
+        "bytes": 716,
+        "directory": false,
+        "crc32": "87ec405b",
+        "sha256": "6678415a72f72cb72608ae11180f8c886b27de27975230abccdfa5cca5a160ac"
+      },
+      {
+        "member": "data/polygons/dental/157.txt",
+        "bytes": 1392,
+        "directory": false,
+        "crc32": "b101eed0",
+        "sha256": "488d4e0f2c5c4203d352feaaf4925128e8a48d63ee4a8546373d77a1bedda66b"
+      },
+      {
+        "member": "data/polygons/dental/158.txt",
+        "bytes": 1100,
+        "directory": false,
+        "crc32": "7bbc892c",
+        "sha256": "60dee07f5d2ee838540f8e79c1d64b162937b8e638f948207b224d082ae0835b"
+      },
+      {
+        "member": "data/polygons/dental/159.txt",
+        "bytes": 1027,
+        "directory": false,
+        "crc32": "8645c191",
+        "sha256": "14704d2ebc098e8d456c1bb2ef8c87a12aeee5281b3eda893211d1f2cb66b988"
+      },
+      {
+        "member": "data/polygons/dental/16.txt",
+        "bytes": 1019,
+        "directory": false,
+        "crc32": "4b130f84",
+        "sha256": "b8ddbb2f4666962268af9f3fcce2029c60f1de584aa59e11158d5b7508f5365a"
+      },
+      {
+        "member": "data/polygons/dental/160.txt",
+        "bytes": 1099,
+        "directory": false,
+        "crc32": "98ecc017",
+        "sha256": "9da6907d34f5fdfc4e430483e6eca9c5a3b37c28c429c1581d2063f59345bb53"
+      },
+      {
+        "member": "data/polygons/dental/161.txt",
+        "bytes": 1030,
+        "directory": false,
+        "crc32": "f052cfbb",
+        "sha256": "92b4a4deca408d6ecb99434185c14583bbecbca0ef0eb21b32c9bc05cc56d429"
+      },
+      {
+        "member": "data/polygons/dental/162.txt",
+        "bytes": 1216,
+        "directory": false,
+        "crc32": "52821cff",
+        "sha256": "8e69d0f12041697aff1482275d5397128b986cb24a20059067ccad441c8bd6d7"
+      },
+      {
+        "member": "data/polygons/dental/163.txt",
+        "bytes": 1458,
+        "directory": false,
+        "crc32": "a609002b",
+        "sha256": "7a0303aad77847da790ea3cde471599ecc555da19d52c0d41ab79755a53edbc9"
+      },
+      {
+        "member": "data/polygons/dental/164.txt",
+        "bytes": 1018,
+        "directory": false,
+        "crc32": "7356d367",
+        "sha256": "1bc28549a3e7e4f7eb8eb216088228a4dcc97cd81aa70088e515c7c54b9b08fe"
+      },
+      {
+        "member": "data/polygons/dental/165.txt",
+        "bytes": 1020,
+        "directory": false,
+        "crc32": "fca7603e",
+        "sha256": "aac92224f548be985197326fc146353db6f4ae3673bd861d62b61d26e0da1cf9"
+      },
+      {
+        "member": "data/polygons/dental/166.txt",
+        "bytes": 1764,
+        "directory": false,
+        "crc32": "0be96690",
+        "sha256": "0aacd6da8a5b76474d0bdf8699b67d6b2db5e559392d339f1fac37f94254177c"
+      },
+      {
+        "member": "data/polygons/dental/167.txt",
+        "bytes": 869,
+        "directory": false,
+        "crc32": "602d5eb8",
+        "sha256": "577d58351e94093e1d5f1d2b7378076ba967632a364cec369dbdf973da020fe0"
+      },
+      {
+        "member": "data/polygons/dental/168.txt",
+        "bytes": 758,
+        "directory": false,
+        "crc32": "d6711de5",
+        "sha256": "6aff2652d56daf7d37cf7e80aa24c5bfc3bd0404a632bd0d95861c9859d0df89"
+      },
+      {
+        "member": "data/polygons/dental/169.txt",
+        "bytes": 1059,
+        "directory": false,
+        "crc32": "cbef56f8",
+        "sha256": "f294eafd0aabc3279ab627f68df1219a3b9063b8cf5ad32ec695eade9a131cc6"
+      },
+      {
+        "member": "data/polygons/dental/17.txt",
+        "bytes": 2175,
+        "directory": false,
+        "crc32": "46fd82cc",
+        "sha256": "d6a09b037998123f5cda6f27e6f88281c7d5182db530b067033683bdd1a38458"
+      },
+      {
+        "member": "data/polygons/dental/170.txt",
+        "bytes": 1179,
+        "directory": false,
+        "crc32": "c7ccd770",
+        "sha256": "892b894b3998106b0fc9cd93dda8a84db6f830e841aa05ccfa5db30d310484d3"
+      },
+      {
+        "member": "data/polygons/dental/171.txt",
+        "bytes": 1857,
+        "directory": false,
+        "crc32": "42c97546",
+        "sha256": "5c8e576877d6666c2ce4d0898499346c3543092ea8957f3ee54d4ffd8572e16b"
+      },
+      {
+        "member": "data/polygons/dental/172.txt",
+        "bytes": 1180,
+        "directory": false,
+        "crc32": "291cd0c6",
+        "sha256": "dcbbaf6cbb8551125250e6394ee9244a112259cbe0039ebf0d15dd9187a741f6"
+      },
+      {
+        "member": "data/polygons/dental/173.txt",
+        "bytes": 1624,
+        "directory": false,
+        "crc32": "c6188938",
+        "sha256": "f507ef88a0732ec5487e3e87835d1aee46db4a15897f4b60839ba8018eed58bc"
+      },
+      {
+        "member": "data/polygons/dental/174.txt",
+        "bytes": 866,
+        "directory": false,
+        "crc32": "b7d13939",
+        "sha256": "12cf849f78464369e6a082ded0afdac3b65b998fd6ae31d3371ae6a2becbc4f5"
+      },
+      {
+        "member": "data/polygons/dental/175.txt",
+        "bytes": 945,
+        "directory": false,
+        "crc32": "4c89d099",
+        "sha256": "c8634cbfd5c24438f326bb6d7581adf9779d8101237d9af341a09170f7b07fc0"
+      },
+      {
+        "member": "data/polygons/dental/176.txt",
+        "bytes": 942,
+        "directory": false,
+        "crc32": "c56d61d7",
+        "sha256": "f7377a96daa0506fa4c244aba8eb42d78e323125c706f5477250ce34289d4eef"
+      },
+      {
+        "member": "data/polygons/dental/177.txt",
+        "bytes": 941,
+        "directory": false,
+        "crc32": "23747599",
+        "sha256": "9b6e9145332c2c41507e284af8fa9e992e7c10d7ebe51e3d1f4ce15f1ef33257"
+      },
+      {
+        "member": "data/polygons/dental/178.txt",
+        "bytes": 1223,
+        "directory": false,
+        "crc32": "3800a53b",
+        "sha256": "771b2bcd0ae96c31cf2f23c680e20555d76f430272d4f88a8e452dadb1d7ac69"
+      },
+      {
+        "member": "data/polygons/dental/179.txt",
+        "bytes": 1335,
+        "directory": false,
+        "crc32": "721a0376",
+        "sha256": "0d2c6ff29624a2d43b0a3b9bb1b465cd37cfd1f1f33652e7bbeca847729923a9"
+      },
+      {
+        "member": "data/polygons/dental/18.txt",
+        "bytes": 1071,
+        "directory": false,
+        "crc32": "7580a4b2",
+        "sha256": "b8e43503fc9d590665bcb48cda0fe6a39288a1ab74ebef044ace3a41e41851da"
+      },
+      {
+        "member": "data/polygons/dental/180.txt",
+        "bytes": 1141,
+        "directory": false,
+        "crc32": "0212405f",
+        "sha256": "f73d02aa0695e5560f8c1167fbe57056349dc5aa33a82eafef83492c7789461c"
+      },
+      {
+        "member": "data/polygons/dental/181.txt",
+        "bytes": 868,
+        "directory": false,
+        "crc32": "e15c0bb0",
+        "sha256": "809aa0455cc1b0e74e79d5829309f78877db675b60cd7ec930d1f2dcc67ea8b2"
+      },
+      {
+        "member": "data/polygons/dental/182.txt",
+        "bytes": 1528,
+        "directory": false,
+        "crc32": "0bfe8039",
+        "sha256": "927b2fda93eee5eb35b7035001e5f589a2a462b0695caed06196f357296cba58"
+      },
+      {
+        "member": "data/polygons/dental/183.txt",
+        "bytes": 1175,
+        "directory": false,
+        "crc32": "3083aaed",
+        "sha256": "ddb67a83c7352d5943049c3ad6c9718d524b85a71124f5eb4b41ef0a7f62184d"
+      },
+      {
+        "member": "data/polygons/dental/184.txt",
+        "bytes": 600,
+        "directory": false,
+        "crc32": "1557afd8",
+        "sha256": "0ab04384705db1a64c4987c221e158c02b962b8f8d28c7ec544f8ebdc82b5cf9"
+      },
+      {
+        "member": "data/polygons/dental/185.txt",
+        "bytes": 1051,
+        "directory": false,
+        "crc32": "131f7431",
+        "sha256": "9ffdd34dfc4a36221f7fd8b824c9aa08bb35c20e3a958b0d42faa25b03bd773d"
+      },
+      {
+        "member": "data/polygons/dental/186.txt",
+        "bytes": 1988,
+        "directory": false,
+        "crc32": "33538422",
+        "sha256": "b4ffec369af6ff2b37c4e4dee047cdd229915bb7106227ddd30a131fa44b42b3"
+      },
+      {
+        "member": "data/polygons/dental/187.txt",
+        "bytes": 1100,
+        "directory": false,
+        "crc32": "30d14e00",
+        "sha256": "96aea6c9e5bcdb21e700803f58a9fdfd99a819cb7747eaf5073d68b9f5e820ab"
+      },
+      {
+        "member": "data/polygons/dental/188.txt",
+        "bytes": 1019,
+        "directory": false,
+        "crc32": "7409695e",
+        "sha256": "3f00f491ea257e176a2e3eef465747df6566d4d53117c3cb1b9584feb52be8d9"
+      },
+      {
+        "member": "data/polygons/dental/189.txt",
+        "bytes": 2284,
+        "directory": false,
+        "crc32": "eacf9148",
+        "sha256": "2d14ac522077ebcd55020902b7065fca7024c37a60f27c9bd1f60ca062a13397"
+      },
+      {
+        "member": "data/polygons/dental/19.txt",
+        "bytes": 2223,
+        "directory": false,
+        "crc32": "c280ae9e",
+        "sha256": "f951c9b390ede6d4aa4c562825b692151e93d8c4dda25ef5fa0f7dbabc14a864"
+      },
+      {
+        "member": "data/polygons/dental/190.txt",
+        "bytes": 1054,
+        "directory": false,
+        "crc32": "5c868c53",
+        "sha256": "c6eef322994eb6dba42c6ca20d45e994195fea7e00c5673fb07f4676ea6374bd"
+      },
+      {
+        "member": "data/polygons/dental/191.txt",
+        "bytes": 939,
+        "directory": false,
+        "crc32": "b2cc8172",
+        "sha256": "bc7c74e8dddfe783095449bb69c3c71cb26fae98283fc79e3dde852349798a3a"
+      },
+      {
+        "member": "data/polygons/dental/192.txt",
+        "bytes": 1686,
+        "directory": false,
+        "crc32": "c067413d",
+        "sha256": "4d8f0226e7df938d968ac7d26e521c3c1e1d0fa6ca1128a9b6694bcad77a2f67"
+      },
+      {
+        "member": "data/polygons/dental/193.txt",
+        "bytes": 1019,
+        "directory": false,
+        "crc32": "0f5cee2e",
+        "sha256": "d6a382fe036ca5e0f2ae67c706e509b53d9c9cb18b408377443c5aa539e1cbcb"
+      },
+      {
+        "member": "data/polygons/dental/194.txt",
+        "bytes": 1515,
+        "directory": false,
+        "crc32": "97db5e90",
+        "sha256": "f2091478529920206ed004b1a32c68065e3c599becf1467a34370079aaa5c9f5"
+      },
+      {
+        "member": "data/polygons/dental/195.txt",
+        "bytes": 1025,
+        "directory": false,
+        "crc32": "944cf528",
+        "sha256": "66b507e194b2e53b124b795cc728de77a2b8c2dd5ef8b2eff0ab194df9f67bcb"
+      },
+      {
+        "member": "data/polygons/dental/196.txt",
+        "bytes": 855,
+        "directory": false,
+        "crc32": "94948c79",
+        "sha256": "3e4a58953e958ea5cabfa5d8cb98473d6ceab9a8e1bf29b0bcab164c9888838d"
+      },
+      {
+        "member": "data/polygons/dental/197.txt",
+        "bytes": 1472,
+        "directory": false,
+        "crc32": "0fbd3c7b",
+        "sha256": "2358a270f343f23a60e64832aacdf65c60524ca959b2bbe3d8738abd15b077c3"
+      },
+      {
+        "member": "data/polygons/dental/198.txt",
+        "bytes": 1031,
+        "directory": false,
+        "crc32": "5827af58",
+        "sha256": "bc4c37d5380ced23498de76958455573401c41151f24e9434a6b30c807cbb36d"
+      },
+      {
+        "member": "data/polygons/dental/199.txt",
+        "bytes": 1013,
+        "directory": false,
+        "crc32": "100025dd",
+        "sha256": "ff1c3fb96a8a243963e95e243ca439634bad3058b7f1767680a60006de297dc1"
+      },
+      {
+        "member": "data/polygons/dental/2.txt",
+        "bytes": 1083,
+        "directory": false,
+        "crc32": "e20aa268",
+        "sha256": "1d873c333ed4edf89785e68ca348c2f96c542e774e345ea04621d86e7980d664"
+      },
+      {
+        "member": "data/polygons/dental/20.txt",
+        "bytes": 1886,
+        "directory": false,
+        "crc32": "c76def2f",
+        "sha256": "2d3369cb61a9d80a51c3091d24032eaae42222a3b997dd190d2a67374d68fed8"
+      },
+      {
+        "member": "data/polygons/dental/200.txt",
+        "bytes": 1594,
+        "directory": false,
+        "crc32": "d37afb7c",
+        "sha256": "bce90517a3a4f6afbd488074e23dfa963d77b3b81448b3f2f95ed7c8897ba86f"
+      },
+      {
+        "member": "data/polygons/dental/201.txt",
+        "bytes": 993,
+        "directory": false,
+        "crc32": "746a07ca",
+        "sha256": "79818a4889f8af40bcaa8a276eb8a378c73411a0b17855b638df582b76c46019"
+      },
+      {
+        "member": "data/polygons/dental/202.txt",
+        "bytes": 826,
+        "directory": false,
+        "crc32": "d5f80cae",
+        "sha256": "44c2cabdc3f8a2855d06abb4feee2135490b49f35c50644977ff75c3c9ceb802"
+      },
+      {
+        "member": "data/polygons/dental/203.txt",
+        "bytes": 1456,
+        "directory": false,
+        "crc32": "455c3376",
+        "sha256": "a552b8612f52b83184c8d97e50d852809349910e67602cd658775b263cbd378f"
+      },
+      {
+        "member": "data/polygons/dental/204.txt",
+        "bytes": 1014,
+        "directory": false,
+        "crc32": "5db4aba6",
+        "sha256": "848a15715dba6d45860a26ae7ba206e40fc4fb6ec4c334393aded9e4fb4eeda1"
+      },
+      {
+        "member": "data/polygons/dental/205.txt",
+        "bytes": 1542,
+        "directory": false,
+        "crc32": "ad563f0c",
+        "sha256": "67a1533d75abc1adf89cf2bcab9f8218c048dc866b9eeb2e7301fb9daa765c1e"
+      },
+      {
+        "member": "data/polygons/dental/206.txt",
+        "bytes": 1099,
+        "directory": false,
+        "crc32": "81c23b95",
+        "sha256": "886b4ac4141b7aa0b856cfce96743c97a70d034aa0958b69bde1822b6d30a18e"
+      },
+      {
+        "member": "data/polygons/dental/207.txt",
+        "bytes": 1444,
+        "directory": false,
+        "crc32": "c4dee69a",
+        "sha256": "b00c7997df87a8e7c6e593210d8e0b5b1967ac52f335e7abd52110119af24561"
+      },
+      {
+        "member": "data/polygons/dental/208.txt",
+        "bytes": 1094,
+        "directory": false,
+        "crc32": "cf556a77",
+        "sha256": "4a2cb149327ecc8c2976ff6ec6209c743f5ec09f19e39aa2091ae0d2cb1bff23"
+      },
+      {
+        "member": "data/polygons/dental/209.txt",
+        "bytes": 1104,
+        "directory": false,
+        "crc32": "6e2d91be",
+        "sha256": "33f025b72845c126f6b3e9252c6d88314939b04445d90b9b7095a977f34ab132"
+      },
+      {
+        "member": "data/polygons/dental/21.txt",
+        "bytes": 798,
+        "directory": false,
+        "crc32": "5103f9b7",
+        "sha256": "9c5654cf85d600f98066a23cf09a8a5494b862323cfe81fe8f3e6718bc2553d2"
+      },
+      {
+        "member": "data/polygons/dental/210.txt",
+        "bytes": 1265,
+        "directory": false,
+        "crc32": "41bde081",
+        "sha256": "1002dbfcf11907b078e9b6b1da0d47c7f1b2de97cde489640588169d881e892d"
+      },
+      {
+        "member": "data/polygons/dental/211.txt",
+        "bytes": 1080,
+        "directory": false,
+        "crc32": "8e909347",
+        "sha256": "e7a68bbffe076b45e7036d96d5e1df23e0b919613be3384eb1eced39b0311c31"
+      },
+      {
+        "member": "data/polygons/dental/212.txt",
+        "bytes": 1049,
+        "directory": false,
+        "crc32": "d410f9ce",
+        "sha256": "491793b52e4fb2d57184afe99a714988f0c2b073cc2ee8714fbce3a8b95f847c"
+      },
+      {
+        "member": "data/polygons/dental/213.txt",
+        "bytes": 1491,
+        "directory": false,
+        "crc32": "f0285957",
+        "sha256": "853955dcebf45dd44c599019a7e1b38a76f7679044f495f22daa8f647a9e815b"
+      },
+      {
+        "member": "data/polygons/dental/214.txt",
+        "bytes": 951,
+        "directory": false,
+        "crc32": "7d7cbd6d",
+        "sha256": "055a18c6a03d54a138a6ea57ff70cb8e97f80099a5dd722b6a9d9a1f4b5ba778"
+      },
+      {
+        "member": "data/polygons/dental/215.txt",
+        "bytes": 816,
+        "directory": false,
+        "crc32": "6a3633db",
+        "sha256": "d98eadd6d008efa09cf2564ebaf63fee3a89713804bd54a6137d075308f931a3"
+      },
+      {
+        "member": "data/polygons/dental/216.txt",
+        "bytes": 877,
+        "directory": false,
+        "crc32": "e416488b",
+        "sha256": "9a5022119f6847f5b42f1254523f518beba34c4bd181a236f91d0a1d73121c5a"
+      },
+      {
+        "member": "data/polygons/dental/217.txt",
+        "bytes": 1774,
+        "directory": false,
+        "crc32": "83aefac3",
+        "sha256": "c093a8eccb04371b436f20a9e507800dc877e98e5e6b45f879cd4dd597580bc7"
+      },
+      {
+        "member": "data/polygons/dental/218.txt",
+        "bytes": 946,
+        "directory": false,
+        "crc32": "720bf276",
+        "sha256": "e6afed2b3f8bbf311145a0167c0efe231fb92001e19674079992d9dd0841e637"
+      },
+      {
+        "member": "data/polygons/dental/219.txt",
+        "bytes": 872,
+        "directory": false,
+        "crc32": "c2675157",
+        "sha256": "6169a1b4022bc0e1dd7be82fb12804023a4754e77138d5fceca6c53cdf42fa5b"
+      },
+      {
+        "member": "data/polygons/dental/22.txt",
+        "bytes": 968,
+        "directory": false,
+        "crc32": "3151c57d",
+        "sha256": "d64296047b6b25a530ea4ee9f4479ffdd2452004574170d483175c9584a4857f"
+      },
+      {
+        "member": "data/polygons/dental/220.txt",
+        "bytes": 1173,
+        "directory": false,
+        "crc32": "1d0e8526",
+        "sha256": "6979237b05705a140640a84bc759376a3c252b4af13f28e4877a9bf0de5a5b7c"
+      },
+      {
+        "member": "data/polygons/dental/221.txt",
+        "bytes": 1427,
+        "directory": false,
+        "crc32": "137a1fec",
+        "sha256": "0ab007913e7ad37cd4669b040143d783aca5fc64948dcbac64b7d68e63b2908f"
+      },
+      {
+        "member": "data/polygons/dental/222.txt",
+        "bytes": 868,
+        "directory": false,
+        "crc32": "5fe781de",
+        "sha256": "3a79284b04a55f9671b723896477d10e525110b3e6584c4b239ff1923db99449"
+      },
+      {
+        "member": "data/polygons/dental/223.txt",
+        "bytes": 1898,
+        "directory": false,
+        "crc32": "5a0901cf",
+        "sha256": "57143a29e184695f5116199a5b0b5b7357cb170e04894b7b7ffb7f14c75f92d7"
+      },
+      {
+        "member": "data/polygons/dental/224.txt",
+        "bytes": 1700,
+        "directory": false,
+        "crc32": "64907f7f",
+        "sha256": "d0cb2d2a2d15307254cf7038de588ff1cf161c237e2fbdf75afb7a6403dc9112"
+      },
+      {
+        "member": "data/polygons/dental/225.txt",
+        "bytes": 790,
+        "directory": false,
+        "crc32": "b6cad881",
+        "sha256": "46c3b201cfcc231a4a0e83da40245e48df9ac6349507630ec649f383f00693bc"
+      },
+      {
+        "member": "data/polygons/dental/226.txt",
+        "bytes": 947,
+        "directory": false,
+        "crc32": "4389f264",
+        "sha256": "f9669cc43e51c9f22e02130d1313f4c95d9fa35c99c52e09261738df89f7f12a"
+      },
+      {
+        "member": "data/polygons/dental/227.txt",
+        "bytes": 2024,
+        "directory": false,
+        "crc32": "0e190acd",
+        "sha256": "690a1fdcba6f15af52f37bd23cf6542ae713c19a1fa6e9f856cc9386802268c6"
+      },
+      {
+        "member": "data/polygons/dental/228.txt",
+        "bytes": 1097,
+        "directory": false,
+        "crc32": "ecb3daa6",
+        "sha256": "064b5adc71886b0370fde97547b3f44d54d893a2216961e55efa61fd9548d5e4"
+      },
+      {
+        "member": "data/polygons/dental/229.txt",
+        "bytes": 670,
+        "directory": false,
+        "crc32": "acaabfe6",
+        "sha256": "dda9fd5bd57e3f2ae57a16ac4f3fa68cb48450d8c0fb12136ee6ae6475a6c405"
+      },
+      {
+        "member": "data/polygons/dental/23.txt",
+        "bytes": 1814,
+        "directory": false,
+        "crc32": "7810f4cd",
+        "sha256": "4db0f809ba974b51cdac0bb006c0d22d5d94333349451229e60df1b1bd63eaf3"
+      },
+      {
+        "member": "data/polygons/dental/230.txt",
+        "bytes": 878,
+        "directory": false,
+        "crc32": "d9c8c678",
+        "sha256": "11ec75e0c6191438b267c733640498e06ae32f50f437b87ffc07c6fa8c74ccff"
+      },
+      {
+        "member": "data/polygons/dental/231.txt",
+        "bytes": 893,
+        "directory": false,
+        "crc32": "652f08b2",
+        "sha256": "6adf0f553937d2f166dc085330b26d03ddf17d1e2c45dc7fac8eb8e868331de0"
+      },
+      {
+        "member": "data/polygons/dental/232.txt",
+        "bytes": 1348,
+        "directory": false,
+        "crc32": "4f71bd2f",
+        "sha256": "52cd8dd84f69e5d2629b5eeca0c6093f2cc1a9d2c5c4c03a58a47aae4fe5ff11"
+      },
+      {
+        "member": "data/polygons/dental/233.txt",
+        "bytes": 1020,
+        "directory": false,
+        "crc32": "deb5c05d",
+        "sha256": "c22147b7f8004b3c7a305945a7f20a8c130ea047125bf578d07e488b38f43bf0"
+      },
+      {
+        "member": "data/polygons/dental/234.txt",
+        "bytes": 692,
+        "directory": false,
+        "crc32": "3546c254",
+        "sha256": "4dde78510964a4c2c800df280c694737f2f47c1928afb074c1cb7e0939d2e9b2"
+      },
+      {
+        "member": "data/polygons/dental/235.txt",
+        "bytes": 878,
+        "directory": false,
+        "crc32": "ee949cad",
+        "sha256": "223367ab3d0e0917eeff57d3fb8438367c9ba309383f6565b871498d52a2dae5"
+      },
+      {
+        "member": "data/polygons/dental/236.txt",
+        "bytes": 1169,
+        "directory": false,
+        "crc32": "5b4b27bf",
+        "sha256": "6046a116ed9dfa46774cccb814557ca8d1b4c60e160c53da2bc677fba9979d34"
+      },
+      {
+        "member": "data/polygons/dental/237.txt",
+        "bytes": 1178,
+        "directory": false,
+        "crc32": "9e598edf",
+        "sha256": "f77dee594970b9e91fd98272c1e97145dc7c27766e7c631caf46030c1de2abd0"
+      },
+      {
+        "member": "data/polygons/dental/238.txt",
+        "bytes": 1927,
+        "directory": false,
+        "crc32": "d8954bd9",
+        "sha256": "c2dfc7481eeb36b57fb9dbd1833536057fcfc64cc821d45566423c37ad2a2766"
+      },
+      {
+        "member": "data/polygons/dental/239.txt",
+        "bytes": 1143,
+        "directory": false,
+        "crc32": "56f9c7d7",
+        "sha256": "ab1e57054b6c1799f9b96126f180adc29afad08d59a64da551ed8a3482c1abec"
+      },
+      {
+        "member": "data/polygons/dental/24.txt",
+        "bytes": 1214,
+        "directory": false,
+        "crc32": "02e8f1d2",
+        "sha256": "137c6c7e7d5d29852ae348618616881a2dc58f7217ab3baeb54ece69496fbf02"
+      },
+      {
+        "member": "data/polygons/dental/240.txt",
+        "bytes": 1153,
+        "directory": false,
+        "crc32": "27eeb39f",
+        "sha256": "7f003405b05b84915a4052909f0a111a24440b2def6bec855af8263bcd0f6d69"
+      },
+      {
+        "member": "data/polygons/dental/241.txt",
+        "bytes": 913,
+        "directory": false,
+        "crc32": "add667d3",
+        "sha256": "402d2ace8e9b85e6ae89945b3afbf47882c7a170f4a2b33553d7dd6bb95bd73c"
+      },
+      {
+        "member": "data/polygons/dental/242.txt",
+        "bytes": 1622,
+        "directory": false,
+        "crc32": "3d5af070",
+        "sha256": "046856599c34c9aeef1e9489e78491d08617dbbbdc723633e47ed88e97cc176f"
+      },
+      {
+        "member": "data/polygons/dental/243.txt",
+        "bytes": 1022,
+        "directory": false,
+        "crc32": "43700f62",
+        "sha256": "f4c7759b5cc526aaa3a115ea38c195d77deb5bfe1d45f9c4965a1100c0449b97"
+      },
+      {
+        "member": "data/polygons/dental/244.txt",
+        "bytes": 1102,
+        "directory": false,
+        "crc32": "eb7c7e6a",
+        "sha256": "30cff304aa92da0002c39d729d6a03d4667b16bb43c5e64059c54bc5da590357"
+      },
+      {
+        "member": "data/polygons/dental/245.txt",
+        "bytes": 1075,
+        "directory": false,
+        "crc32": "2af06691",
+        "sha256": "f825b0de05eb444525a72ccb28aaea7b624ba9fbfa81d775ce0b43fd5e5df975"
+      },
+      {
+        "member": "data/polygons/dental/246.txt",
+        "bytes": 1670,
+        "directory": false,
+        "crc32": "ef231d97",
+        "sha256": "61816abd62c92a5bfcca903a90743261c98ff51b09ebe083496ef143e10e3e8b"
+      },
+      {
+        "member": "data/polygons/dental/247.txt",
+        "bytes": 1074,
+        "directory": false,
+        "crc32": "e63dbb47",
+        "sha256": "973f7fd4bf3c8cc666234e109a9077191de1676b7d0a63618403a973d7503378"
+      },
+      {
+        "member": "data/polygons/dental/248.txt",
+        "bytes": 936,
+        "directory": false,
+        "crc32": "514d7bd3",
+        "sha256": "cf2e27756ea2928d69ce85cfbe5c6a58279e57dcdaa277d857837e745aa54b42"
+      },
+      {
+        "member": "data/polygons/dental/249.txt",
+        "bytes": 1083,
+        "directory": false,
+        "crc32": "c9986e71",
+        "sha256": "5d4ac38e3269a40956067c24d3b68f9e31da5f8760c55357444be40c86c32bf6"
+      },
+      {
+        "member": "data/polygons/dental/25.txt",
+        "bytes": 1735,
+        "directory": false,
+        "crc32": "f2078abd",
+        "sha256": "354cb2552568ac10e23a45ed481f2d801b900d4da3718767b80d8bcd0c813666"
+      },
+      {
+        "member": "data/polygons/dental/250.txt",
+        "bytes": 1236,
+        "directory": false,
+        "crc32": "a66fd5e4",
+        "sha256": "bc688dd3f8e1b5f4d18157f830d6e4cd5c4506f39702ee98683ff74b8daba96b"
+      },
+      {
+        "member": "data/polygons/dental/251.txt",
+        "bytes": 1050,
+        "directory": false,
+        "crc32": "d99cc50f",
+        "sha256": "a7f117f82db57443ecd4138a23f8c35ba60546af8c60e068221e4096c7b1b86b"
+      },
+      {
+        "member": "data/polygons/dental/252.txt",
+        "bytes": 1437,
+        "directory": false,
+        "crc32": "13a24d34",
+        "sha256": "bd1e77f591936270225a039a99812869ad45441a37390bf6706989a64bb7abac"
+      },
+      {
+        "member": "data/polygons/dental/253.txt",
+        "bytes": 902,
+        "directory": false,
+        "crc32": "1df2781e",
+        "sha256": "2f7f7fce610d0081a7ff82586ec9fb8cdf5b8bb9d751ced6df15bbc07577e6fe"
+      },
+      {
+        "member": "data/polygons/dental/254.txt",
+        "bytes": 562,
+        "directory": false,
+        "crc32": "56b7f5f0",
+        "sha256": "5e6b182d369097e29f4da3fbcad42eeaee847e7bfa9f14b5219ddbd5c7ff89c2"
+      },
+      {
+        "member": "data/polygons/dental/255.txt",
+        "bytes": 1010,
+        "directory": false,
+        "crc32": "3f7a3eb7",
+        "sha256": "0373da5081f7b80c7fa70867a42160aa050886f080ebf84e2ffca50d422222d9"
+      },
+      {
+        "member": "data/polygons/dental/256.txt",
+        "bytes": 1158,
+        "directory": false,
+        "crc32": "2a3fc881",
+        "sha256": "9554229a7df7e7da1f06de8a40ce431e7c8bc44282fae27fd3ce477e63675e3f"
+      },
+      {
+        "member": "data/polygons/dental/257.txt",
+        "bytes": 1243,
+        "directory": false,
+        "crc32": "35ae9714",
+        "sha256": "27066de439011067f0d604b00c2f1323f3863177931ce6708b381c49d51a7ea5"
+      },
+      {
+        "member": "data/polygons/dental/258.txt",
+        "bytes": 1172,
+        "directory": false,
+        "crc32": "c2400fc2",
+        "sha256": "6ff4f968eea46c4107dc2576d41ac14b87b47d503204678d73fa2f07cd9ebbab"
+      },
+      {
+        "member": "data/polygons/dental/259.txt",
+        "bytes": 992,
+        "directory": false,
+        "crc32": "0659c0e3",
+        "sha256": "123b3ec67973eccac1162b40f4293e9f320db3ec527a9738797669479014f70b"
+      },
+      {
+        "member": "data/polygons/dental/26.txt",
+        "bytes": 1178,
+        "directory": false,
+        "crc32": "686eea5e",
+        "sha256": "7a15705321c3eae4955bd17f60facb1760b1bcad24b9ba2be16f6d75093c62c6"
+      },
+      {
+        "member": "data/polygons/dental/260.txt",
+        "bytes": 2014,
+        "directory": false,
+        "crc32": "a7020e94",
+        "sha256": "90dbfc81b1808c6bddebd0e6e79a9ebfb661d19c72d0c741a90af3fd16ebccfd"
+      },
+      {
+        "member": "data/polygons/dental/261.txt",
+        "bytes": 1093,
+        "directory": false,
+        "crc32": "39234b78",
+        "sha256": "49f57f550266270cb345061c0d316b1b3819b060280163d99a942ee4e215eaa7"
+      },
+      {
+        "member": "data/polygons/dental/262.txt",
+        "bytes": 1099,
+        "directory": false,
+        "crc32": "91df6032",
+        "sha256": "06f98b92968d72847ea963824e16bf8b437db8d0b34e897c6db93fcc2e8f1600"
+      },
+      {
+        "member": "data/polygons/dental/263.txt",
+        "bytes": 1197,
+        "directory": false,
+        "crc32": "81f09b1c",
+        "sha256": "253ad03023a522087c82c15a34fe49eabbc6ae05d879775fc5d4f7a788252f76"
+      },
+      {
+        "member": "data/polygons/dental/264.txt",
+        "bytes": 540,
+        "directory": false,
+        "crc32": "7d036838",
+        "sha256": "17927d1c2c9f2febd3a15042b339e9a9549c6cbc6b4e7dd26d2d903428ee5d56"
+      },
+      {
+        "member": "data/polygons/dental/265.txt",
+        "bytes": 1636,
+        "directory": false,
+        "crc32": "e7abcfa3",
+        "sha256": "8e4f1bfc50a104bb16acb09e8e1c7a45f5ba4b5f74d3806a12aacfff142e7ee9"
+      },
+      {
+        "member": "data/polygons/dental/266.txt",
+        "bytes": 1065,
+        "directory": false,
+        "crc32": "5f912794",
+        "sha256": "a7c8ab8960aa20960d02c7f7487a484a265f4ac190a6851a7ea9d64db5194706"
+      },
+      {
+        "member": "data/polygons/dental/267.txt",
+        "bytes": 1105,
+        "directory": false,
+        "crc32": "868a6099",
+        "sha256": "fe4346793a3ef5abcabb3ce17dc7802d1916924cbb98401a4de8c70df222e5e7"
+      },
+      {
+        "member": "data/polygons/dental/268.txt",
+        "bytes": 2116,
+        "directory": false,
+        "crc32": "76403904",
+        "sha256": "8951d6a877e70bc1f7ea8001c50caeeb698b431ba96b4b5d7a97f1c2aac9d281"
+      },
+      {
+        "member": "data/polygons/dental/269.txt",
+        "bytes": 870,
+        "directory": false,
+        "crc32": "d2071329",
+        "sha256": "85eed1db6253e9a78245fb87350d28fdd3f28f9aabf6f966a27326aedd6a1d84"
+      },
+      {
+        "member": "data/polygons/dental/27.txt",
+        "bytes": 1028,
+        "directory": false,
+        "crc32": "b2726b3b",
+        "sha256": "40ff3d586a688e6a97595ff640f20f8db6fb97dfd8fe70b4d0a4b8275bd808d6"
+      },
+      {
+        "member": "data/polygons/dental/270.txt",
+        "bytes": 1014,
+        "directory": false,
+        "crc32": "70043430",
+        "sha256": "9e39caeaf424de79a702b94aaffcf36edc8dbe3252336cffd26e995a4252d3a2"
+      },
+      {
+        "member": "data/polygons/dental/271.txt",
+        "bytes": 953,
+        "directory": false,
+        "crc32": "6efe7e5f",
+        "sha256": "46e2d683500e7aba15c3bd3eec667f51e0a83b92c6ddd200e20fd836d0c3bfb5"
+      },
+      {
+        "member": "data/polygons/dental/272.txt",
+        "bytes": 953,
+        "directory": false,
+        "crc32": "aef7e4bd",
+        "sha256": "440fd4eaac8e7c147f128a58ba3e6fbdfe6a487bd51ef3eace5e5187810ff553"
+      },
+      {
+        "member": "data/polygons/dental/273.txt",
+        "bytes": 1097,
+        "directory": false,
+        "crc32": "146c36ea",
+        "sha256": "805763156fd98ed7f1d5cd3c28dfd75763e41e93529778aa7d806b3cca7124f4"
+      },
+      {
+        "member": "data/polygons/dental/274.txt",
+        "bytes": 1409,
+        "directory": false,
+        "crc32": "afe547be",
+        "sha256": "56a384d70115097daf854b753503e66dd8801502ba29931edb1cff8ea906bd8d"
+      },
+      {
+        "member": "data/polygons/dental/275.txt",
+        "bytes": 708,
+        "directory": false,
+        "crc32": "ca15d493",
+        "sha256": "8746761e38b06486de661eb019cda18e94581221420303304ccf3e5a6b3e2093"
+      },
+      {
+        "member": "data/polygons/dental/276.txt",
+        "bytes": 1103,
+        "directory": false,
+        "crc32": "30480b10",
+        "sha256": "8255c8be04f92d02425b22f6fca966100c4742e03b6a0e9a05fc75012a21e6bb"
+      },
+      {
+        "member": "data/polygons/dental/277.txt",
+        "bytes": 1169,
+        "directory": false,
+        "crc32": "77571e88",
+        "sha256": "3363c77a3406cc31f8c36ef1d633fe09cac03a5a6edf8eb7b5de779d19173aa6"
+      },
+      {
+        "member": "data/polygons/dental/278.txt",
+        "bytes": 2340,
+        "directory": false,
+        "crc32": "66a72027",
+        "sha256": "1c6a86d877da97094004e813dfa0d69e31b2ecc779bfa404a628b4823083a666"
+      },
+      {
+        "member": "data/polygons/dental/279.txt",
+        "bytes": 1088,
+        "directory": false,
+        "crc32": "35f02b76",
+        "sha256": "de2efd9593312869ffeb74397e17a5698ba0346c1d57974af86bf9c4eef1683d"
+      },
+      {
+        "member": "data/polygons/dental/28.txt",
+        "bytes": 1968,
+        "directory": false,
+        "crc32": "6ee22f8e",
+        "sha256": "5bf3af1faca727dd10599561aa5c69eb3936ae00360039a1d6042406180d4573"
+      },
+      {
+        "member": "data/polygons/dental/280.txt",
+        "bytes": 1695,
+        "directory": false,
+        "crc32": "008abd1c",
+        "sha256": "544f0df4dac6ddb85c8c55e50ca2358db0b00c8d7469b68520a4031c2fe28ab4"
+      },
+      {
+        "member": "data/polygons/dental/281.txt",
+        "bytes": 951,
+        "directory": false,
+        "crc32": "9deca7d6",
+        "sha256": "92523b5596538940eb160ec8f4f037613f75e342428921888c7e78238d47d507"
+      },
+      {
+        "member": "data/polygons/dental/282.txt",
+        "bytes": 1206,
+        "directory": false,
+        "crc32": "6cb1faa7",
+        "sha256": "4d336759de5e0959bf81d2ae5e785e8d472c6089c094f8ba6c967739d778bc82"
+      },
+      {
+        "member": "data/polygons/dental/283.txt",
+        "bytes": 1761,
+        "directory": false,
+        "crc32": "8c96190f",
+        "sha256": "e53a8457b54652c0cfff2efd77097725e51bb5756431d8c9e7bd494dc349d54f"
+      },
+      {
+        "member": "data/polygons/dental/284.txt",
+        "bytes": 1218,
+        "directory": false,
+        "crc32": "7458a921",
+        "sha256": "a01f5c02a48000922830d905545a10506854df91dd8e641c8294047efece699d"
+      },
+      {
+        "member": "data/polygons/dental/285.txt",
+        "bytes": 1078,
+        "directory": false,
+        "crc32": "c0da2045",
+        "sha256": "0a22cc942a9ddaf3b13eaac4659974bf47615cfa6f0d579758f2b05bb32d1e74"
+      },
+      {
+        "member": "data/polygons/dental/286.txt",
+        "bytes": 1512,
+        "directory": false,
+        "crc32": "f1f0e5ab",
+        "sha256": "4c1bdd631d2d0633282b0cdc0158742123099bf22f8ff9981e1d818aee54926f"
+      },
+      {
+        "member": "data/polygons/dental/287.txt",
+        "bytes": 865,
+        "directory": false,
+        "crc32": "700177e0",
+        "sha256": "96a0576e84c32fe7c425ac4a4c889bf291a0526d575153728e80468db7aa2232"
+      },
+      {
+        "member": "data/polygons/dental/288.txt",
+        "bytes": 1079,
+        "directory": false,
+        "crc32": "191f735e",
+        "sha256": "4ec7ac1f20703e3aecc60aa7813047c927680539c32c80186bbe68d688b7155e"
+      },
+      {
+        "member": "data/polygons/dental/289.txt",
+        "bytes": 1345,
+        "directory": false,
+        "crc32": "351d2506",
+        "sha256": "ff609ca25ec7176baa717c5fca77a29b2d8d1d696f9ff94dbec4b441bce9e330"
+      },
+      {
+        "member": "data/polygons/dental/29.txt",
+        "bytes": 1101,
+        "directory": false,
+        "crc32": "92fac763",
+        "sha256": "627adb59714162326376600165abb8a851409059a0dae316dba437e527f55ac5"
+      },
+      {
+        "member": "data/polygons/dental/290.txt",
+        "bytes": 944,
+        "directory": false,
+        "crc32": "b72c1ca2",
+        "sha256": "2aed240997be07b9b966717b8dee0621697de72e4785ffce26dd07f42b369d22"
+      },
+      {
+        "member": "data/polygons/dental/291.txt",
+        "bytes": 1085,
+        "directory": false,
+        "crc32": "f7dfc34e",
+        "sha256": "aed0c0035e812eecf80b737cee153a3f4f4771d8070d6530286f258eee3ff1e1"
+      },
+      {
+        "member": "data/polygons/dental/292.txt",
+        "bytes": 1096,
+        "directory": false,
+        "crc32": "4573e25a",
+        "sha256": "5b44070b96e65743666cd4d9b6224962b10952dc634adf59cd6db2a8247ce71c"
+      },
+      {
+        "member": "data/polygons/dental/293.txt",
+        "bytes": 1494,
+        "directory": false,
+        "crc32": "6a933f80",
+        "sha256": "6f9ae403213a778e0917b85f772802ba9274c1203be25f75fb2f89c6a40ff920"
+      },
+      {
+        "member": "data/polygons/dental/294.txt",
+        "bytes": 1089,
+        "directory": false,
+        "crc32": "3848aa31",
+        "sha256": "5b9d4e905bcc32496da46066329f80eecb513b69b3565f1e6ed795f5c84cc24a"
+      },
+      {
+        "member": "data/polygons/dental/295.txt",
+        "bytes": 1739,
+        "directory": false,
+        "crc32": "72b8f726",
+        "sha256": "dd5921d2cebe4ffd854808dcebc3d18773234330b825b3b0b2af07e1b0700931"
+      },
+      {
+        "member": "data/polygons/dental/296.txt",
+        "bytes": 1022,
+        "directory": false,
+        "crc32": "1c4f344a",
+        "sha256": "bd09cd89f6ff5453af89d9633803f15c84846a15803d85e7f1aa71c8d9f7d348"
+      },
+      {
+        "member": "data/polygons/dental/297.txt",
+        "bytes": 872,
+        "directory": false,
+        "crc32": "c235f509",
+        "sha256": "cd1d1485010ebc99979664479bcbbe1ccba56c656191175cfb7aaa20730e3d74"
+      },
+      {
+        "member": "data/polygons/dental/298.txt",
+        "bytes": 1031,
+        "directory": false,
+        "crc32": "b0ad791d",
+        "sha256": "22358f03f46360f5248c072436d1313feb5e3e5b3821c641a8412b55fae6dba9"
+      },
+      {
+        "member": "data/polygons/dental/299.txt",
+        "bytes": 2031,
+        "directory": false,
+        "crc32": "68d2210b",
+        "sha256": "217857710bfc72f17084e6a8554dc2f3887e89b5080daad0d43467881d3c65a5"
+      },
+      {
+        "member": "data/polygons/dental/3.txt",
+        "bytes": 3807,
+        "directory": false,
+        "crc32": "33a7b446",
+        "sha256": "c6a129d7b56fe67aca515ed12c0f55a7fda3369ffa3941485d0bee67e43e96dc"
+      },
+      {
+        "member": "data/polygons/dental/30.txt",
+        "bytes": 1021,
+        "directory": false,
+        "crc32": "67b8a10c",
+        "sha256": "b0d55c3185f53f8a8d18f05969c58ee3164018affa00083167e720c6e8d7d4da"
+      },
+      {
+        "member": "data/polygons/dental/300.txt",
+        "bytes": 887,
+        "directory": false,
+        "crc32": "f0cebf26",
+        "sha256": "088c493e77d999112d6f467fee18274a72346874d13836b92e4189757c11f79e"
+      },
+      {
+        "member": "data/polygons/dental/301.txt",
+        "bytes": 1318,
+        "directory": false,
+        "crc32": "620d757f",
+        "sha256": "b861b6e5571d5e1747cf289029d8b11c2e5a0db4299139231f3bfa1399bfaafd"
+      },
+      {
+        "member": "data/polygons/dental/302.txt",
+        "bytes": 1652,
+        "directory": false,
+        "crc32": "d8c1fbbe",
+        "sha256": "398ee0fbc6c96bfcf03eb530b2d431d1a3a09eb5d225793cf92bcf5a185dbe9f"
+      },
+      {
+        "member": "data/polygons/dental/303.txt",
+        "bytes": 1075,
+        "directory": false,
+        "crc32": "ee80a47b",
+        "sha256": "e529374437c9d037104b137f27f1750f775311c7af01c08d95213abb843b57c9"
+      },
+      {
+        "member": "data/polygons/dental/304.txt",
+        "bytes": 1013,
+        "directory": false,
+        "crc32": "fff86c5d",
+        "sha256": "dc4a855f4edec3e303ce5da169a95594e1cf87f440344fac62eb126d29968128"
+      },
+      {
+        "member": "data/polygons/dental/305.txt",
+        "bytes": 1110,
+        "directory": false,
+        "crc32": "900e0aad",
+        "sha256": "45a42673f06887d335f0803e012f0318bcd857041526254b7d1ef78b7a5f1cbd"
+      },
+      {
+        "member": "data/polygons/dental/306.txt",
+        "bytes": 1020,
+        "directory": false,
+        "crc32": "ff3f4ad1",
+        "sha256": "3b613392dc28ac91610fb49df6fbd6979278a402e6b85ede146afe121a5295e1"
+      },
+      {
+        "member": "data/polygons/dental/307.txt",
+        "bytes": 2072,
+        "directory": false,
+        "crc32": "3748f368",
+        "sha256": "a7db028c7cdd92114c3618cfab4497b7ce667aeb376d239691eb6d7ac40cc800"
+      },
+      {
+        "member": "data/polygons/dental/308.txt",
+        "bytes": 946,
+        "directory": false,
+        "crc32": "c172ae19",
+        "sha256": "d6f71353c1718bc86b65054fb8e67af967c38356e8ff941c2d62b00fe5591589"
+      },
+      {
+        "member": "data/polygons/dental/309.txt",
+        "bytes": 1021,
+        "directory": false,
+        "crc32": "6dfb0152",
+        "sha256": "2952d940a798eb29fb46e72367933c0d4d67f3b7ca6d2d0280b3ce7d1a972e07"
+      },
+      {
+        "member": "data/polygons/dental/31.txt",
+        "bytes": 945,
+        "directory": false,
+        "crc32": "82c09bd4",
+        "sha256": "66dba694bc308a04c8ac94d19fc4d005d2a354af94f6724baf8843d17fae41a5"
+      },
+      {
+        "member": "data/polygons/dental/310.txt",
+        "bytes": 828,
+        "directory": false,
+        "crc32": "e5f56c08",
+        "sha256": "e6b34171409ca4adb1d059657d709af01e1d7aa75d873fc8120d9f2171671633"
+      },
+      {
+        "member": "data/polygons/dental/311.txt",
+        "bytes": 1021,
+        "directory": false,
+        "crc32": "87d301b1",
+        "sha256": "d7b550b4be742f1ae409bcb4ac2027dea27aa2e8bb250fcf2dfa6bb6dcf3b928"
+      },
+      {
+        "member": "data/polygons/dental/312.txt",
+        "bytes": 1425,
+        "directory": false,
+        "crc32": "d4d216e1",
+        "sha256": "868aa0737ad21f9b1dea9781df1a9974ac0cabc2d4b47c15112dafca0e3946cd"
+      },
+      {
+        "member": "data/polygons/dental/313.txt",
+        "bytes": 862,
+        "directory": false,
+        "crc32": "5e3fadef",
+        "sha256": "ba93a477c69ea594b4bab6fdea4e0ce509260fd54f4d2a8f1074c45d5b963a1b"
+      },
+      {
+        "member": "data/polygons/dental/314.txt",
+        "bytes": 1169,
+        "directory": false,
+        "crc32": "60c6063c",
+        "sha256": "e793466ee408fa7432f99020a5ceb5c6c6eba07eb3e0ef06894a1d24ce24c961"
+      },
+      {
+        "member": "data/polygons/dental/315.txt",
+        "bytes": 872,
+        "directory": false,
+        "crc32": "929123f9",
+        "sha256": "b58c665b7504b307dacc6362c48a06f8956fe8812406334afedf69e72bbc5d4e"
+      },
+      {
+        "member": "data/polygons/dental/316.txt",
+        "bytes": 1409,
+        "directory": false,
+        "crc32": "9e87a312",
+        "sha256": "c6283ce8675b8ed9a134bf48904eb0c0b1a91657e0b8026c455c84e080784fec"
+      },
+      {
+        "member": "data/polygons/dental/317.txt",
+        "bytes": 582,
+        "directory": false,
+        "crc32": "3b5de354",
+        "sha256": "e79eb38cc4c3ddbc3ef7db1cb768db41581d46120835b35a70e91f1ac7389ac6"
+      },
+      {
+        "member": "data/polygons/dental/318.txt",
+        "bytes": 1060,
+        "directory": false,
+        "crc32": "6545bd89",
+        "sha256": "b14439a35e2eb8884e3ce6a68ac111be2fa9bea79753f3f72ad9eaa4a8238f00"
+      },
+      {
+        "member": "data/polygons/dental/319.txt",
+        "bytes": 1059,
+        "directory": false,
+        "crc32": "983e9809",
+        "sha256": "545fe8f921591e88b52e4619f661d3ddddcd3879bcea5744cb02c5be7593ccea"
+      },
+      {
+        "member": "data/polygons/dental/32.txt",
+        "bytes": 1308,
+        "directory": false,
+        "crc32": "d5d646a2",
+        "sha256": "c0ed77b1114db5ca58078bfce4c980fb939df5de05f5dc2175959322706d00bf"
+      },
+      {
+        "member": "data/polygons/dental/320.txt",
+        "bytes": 1139,
+        "directory": false,
+        "crc32": "35c4e7ad",
+        "sha256": "3554611e390f3c3bf78a7eb25eccf01688796c2bb8f93acdfe64a22f77c9a052"
+      },
+      {
+        "member": "data/polygons/dental/321.txt",
+        "bytes": 1417,
+        "directory": false,
+        "crc32": "e085f43e",
+        "sha256": "28b1074fde19a5d5a3a905d510cfe2888d1b1eb3e4ddfea80d585dafcdb173a0"
+      },
+      {
+        "member": "data/polygons/dental/322.txt",
+        "bytes": 852,
+        "directory": false,
+        "crc32": "2ef0dc15",
+        "sha256": "91e3a255778d8cc8e3b2e6fe0b2cb3a4b7e5d175bca6f913b90928ac525bbf62"
+      },
+      {
+        "member": "data/polygons/dental/323.txt",
+        "bytes": 1013,
+        "directory": false,
+        "crc32": "233003ed",
+        "sha256": "c0be5087c30b5b537371d9e62e1fca6fc073569eccf8de5333b43b009ba74117"
+      },
+      {
+        "member": "data/polygons/dental/324.txt",
+        "bytes": 1261,
+        "directory": false,
+        "crc32": "a40a5453",
+        "sha256": "83ced6f42756b24d331d3c632c395f31b65ba87079d0651716e6b032e3ea24fb"
+      },
+      {
+        "member": "data/polygons/dental/325.txt",
+        "bytes": 912,
+        "directory": false,
+        "crc32": "85cf0749",
+        "sha256": "7cb6f0f1cb17d1773eb1fa4d5a3e3b5bb7c1754cb217cb2f198b977f4f2660bd"
+      },
+      {
+        "member": "data/polygons/dental/326.txt",
+        "bytes": 1541,
+        "directory": false,
+        "crc32": "aff9442b",
+        "sha256": "2a4186d376939fea4b3e486f839ec2c3d00ba5f6eb265a0a57c3025a91d42e38"
+      },
+      {
+        "member": "data/polygons/dental/327.txt",
+        "bytes": 926,
+        "directory": false,
+        "crc32": "1cfe854a",
+        "sha256": "26386e42aee12b9bdd98e7350223926cbf262ceff8489deeaf7f23ea803b700f"
+      },
+      {
+        "member": "data/polygons/dental/328.txt",
+        "bytes": 1170,
+        "directory": false,
+        "crc32": "3ea5d161",
+        "sha256": "b056013942f3cc9c37d57c82be00e13cecf4b8224d6f0a722e6c9a49df2eb98e"
+      },
+      {
+        "member": "data/polygons/dental/329.txt",
+        "bytes": 1618,
+        "directory": false,
+        "crc32": "56853689",
+        "sha256": "d9f04cadf539d24e7e7c846fd634c55f94299b8b49071dd4ef8c88146674ddf6"
+      },
+      {
+        "member": "data/polygons/dental/33.txt",
+        "bytes": 1037,
+        "directory": false,
+        "crc32": "2629d34a",
+        "sha256": "f1f8730cdb8706e6d26c8e57940821d3db9d0dbbe3ddec78888aa7e885e62391"
+      },
+      {
+        "member": "data/polygons/dental/330.txt",
+        "bytes": 1275,
+        "directory": false,
+        "crc32": "6fc21f86",
+        "sha256": "275abc97aca4581ac69bcceec20834bbfb07a84028cc816d3a90dd6ad2e10702"
+      },
+      {
+        "member": "data/polygons/dental/331.txt",
+        "bytes": 1019,
+        "directory": false,
+        "crc32": "c7f83d4c",
+        "sha256": "0f3ee23e46b13a0b1f82668b3df06ee08848d52aa783035bcb68da94b1daaaff"
+      },
+      {
+        "member": "data/polygons/dental/332.txt",
+        "bytes": 981,
+        "directory": false,
+        "crc32": "cb5f6ef6",
+        "sha256": "86e01705831d583e0e531ee82f7519be622d53694391fb0e1cc142b3fc76c6b5"
+      },
+      {
+        "member": "data/polygons/dental/333.txt",
+        "bytes": 1458,
+        "directory": false,
+        "crc32": "00e82e8f",
+        "sha256": "82b21e307723254a122a304c6df7703e8da5b1bbbe6c42ecbfeab2e8526ddf98"
+      },
+      {
+        "member": "data/polygons/dental/334.txt",
+        "bytes": 1087,
+        "directory": false,
+        "crc32": "260d5fc2",
+        "sha256": "f5a871960a1fbfecebab1d9f714ca0e947a932ba42b362c7329fdb8d0999cfa0"
+      },
+      {
+        "member": "data/polygons/dental/335.txt",
+        "bytes": 1664,
+        "directory": false,
+        "crc32": "b127c89a",
+        "sha256": "e5abad067f9cca0541a51cf7e900ee36d0bb39fdf721bdf3bae91477536b63f2"
+      },
+      {
+        "member": "data/polygons/dental/336.txt",
+        "bytes": 1097,
+        "directory": false,
+        "crc32": "f6678cf1",
+        "sha256": "1119db7fd1f28e782ff180a3582631ce6bfc222ec1efa06ad64bcbf97fc66f5a"
+      },
+      {
+        "member": "data/polygons/dental/337.txt",
+        "bytes": 1617,
+        "directory": false,
+        "crc32": "7a9c20a9",
+        "sha256": "ea4976dc81a0c73a6e537c5d8cd268fad4dc7eb86ad1c9cb7fed0d084b04e1d6"
+      },
+      {
+        "member": "data/polygons/dental/338.txt",
+        "bytes": 1135,
+        "directory": false,
+        "crc32": "33a4f84c",
+        "sha256": "7c0fba7574411eaf437f508187e80c164f052d9aab39a65ccf27164f8328b39d"
+      },
+      {
+        "member": "data/polygons/dental/339.txt",
+        "bytes": 1016,
+        "directory": false,
+        "crc32": "613f639d",
+        "sha256": "d1e07f46d2acbd07813e3fa253c9966942d205c8c4694ded873818d1990c27e0"
+      },
+      {
+        "member": "data/polygons/dental/34.txt",
+        "bytes": 1756,
+        "directory": false,
+        "crc32": "0ac6960f",
+        "sha256": "cf25ad138aab9947cdf100d937358f462ad316196a1715a24867b3d8f0a32a5c"
+      },
+      {
+        "member": "data/polygons/dental/340.txt",
+        "bytes": 1118,
+        "directory": false,
+        "crc32": "8265ab0e",
+        "sha256": "4d4e258fe8ad76a969fd8b835b659a902bff41ae4717a84dd880dd5dd7d46d1a"
+      },
+      {
+        "member": "data/polygons/dental/341.txt",
+        "bytes": 1695,
+        "directory": false,
+        "crc32": "cdca1160",
+        "sha256": "4609d071cefeed95a29169554b4069db77ee88b23133292655d087cfe4f1625b"
+      },
+      {
+        "member": "data/polygons/dental/342.txt",
+        "bytes": 1105,
+        "directory": false,
+        "crc32": "25e8e751",
+        "sha256": "abd7b77b450b560f3398fd79c39dce528dd142ffff26238773856f27486e6839"
+      },
+      {
+        "member": "data/polygons/dental/343.txt",
+        "bytes": 2824,
+        "directory": false,
+        "crc32": "a2cf5c71",
+        "sha256": "8e69ffb6ca6a7c6fb43dd5d4557270fc8bebf0dfdb73edecb658ee1c847e8137"
+      },
+      {
+        "member": "data/polygons/dental/344.txt",
+        "bytes": 871,
+        "directory": false,
+        "crc32": "93d89cd5",
+        "sha256": "1888f2f44c51f45fe47ebbb340c6c6f58fabfee8f6eeee25346b88c84cbb806b"
+      },
+      {
+        "member": "data/polygons/dental/345.txt",
+        "bytes": 1107,
+        "directory": false,
+        "crc32": "69cc6f27",
+        "sha256": "93dad0edbde3e03104a18378a177eb80fd05d4d6bd845e42cac014066bdfdf1a"
+      },
+      {
+        "member": "data/polygons/dental/346.txt",
+        "bytes": 861,
+        "directory": false,
+        "crc32": "379b168c",
+        "sha256": "1b9fb92711c08a36c52ccc893a2454ba03aa16cca5a0fb49362dcb3147aa9ae3"
+      },
+      {
+        "member": "data/polygons/dental/347.txt",
+        "bytes": 936,
+        "directory": false,
+        "crc32": "366d2ccc",
+        "sha256": "00555fdae733f1fadcf2d6d520cd6beb926fbcd0f726c4d9c2d53b0c1b9f750c"
+      },
+      {
+        "member": "data/polygons/dental/348.txt",
+        "bytes": 1097,
+        "directory": false,
+        "crc32": "901382e8",
+        "sha256": "8d0f510ec1d709c2697bc2f57e6b6f7fdf4cd3db15bdae218816793236d9cf1a"
+      },
+      {
+        "member": "data/polygons/dental/349.txt",
+        "bytes": 527,
+        "directory": false,
+        "crc32": "9e219bf7",
+        "sha256": "54ac0238e82adff68545aaa7581cec621dbbaf5118fdfbf5a8bf770f1a8cadbb"
+      },
+      {
+        "member": "data/polygons/dental/35.txt",
+        "bytes": 1162,
+        "directory": false,
+        "crc32": "41587a55",
+        "sha256": "931c183921222eb04c533f0e1f582fcfacaf1a15155315c2c467135e11e75d23"
+      },
+      {
+        "member": "data/polygons/dental/350.txt",
+        "bytes": 1464,
+        "directory": false,
+        "crc32": "cd5ba525",
+        "sha256": "2683f8c884f9201012e19e97f10f35246e35c75fa1014a040bf9efcc46d78939"
+      },
+      {
+        "member": "data/polygons/dental/351.txt",
+        "bytes": 842,
+        "directory": false,
+        "crc32": "44b83305",
+        "sha256": "b55e91319c37318ddfc6d22ea65810290ab48386f11868ed4a631ccd9fc5ba9e"
+      },
+      {
+        "member": "data/polygons/dental/352.txt",
+        "bytes": 1036,
+        "directory": false,
+        "crc32": "399e6d59",
+        "sha256": "960ff5144cfb8a92a14f4ace7944d7d13d75543d7c585d8b02d5cc0171b45357"
+      },
+      {
+        "member": "data/polygons/dental/353.txt",
+        "bytes": 1016,
+        "directory": false,
+        "crc32": "cb30a714",
+        "sha256": "bb19033db2335e0b2407ea4fdebe31f4d5bcd4977aaaafb0057bb0d4bc3a594d"
+      },
+      {
+        "member": "data/polygons/dental/354.txt",
+        "bytes": 1541,
+        "directory": false,
+        "crc32": "8ec7677b",
+        "sha256": "fc237ab0e637c6ab657d4114d6325001026e87c9c71b2fda3fc353e72e90b9e3"
+      },
+      {
+        "member": "data/polygons/dental/355.txt",
+        "bytes": 872,
+        "directory": false,
+        "crc32": "e68c91a1",
+        "sha256": "6f296054929f9d2aeedb0ecdca5872369f4f95e6e12458a25f5fbb7515889b29"
+      },
+      {
+        "member": "data/polygons/dental/356.txt",
+        "bytes": 1089,
+        "directory": false,
+        "crc32": "74d0182e",
+        "sha256": "26e85d19d077451578823d053fa5616121dfda46fd6bc7ed5d2159b98fe0f24f"
+      },
+      {
+        "member": "data/polygons/dental/357.txt",
+        "bytes": 1065,
+        "directory": false,
+        "crc32": "7e701a4b",
+        "sha256": "92dfa67952377d9338a68ef4fe66d31c9034b5d1f9fbedf364a18e95755bf6f6"
+      },
+      {
+        "member": "data/polygons/dental/358.txt",
+        "bytes": 561,
+        "directory": false,
+        "crc32": "9bb79107",
+        "sha256": "b57782b45a12809e01eb338c495d98db997557ee418ff3ac81ad94a71e99c1df"
+      },
+      {
+        "member": "data/polygons/dental/359.txt",
+        "bytes": 678,
+        "directory": false,
+        "crc32": "ccdeb7d6",
+        "sha256": "cb319ce920712ed560824735ccf343f71e876dafffa5637eca1d68a0c02147d3"
+      },
+      {
+        "member": "data/polygons/dental/36.txt",
+        "bytes": 978,
+        "directory": false,
+        "crc32": "3f01e5df",
+        "sha256": "9f1af670dcae352fc42f11ac805c819940cd8a7af89170e05dcc540aec22eb19"
+      },
+      {
+        "member": "data/polygons/dental/360.txt",
+        "bytes": 3893,
+        "directory": false,
+        "crc32": "e1b3331c",
+        "sha256": "fb3a0bb4103f709c0d1d1038d873277a73a265b285364d9fe041ef49e1e1e95f"
+      },
+      {
+        "member": "data/polygons/dental/361.txt",
+        "bytes": 865,
+        "directory": false,
+        "crc32": "8a3eccdc",
+        "sha256": "06a969553a86f7aff5b427be4117a41c8dd9d9997e36b7a145d19d8ac7730cc1"
+      },
+      {
+        "member": "data/polygons/dental/362.txt",
+        "bytes": 584,
+        "directory": false,
+        "crc32": "83c84832",
+        "sha256": "b4a00ab4bab8f70eda54ae1a6445e9dc5d938c89e630a4696bb4a413b9ce56f6"
+      },
+      {
+        "member": "data/polygons/dental/363.txt",
+        "bytes": 1518,
+        "directory": false,
+        "crc32": "f664c101",
+        "sha256": "668663a4ce188216f75c952e888771b3512a860bf15015f3ddee407c35e28432"
+      },
+      {
+        "member": "data/polygons/dental/364.txt",
+        "bytes": 864,
+        "directory": false,
+        "crc32": "e53bbac6",
+        "sha256": "35ceb50d1f8295f5bb4f77f15743bbb7ad82b69648561d2a4e65241b34abcc83"
+      },
+      {
+        "member": "data/polygons/dental/365.txt",
+        "bytes": 3573,
+        "directory": false,
+        "crc32": "9c7b9199",
+        "sha256": "3cef471986199a81b6f86d6ee567c82b282797ef4fb2cfa66f0624cd011c6c04"
+      },
+      {
+        "member": "data/polygons/dental/366.txt",
+        "bytes": 3593,
+        "directory": false,
+        "crc32": "be2ca655",
+        "sha256": "fc7c33f36999e0cf6c63ed79c6862f89d312d060e39195dbe5d9f26406f08ff0"
+      },
+      {
+        "member": "data/polygons/dental/367.txt",
+        "bytes": 1027,
+        "directory": false,
+        "crc32": "41ae645b",
+        "sha256": "783ef1238dd169b3003fb97b3fb26a7e6394ee66dd19229fa30c99a08dd832ec"
+      },
+      {
+        "member": "data/polygons/dental/368.txt",
+        "bytes": 1026,
+        "directory": false,
+        "crc32": "3664f4cb",
+        "sha256": "56f490810da348f6996e7b29cd42428b8f3f5cfb14ff254cb40de2dfd9727725"
+      },
+      {
+        "member": "data/polygons/dental/369.txt",
+        "bytes": 564,
+        "directory": false,
+        "crc32": "1a28999f",
+        "sha256": "0239d86d9b25fba44e637c34f8ffd5930fef92161d9a6883a0c9ef5314a7ffb5"
+      },
+      {
+        "member": "data/polygons/dental/37.txt",
+        "bytes": 2586,
+        "directory": false,
+        "crc32": "416c3c13",
+        "sha256": "15f69983cbec7462f153dce7dd214e670634299b53c78bcd4d11a8cbcafcaba1"
+      },
+      {
+        "member": "data/polygons/dental/370.txt",
+        "bytes": 566,
+        "directory": false,
+        "crc32": "8c23abad",
+        "sha256": "fee3a38110572d3a3048d361140912a830ed0da79f20d61d1126347227d784dd"
+      },
+      {
+        "member": "data/polygons/dental/371.txt",
+        "bytes": 2025,
+        "directory": false,
+        "crc32": "cf3206eb",
+        "sha256": "4c6b902b0278fffd5bb66799ab6dc5423a4bd5e22a52725c5c210d086f972082"
+      },
+      {
+        "member": "data/polygons/dental/372.txt",
+        "bytes": 1023,
+        "directory": false,
+        "crc32": "b317c6c4",
+        "sha256": "192ead788d7167dabb389d0caad791505b2444e7d0716d69c5deef6a3f6b3539"
+      },
+      {
+        "member": "data/polygons/dental/373.txt",
+        "bytes": 1027,
+        "directory": false,
+        "crc32": "f6729d08",
+        "sha256": "330467ac3aade99075ddb9ee0309699676891fa14104ae30e297259de5576cbd"
+      },
+      {
+        "member": "data/polygons/dental/374.txt",
+        "bytes": 857,
+        "directory": false,
+        "crc32": "d1f0d169",
+        "sha256": "e9c941382ca60b71eb92f3751bfb32f1707623f6e942be4a859e1043121f2fc1"
+      },
+      {
+        "member": "data/polygons/dental/375.txt",
+        "bytes": 1115,
+        "directory": false,
+        "crc32": "0fb24437",
+        "sha256": "ce0234d7f8e6ffc776019de4225745dcd49b239d6ecdd69af0328fcc374ab447"
+      },
+      {
+        "member": "data/polygons/dental/376.txt",
+        "bytes": 1723,
+        "directory": false,
+        "crc32": "1fff8828",
+        "sha256": "9a4ae1cd421420c0228bd369ae7dad43a561123a012f0b826efa187226649d22"
+      },
+      {
+        "member": "data/polygons/dental/377.txt",
+        "bytes": 1086,
+        "directory": false,
+        "crc32": "c225b433",
+        "sha256": "eda017f3e7b2464904389bd6bb1a19bad50827d8901c6e0fb50b7d8daba6376b"
+      },
+      {
+        "member": "data/polygons/dental/378.txt",
+        "bytes": 1599,
+        "directory": false,
+        "crc32": "73c542f8",
+        "sha256": "b59adbcac387b67d86c84f06b40630792670ab65857ce079f85c6a2038fdd190"
+      },
+      {
+        "member": "data/polygons/dental/379.txt",
+        "bytes": 863,
+        "directory": false,
+        "crc32": "2eb0431a",
+        "sha256": "d04f2db7c7a7d9ebcd872925ad25ea5801840ab1d86fbae12a0e81e24f5a69af"
+      },
+      {
+        "member": "data/polygons/dental/38.txt",
+        "bytes": 744,
+        "directory": false,
+        "crc32": "50ed1e70",
+        "sha256": "95ddf570417789dd6ed08a91591b35927bad1dd8e6ef6dd10e9eaee706be9b0c"
+      },
+      {
+        "member": "data/polygons/dental/380.txt",
+        "bytes": 884,
+        "directory": false,
+        "crc32": "97c556bb",
+        "sha256": "7392a1c12b94d93038335d90982f05dcf4559e9b900cc9da57ba4a9fd445d2da"
+      },
+      {
+        "member": "data/polygons/dental/381.txt",
+        "bytes": 2210,
+        "directory": false,
+        "crc32": "abef89bd",
+        "sha256": "008366fa744490e0921a4a4ef4d39fa65828679aff97749528985aa8db808099"
+      },
+      {
+        "member": "data/polygons/dental/382.txt",
+        "bytes": 1013,
+        "directory": false,
+        "crc32": "f8f5ac0f",
+        "sha256": "8721f38300a0d0fa2e7d94d25b0a485c5747cc57c2089037f37e6206762fd185"
+      },
+      {
+        "member": "data/polygons/dental/383.txt",
+        "bytes": 2128,
+        "directory": false,
+        "crc32": "f14e8259",
+        "sha256": "b5c43c5a5f14b16adfae62fc998dfb62bd55c86c97a1da2b2580931310122131"
+      },
+      {
+        "member": "data/polygons/dental/384.txt",
+        "bytes": 985,
+        "directory": false,
+        "crc32": "04397704",
+        "sha256": "8bd6e0b27cdc19768244ec46b8a32bd59eb5d59f5ad45f8fd92fa5c6b687f307"
+      },
+      {
+        "member": "data/polygons/dental/385.txt",
+        "bytes": 1005,
+        "directory": false,
+        "crc32": "ed0a9313",
+        "sha256": "ed08dfe15f8d96414ab2816d1a05c4d81c40a78eefbfac0cea5215640d054018"
+      },
+      {
+        "member": "data/polygons/dental/386.txt",
+        "bytes": 1775,
+        "directory": false,
+        "crc32": "28ba45b1",
+        "sha256": "d26df2321fa0fdc7f9eab996b78f66a663d8e50ca7b99a52e9593b3671cd4cce"
+      },
+      {
+        "member": "data/polygons/dental/387.txt",
+        "bytes": 938,
+        "directory": false,
+        "crc32": "8252ecc3",
+        "sha256": "e77b57e48510115d5691b927d7b62b270acad789b19bc37c706a9bda6a6ea119"
+      },
+      {
+        "member": "data/polygons/dental/388.txt",
+        "bytes": 1098,
+        "directory": false,
+        "crc32": "425b5ee9",
+        "sha256": "5e9860d8562e5d5e98d9db9e0c8a101f9c9de70f84a456a928b3695d2a914993"
+      },
+      {
+        "member": "data/polygons/dental/389.txt",
+        "bytes": 1778,
+        "directory": false,
+        "crc32": "7eee11dc",
+        "sha256": "0fa852608e104d2a059188a739ae5177884669ced2964eae26f05b513fe478d4"
+      },
+      {
+        "member": "data/polygons/dental/39.txt",
+        "bytes": 771,
+        "directory": false,
+        "crc32": "1b2ec714",
+        "sha256": "3cb499933937a3d10c07a2dd660ea15608123b0134b5630fb1ea0cf0d237f589"
+      },
+      {
+        "member": "data/polygons/dental/390.txt",
+        "bytes": 1021,
+        "directory": false,
+        "crc32": "31a386ac",
+        "sha256": "10fd261030ad355fe2bb14a21783665472bb090ce654b695039b94e2acd59573"
+      },
+      {
+        "member": "data/polygons/dental/391.txt",
+        "bytes": 1018,
+        "directory": false,
+        "crc32": "e77dd9f1",
+        "sha256": "5b7634579a3a15411e5d44bc94c862360bb0f0a135fb5c4650b007e754010dca"
+      },
+      {
+        "member": "data/polygons/dental/392.txt",
+        "bytes": 1672,
+        "directory": false,
+        "crc32": "b05c19dc",
+        "sha256": "4bee3aa5350504fc7adc4864157a72cd587cf962bf1e8b9eeb1c770785897161"
+      },
+      {
+        "member": "data/polygons/dental/393.txt",
+        "bytes": 1101,
+        "directory": false,
+        "crc32": "5193c63c",
+        "sha256": "5d95a1edbde4262ac03adf188c84655f6b0b82587e0a19437daf049bb607cbb8"
+      },
+      {
+        "member": "data/polygons/dental/394.txt",
+        "bytes": 1102,
+        "directory": false,
+        "crc32": "4b69829d",
+        "sha256": "30b6bf94e8f7f6261ba2222aee3c2545d138b8c19a51931167e6df1d6bc99194"
+      },
+      {
+        "member": "data/polygons/dental/395.txt",
+        "bytes": 1587,
+        "directory": false,
+        "crc32": "128d2139",
+        "sha256": "ac649241dd3720a1607c3a99e02c85f01919a65b635f18f168165eed0402c611"
+      },
+      {
+        "member": "data/polygons/dental/396.txt",
+        "bytes": 1155,
+        "directory": false,
+        "crc32": "63971f08",
+        "sha256": "c96bc1da814a5a36d4216fdda2720c88eedda67c6c5c894b15cd2d833a6224c7"
+      },
+      {
+        "member": "data/polygons/dental/397.txt",
+        "bytes": 1532,
+        "directory": false,
+        "crc32": "0fb16a85",
+        "sha256": "6dfac3f5705177491640c42051b542277eab20f06f04f58be0925a159478980f"
+      },
+      {
+        "member": "data/polygons/dental/398.txt",
+        "bytes": 905,
+        "directory": false,
+        "crc32": "bbd7c53b",
+        "sha256": "c1edb0343f3fcd966505b9a0559896b4afbb0597718f13a1930bca8930813475"
+      },
+      {
+        "member": "data/polygons/dental/399.txt",
+        "bytes": 837,
+        "directory": false,
+        "crc32": "ec19826e",
+        "sha256": "ec1cf0385659d156e50454e8c69d9037ff10edf49e182f7d9c5c8dd8a4c24635"
+      },
+      {
+        "member": "data/polygons/dental/4.txt",
+        "bytes": 1179,
+        "directory": false,
+        "crc32": "4450165f",
+        "sha256": "4ecb394c101d391cd91d72cbae58deeeb8e89d8a78ba2d4a724fc0b03b951497"
+      },
+      {
+        "member": "data/polygons/dental/40.txt",
+        "bytes": 715,
+        "directory": false,
+        "crc32": "812c9b44",
+        "sha256": "1f191016f595aa72ecbabd9efbe6b72c0e02af21457b16bd176c91b3cafee354"
+      },
+      {
+        "member": "data/polygons/dental/400.txt",
+        "bytes": 838,
+        "directory": false,
+        "crc32": "524990fc",
+        "sha256": "86dc56681ffa200f45e09278cd2d4fa7bd3ebaec25309de7adb501b0a41957fe"
+      },
+      {
+        "member": "data/polygons/dental/401.txt",
+        "bytes": 1817,
+        "directory": false,
+        "crc32": "b92a1917",
+        "sha256": "60f26ec6d398f8bad849573e2f1df3a18782440e44900ac48b8399066d85e53c"
+      },
+      {
+        "member": "data/polygons/dental/402.txt",
+        "bytes": 1149,
+        "directory": false,
+        "crc32": "37957180",
+        "sha256": "04ae50274d1a9e0365531bf0bc7d02ea4463652634b133af9283d11b3b1e0b88"
+      },
+      {
+        "member": "data/polygons/dental/403.txt",
+        "bytes": 1053,
+        "directory": false,
+        "crc32": "6be6f014",
+        "sha256": "ad3e26bde7a52dab69307ef13162a8f021c6367c814ddfb698459c3ce912e42a"
+      },
+      {
+        "member": "data/polygons/dental/404.txt",
+        "bytes": 1343,
+        "directory": false,
+        "crc32": "5a7b5037",
+        "sha256": "9913a0ceebea4d4e78170f49b4f303c36835bf076d0ceb90b66cf39a7a39dd14"
+      },
+      {
+        "member": "data/polygons/dental/405.txt",
+        "bytes": 1551,
+        "directory": false,
+        "crc32": "379caa0f",
+        "sha256": "8840dc688ac6a4c9bf6b56609625083d610736e3e8f37a3c50174fe075df5213"
+      },
+      {
+        "member": "data/polygons/dental/406.txt",
+        "bytes": 739,
+        "directory": false,
+        "crc32": "7c83c3cf",
+        "sha256": "3c60d94f106ce34d1a28cd32794b117f17c4d35c3a3232d9c393f17993e9c7f5"
+      },
+      {
+        "member": "data/polygons/dental/407.txt",
+        "bytes": 875,
+        "directory": false,
+        "crc32": "a130ec60",
+        "sha256": "0a85c761c7f9df43abed4ce076e42b782cac809842bd430653775db6960a3f78"
+      },
+      {
+        "member": "data/polygons/dental/408.txt",
+        "bytes": 937,
+        "directory": false,
+        "crc32": "688dd67f",
+        "sha256": "da5730d87063b9ecdccc3cf92d29bc2605d4f7986f1ea5eb4447f5689cf22c70"
+      },
+      {
+        "member": "data/polygons/dental/409.txt",
+        "bytes": 1911,
+        "directory": false,
+        "crc32": "a622f5fd",
+        "sha256": "256c98d6ac6b61fd37eef4a1f14e2922c88b98ac3cfcd7d8c6c9c8068a384aca"
+      },
+      {
+        "member": "data/polygons/dental/41.txt",
+        "bytes": 875,
+        "directory": false,
+        "crc32": "5a3650de",
+        "sha256": "6dabdcb219fc5418dcca405065955b01db5e480b9c037e83766623b66d7d272f"
+      },
+      {
+        "member": "data/polygons/dental/410.txt",
+        "bytes": 1009,
+        "directory": false,
+        "crc32": "84ac56cf",
+        "sha256": "3d793299c79c71373b2a9e1ffdc1d9ae85db91e9f4a88f50d0c2f7ed5634d11c"
+      },
+      {
+        "member": "data/polygons/dental/411.txt",
+        "bytes": 723,
+        "directory": false,
+        "crc32": "04900e74",
+        "sha256": "2ef7d67b62e30da75b5966fc1423eac593dbd667120448fb0fc1e169c54827cb"
+      },
+      {
+        "member": "data/polygons/dental/412.txt",
+        "bytes": 797,
+        "directory": false,
+        "crc32": "2779027c",
+        "sha256": "1adeb3d5026d8418efcdf6b456b985dec64280124f7ff87caa8588ff834c75b3"
+      },
+      {
+        "member": "data/polygons/dental/413.txt",
+        "bytes": 2139,
+        "directory": false,
+        "crc32": "fb425e57",
+        "sha256": "9e00112fbbcf83d4bd9e62656e3246968b9b7bb8215badca5676e1f2f3c53c4f"
+      },
+      {
+        "member": "data/polygons/dental/414.txt",
+        "bytes": 935,
+        "directory": false,
+        "crc32": "722ada6c",
+        "sha256": "f0d80ae3ea773e31cd10cd46258a39338d8fd9020c27a12ae2815a6949e86741"
+      },
+      {
+        "member": "data/polygons/dental/415.txt",
+        "bytes": 1860,
+        "directory": false,
+        "crc32": "f38ae5fc",
+        "sha256": "7a5b1e16272fd6ee9bcacf861097073972b4d2321646bfa9eeb7c6bb390f385b"
+      },
+      {
+        "member": "data/polygons/dental/416.txt",
+        "bytes": 1093,
+        "directory": false,
+        "crc32": "9785bbf6",
+        "sha256": "9bac86ed25167b0ce700610c7b56cd75e9220868be8288f22c999aa105cf0a25"
+      },
+      {
+        "member": "data/polygons/dental/417.txt",
+        "bytes": 1096,
+        "directory": false,
+        "crc32": "d60296fe",
+        "sha256": "f5c6edb521cd752ff74b620b10c615d8dc7c22f73edc8c8582ce4f9fcfd1a006"
+      },
+      {
+        "member": "data/polygons/dental/418.txt",
+        "bytes": 1644,
+        "directory": false,
+        "crc32": "5fbdc5b2",
+        "sha256": "064183699ea3b5bf7807476724c0859f16b66728e3784ee9ef096a057c1adf68"
+      },
+      {
+        "member": "data/polygons/dental/419.txt",
+        "bytes": 1094,
+        "directory": false,
+        "crc32": "c34b08a7",
+        "sha256": "3779a9ec4f6d9cfa577eac5b9112fdcffee91f865f3644b02b6d75e455c32871"
+      },
+      {
+        "member": "data/polygons/dental/42.txt",
+        "bytes": 615,
+        "directory": false,
+        "crc32": "a1786857",
+        "sha256": "278d00fd8ac1aa6980e0de1a4d13f061ca59d6f610ead72fdb65b2fa5f353099"
+      },
+      {
+        "member": "data/polygons/dental/420.txt",
+        "bytes": 1090,
+        "directory": false,
+        "crc32": "06b8e40b",
+        "sha256": "0d31312b04271c81b915aca96a3f978159b2cba9578bc8f1f7ebf564075a1132"
+      },
+      {
+        "member": "data/polygons/dental/421.txt",
+        "bytes": 1649,
+        "directory": false,
+        "crc32": "9179eb37",
+        "sha256": "5d7c41bf6aa3dabdde8b1e195f020384d20b3158e5ccf2a226732dc9714257c5"
+      },
+      {
+        "member": "data/polygons/dental/422.txt",
+        "bytes": 1092,
+        "directory": false,
+        "crc32": "9382f6dd",
+        "sha256": "63160c1befd322c2b501c3feef5cdaf65eac0d29e1ab7f94be31cb152a22c710"
+      },
+      {
+        "member": "data/polygons/dental/423.txt",
+        "bytes": 1094,
+        "directory": false,
+        "crc32": "bff9e3e8",
+        "sha256": "70d98abba1285fef2827916f939a21555a6cb7d605267ad6c7368572f99fc6ed"
+      },
+      {
+        "member": "data/polygons/dental/424.txt",
+        "bytes": 792,
+        "directory": false,
+        "crc32": "f67208da",
+        "sha256": "359e9ca72206d9e1ea76b57e359570aab95769e5e3cda2f7c54d76899f0bd553"
+      },
+      {
+        "member": "data/polygons/dental/425.txt",
+        "bytes": 1387,
+        "directory": false,
+        "crc32": "f5ea0c35",
+        "sha256": "ecde88617f84d55111bfbb8cf40ff615506e897492129d5c1aa0553979dff825"
+      },
+      {
+        "member": "data/polygons/dental/426.txt",
+        "bytes": 869,
+        "directory": false,
+        "crc32": "2f177547",
+        "sha256": "78d86d489880fc40d8806f4aa0ee4b5239eaa2c8cfef11be753c1e251ad225ce"
+      },
+      {
+        "member": "data/polygons/dental/427.txt",
+        "bytes": 1902,
+        "directory": false,
+        "crc32": "11407cfa",
+        "sha256": "c397b3f84b4786f4d1af78d87269c7a4a644e42a8135fe6bcbb3fce8c5178916"
+      },
+      {
+        "member": "data/polygons/dental/428.txt",
+        "bytes": 867,
+        "directory": false,
+        "crc32": "3014c0d1",
+        "sha256": "29c463df340ac69b88f4c473de3596bd9d2cc8c5f4b25793e1d8cf4cbb063945"
+      },
+      {
+        "member": "data/polygons/dental/429.txt",
+        "bytes": 1172,
+        "directory": false,
+        "crc32": "a24126df",
+        "sha256": "0c6acf7ffeecc6594ea489fda070fc2d741492cea7142dff12f1a7e91fbba82d"
+      },
+      {
+        "member": "data/polygons/dental/43.txt",
+        "bytes": 599,
+        "directory": false,
+        "crc32": "323665f0",
+        "sha256": "6dbddb968ea9cff712b153f2ec83668fff16ee87642ac59eef166f14f575be8e"
+      },
+      {
+        "member": "data/polygons/dental/430.txt",
+        "bytes": 1437,
+        "directory": false,
+        "crc32": "9fc07662",
+        "sha256": "72577350f1cd85307f10257605e02fe74202833b063bad02726855be0862f3a2"
+      },
+      {
+        "member": "data/polygons/dental/431.txt",
+        "bytes": 1113,
+        "directory": false,
+        "crc32": "7a6b7a92",
+        "sha256": "019a9564409101af92ba565bd54bce81794b085f39ee08ad08767731fffd7303"
+      },
+      {
+        "member": "data/polygons/dental/432.txt",
+        "bytes": 850,
+        "directory": false,
+        "crc32": "88bd1c76",
+        "sha256": "292f60578dee6765cb7282233885868da3b16a771ec48f1fea2dc86b40b64b9f"
+      },
+      {
+        "member": "data/polygons/dental/433.txt",
+        "bytes": 1677,
+        "directory": false,
+        "crc32": "beece897",
+        "sha256": "393870d776c46de64b6a4bb3a30a2ff43224efe507977690fa24ceb8c6f0eb72"
+      },
+      {
+        "member": "data/polygons/dental/434.txt",
+        "bytes": 1029,
+        "directory": false,
+        "crc32": "c9904c36",
+        "sha256": "e34acd666031b139e116c77a4b495ecec26ce9533002b3ea8eef296e3a2c27b2"
+      },
+      {
+        "member": "data/polygons/dental/435.txt",
+        "bytes": 1101,
+        "directory": false,
+        "crc32": "11df88fa",
+        "sha256": "fb61a934c1ab968120b0e263cf17dc926d9d5834808ee78c51d002ad28f2099e"
+      },
+      {
+        "member": "data/polygons/dental/436.txt",
+        "bytes": 2176,
+        "directory": false,
+        "crc32": "95c34ae7",
+        "sha256": "6c7f2d9e0c9c7af4fd10ded014317f1f33d4a57951b04d36578cbafedf9ea79a"
+      },
+      {
+        "member": "data/polygons/dental/437.txt",
+        "bytes": 2614,
+        "directory": false,
+        "crc32": "b40bba45",
+        "sha256": "9097c281a3fb68aa54057da97f942a27e82b74cbee0d34c9f61fb901ca71c827"
+      },
+      {
+        "member": "data/polygons/dental/438.txt",
+        "bytes": 1024,
+        "directory": false,
+        "crc32": "16e0c4cd",
+        "sha256": "00aeda2893c45d771cfb7db480a9845a8195e4f4eae3b02e9aa389108f9700a7"
+      },
+      {
+        "member": "data/polygons/dental/439.txt",
+        "bytes": 1130,
+        "directory": false,
+        "crc32": "b792125b",
+        "sha256": "0e278fbd1dbad8e7d1ce628b8b968e219e22089369a473f341c447f3f3d3cdd0"
+      },
+      {
+        "member": "data/polygons/dental/44.txt",
+        "bytes": 1110,
+        "directory": false,
+        "crc32": "356bdf1c",
+        "sha256": "8fb2d35e8557ada1272779a81f6db0615a032507d1abf88fb974239cae792787"
+      },
+      {
+        "member": "data/polygons/dental/45.txt",
+        "bytes": 1099,
+        "directory": false,
+        "crc32": "e3c16e5e",
+        "sha256": "601592ff5385f8afd77ccf3773e11346e209e1f8f751ebcf47a0fd807c4be01b"
+      },
+      {
+        "member": "data/polygons/dental/46.txt",
+        "bytes": 1789,
+        "directory": false,
+        "crc32": "3c3164ea",
+        "sha256": "04c8e4ca7e468681d7cbab9804c3b979711742de6c2f864e180381b61e990cd7"
+      },
+      {
+        "member": "data/polygons/dental/47.txt",
+        "bytes": 996,
+        "directory": false,
+        "crc32": "1f8445d4",
+        "sha256": "29cee91f33a4d9d05f8b532453ff3e43ab84c492f8534d36a3b4d458e9a7300b"
+      },
+      {
+        "member": "data/polygons/dental/48.txt",
+        "bytes": 1021,
+        "directory": false,
+        "crc32": "297acb47",
+        "sha256": "7284d900fc768c969c9f4118d4966a46804d3c78ee92ad850d3cb78a554b59fd"
+      },
+      {
+        "member": "data/polygons/dental/49.txt",
+        "bytes": 1832,
+        "directory": false,
+        "crc32": "5dc7ffaa",
+        "sha256": "6cea312af06b54a1a0eef971f8f1b8576d2df8a5261f1a7eca4b07e83b4fa83f"
+      },
+      {
+        "member": "data/polygons/dental/5.txt",
+        "bytes": 1000,
+        "directory": false,
+        "crc32": "84d764c5",
+        "sha256": "53b21b8a6f29fc29d0bf3f9503800ba5e65e456d1a5f0d57e7da77056d24e09b"
+      },
+      {
+        "member": "data/polygons/dental/50.txt",
+        "bytes": 1017,
+        "directory": false,
+        "crc32": "99802e41",
+        "sha256": "2c808ad9877731de00929fdf8cdc651ea033d9027812872393d8b8919185e48b"
+      },
+      {
+        "member": "data/polygons/dental/51.txt",
+        "bytes": 1093,
+        "directory": false,
+        "crc32": "3a985417",
+        "sha256": "7616e6e62db6c13f8de8e5cde8c3571ddb90810909b40251c7da28fadca9827c"
+      },
+      {
+        "member": "data/polygons/dental/52.txt",
+        "bytes": 1171,
+        "directory": false,
+        "crc32": "4f3d8953",
+        "sha256": "fa5e608a17c7f24fed024144ee97102e57f1961483714828d7dec7fd0f4e35f7"
+      },
+      {
+        "member": "data/polygons/dental/53.txt",
+        "bytes": 1778,
+        "directory": false,
+        "crc32": "81b4c780",
+        "sha256": "b63353be820aac44535a5c476c29058cdbbc1b2891c07489f03a6c2359444152"
+      },
+      {
+        "member": "data/polygons/dental/54.txt",
+        "bytes": 2290,
+        "directory": false,
+        "crc32": "6d4892d3",
+        "sha256": "b3f593b4cf54db1f828cf89f0b68ccc64ae5e39fb4d3831e22197d586ae71537"
+      },
+      {
+        "member": "data/polygons/dental/55.txt",
+        "bytes": 2260,
+        "directory": false,
+        "crc32": "0ae07005",
+        "sha256": "6e9ac41d5b4479f711bef304d419f39c84dcb759783e1c455337784fa30ee414"
+      },
+      {
+        "member": "data/polygons/dental/56.txt",
+        "bytes": 1106,
+        "directory": false,
+        "crc32": "d91eebf5",
+        "sha256": "9208150573b47a6e7cd02e71ba2ab5c5a7d3e92126d8178135defb714f3cf008"
+      },
+      {
+        "member": "data/polygons/dental/57.txt",
+        "bytes": 1208,
+        "directory": false,
+        "crc32": "9a6caf96",
+        "sha256": "4d6e17749155b39736eb06d28bba79927fe6ac513a4d2002cdf29de15d9e8916"
+      },
+      {
+        "member": "data/polygons/dental/58.txt",
+        "bytes": 4055,
+        "directory": false,
+        "crc32": "8a12cbc0",
+        "sha256": "5fafc90a85294b9a7755182c96254cbd8895a9b098bd35e2dff57c0e6cdb93c3"
+      },
+      {
+        "member": "data/polygons/dental/59.txt",
+        "bytes": 4002,
+        "directory": false,
+        "crc32": "af6388fe",
+        "sha256": "ad59425c7eefc2827b398367bf3f5f491723dfbbf0634cd35c99939e9e41fe6e"
+      },
+      {
+        "member": "data/polygons/dental/6.txt",
+        "bytes": 1444,
+        "directory": false,
+        "crc32": "7d8a2852",
+        "sha256": "02d04f2078b2bc1e9ed760f02a40449457f61301d005dde14813e0bb547144af"
+      },
+      {
+        "member": "data/polygons/dental/60.txt",
+        "bytes": 4067,
+        "directory": false,
+        "crc32": "545a0a42",
+        "sha256": "ea80292b4ca59d93c2fbf7f511f1780e2101925dddccc0adba67d64d887f03a7"
+      },
+      {
+        "member": "data/polygons/dental/61.txt",
+        "bytes": 1500,
+        "directory": false,
+        "crc32": "52a629e7",
+        "sha256": "54a51918bb197e3f49c09273c6ba01807ef0cda01114d896f0d71d17bffcdf75"
+      },
+      {
+        "member": "data/polygons/dental/62.txt",
+        "bytes": 1096,
+        "directory": false,
+        "crc32": "f5b8ffd8",
+        "sha256": "b7ddf915425c9a25e6295c9630777388e87857c0e41d6001f58634fc34ba2603"
+      },
+      {
+        "member": "data/polygons/dental/63.txt",
+        "bytes": 1027,
+        "directory": false,
+        "crc32": "e76a39fb",
+        "sha256": "30f35a041da91e409356b7e21435a97d8bfda29e5d7ca2b0370ffab0f4d6b8ca"
+      },
+      {
+        "member": "data/polygons/dental/64.txt",
+        "bytes": 1559,
+        "directory": false,
+        "crc32": "fe1f926b",
+        "sha256": "13b09a193bad20c258396fb0a75e46ff4a8ebbdbaaef0428c5ee884d412d8051"
+      },
+      {
+        "member": "data/polygons/dental/65.txt",
+        "bytes": 1172,
+        "directory": false,
+        "crc32": "1de40524",
+        "sha256": "48aa0b36a05dc80d6b6a784d5870b519fd6f37a7184c55815351e85f800894c2"
+      },
+      {
+        "member": "data/polygons/dental/66.txt",
+        "bytes": 1005,
+        "directory": false,
+        "crc32": "10189613",
+        "sha256": "5c21182c22a31d983a608dc9dc321fd6fe36c8a40941d884a47f997a5bd6a34f"
+      },
+      {
+        "member": "data/polygons/dental/67.txt",
+        "bytes": 1154,
+        "directory": false,
+        "crc32": "b794558e",
+        "sha256": "3c1a766c675726a657df7ceee5bfd9c9524cb8be480ed2d9c35e13406cb39be4"
+      },
+      {
+        "member": "data/polygons/dental/68.txt",
+        "bytes": 1485,
+        "directory": false,
+        "crc32": "e9fa55c2",
+        "sha256": "5531b81c4860923fa1bb5ce7ac7d1e1c1c480b5674e0a15cadc80e8f7b997d02"
+      },
+      {
+        "member": "data/polygons/dental/69.txt",
+        "bytes": 1216,
+        "directory": false,
+        "crc32": "d6fc9a2f",
+        "sha256": "469a9bf390d811f29fd1bb5180460fb6b32c643fbdc9fc811839f32afc423432"
+      },
+      {
+        "member": "data/polygons/dental/7.txt",
+        "bytes": 1108,
+        "directory": false,
+        "crc32": "9408143c",
+        "sha256": "efce33748cd60fa028fc87afad3ec767340420d040830242e939a6c583c06f2d"
+      },
+      {
+        "member": "data/polygons/dental/70.txt",
+        "bytes": 4560,
+        "directory": false,
+        "crc32": "762396e1",
+        "sha256": "0fe7baa7c940d6e47f4bee0e0bfd829f1386aaef792f0ec3647fe13ddee52783"
+      },
+      {
+        "member": "data/polygons/dental/71.txt",
+        "bytes": 1622,
+        "directory": false,
+        "crc32": "4edca180",
+        "sha256": "afd02148c72283df8a6f73b0171fdf62fc83641d893fb4aad6baac81d3a39956"
+      },
+      {
+        "member": "data/polygons/dental/72.txt",
+        "bytes": 1362,
+        "directory": false,
+        "crc32": "e14ddccd",
+        "sha256": "3be3987bd9d68af2f705448892613fc170ecae3e3f2731ff3c4ff3ebea980e7d"
+      },
+      {
+        "member": "data/polygons/dental/73.txt",
+        "bytes": 1023,
+        "directory": false,
+        "crc32": "50812690",
+        "sha256": "452c4723d15399d00d98e630d1f6fcbfc1af53e40329522e3049594da39ef3bd"
+      },
+      {
+        "member": "data/polygons/dental/74.txt",
+        "bytes": 1065,
+        "directory": false,
+        "crc32": "698cae9d",
+        "sha256": "f9e16def9cac5ee3f4236ece3492e2332f118eb99ac95bca35cb10a84f26d8ce"
+      },
+      {
+        "member": "data/polygons/dental/75.txt",
+        "bytes": 1026,
+        "directory": false,
+        "crc32": "e3f0c15b",
+        "sha256": "fc84af2adb9d826adb67e94abd67a5270e7a5a7b61dd236cc92e012262d56043"
+      },
+      {
+        "member": "data/polygons/dental/76.txt",
+        "bytes": 743,
+        "directory": false,
+        "crc32": "a20acb84",
+        "sha256": "68a1c531fb39f9431f7e56dfb5fdac31e46004551b94ba0fd0616574388559a0"
+      },
+      {
+        "member": "data/polygons/dental/77.txt",
+        "bytes": 1104,
+        "directory": false,
+        "crc32": "677a3e12",
+        "sha256": "397051bff61fa9fa2f8e8bb40e6542232a67ee5da8673713d16fbe5a0c797903"
+      },
+      {
+        "member": "data/polygons/dental/78.txt",
+        "bytes": 944,
+        "directory": false,
+        "crc32": "291852c0",
+        "sha256": "5bbfd4d78a975de19c0caf036834ced4c3aae8e1ee7dafe6302fee60e4073409"
+      },
+      {
+        "member": "data/polygons/dental/79.txt",
+        "bytes": 1687,
+        "directory": false,
+        "crc32": "b29a1b37",
+        "sha256": "e2cc66bf136cfdd73a909d1c947585dc83abe842aa3fed633a4927e89ae70638"
+      },
+      {
+        "member": "data/polygons/dental/8.txt",
+        "bytes": 1594,
+        "directory": false,
+        "crc32": "cc56ae26",
+        "sha256": "6b5332f5e001db1fcbd99c2a386ad5543414d8536737035e3bc59a443f2bbe71"
+      },
+      {
+        "member": "data/polygons/dental/80.txt",
+        "bytes": 1111,
+        "directory": false,
+        "crc32": "f191728f",
+        "sha256": "a906cb51fe0f7aeab06fd035d5375856a9f46075410e24f7c254d0132d8457b2"
+      },
+      {
+        "member": "data/polygons/dental/81.txt",
+        "bytes": 1101,
+        "directory": false,
+        "crc32": "dc76d6d0",
+        "sha256": "85986b8ffb1258d772fb87a83e29c614f73f3f88c45203409e028a622ba56d10"
+      },
+      {
+        "member": "data/polygons/dental/82.txt",
+        "bytes": 1805,
+        "directory": false,
+        "crc32": "603edd47",
+        "sha256": "7abb6628974f2e441b0e5ed817583be28150195751a0c16a3a196127fa8f7f46"
+      },
+      {
+        "member": "data/polygons/dental/83.txt",
+        "bytes": 1065,
+        "directory": false,
+        "crc32": "9ec81421",
+        "sha256": "4c82706080a5d977445e9f4f68aa24c5c6ef9a9e1bcbfa3328e5f9abc9872023"
+      },
+      {
+        "member": "data/polygons/dental/84.txt",
+        "bytes": 2261,
+        "directory": false,
+        "crc32": "c91eff30",
+        "sha256": "ec8d4b4cda808d0f612e65d3353ec8cc37b45936507a4cfb332f37734769938d"
+      },
+      {
+        "member": "data/polygons/dental/85.txt",
+        "bytes": 878,
+        "directory": false,
+        "crc32": "09e1f76f",
+        "sha256": "9025b3dbd1a209e68df08c273629194bdf8eee8f79746607857e06806e133663"
+      },
+      {
+        "member": "data/polygons/dental/86.txt",
+        "bytes": 949,
+        "directory": false,
+        "crc32": "af63a066",
+        "sha256": "dfc5620d472efe67deff10a727290152b57cb7ce6a8e5d2130b76f77ccdc4301"
+      },
+      {
+        "member": "data/polygons/dental/87.txt",
+        "bytes": 2074,
+        "directory": false,
+        "crc32": "b83667da",
+        "sha256": "fd785b30bab035db1f3919ac1af99605bbe13c5e6ab5a423c92b33340039753c"
+      },
+      {
+        "member": "data/polygons/dental/88.txt",
+        "bytes": 752,
+        "directory": false,
+        "crc32": "2edb06b7",
+        "sha256": "2b5aef41d85846478bf4f228d1fec26a0a71038161fa27f8d2c7a9d84eacdfa4"
+      },
+      {
+        "member": "data/polygons/dental/89.txt",
+        "bytes": 1019,
+        "directory": false,
+        "crc32": "cc2251be",
+        "sha256": "946dc1e601b9b8960210e12518704a9e015c9d99f25a713d05f6385cd7d124d8"
+      },
+      {
+        "member": "data/polygons/dental/9.txt",
+        "bytes": 1098,
+        "directory": false,
+        "crc32": "f47016ec",
+        "sha256": "b3ffcfa5f9cc06972ad1649da5b2a9ac6f8f2bf0254b4c046d58ac7352f7fe0d"
+      },
+      {
+        "member": "data/polygons/dental/90.txt",
+        "bytes": 1085,
+        "directory": false,
+        "crc32": "a88965e7",
+        "sha256": "d0ddc5a95f851eb535ae92f0464691ff1d7a309a1630e4da95b8c69987d75717"
+      },
+      {
+        "member": "data/polygons/dental/91.txt",
+        "bytes": 1096,
+        "directory": false,
+        "crc32": "193ee1e0",
+        "sha256": "a04b90f70a416bf115658542140343fa14e03c0c6b4299c8184e9962759ed6e7"
+      },
+      {
+        "member": "data/polygons/dental/92.txt",
+        "bytes": 1623,
+        "directory": false,
+        "crc32": "b69e7979",
+        "sha256": "b0ad2056fb87262ef70b5722f22005576e0aa3a35aa35821b12772bad05515a4"
+      },
+      {
+        "member": "data/polygons/dental/93.txt",
+        "bytes": 856,
+        "directory": false,
+        "crc32": "3c975668",
+        "sha256": "6e6161763a1058b5fbecfe56f09f26220d5b6f75276773a7b505e640a9f81df8"
+      },
+      {
+        "member": "data/polygons/dental/94.txt",
+        "bytes": 936,
+        "directory": false,
+        "crc32": "23c5a10c",
+        "sha256": "b432390d037b495b86a9cb026af81c8a02542497e38e956516f5765f3451f6a6"
+      },
+      {
+        "member": "data/polygons/dental/95.txt",
+        "bytes": 1855,
+        "directory": false,
+        "crc32": "c504bbd1",
+        "sha256": "baadb8dcb265317ea871c2a2bd2f06e15c776eddf1a8cd33a0f436bb02e5430a"
+      },
+      {
+        "member": "data/polygons/dental/96.txt",
+        "bytes": 1174,
+        "directory": false,
+        "crc32": "27a5c546",
+        "sha256": "f9e39c75e3ae5c05b2613d3068db94c6a5b9fcb971c062e4e6a48ec177417b2d"
+      },
+      {
+        "member": "data/polygons/dental/97.txt",
+        "bytes": 1011,
+        "directory": false,
+        "crc32": "5d0ab99b",
+        "sha256": "cbf289a0671768ec1aca91e54c72fd5406f0f2c3613fbc11a4f4d5f5e52076a9"
+      },
+      {
+        "member": "data/polygons/dental/98.txt",
+        "bytes": 1543,
+        "directory": false,
+        "crc32": "b938670b",
+        "sha256": "a5ffa467b2422bfa1208b0d007f7e614c3b914987fbadf104131a1a5624c3cb7"
+      },
+      {
+        "member": "data/polygons/dental/99.txt",
+        "bytes": 951,
+        "directory": false,
+        "crc32": "35b01e3b",
+        "sha256": "f9f32142e38abb8906c7021733e16b566f831f6693c880c1acad38932699a0eb"
+      },
+      {
+        "member": "data/test/",
+        "bytes": 0,
+        "directory": true,
+        "crc32": "00000000"
+      },
+      {
+        "member": "data/test/dental_test.pkl",
+        "bytes": 262128,
+        "directory": false,
+        "crc32": "0a130088",
+        "sha256": "dffdd191803ddfeb7701d9012b1f38dd88f01ee9333747a19ba86e18870848e0"
+      },
+      {
+        "member": "data/train/",
+        "bytes": 0,
+        "directory": true,
+        "crc32": "00000000"
+      },
+      {
+        "member": "data/train/dental_train.pkl",
+        "bytes": 400924657,
+        "directory": false,
+        "crc32": "0fc3a45b",
+        "sha256": "7425c3d4d1da56394182a26ba52da56924699f2703ed5532a5bc9271ec696320"
+      }
+    ],
+    "checkpoint_members": [
+      "data/ckpt/dental.pth"
+    ],
+    "config_log_members": [],
+    "dataset_members": [
+      "data/test/dental_test.pkl",
+      "data/train/dental_train.pkl"
+    ]
+  },
+  "asset_identity": {
+    "checkpoint_archive_member": "data/ckpt/dental.pth",
+    "checkpoint_bytes_equal_archive_member": true,
+    "used_dataset_archive_member": "data/test/dental_test.pkl",
+    "used_dataset_bytes_equal_archive_test": true,
+    "dataset_role_proved": "Published ZIP test member, regardless of its local validation-like filename",
+    "dataset_role_not_proved": "Paper test split identity, or derivation from the last 128 training samples",
+    "test_object_count": 3,
+    "test_sample_count": 128,
+    "test_piece_counts": [
+      48
+    ],
+    "test_height_values": [
+      1200
+    ]
+  },
+  "training_windows": {
+    "status": "checked_streaming_primitive_opcodes",
+    "reader_cross_checked_against_restricted_test_unpickler": true,
+    "window_size": 128,
+    "train_object_count": null,
+    "scanned_train_object_count": 1,
+    "scanned_fields": [
+      "polygon_ids"
+    ],
+    "train_sample_count": 196113,
+    "test_sample_count": 128,
+    "test_equals_train_first_window_by_field": {
+      "polygon_ids": false,
+      "actions": null,
+      "heights": null
+    },
+    "test_equals_train_last_window_by_field": {
+      "polygon_ids": false,
+      "actions": null,
+      "heights": null
+    },
+    "test_equals_train_first_window": false,
+    "test_equals_train_last_window": false,
+    "unscanned_field_reason": "Both ordered ID windows already differ from test; complete record equality is impossible, so actions/heights were not scanned.",
+    "test_ordered_id_records_present_in_first_window": 0,
+    "test_ordered_id_records_present_in_last_window": 0,
+    "window_sha256": {
+      "first": "6b05e07d693af3e61038a5e0f79926270345b9adde4faa2018de5659a1d4b2c3",
+      "last": "0d9c3234d1a63707814204c3f62c425b97b48f2ea6b449f49c9bb46fda2dc58b",
+      "test": "37694a4243d541b760daa58d0e29785fba97c37579e4778978186f78f67342e6"
+    },
+    "opcode_counts_by_object": [
+      {
+        "APPENDS": 196310,
+        "BININT1": 5477339,
+        "BININT2": 3936085,
+        "EMPTY_LIST": 196114,
+        "FRAME": 360,
+        "MARK": 196310,
+        "MEMOIZE": 196114,
+        "PROTO": 1,
+        "STOP": 1
+      }
+    ],
+    "scope": "Only the first/last window was compared; interior membership, split origin, and paper test identity are not established. Fields marked null were not checked."
+  },
+  "provenance": {
+    "source_url": "https://drive.google.com/file/d/1Xq-pptfYVsve2wsMJxSgMdyLALxD4AXW/view?usp=sharing",
+    "recorded_archive_sha256_matches": true,
+    "recorded_checkpoint_member": "data/ckpt/dental.pth",
+    "recorded_dataset_member": "data/test/dental_test.pkl",
+    "original_training_config_provided": false,
+    "scope": "Local preparation manifest records retrieval/extraction; it does not establish checkpoint training provenance."
+  },
+  "source": {
+    "files": {
+      "src/score_model.py": {
+        "sha256": "67cb8aa5580d4ee5f4224effa2ff69e6e03d1fd76bfeaa18b0030369198af7cf",
+        "bytes": 3985
+      },
+      "src/gnn_feature.py": {
+        "sha256": "15d048e4b893db28b384909a0275077d753495a7bc4d49c3499f9151e2b7474a",
+        "bytes": 4372
+      },
+      "src/sde.py": {
+        "sha256": "d87ee1ee73af86e8f04ad7b1ab27cb73eb9eb638ef89734013127e4655f83848",
+        "bytes": 10999
+      },
+      "src/train.py": {
+        "sha256": "6529a0188fd159e3d6cc43bc269e1b9b76923ce3fe75483ca388bb837f856523",
+        "bytes": 30654
+      },
+      "src/evaluate.py": {
+        "sha256": "07c77a8f36a944a0fbf62f23d011c36b78915004cb8e8872589f198127d10bc2",
+        "bytes": 17327
+      },
+      "scripts/train.sh": {
+        "sha256": "58ad994b791297f4f9b417b3268cdfc8b94665a9dc128577d2197713c357320e",
+        "bytes": 664
+      },
+      "README.md": {
+        "sha256": "14e28b157506360cd79a2714257d642ae5bda6d8fa0bddbb2df617145c4c576a",
+        "bytes": 7542
+      }
+    },
+    "source_facts_not_training_provenance": [
+      {
+        "file": "src/score_model.py",
+        "line": 19,
+        "constructor_defaults": {
+          "feature_dim": "64",
+          "hidden_dim": "128",
+          "nhead": "16",
+          "maxInputLength": "50",
+          "num_encoder_layers": "8",
+          "num_decoder_layers": "8"
+        }
+      },
+      {
+        "file": "src/score_model.py",
+        "line": 56,
+        "forward_argument_names": [
+          "self",
+          "actions",
+          "polyIds",
+          "paddingMask",
+          "batch",
+          "t",
+          "gnnFeatureData",
+          "polyFeatures"
+        ]
+      },
+      {
+        "file": "src/sde.py",
+        "function": "init_sde",
+        "line": 60,
+        "statement": "sigma_min = 1.0"
+      },
+      {
+        "file": "src/sde.py",
+        "function": "init_sde",
+        "line": 61,
+        "statement": "sigma_max = 1000.0"
+      },
+      {
+        "file": "src/sde.py",
+        "function": "init_sde",
+        "line": 63,
+        "statement": "prior_fn = functools.partial(ve_prior, sigma_min=sigma_min, sigma_max=sigma_max)"
+      },
+      {
+        "file": "src/sde.py",
+        "function": "init_sde",
+        "line": 64,
+        "statement": "marginal_prob_fn = functools.partial(ve_marginal_prob, sigma_min=sigma_min, sigma_max=sigma_max)"
+      },
+      {
+        "file": "src/sde.py",
+        "function": "init_sde",
+        "line": 65,
+        "statement": "sde_fn = functools.partial(ve_sde, sigma_min=sigma_min, sigma_max=sigma_max)"
+      },
+      {
+        "file": "src/train.py",
+        "function": "padData",
+        "line": 96,
+        "statement": "actions[i][j][2] *= 500"
+      },
+      {
+        "file": "src/train.py",
+        "function": "padData",
+        "line": 97,
+        "statement": "actions[i][j][3] *= 500"
+      },
+      {
+        "file": "src/train.py",
+        "function": "collectData",
+        "line": 105,
+        "statement": "dirName = DATASET_DIR / 'dataset_dental_sp7_r_h12_new.pkl'"
+      },
+      {
+        "file": "src/train.py",
+        "function": "collectData",
+        "line": 106,
+        "statement": "dataFile = open(dirName, 'rb')"
+      },
+      {
+        "file": "src/train.py",
+        "function": "collectValiData",
+        "line": 145,
+        "statement": "dirName = DATASET_DIR / 'dataset_dental_vali_128.pkl'"
+      },
+      {
+        "file": "src/train.py",
+        "function": "collectValiData",
+        "line": 146,
+        "statement": "dataFile = open(dirName, 'rb')"
+      }
+    ],
+    "upstream_candidate_artifact_files": [
+      "environment.yml"
+    ]
+  },
+  "input_files_unchanged": true
+}

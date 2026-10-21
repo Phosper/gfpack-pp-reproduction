@@ -1,0 +1,48 @@
+{
+  "checked_date": "2026-10-21",
+  "repository": "TimHsue/GFPack-pp",
+  "pinned_commit": "ff75815e24ec50cd7fa8b2abdec1acfe0b55be95",
+  "first_code_commit": "3d70b232860ec89f2e2e508b11e138f63c5f61ea",
+  "scope": {
+    "main_commits_inspected": 8,
+    "subsequent_commits_after_first_code": 6,
+    "issues_inspected": 10,
+    "pull_requests_inspected": 1,
+    "issue_comments_inspected": 15,
+    "all_discussions_closed_at_check": true,
+    "authors_contacted": false
+  },
+  "sources": [
+    {
+      "url": "https://github.com/TimHsue/GFPack-pp/issues/7#issuecomment-4441702715",
+      "paraphrase": "Author distinguishes taking the last 128 training items for validation from the existing Google Drive test set."
+    },
+    {
+      "url": "https://github.com/TimHsue/GFPack-pp/issues/9#issuecomment-6150885031",
+      "paraphrase": "Author describes appending a boundary polygon as network input and says release of arbitrary-boundary code will be considered. This is not a released implementation."
+    },
+    {
+      "url": "https://github.com/TimHsue/GFPack-pp/issues/4#issuecomment-3803533180",
+      "paraphrase": "Author points to the CVF supplemental materials for Puzzle data and generation code."
+    },
+    {
+      "url": "https://github.com/TimHsue/GFPack-pp/compare/3d70b232860ec89f2e2e508b11e138f63c5f61ea...ff75815e24ec50cd7fa8b2abdec1acfe0b55be95",
+      "paraphrase": "The subsequent six commits change documentation and Puzzle generation files, with no changes to src or external/rmspacing_cpp."
+    },
+    {
+      "url": "https://github.com/TimHsue/GFPack-pp/issues/6#issuecomment-4441936205",
+      "paraphrase": "Author reports privately emailing other datasets; no additional public artifact URL is supplied in the discussion."
+    },
+    {
+      "url": "https://github.com/TimHsue/GFPack-pp/issues/10#issuecomment-6150509980",
+      "paraphrase": "Author acknowledges a suggestion to publish on Hugging Face, without supplying a model artifact URL."
+    }
+  ],
+  "not_found_in_inspected_public_sources": [
+    "An alternative paper-matched checkpoint and full model construction settings",
+    "The historical checkpoint noise/action scales and complete training run configuration",
+    "Exact paper test-split membership",
+    "A complete nonconvex collision displacement and postprocessing step-size specification"
+  ],
+  "absence_scope": "Only the enumerated public sources and downloaded archives were checked; this does not establish that private materials do not exist."
+}

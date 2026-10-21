@@ -12,3 +12,4 @@ docs/collision_repair/* -text
 docs/collision_repair/*.patch -whitespace
 docs/paper_alignment/* -text
 docs/paper_alignment/*.patch -whitespace
+docs/checkpoint_alignment/* -text

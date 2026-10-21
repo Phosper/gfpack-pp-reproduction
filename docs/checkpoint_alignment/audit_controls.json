@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "passed": 5,
+  "checks": [
+    "primitive_window_matches_full_300_records",
+    "global_rejected",
+    "reference_rejected",
+    "string_rejected",
+    "supplement_all_members_crc_pass"
+  ],
+  "scope": "Primitive reader controls and downloaded supplement CRC; not model performance validation"
+}

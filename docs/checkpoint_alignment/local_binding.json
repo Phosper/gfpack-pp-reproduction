@@ -1,0 +1,31 @@
+{
+  "status": "verified",
+  "source_sha256": {
+    "audit_checkpoint_provenance.py": "f0cfa2636e7ffadce0c72d3a280109170e4d0e23f6662424c8efc9642d9be88c",
+    "check_checkpoint_compatibility.py": "27924b52d9efbc21fbfa96bf32322860c96eae750657de44ea7bb566ca7209aa",
+    "verify_checkpoint_compatibility.py": "352c58d402dd235e81db5205826cf0cbf5ce7f515f8f9172b71b3d8c369f7338",
+    "run_inference.py": "52acb81beb2da5a89ada1cbf68ae5ffe8b42e81e2d8ca5858213517bc224da7b"
+  },
+  "shared_local_remote_source_files": [
+    "src/score_model.py",
+    "src/gnn_feature.py",
+    "src/sde.py",
+    "src/train.py",
+    "src/evaluate.py"
+  ],
+  "checkpoint_and_test_hashes_match": true,
+  "current_helper_hash_matches": true,
+  "diagnostic_report_sha256": "8493ea55067e77bf292dcffc10b925f8cb09291f618c471da595e7cb271b7c25",
+  "original_environment_verification_sha256": "a27b9ea6b9d6260906bd0afc96cfd210443e0b7bb1316cbe2910dc529b53c6b4",
+  "evidence_sha256": {
+    "audit_controls.json": "edd2e2c2d63adafff89b57ce485cdf991f68b847770328df15ffc7beb447c9c5",
+    "checkpoint_audit.json": "9bf6607a6e34dcd20ff1011025822367e1b748ab255634ef67cfcd7ae9e57b11",
+    "compatibility.json": "8493ea55067e77bf292dcffc10b925f8cb09291f618c471da595e7cb271b7c25",
+    "compatibility_controls.json": "d3e68d1e35b7d280c349b53bb4957ca68799cdb3334fe97d30307d946a9937f7",
+    "compatibility_verification.json": "a27b9ea6b9d6260906bd0afc96cfd210443e0b7bb1316cbe2910dc529b53c6b4",
+    "local_portability_check.json": "688b46a947f8af27bed8d30496c7c3ad5b3aca4bb19b022d2fcb8696ac18dd7e",
+    "supplement_inventory.json": "a75af2cbe0c8eae8a9953f6c77a28b0bbd2fb4e9f8a0aa22d7467ff016df0b81",
+    "upstream_sources.json": "998e7b46bf8022be16ddeddb433ccc242c527af241062490de6c41921146951b"
+  },
+  "scope": "Artifact readback and source bindings. No additional model scores or training provenance inferred."
+}

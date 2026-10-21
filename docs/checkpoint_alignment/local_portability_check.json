@@ -1,0 +1,26 @@
+{
+  "status": "rejected_cross_runtime_noise_digest",
+  "scope": "Local CPU portability check; not a rerun of model inference",
+  "local_pytorch": "2.12.1+cu130",
+  "original_pytorch": "2.6.0+cu124",
+  "local_platform": "Windows",
+  "original_platform": "Linux",
+  "verifier_sha256": "352c58d402dd235e81db5205826cf0cbf5ce7f515f8f9172b71b3d8c369f7338",
+  "report_sha256": "8493ea55067e77bf292dcffc10b925f8cb09291f618c471da595e7cb271b7c25",
+  "noise_digests": [
+    {
+      "sample_index": 0,
+      "local_regenerated_sha256": "b9f729eee28226e9ed74888514295ea1f1ab9b1b304739571a74a1400b307f7d",
+      "original_recorded_sha256": "ac40cbafc621e9374de3e4e0fcfe6db6b753c0ae44591664be5145f4e770b78e"
+    },
+    {
+      "sample_index": 45,
+      "local_regenerated_sha256": "c8cc5b25b11774d0fbb3d6fbc51cf13fea53e5fbfcc36ab3090f72e40b827243",
+      "original_recorded_sha256": "3e794d22a3aae6f2f3700f313105d698eb5b3c57d06a006d15fbfd82c27d954f"
+    }
+  ],
+  "rejection_reason": "Strict CPU epsilon digest equality failed across runtime/platform versions. The verifier did not relax its hash check and did not produce a passing verification result.",
+  "interpretation": "This portability rejection does not invalidate the original experiment pairing: the four configurations share the same recorded noise/RNG hashes within the original run. Original-runtime CPU verification remains required.",
+  "gpu_used_for_this_check": false,
+  "original_report_modified": false
+}
