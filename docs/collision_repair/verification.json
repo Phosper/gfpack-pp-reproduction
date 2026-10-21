@@ -1,0 +1,146 @@
+{
+  "status": "verified",
+  "scope": "Final local-move repair: independent local verification of 45 synthetic controls and 32 frozen enhanced/GT safety variants; no native rerun; not full ablation or benchmark.",
+  "method": "Reconstruct every valid before/native/effective layout from frozen input and raw native logs using local Shapely float64. Independently recompute pair intersections, bounds, utilization, rigid vertex offsets, status and exact rollback; rectangle controls additionally checked by direct coordinate intervals. Reported gate/check booleans are not evidence for these calculations.",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "shapely_version": "2.1.2",
+  "area_coordinate_tolerance": 1e-09,
+  "saved_shape_tolerance": 1e-07,
+  "summary": {
+    "synthetic_controls": 45,
+    "synthetic_passed": 45,
+    "unchanged_original_control_inputs": 11,
+    "invalid_value_error_controls": 18,
+    "synthetic_layouts_recomputed": 54,
+    "rectangle_interval_cross_checks": 38,
+    "synthetic_initially_feasible_actions_preserved": 10,
+    "synthetic_failures_rolled_back": 7,
+    "saved_variants": 32,
+    "saved_passed": 32,
+    "saved_layouts_recomputed": 96,
+    "saved_native_status_counts": {
+      "stalled": 9,
+      "converged": 23
+    },
+    "success_reference_cases_preserved": [
+      0,
+      17,
+      35,
+      56,
+      74,
+      91,
+      109,
+      127
+    ],
+    "gt_actions_preserved": 16,
+    "repaired_failure_indices": [
+      46,
+      47
+    ],
+    "unrepaired_failure_indices_rolled_back": [
+      25,
+      45,
+      54,
+      62,
+      99,
+      115
+    ]
+  },
+  "material_tradeoff": {
+    "sample_index": 46,
+    "before_utilization_percent": 73.27212613123199,
+    "after_utilization_percent": 50.432199835276826,
+    "change_percentage_points": -22.83992629595516,
+    "note": "Repair meets eps=1 but reduces bounding-box utilization substantially; this is a material cost, not an optimization success."
+  },
+  "checks": {
+    "hash:build.json": true,
+    "hash:controls_local_moves/controls.json": true,
+    "hash:failure_controls_local_moves/repair_failures.json": true,
+    "hash:saved_regression_local_moves/saved_cases.json": true,
+    "hash:repo/collision_repair.hpp": true,
+    "hash:repo/build_collision_probe.py": true,
+    "hash:repo/check_collision_controls.py": true,
+    "hash:repo/check_collision_repair_failures.py": true,
+    "hash:repo/check_collision_saved_cases.py": true,
+    "source_commit": true,
+    "source_map_unchanged": true,
+    "instrumentation_patch_unchanged": true,
+    "repair_header_bound": true,
+    "repair_patch_bound": true,
+    "successful_isolated_build": true,
+    "compile_flags_unchanged": true,
+    "repair_entry_point": true,
+    "all_reports_build_bound": true,
+    "saved_report_checker_bound": true,
+    "saved_report_extension_manifest_bound": true,
+    "frozen_manifest_bound": true,
+    "official_threshold_50": true,
+    "local_moves_preferred_candidates": true,
+    "45_synthetic_controls_independently_pass": true,
+    "18_invalid_value_error_controls": true,
+    "32_saved_variants_independently_safe": true,
+    "8_success_reference_cases_preserved": true,
+    "16_original_gt_actions_unchanged": true,
+    "only_failure_46_47_repaired": true,
+    "six_other_failures_rolled_back": true,
+    "case46_utilization_cost_confirmed": true
+  },
+  "artifact_hashes": [
+    {
+      "file": "build.json",
+      "sha256": "3a28a5620e1e43fd6bacce71a8b79c38a50bf4144e0bc0c7bdb6b042ba23543c",
+      "matches_remote_verified_sha256": true
+    },
+    {
+      "file": "controls_local_moves/controls.json",
+      "sha256": "b9508c65857365680d1e34d61824ae5de6e6e389ade98ba7a4d439907072f354",
+      "matches_remote_verified_sha256": true
+    },
+    {
+      "file": "failure_controls_local_moves/repair_failures.json",
+      "sha256": "5608b6cfee1f58df5daee143f2f8683b477a6ac5540b186106ee99233de8d0eb",
+      "matches_remote_verified_sha256": true
+    },
+    {
+      "file": "saved_regression_local_moves/saved_cases.json",
+      "sha256": "fc77ac7ebeabd7dadf7cde992b0f45d3fbc2fb26073dedaf1755e67840794318",
+      "matches_remote_verified_sha256": true
+    },
+    {
+      "file": "repo/collision_repair.hpp",
+      "sha256": "972f8b2ecdd0e20a5ee308ef11780a3a21772e02fa7011a83b6443327d3a31bc",
+      "matches_remote_verified_sha256": true
+    },
+    {
+      "file": "repo/build_collision_probe.py",
+      "sha256": "600c3c2252bb8601a20972e5b1297dd3ae54486b3aa98cf0616a17b81d574094",
+      "matches_remote_verified_sha256": true
+    },
+    {
+      "file": "repo/check_collision_controls.py",
+      "sha256": "f65c4675a00989c5b14b2621a64436e778616bdf2d87615b929f58d5af1a3e0d",
+      "matches_remote_verified_sha256": true
+    },
+    {
+      "file": "repo/check_collision_repair_failures.py",
+      "sha256": "7f2550757950ecce74f62de90f64a053e88526b95fb5fb92483ef3f9a5ca29f5",
+      "matches_remote_verified_sha256": true
+    },
+    {
+      "file": "repo/check_collision_saved_cases.py",
+      "sha256": "0b1a58706a9232157e525fbbbe47b3e5d1e59a955da3745863f49f5f22b86c12",
+      "matches_remote_verified_sha256": true
+    }
+  ],
+  "limitations": [
+    "Compiled repaired main.cpp and Linux extension are absent locally; their remote-verified hashes are manifest-bound but not recomputed locally.",
+    "Invalid arguments are created by the hash-bound mutation script and observed through raw ValueError logs; native calls were not rerun locally.",
+    "Official native validity was not rerun. The saved success condition reported here is the independent float64 reference maximum pair area <=50, plus boundaries.",
+    "Native Clipper precision is unchanged at 2; float64 reference and native area diagnostics remain distinct. Residual areas below eps=1 are not strict zero overlap.",
+    "The cooperative 8-second solver budget cannot interrupt a single Clipper call and starts after input preparation; external workers retain wall-time limits.",
+    "The 16 cases are development/regression material. No raw-start three-way ablation or 128-case postprocessing benchmark was performed.",
+    "Case46 has a substantial utilization decrease and the remaining six failure inputs are unchanged after rollback."
+  ],
+  "full_private_verification_sha256": "3eae2993d1c13dd38356a1926920fb77c2941fa83419e18b0d70d8f26d817ade"
+}

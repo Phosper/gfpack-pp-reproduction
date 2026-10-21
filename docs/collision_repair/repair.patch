@@ -1,0 +1,19 @@
+--- probe/main.cpp
++++ repair/main.cpp
+@@ -767,9 +767,16 @@
+ }
+ 
+ 
++#include "collision_repair.hpp"
++
+ PYBIND11_MODULE(collision_probe, m) {
+     m.doc() = "pybind11 rm_spacing"; // optional module docstring
+     m.def("rm_spacing_all", &rm_spacing_all, "A function that removes spacing");
++    m.def("overlap_repair", &gfpack_repair::repair,
++          py::arg("ids"), py::arg("rotates"), py::arg("actions"), py::arg("polys"),
++          py::arg("width"), py::arg("height"), py::arg("eps") = 1.,
++          py::arg("max_iterations") = 2000);
++
+     m.def("overlap_probe", [](vector<int> ids, vector<double> rotates,
+              vector<pair<double,double>> actions,
+              vector<vector<pair<double,double>>> polys, double width, double height, double eps) {

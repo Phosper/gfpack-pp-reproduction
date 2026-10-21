@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run bounded synthetic controls against the isolated original rm_overlap.
+"""Run bounded synthetic controls against isolated collision implementations.
 
 Each native call runs in a fresh process with a wall-time limit. The gate also
 checks the geometry after the function returns, rather than trusting its flag.
@@ -62,10 +62,15 @@ def worker(args):
         raise ValueError("Imported extension does not match the isolated build")
     case = json.loads(args.case.read_text())
     started = time.perf_counter()
-    result = collision_probe.overlap_probe(case["polygon_ids"],
-        [math.atan2(a[3], a[2]) for a in case["actions"]],
-        [a[:2] for a in case["actions"]], case["polygons"], case["width"], case["height"],
-        case["native_solver_area_eps"])
+    inputs = (case["polygon_ids"], [math.atan2(a[3], a[2]) for a in case["actions"]],
+              [a[:2] for a in case["actions"]], case["polygons"], case["width"],
+              case["height"], case["native_solver_area_eps"])
+    if args.repair:
+        if not build.get("algorithm_modified") or not hasattr(collision_probe, "overlap_repair"):
+            raise ValueError("The isolated build does not contain the requested repair")
+        result = collision_probe.overlap_repair(*inputs, max_iterations=args.max_iterations)
+    else:
+        result = collision_probe.overlap_probe(*inputs)
     result["elapsed_seconds"] = time.perf_counter() - started
     xy_values = result.pop("actions_xy")
     if len(xy_values) != len(case["actions"]) or any(len(xy) != 2 for xy in xy_values):
@@ -79,8 +84,13 @@ def main():
     parser.add_argument("--extension", type=Path, required=True)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--timeout", type=float, default=10.)
+    parser.add_argument("--repair", action="store_true", help="Run the bounded repair entry point")
+    parser.add_argument("--max-iterations", type=int, default=2000,
+                        help="Accepted-step budget for --repair; zero checks rollback on exhaustion")
     parser.add_argument("--case", type=Path, help=argparse.SUPPRESS)
     args = parser.parse_args()
+    if args.max_iterations < 0:
+        parser.error("--max-iterations must be nonnegative")
     if args.case:
         worker(args)
         return
@@ -96,8 +106,11 @@ def main():
                "native_solver_area_eps": case["native_solver_area_eps"],
                "input": case, "before": audit(case, case["actions"])[0], "status": "failed"}
         try:
-            completed = subprocess.run([sys.executable, str(Path(__file__).resolve()),
-                "--extension", str(args.extension.resolve()), "--case", str(path.resolve())],
+            command = [sys.executable, str(Path(__file__).resolve()),
+                       "--extension", str(args.extension.resolve()), "--case", str(path.resolve())]
+            if args.repair:
+                command.extend(["--repair", "--max-iterations", str(args.max_iterations)])
+            completed = subprocess.run(command,
                 capture_output=True, text=True, timeout=args.timeout,
                 env=dict(os.environ, OMP_NUM_THREADS="1", PYTHONDONTWRITEBYTECODE="1"))
             (args.output / (case["name"] + ".log")).write_text(completed.stdout + completed.stderr)
@@ -122,17 +135,29 @@ def main():
                       "no_new_height_violation": after["height_violation"] <= before["height_violation"] + 1e-9,
                       "no_new_width_violation": after["reference_width_violation"] <= before["reference_width_violation"] + 1e-9,
                       "overlap_not_worse": after["sum_pairwise_area"] <= before["sum_pairwise_area"] + 1e-9,
-                      "solver_did_not_hit_iteration_limit": result["return_path"] != "iteration_limit",
+                      "solver_did_not_hit_iteration_limit":
+                          (result["status"] if args.repair else result["return_path"]) != "iteration_limit",
                       "returned_geometry_meets_solver_eps": after["max_pairwise_area"] <= case["native_solver_area_eps"] + 1e-9}
+            if args.repair:
+                checks.update(repair_reported_convergence=result["status"] == "converged",
+                              repair_did_not_roll_back=result["rolled_back"] is False)
             row.update(status="completed", after=after, output=result, checks=checks,
                        max_shape_offset_error=shape_error, gate_pass=all(checks.values()))
         except (subprocess.TimeoutExpired, ValueError, RuntimeError) as exc:
+            if isinstance(exc, subprocess.TimeoutExpired):
+                def as_text(value):
+                    return value.decode("utf-8", errors="replace") if isinstance(value, bytes) else (value or "")
+                (args.output / (case["name"] + ".log")).write_text(
+                    as_text(exc.stdout) + as_text(exc.stderr) + "\nWorker exceeded wall-time limit.\n")
             row["error"] = type(exc).__name__ + ": " + str(exc)
             row["gate_pass"] = False
         rows.append(row)
         print(json.dumps({"name": row["name"], "status": row["status"], "gate_pass": row["gate_pass"]}), flush=True)
-    report = {"scope": "Synthetic controls only; the original inactive rm_overlap, no dataset ablation",
-              "algorithm_modified": False, "native_iteration_limit": 2000,
+    report = {"scope": ("Synthetic controls only; isolated bounded collision repair, no dataset ablation"
+                         if args.repair else
+                         "Synthetic controls only; the original inactive rm_overlap, no dataset ablation"),
+              "algorithm_modified": args.repair,
+              "native_iteration_limit": args.max_iterations if args.repair else 2000,
               "worker_timeout_seconds": args.timeout, "strict_area_tolerance": 1e-9,
               "official_metric_threshold_unchanged": 50,
               "solver_eps_note": ".01 is the original rm_overlap default; 1 is the inactive caller argument; both are independent of official score threshold 50",

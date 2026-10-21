@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Expose the pinned, inactive rm_overlap in a separate CPU-only extension.
+"""Expose the pinned rm_overlap and optional repair in an isolated CPU extension.
 
-The copied algorithm is unchanged. Instrumentation only records iterations and
-which return path was taken; every source change is saved in instrumentation.patch.
+The original algorithm is unchanged. Instrumentation only records iterations and
+its return path. --repair adds a separate bounded entry point, with a copied
+header, source hashes, and repair.patch alongside instrumentation.patch.
 """
 import argparse
 import difflib
@@ -28,6 +29,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, required=True, help="Pinned upstream checkout")
     parser.add_argument("--output", type=Path, required=True, help="New isolated build directory")
+    parser.add_argument("--repair", action="store_true",
+                        help="Also build the isolated bounded collision repair")
     args = parser.parse_args()
     source = args.source.resolve()
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=source, text=True).strip()
@@ -83,9 +86,28 @@ def main():
     });
 '''
     patched = patched.replace(needle, needle + binding)
-    (build / "main.cpp").write_text(patched)
     (args.output / "instrumentation.patch").write_text("".join(difflib.unified_diff(
         original.splitlines(True), patched.splitlines(True), fromfile="pinned/main.cpp", tofile="probe/main.cpp")))
+    repair_header = None
+    if args.repair:
+        instrumented = patched
+        repair_header = Path(__file__).resolve().with_name("collision_repair.hpp")
+        shutil.copyfile(repair_header, build / repair_header.name)
+        module = "PYBIND11_MODULE(collision_probe, m)"
+        if patched.count(module) != 1:
+            raise ValueError("Unexpected isolated module binding")
+        patched = patched.replace(module, '#include "collision_repair.hpp"\n\n' + module)
+        repair_binding = r'''
+    m.def("overlap_repair", &gfpack_repair::repair,
+          py::arg("ids"), py::arg("rotates"), py::arg("actions"), py::arg("polys"),
+          py::arg("width"), py::arg("height"), py::arg("eps") = 1.,
+          py::arg("max_iterations") = 2000);
+'''
+        patched = patched.replace(needle, needle + repair_binding)
+        (args.output / "repair.patch").write_text("".join(difflib.unified_diff(
+            instrumented.splitlines(True), patched.splitlines(True),
+            fromfile="probe/main.cpp", tofile="repair/main.cpp")))
+    (build / "main.cpp").write_text(patched)
     includes = subprocess.check_output([sys.executable, "-m", "pybind11", "--includes"], text=True).split()
     extension = args.output / ("collision_probe" + sysconfig.get_config_var("EXT_SUFFIX"))
     command = [os.environ.get("CXX", "g++"), "-std=c++17", "-O3", "-fPIC", "-fopenmp", *includes,
@@ -97,12 +119,17 @@ def main():
     report = {"upstream_commit": commit, "source_sha256": sources,
               "instrumented_main_sha256": sha256(build / "main.cpp"),
               "patch_sha256": sha256(args.output / "instrumentation.patch"),
-              "algorithm_modified": False, "iteration_limit": 2000,
+              "algorithm_modified": args.repair, "iteration_limit": 2000,
               "instrumentation": "thread-local iteration count, return-path flag, isolated module binding",
               "compiler": subprocess.check_output([command[0], "--version"], text=True).splitlines()[0],
               "compile_flags": ["-std=c++17", "-O3", "-fPIC", "-fopenmp"],
               "python": sys.version, "elapsed_seconds": time.perf_counter() - started,
               "returncode": result.returncode}
+    if args.repair:
+        report.update(repair_header_sha256=sha256(build / repair_header.name),
+                      repair_main_sha256=sha256(build / "main.cpp"),
+                      repair_patch_sha256=sha256(args.output / "repair.patch"),
+                      repair_entry_point="collision_probe.overlap_repair")
     if result.returncode == 0:
         report["extension_sha256"] = sha256(extension)
     report["source_unchanged"] = all(sha256(original_dir / name) == digest for name, digest in sources.items())

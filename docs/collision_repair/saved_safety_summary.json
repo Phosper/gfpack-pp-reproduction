@@ -1,0 +1,4786 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-21T08:20:19.870009+00:00",
+  "scope": "Enhanced-candidate safety regression on 16 fixed development/regression cases plus original GTs; not the planned raw-start three-way ablation; no inference/resampling/training; not official native evaluation; no extrapolation to 128 cases",
+  "frozen_manifest_sha256": "9b0fd899a72e29027906751fe9caf4386f760eddf3d17124a5b9fe49732090c6",
+  "build_manifest_sha256": "3a28a5620e1e43fd6bacce71a8b79c38a50bf4144e0bc0c7bdb6b042ba23543c",
+  "extension_sha256": "20578940e7127dac5d5b48c821f1dbdf3e7a59c72d0c7383647888a422d8db23",
+  "checker_sha256": "0b1a58706a9232157e525fbbbe47b3e5d1e59a955da3745863f49f5f22b86c12",
+  "configuration": {
+    "width": 8000,
+    "height": 1200,
+    "solver_area_eps": 1.0,
+    "max_iterations": 2000,
+    "worker_timeout_seconds": 12,
+    "official_overlap_area_threshold_unchanged": 50,
+    "strict_area_tolerance": 1e-09,
+    "boundary_tolerance": 1e-09,
+    "shape_offset_tolerance": 1e-07
+  },
+  "independent_guard_policy": "Preserve native output verbatim; independently reject and restore original actions if native contract or float64 safety audit fails. A guarded rollback is never counted as native repair success.",
+  "gate_pass": true,
+  "effective_safety_pass": true,
+  "summary": {
+    "cases": 16,
+    "native_calls": 32,
+    "guard_passed": 32,
+    "native_converged": 23,
+    "independently_accepted_converged": 23,
+    "guard_rejected_or_worker_failed": 0
+  },
+  "full_private_report_sha256": "fc77ac7ebeabd7dadf7cde992b0f45d3fbc2fb26073dedaf1755e67840794318",
+  "rows": [
+    {
+      "sample_index": 25,
+      "group": "failure_development",
+      "candidate_index": 391,
+      "input_path": "cases/sample_025.json",
+      "input_sha256": "6ea5b4d7d8c3eaff8ec1c79562f699b5c3c96abe637148b8e03865da28fa76fa",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 84.55719785054532,
+            "sum_pairwise_area": 256.4691991341125,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 2,
+            "total_polygon_area": 1495546.2803896363,
+            "bounds_xyxy": [
+              0.0010674285439833398,
+              0.0012346292257774394,
+              1711.3865987538145,
+              1192.41146330397
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7328689267306331,
+            "top_pairs": [
+              {
+                "area": 84.55719785054532,
+                "piece_indices": [
+                  6,
+                  9
+                ]
+              },
+              {
+                "area": 80.19986781961863,
+                "piece_indices": [
+                  9,
+                  36
+                ]
+              },
+              {
+                "area": 45.25352050563431,
+                "piece_indices": [
+                  2,
+                  9
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "stalled",
+            "iterations": 4,
+            "rolled_back": true,
+            "diagnostics": {
+              "initial_max_pairwise_area": 84.69219970703125,
+              "initial_sum_pairwise_area": 256.6435546875,
+              "best_attempt_max_pairwise_area": 80.11294555664062,
+              "best_attempt_sum_pairwise_area": 80.11788940429688,
+              "returned_max_pairwise_area": 84.69219970703125,
+              "returned_sum_pairwise_area": 256.6435546875,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 5635,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 1.343146509
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 84.55719785054532,
+            "sum_pairwise_area": 256.4691991341125,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 2,
+            "total_polygon_area": 1495546.2803896363,
+            "bounds_xyxy": [
+              0.0010674285439833398,
+              0.0012346292257774394,
+              1711.3865987538145,
+              1192.41146330397
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7328689267306331,
+            "top_pairs": [
+              {
+                "area": 84.55719785054532,
+                "piece_indices": [
+                  6,
+                  9
+                ]
+              },
+              {
+                "area": 80.19986781961863,
+                "piece_indices": [
+                  9,
+                  36
+                ]
+              },
+              {
+                "area": 45.25352050563431,
+                "piece_indices": [
+                  2,
+                  9
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 84.55719785054532,
+            "sum_pairwise_area": 256.4691991341125,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 2,
+            "total_polygon_area": 1495546.2803896363,
+            "bounds_xyxy": [
+              0.0010674285439833398,
+              0.0012346292257774394,
+              1711.3865987538145,
+              1192.41146330397
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7328689267306331,
+            "top_pairs": [
+              {
+                "area": 84.55719785054532,
+                "piece_indices": [
+                  6,
+                  9
+                ]
+              },
+              {
+                "area": 80.19986781961863,
+                "piece_indices": [
+                  9,
+                  36
+                ]
+              },
+              {
+                "area": 45.25352050563431,
+                "piece_indices": [
+                  2,
+                  9
+                ]
+              }
+            ]
+          },
+          "effective_status": "stalled",
+          "effective_rolled_back": true,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 1.3454440860077739
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1495546.2803896363,
+            "bounds_xyxy": [
+              5.290768160066023,
+              5.02059389464651,
+              1761.8305290839419,
+              1194.716357505568
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7156587029799802,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.000992238
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1495546.2803896363,
+            "bounds_xyxy": [
+              5.290768160066023,
+              5.02059389464651,
+              1761.8305290839419,
+              1194.716357505568
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7156587029799802,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1495546.2803896363,
+            "bounds_xyxy": [
+              5.290768160066023,
+              5.02059389464651,
+              1761.8305290839419,
+              1194.716357505568
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7156587029799802,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.003287266008555889
+        }
+      }
+    },
+    {
+      "sample_index": 45,
+      "group": "failure_development",
+      "candidate_index": 271,
+      "input_path": "cases/sample_045.json",
+      "input_sha256": "092154a6f576962adf86decc0756e639abc2ce25d8f7485d5afb928d4589713b",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 554.0576322172607,
+            "sum_pairwise_area": 612.9631330806508,
+            "pair_count_over_1e_9": 38,
+            "pair_count_over_50": 1,
+            "total_polygon_area": 1849680.507654809,
+            "bounds_xyxy": [
+              0.0013846737686549204,
+              0.0011603623323779289,
+              2165.936904214937,
+              1194.295880381551
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.715055389217316,
+            "top_pairs": [
+              {
+                "area": 554.0576322172607,
+                "piece_indices": [
+                  1,
+                  14
+                ]
+              },
+              {
+                "area": 29.85469505680927,
+                "piece_indices": [
+                  6,
+                  14
+                ]
+              },
+              {
+                "area": 14.258956913913366,
+                "piece_indices": [
+                  6,
+                  36
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "stalled",
+            "iterations": 4,
+            "rolled_back": true,
+            "diagnostics": {
+              "initial_max_pairwise_area": 554.1921691894531,
+              "initial_sum_pairwise_area": 612.9634704589844,
+              "best_attempt_max_pairwise_area": 14.2708740234375,
+              "best_attempt_sum_pairwise_area": 14.27105712890625,
+              "returned_max_pairwise_area": 554.1921691894531,
+              "returned_sum_pairwise_area": 612.9634704589844,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 8783,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 2.586499972
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 554.0576322172607,
+            "sum_pairwise_area": 612.9631330806508,
+            "pair_count_over_1e_9": 38,
+            "pair_count_over_50": 1,
+            "total_polygon_area": 1849680.507654809,
+            "bounds_xyxy": [
+              0.0013846737686549204,
+              0.0011603623323779289,
+              2165.936904214937,
+              1194.295880381551
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.715055389217316,
+            "top_pairs": [
+              {
+                "area": 554.0576322172607,
+                "piece_indices": [
+                  1,
+                  14
+                ]
+              },
+              {
+                "area": 29.85469505680927,
+                "piece_indices": [
+                  6,
+                  14
+                ]
+              },
+              {
+                "area": 14.258956913913366,
+                "piece_indices": [
+                  6,
+                  36
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 554.0576322172607,
+            "sum_pairwise_area": 612.9631330806508,
+            "pair_count_over_1e_9": 38,
+            "pair_count_over_50": 1,
+            "total_polygon_area": 1849680.507654809,
+            "bounds_xyxy": [
+              0.0013846737686549204,
+              0.0011603623323779289,
+              2165.936904214937,
+              1194.295880381551
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.715055389217316,
+            "top_pairs": [
+              {
+                "area": 554.0576322172607,
+                "piece_indices": [
+                  1,
+                  14
+                ]
+              },
+              {
+                "area": 29.85469505680927,
+                "piece_indices": [
+                  6,
+                  14
+                ]
+              },
+              {
+                "area": 14.258956913913366,
+                "piece_indices": [
+                  6,
+                  36
+                ]
+              }
+            ]
+          },
+          "effective_status": "stalled",
+          "effective_rolled_back": true,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 2.5889382595196366
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1849680.5076548094,
+            "bounds_xyxy": [
+              5.1554599144009,
+              4.3735193282202545,
+              2222.8625877243985,
+              1194.6499435727828
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7007202946297454,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.001214639
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1849680.5076548094,
+            "bounds_xyxy": [
+              5.1554599144009,
+              4.3735193282202545,
+              2222.8625877243985,
+              1194.6499435727828
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7007202946297454,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1849680.5076548094,
+            "bounds_xyxy": [
+              5.1554599144009,
+              4.3735193282202545,
+              2222.8625877243985,
+              1194.6499435727828
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7007202946297454,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.003493398427963257
+        }
+      }
+    },
+    {
+      "sample_index": 46,
+      "group": "failure_development",
+      "candidate_index": 224,
+      "input_path": "cases/sample_046.json",
+      "input_sha256": "cc325efb85386a02ebfda290ee2f0ef4143dc38301fc3e7b556f1ef520d32e1d",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 239.87343248574598,
+            "sum_pairwise_area": 343.06564957774674,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 2,
+            "total_polygon_area": 1446734.7130575387,
+            "bounds_xyxy": [
+              0.0012618183303629849,
+              0.0012170565104128173,
+              1653.629777573619,
+              1194.0227410505104
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7327212613123198,
+            "top_pairs": [
+              {
+                "area": 239.87343248574598,
+                "piece_indices": [
+                  24,
+                  35
+                ]
+              },
+              {
+                "area": 103.12996418345188,
+                "piece_indices": [
+                  35,
+                  45
+                ]
+              },
+              {
+                "area": 0.0357417662545938,
+                "piece_indices": [
+                  5,
+                  25
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 2,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 239.73306274414062,
+              "initial_sum_pairwise_area": 342.9508972167969,
+              "best_attempt_max_pairwise_area": 0.000518798828125,
+              "best_attempt_sum_pairwise_area": 0.000579833984375,
+              "returned_max_pairwise_area": 0.000518798828125,
+              "returned_sum_pairwise_area": 0.000579833984375,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 2429,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.511753909
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0357417662545938,
+            "sum_pairwise_area": 0.055641366127463204,
+            "pair_count_over_1e_9": 33,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1446734.7130575387,
+            "bounds_xyxy": [
+              0.0012618183303629849,
+              0.0,
+              2402.5288944442946,
+              1194.0227410505104
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.5043219983527683,
+            "top_pairs": [
+              {
+                "area": 0.0357417662545938,
+                "piece_indices": [
+                  5,
+                  25
+                ]
+              },
+              {
+                "area": 0.00445212591367639,
+                "piece_indices": [
+                  20,
+                  46
+                ]
+              },
+              {
+                "area": 0.002838463269824565,
+                "piece_indices": [
+                  11,
+                  22
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0357417662545938,
+            "sum_pairwise_area": 0.055641366127463204,
+            "pair_count_over_1e_9": 33,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1446734.7130575387,
+            "bounds_xyxy": [
+              0.0012618183303629849,
+              0.0,
+              2402.5288944442946,
+              1194.0227410505104
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.5043219983527683,
+            "top_pairs": [
+              {
+                "area": 0.0357417662545938,
+                "piece_indices": [
+                  5,
+                  25
+                ]
+              },
+              {
+                "area": 0.00445212591367639,
+                "piece_indices": [
+                  20,
+                  46
+                ]
+              },
+              {
+                "area": 0.002838463269824565,
+                "piece_indices": [
+                  11,
+                  22
+                ]
+              }
+            ]
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 892.6371496474654,
+            "sum_translation": 892.6409942074823,
+            "moved_piece_count": 2
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.5140272900462151
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1446734.7130575387,
+            "bounds_xyxy": [
+              5.605187282836937,
+              4.207060969891195,
+              1692.988350015465,
+              1195.0067446041246
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7200066046139945,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.001283802
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1446734.7130575387,
+            "bounds_xyxy": [
+              5.605187282836937,
+              4.207060969891195,
+              1692.988350015465,
+              1195.0067446041246
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7200066046139945,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1446734.7130575387,
+            "bounds_xyxy": [
+              5.605187282836937,
+              4.207060969891195,
+              1692.988350015465,
+              1195.0067446041246
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7200066046139945,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0035620611160993576
+        }
+      }
+    },
+    {
+      "sample_index": 47,
+      "group": "failure_development",
+      "candidate_index": 190,
+      "input_path": "cases/sample_047.json",
+      "input_sha256": "33cf19ad5be364b94c7fb73f9b6b8b539a5d63dc6f850c3788e70fdddacc0a16",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 187.81849269321748,
+            "sum_pairwise_area": 187.84181744434852,
+            "pair_count_over_1e_9": 34,
+            "pair_count_over_50": 1,
+            "total_polygon_area": 1432886.207420546,
+            "bounds_xyxy": [
+              0.0012781952314995237,
+              0.0016712326039964864,
+              1648.2864537043945,
+              1194.1469058287405
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7279846126761159,
+            "top_pairs": [
+              {
+                "area": 187.81849269321748,
+                "piece_indices": [
+                  35,
+                  45
+                ]
+              },
+              {
+                "area": 0.006332789673405221,
+                "piece_indices": [
+                  31,
+                  33
+                ]
+              },
+              {
+                "area": 0.003621498658050667,
+                "piece_indices": [
+                  18,
+                  30
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 1,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 187.79104614257812,
+              "initial_sum_pairwise_area": 187.79354858398438,
+              "best_attempt_max_pairwise_area": 0.00128173828125,
+              "best_attempt_sum_pairwise_area": 0.00250244140625,
+              "returned_max_pairwise_area": 0.00128173828125,
+              "returned_sum_pairwise_area": 0.00250244140625,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 309,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.039320743
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.006332789673405221,
+            "sum_pairwise_area": 0.023324751131081612,
+            "pair_count_over_1e_9": 33,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1432886.207420546,
+            "bounds_xyxy": [
+              0.0012781952314995237,
+              0.0016712326039964864,
+              1648.2864537043945,
+              1194.1469058287405
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7279846126761159,
+            "top_pairs": [
+              {
+                "area": 0.006332789673405221,
+                "piece_indices": [
+                  31,
+                  33
+                ]
+              },
+              {
+                "area": 0.003621498658050667,
+                "piece_indices": [
+                  18,
+                  30
+                ]
+              },
+              {
+                "area": 0.0023647363038690914,
+                "piece_indices": [
+                  30,
+                  42
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.006332789673405221,
+            "sum_pairwise_area": 0.023324751131081612,
+            "pair_count_over_1e_9": 33,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1432886.207420546,
+            "bounds_xyxy": [
+              0.0012781952314995237,
+              0.0016712326039964864,
+              1648.2864537043945,
+              1194.1469058287405
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7279846126761159,
+            "top_pairs": [
+              {
+                "area": 0.006332789673405221,
+                "piece_indices": [
+                  31,
+                  33
+                ]
+              },
+              {
+                "area": 0.003621498658050667,
+                "piece_indices": [
+                  18,
+                  30
+                ]
+              },
+              {
+                "area": 0.0023647363038690914,
+                "piece_indices": [
+                  30,
+                  42
+                ]
+              }
+            ]
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 113.94281703708047,
+            "sum_translation": 113.94281703708047,
+            "moved_piece_count": 1
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.04158410616219044
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1432886.207420546,
+            "bounds_xyxy": [
+              4.839236456008216,
+              4.5120998053559305,
+              1649.6267465718074,
+              1194.2467792653006
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7322371885262848,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.001126483
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1432886.207420546,
+            "bounds_xyxy": [
+              4.839236456008216,
+              4.5120998053559305,
+              1649.6267465718074,
+              1194.2467792653006
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7322371885262848,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1432886.207420546,
+            "bounds_xyxy": [
+              4.839236456008216,
+              4.5120998053559305,
+              1649.6267465718074,
+              1194.2467792653006
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7322371885262848,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.003418893553316593
+        }
+      }
+    },
+    {
+      "sample_index": 54,
+      "group": "failure_development",
+      "candidate_index": 11,
+      "input_path": "cases/sample_054.json",
+      "input_sha256": "d8f48cd0eb284ac57e5b0be1615295ec3c57aaf553af399bb3627acf1896036e",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 495.3988626201772,
+            "sum_pairwise_area": 534.3737931620684,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 1,
+            "total_polygon_area": 1673671.150953004,
+            "bounds_xyxy": [
+              0.0017776518788110707,
+              0.0011628773571317197,
+              1993.2994396311706,
+              1194.5824124632832
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.702881769454888,
+            "top_pairs": [
+              {
+                "area": 495.3988626201772,
+                "piece_indices": [
+                  13,
+                  26
+                ]
+              },
+              {
+                "area": 38.950494923213135,
+                "piece_indices": [
+                  21,
+                  27
+                ]
+              },
+              {
+                "area": 0.0032815956308482885,
+                "piece_indices": [
+                  16,
+                  20
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "stalled",
+            "iterations": 3,
+            "rolled_back": true,
+            "diagnostics": {
+              "initial_max_pairwise_area": 495.4372863769531,
+              "initial_sum_pairwise_area": 534.3536682128906,
+              "best_attempt_max_pairwise_area": 495.4372863769531,
+              "best_attempt_sum_pairwise_area": 497.2254333496094,
+              "returned_max_pairwise_area": 495.4372863769531,
+              "returned_sum_pairwise_area": 534.3536682128906,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 5284,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 1.873833972
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 495.3988626201772,
+            "sum_pairwise_area": 534.3737931620684,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 1,
+            "total_polygon_area": 1673671.150953004,
+            "bounds_xyxy": [
+              0.0017776518788110707,
+              0.0011628773571317197,
+              1993.2994396311706,
+              1194.5824124632832
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.702881769454888,
+            "top_pairs": [
+              {
+                "area": 495.3988626201772,
+                "piece_indices": [
+                  13,
+                  26
+                ]
+              },
+              {
+                "area": 38.950494923213135,
+                "piece_indices": [
+                  21,
+                  27
+                ]
+              },
+              {
+                "area": 0.0032815956308482885,
+                "piece_indices": [
+                  16,
+                  20
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 495.3988626201772,
+            "sum_pairwise_area": 534.3737931620684,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 1,
+            "total_polygon_area": 1673671.150953004,
+            "bounds_xyxy": [
+              0.0017776518788110707,
+              0.0011628773571317197,
+              1993.2994396311706,
+              1194.5824124632832
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.702881769454888,
+            "top_pairs": [
+              {
+                "area": 495.3988626201772,
+                "piece_indices": [
+                  13,
+                  26
+                ]
+              },
+              {
+                "area": 38.950494923213135,
+                "piece_indices": [
+                  21,
+                  27
+                ]
+              },
+              {
+                "area": 0.0032815956308482885,
+                "piece_indices": [
+                  16,
+                  20
+                ]
+              }
+            ]
+          },
+          "effective_status": "stalled",
+          "effective_rolled_back": true,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 1.8761263210326433
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1673671.1509530041,
+            "bounds_xyxy": [
+              3.6605919772299558,
+              4.382003700753856,
+              2055.4922803619143,
+              1194.7261366343073
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.6852607572093256,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.001106904
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1673671.1509530041,
+            "bounds_xyxy": [
+              3.6605919772299558,
+              4.382003700753856,
+              2055.4922803619143,
+              1194.7261366343073
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.6852607572093256,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1673671.1509530041,
+            "bounds_xyxy": [
+              3.6605919772299558,
+              4.382003700753856,
+              2055.4922803619143,
+              1194.7261366343073
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.6852607572093256,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0033797044306993484
+        }
+      }
+    },
+    {
+      "sample_index": 62,
+      "group": "failure_development",
+      "candidate_index": 347,
+      "input_path": "cases/sample_062.json",
+      "input_sha256": "368daa213e0e1d862dc7aaa40fbafeaa42bcc432559a97dc5342f94778923a49",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 195.7843301817543,
+            "sum_pairwise_area": 370.32277230823394,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 3,
+            "total_polygon_area": 1576308.2829038398,
+            "bounds_xyxy": [
+              0.0010827919617923953,
+              0.001384821148633364,
+              1799.548672944998,
+              1191.9390826993097
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7348932623423416,
+            "top_pairs": [
+              {
+                "area": 195.7843301817543,
+                "piece_indices": [
+                  38,
+                  40
+                ]
+              },
+              {
+                "area": 111.41346077904414,
+                "piece_indices": [
+                  11,
+                  39
+                ]
+              },
+              {
+                "area": 54.50876487402443,
+                "piece_indices": [
+                  37,
+                  39
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "stalled",
+            "iterations": 1,
+            "rolled_back": true,
+            "diagnostics": {
+              "initial_max_pairwise_area": 195.78005981445312,
+              "initial_sum_pairwise_area": 370.1970520019531,
+              "best_attempt_max_pairwise_area": 111.42413330078125,
+              "best_attempt_sum_pairwise_area": 174.41632080078125,
+              "returned_max_pairwise_area": 195.78005981445312,
+              "returned_sum_pairwise_area": 370.1970520019531,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 2863,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.948254403
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 195.7843301817543,
+            "sum_pairwise_area": 370.32277230823394,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 3,
+            "total_polygon_area": 1576308.2829038398,
+            "bounds_xyxy": [
+              0.0010827919617923953,
+              0.001384821148633364,
+              1799.548672944998,
+              1191.9390826993097
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7348932623423416,
+            "top_pairs": [
+              {
+                "area": 195.7843301817543,
+                "piece_indices": [
+                  38,
+                  40
+                ]
+              },
+              {
+                "area": 111.41346077904414,
+                "piece_indices": [
+                  11,
+                  39
+                ]
+              },
+              {
+                "area": 54.50876487402443,
+                "piece_indices": [
+                  37,
+                  39
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 195.7843301817543,
+            "sum_pairwise_area": 370.32277230823394,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 3,
+            "total_polygon_area": 1576308.2829038398,
+            "bounds_xyxy": [
+              0.0010827919617923953,
+              0.001384821148633364,
+              1799.548672944998,
+              1191.9390826993097
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7348932623423416,
+            "top_pairs": [
+              {
+                "area": 195.7843301817543,
+                "piece_indices": [
+                  38,
+                  40
+                ]
+              },
+              {
+                "area": 111.41346077904414,
+                "piece_indices": [
+                  11,
+                  39
+                ]
+              },
+              {
+                "area": 54.50876487402443,
+                "piece_indices": [
+                  37,
+                  39
+                ]
+              }
+            ]
+          },
+          "effective_status": "stalled",
+          "effective_rolled_back": true,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.9505329513922334
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1576308.2829038398,
+            "bounds_xyxy": [
+              5.215847748440865,
+              5.940151193194538,
+              1863.5436596630734,
+              1194.6622030212598
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7135731687514475,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.000936689
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1576308.2829038398,
+            "bounds_xyxy": [
+              5.215847748440865,
+              5.940151193194538,
+              1863.5436596630734,
+              1194.6622030212598
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7135731687514475,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1576308.2829038398,
+            "bounds_xyxy": [
+              5.215847748440865,
+              5.940151193194538,
+              1863.5436596630734,
+              1194.6622030212598
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7135731687514475,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0032006260007619858
+        }
+      }
+    },
+    {
+      "sample_index": 99,
+      "group": "failure_development",
+      "candidate_index": 303,
+      "input_path": "cases/sample_099.json",
+      "input_sha256": "ac31e2e7c45f7ba3dd71827519f5492003c5b594b3cc0ba60545f3eb85f0b8fd",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 274.4245556964439,
+            "sum_pairwise_area": 274.47052183629427,
+            "pair_count_over_1e_9": 41,
+            "pair_count_over_50": 1,
+            "total_polygon_area": 2022605.9398432432,
+            "bounds_xyxy": [
+              0.0014726876030408675,
+              0.0010279097184948682,
+              2389.320556973017,
+              1194.5691794221239
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7086408674213943,
+            "top_pairs": [
+              {
+                "area": 274.4245556964439,
+                "piece_indices": [
+                  14,
+                  44
+                ]
+              },
+              {
+                "area": 0.020709931097303874,
+                "piece_indices": [
+                  26,
+                  47
+                ]
+              },
+              {
+                "area": 0.003581151922588897,
+                "piece_indices": [
+                  42,
+                  43
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "stalled",
+            "iterations": 0,
+            "rolled_back": true,
+            "diagnostics": {
+              "initial_max_pairwise_area": 274.43707275390625,
+              "initial_sum_pairwise_area": 274.4400634765625,
+              "best_attempt_max_pairwise_area": 274.43707275390625,
+              "best_attempt_sum_pairwise_area": 274.4400634765625,
+              "returned_max_pairwise_area": 274.43707275390625,
+              "returned_sum_pairwise_area": 274.4400634765625,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 311,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.163406834
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 274.4245556964439,
+            "sum_pairwise_area": 274.47052183629427,
+            "pair_count_over_1e_9": 41,
+            "pair_count_over_50": 1,
+            "total_polygon_area": 2022605.9398432432,
+            "bounds_xyxy": [
+              0.0014726876030408675,
+              0.0010279097184948682,
+              2389.320556973017,
+              1194.5691794221239
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7086408674213943,
+            "top_pairs": [
+              {
+                "area": 274.4245556964439,
+                "piece_indices": [
+                  14,
+                  44
+                ]
+              },
+              {
+                "area": 0.020709931097303874,
+                "piece_indices": [
+                  26,
+                  47
+                ]
+              },
+              {
+                "area": 0.003581151922588897,
+                "piece_indices": [
+                  42,
+                  43
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 274.4245556964439,
+            "sum_pairwise_area": 274.47052183629427,
+            "pair_count_over_1e_9": 41,
+            "pair_count_over_50": 1,
+            "total_polygon_area": 2022605.9398432432,
+            "bounds_xyxy": [
+              0.0014726876030408675,
+              0.0010279097184948682,
+              2389.320556973017,
+              1194.5691794221239
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7086408674213943,
+            "top_pairs": [
+              {
+                "area": 274.4245556964439,
+                "piece_indices": [
+                  14,
+                  44
+                ]
+              },
+              {
+                "area": 0.020709931097303874,
+                "piece_indices": [
+                  26,
+                  47
+                ]
+              },
+              {
+                "area": 0.003581151922588897,
+                "piece_indices": [
+                  42,
+                  43
+                ]
+              }
+            ]
+          },
+          "effective_status": "stalled",
+          "effective_rolled_back": true,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.1657007746398449
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 2022605.9398432435,
+            "bounds_xyxy": [
+              4.469192045001307,
+              4.7708847900379965,
+              2522.223831011693,
+              1194.5203277967812
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.6752154379561316,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.001149946
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 2022605.9398432435,
+            "bounds_xyxy": [
+              4.469192045001307,
+              4.7708847900379965,
+              2522.223831011693,
+              1194.5203277967812
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.6752154379561316,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 2022605.9398432435,
+            "bounds_xyxy": [
+              4.469192045001307,
+              4.7708847900379965,
+              2522.223831011693,
+              1194.5203277967812
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.6752154379561316,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.003399902954697609
+        }
+      }
+    },
+    {
+      "sample_index": 115,
+      "group": "failure_development",
+      "candidate_index": 15,
+      "input_path": "cases/sample_115.json",
+      "input_sha256": "109838398c51c2cc6fced579ff56855c8b3101572d448e9c459249f15435e315",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 94.30238722617827,
+            "sum_pairwise_area": 94.34800220338485,
+            "pair_count_over_1e_9": 41,
+            "pair_count_over_50": 1,
+            "total_polygon_area": 1593150.6048019321,
+            "bounds_xyxy": [
+              0.0012263102560154948,
+              0.0018890418020021116,
+              1751.2844131397997,
+              1192.1375386944792
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7630882725386473,
+            "top_pairs": [
+              {
+                "area": 94.30238722617827,
+                "piece_indices": [
+                  9,
+                  19
+                ]
+              },
+              {
+                "area": 0.01950134200898479,
+                "piece_indices": [
+                  43,
+                  45
+                ]
+              },
+              {
+                "area": 0.005184597253165335,
+                "piece_indices": [
+                  18,
+                  20
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "stalled",
+            "iterations": 0,
+            "rolled_back": true,
+            "diagnostics": {
+              "initial_max_pairwise_area": 94.35464477539062,
+              "initial_sum_pairwise_area": 94.3675537109375,
+              "best_attempt_max_pairwise_area": 94.35464477539062,
+              "best_attempt_sum_pairwise_area": 94.3675537109375,
+              "returned_max_pairwise_area": 94.35464477539062,
+              "returned_sum_pairwise_area": 94.3675537109375,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 491,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.140671264
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 94.30238722617827,
+            "sum_pairwise_area": 94.34800220338485,
+            "pair_count_over_1e_9": 41,
+            "pair_count_over_50": 1,
+            "total_polygon_area": 1593150.6048019321,
+            "bounds_xyxy": [
+              0.0012263102560154948,
+              0.0018890418020021116,
+              1751.2844131397997,
+              1192.1375386944792
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7630882725386473,
+            "top_pairs": [
+              {
+                "area": 94.30238722617827,
+                "piece_indices": [
+                  9,
+                  19
+                ]
+              },
+              {
+                "area": 0.01950134200898479,
+                "piece_indices": [
+                  43,
+                  45
+                ]
+              },
+              {
+                "area": 0.005184597253165335,
+                "piece_indices": [
+                  18,
+                  20
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 94.30238722617827,
+            "sum_pairwise_area": 94.34800220338485,
+            "pair_count_over_1e_9": 41,
+            "pair_count_over_50": 1,
+            "total_polygon_area": 1593150.6048019321,
+            "bounds_xyxy": [
+              0.0012263102560154948,
+              0.0018890418020021116,
+              1751.2844131397997,
+              1192.1375386944792
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": false,
+            "bounding_box_utilization": 0.7630882725386473,
+            "top_pairs": [
+              {
+                "area": 94.30238722617827,
+                "piece_indices": [
+                  9,
+                  19
+                ]
+              },
+              {
+                "area": 0.01950134200898479,
+                "piece_indices": [
+                  43,
+                  45
+                ]
+              },
+              {
+                "area": 0.005184597253165335,
+                "piece_indices": [
+                  18,
+                  20
+                ]
+              }
+            ]
+          },
+          "effective_status": "stalled",
+          "effective_rolled_back": true,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.14293039683252573
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1593150.604801932,
+            "bounds_xyxy": [
+              4.625412937644221,
+              4.54392170179554,
+              1858.0485793690798,
+              1194.463806984199
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.722378020504187,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.000978199
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1593150.604801932,
+            "bounds_xyxy": [
+              4.625412937644221,
+              4.54392170179554,
+              1858.0485793690798,
+              1194.463806984199
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.722378020504187,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1593150.604801932,
+            "bounds_xyxy": [
+              4.625412937644221,
+              4.54392170179554,
+              1858.0485793690798,
+              1194.463806984199
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.722378020504187,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0032280031591653824
+        }
+      }
+    },
+    {
+      "sample_index": 0,
+      "group": "success_regression",
+      "candidate_index": 88,
+      "input_path": "cases/sample_000.json",
+      "input_sha256": "71f1788b0c2d2a628508d48b3130d0f20756d0f0c4785a6ed3cdc6a9beee867e",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 11.56189522462465,
+            "sum_pairwise_area": 11.603507819817944,
+            "pair_count_over_1e_9": 43,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1303710.8223171462,
+            "bounds_xyxy": [
+              0.001445768575905504,
+              0.0018783666206587668,
+              1417.7729474175746,
+              1193.0685404531769
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7707442934035948,
+            "top_pairs": [
+              {
+                "area": 11.56189522462465,
+                "piece_indices": [
+                  20,
+                  39
+                ]
+              },
+              {
+                "area": 0.009084357122296443,
+                "piece_indices": [
+                  10,
+                  21
+                ]
+              },
+              {
+                "area": 0.005097505536529063,
+                "piece_indices": [
+                  17,
+                  26
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "stalled",
+            "iterations": 1,
+            "rolled_back": true,
+            "diagnostics": {
+              "initial_max_pairwise_area": 11.509521484375,
+              "initial_sum_pairwise_area": 11.522186279296875,
+              "best_attempt_max_pairwise_area": 1.202178955078125,
+              "best_attempt_sum_pairwise_area": 2.09161376953125,
+              "returned_max_pairwise_area": 11.509521484375,
+              "returned_sum_pairwise_area": 11.522186279296875,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 492,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.093914927
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 11.56189522462465,
+            "sum_pairwise_area": 11.603507819817944,
+            "pair_count_over_1e_9": 43,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1303710.8223171462,
+            "bounds_xyxy": [
+              0.001445768575905504,
+              0.0018783666206587668,
+              1417.7729474175746,
+              1193.0685404531769
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7707442934035948,
+            "top_pairs": [
+              {
+                "area": 11.56189522462465,
+                "piece_indices": [
+                  20,
+                  39
+                ]
+              },
+              {
+                "area": 0.009084357122296443,
+                "piece_indices": [
+                  10,
+                  21
+                ]
+              },
+              {
+                "area": 0.005097505536529063,
+                "piece_indices": [
+                  17,
+                  26
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 11.56189522462465,
+            "sum_pairwise_area": 11.603507819817944,
+            "pair_count_over_1e_9": 43,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1303710.8223171462,
+            "bounds_xyxy": [
+              0.001445768575905504,
+              0.0018783666206587668,
+              1417.7729474175746,
+              1193.0685404531769
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7707442934035948,
+            "top_pairs": [
+              {
+                "area": 11.56189522462465,
+                "piece_indices": [
+                  20,
+                  39
+                ]
+              },
+              {
+                "area": 0.009084357122296443,
+                "piece_indices": [
+                  10,
+                  21
+                ]
+              },
+              {
+                "area": 0.005097505536529063,
+                "piece_indices": [
+                  17,
+                  26
+                ]
+              }
+            ]
+          },
+          "effective_status": "stalled",
+          "effective_rolled_back": true,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.09617120586335659
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1303710.822317146,
+            "bounds_xyxy": [
+              4.598618342043679,
+              5.013630609275168,
+              1536.0799543517337,
+              1194.3034404546884
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7157837991514169,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.000681741
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1303710.822317146,
+            "bounds_xyxy": [
+              4.598618342043679,
+              5.013630609275168,
+              1536.0799543517337,
+              1194.3034404546884
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7157837991514169,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1303710.822317146,
+            "bounds_xyxy": [
+              4.598618342043679,
+              5.013630609275168,
+              1536.0799543517337,
+              1194.3034404546884
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7157837991514169,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0029232660308480263
+        }
+      }
+    },
+    {
+      "sample_index": 17,
+      "group": "success_regression",
+      "candidate_index": 330,
+      "input_path": "cases/sample_017.json",
+      "input_sha256": "7d95d3cedff4ff1ae422a65b1f28fb683179911ef023d01c20b7993064cde733",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 0.07328912158196874,
+            "sum_pairwise_area": 0.08566203499606806,
+            "pair_count_over_1e_9": 42,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1373068.8264857556,
+            "bounds_xyxy": [
+              0.0012812379777358274,
+              0.0016992705180030043,
+              1533.3187475677125,
+              1192.4725078220579
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7509525009635266,
+            "top_pairs": [
+              {
+                "area": 0.07328912158196874,
+                "piece_indices": [
+                  14,
+                  24
+                ]
+              },
+              {
+                "area": 0.0012862396517895273,
+                "piece_indices": [
+                  30,
+                  47
+                ]
+              },
+              {
+                "area": 0.0009952349190463941,
+                "piece_indices": [
+                  13,
+                  46
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0006103515625,
+              "initial_sum_pairwise_area": 0.000701904296875,
+              "best_attempt_max_pairwise_area": 0.0006103515625,
+              "best_attempt_sum_pairwise_area": 0.000701904296875,
+              "returned_max_pairwise_area": 0.0006103515625,
+              "returned_sum_pairwise_area": 0.000701904296875,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.001122581
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.07328912158196874,
+            "sum_pairwise_area": 0.08566203499606806,
+            "pair_count_over_1e_9": 42,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1373068.8264857556,
+            "bounds_xyxy": [
+              0.0012812379777358274,
+              0.0016992705180030043,
+              1533.3187475677125,
+              1192.4725078220579
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7509525009635266,
+            "top_pairs": [
+              {
+                "area": 0.07328912158196874,
+                "piece_indices": [
+                  14,
+                  24
+                ]
+              },
+              {
+                "area": 0.0012862396517895273,
+                "piece_indices": [
+                  30,
+                  47
+                ]
+              },
+              {
+                "area": 0.0009952349190463941,
+                "piece_indices": [
+                  13,
+                  46
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.07328912158196874,
+            "sum_pairwise_area": 0.08566203499606806,
+            "pair_count_over_1e_9": 42,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1373068.8264857556,
+            "bounds_xyxy": [
+              0.0012812379777358274,
+              0.0016992705180030043,
+              1533.3187475677125,
+              1192.4725078220579
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7509525009635266,
+            "top_pairs": [
+              {
+                "area": 0.07328912158196874,
+                "piece_indices": [
+                  14,
+                  24
+                ]
+              },
+              {
+                "area": 0.0012862396517895273,
+                "piece_indices": [
+                  30,
+                  47
+                ]
+              },
+              {
+                "area": 0.0009952349190463941,
+                "piece_indices": [
+                  13,
+                  46
+                ]
+              }
+            ]
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0033889776095747948
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1373068.8264857552,
+            "bounds_xyxy": [
+              5.119872012207281,
+              5.181508415557467,
+              1609.93894784644,
+              1194.5153025047102
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7193868088017251,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.001040924
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1373068.8264857552,
+            "bounds_xyxy": [
+              5.119872012207281,
+              5.181508415557467,
+              1609.93894784644,
+              1194.5153025047102
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7193868088017251,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1373068.8264857552,
+            "bounds_xyxy": [
+              5.119872012207281,
+              5.181508415557467,
+              1609.93894784644,
+              1194.5153025047102
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7193868088017251,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0033015748485922813
+        }
+      }
+    },
+    {
+      "sample_index": 35,
+      "group": "success_regression",
+      "candidate_index": 493,
+      "input_path": "cases/sample_035.json",
+      "input_sha256": "cb3b7333b3868e32349ad17ab48050e586c56eba3536803ed4896e71e854daba",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 38.93175435534599,
+            "sum_pairwise_area": 38.98635228894599,
+            "pair_count_over_1e_9": 42,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1704336.747632435,
+            "bounds_xyxy": [
+              0.0017223622961637375,
+              0.0014340122010452205,
+              1911.6099180881606,
+              1192.9764512956463
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7473519555155845,
+            "top_pairs": [
+              {
+                "area": 38.93175435534599,
+                "piece_indices": [
+                  24,
+                  27
+                ]
+              },
+              {
+                "area": 0.027740467612854758,
+                "piece_indices": [
+                  2,
+                  34
+                ]
+              },
+              {
+                "area": 0.007639264212040919,
+                "piece_indices": [
+                  19,
+                  30
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "stalled",
+            "iterations": 0,
+            "rolled_back": true,
+            "diagnostics": {
+              "initial_max_pairwise_area": 38.99456787109375,
+              "initial_sum_pairwise_area": 38.99884033203125,
+              "best_attempt_max_pairwise_area": 38.99456787109375,
+              "best_attempt_sum_pairwise_area": 38.99884033203125,
+              "returned_max_pairwise_area": 38.99456787109375,
+              "returned_sum_pairwise_area": 38.99884033203125,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 212,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.075329005
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 38.93175435534599,
+            "sum_pairwise_area": 38.98635228894599,
+            "pair_count_over_1e_9": 42,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1704336.747632435,
+            "bounds_xyxy": [
+              0.0017223622961637375,
+              0.0014340122010452205,
+              1911.6099180881606,
+              1192.9764512956463
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7473519555155845,
+            "top_pairs": [
+              {
+                "area": 38.93175435534599,
+                "piece_indices": [
+                  24,
+                  27
+                ]
+              },
+              {
+                "area": 0.027740467612854758,
+                "piece_indices": [
+                  2,
+                  34
+                ]
+              },
+              {
+                "area": 0.007639264212040919,
+                "piece_indices": [
+                  19,
+                  30
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 38.93175435534599,
+            "sum_pairwise_area": 38.98635228894599,
+            "pair_count_over_1e_9": 42,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1704336.747632435,
+            "bounds_xyxy": [
+              0.0017223622961637375,
+              0.0014340122010452205,
+              1911.6099180881606,
+              1192.9764512956463
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7473519555155845,
+            "top_pairs": [
+              {
+                "area": 38.93175435534599,
+                "piece_indices": [
+                  24,
+                  27
+                ]
+              },
+              {
+                "area": 0.027740467612854758,
+                "piece_indices": [
+                  2,
+                  34
+                ]
+              },
+              {
+                "area": 0.007639264212040919,
+                "piece_indices": [
+                  19,
+                  30
+                ]
+              }
+            ]
+          },
+          "effective_status": "stalled",
+          "effective_rolled_back": true,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0776008190587163
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1704336.747632435,
+            "bounds_xyxy": [
+              4.057759935979334,
+              4.534644368368106,
+              2023.1348297616737,
+              1194.9428077846828
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7090985787838848,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.001052802
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1704336.747632435,
+            "bounds_xyxy": [
+              4.057759935979334,
+              4.534644368368106,
+              2023.1348297616737,
+              1194.9428077846828
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7090985787838848,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1704336.747632435,
+            "bounds_xyxy": [
+              4.057759935979334,
+              4.534644368368106,
+              2023.1348297616737,
+              1194.9428077846828
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7090985787838848,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.003323400393128395
+        }
+      }
+    },
+    {
+      "sample_index": 56,
+      "group": "success_regression",
+      "candidate_index": 321,
+      "input_path": "cases/sample_056.json",
+      "input_sha256": "6a45ba2beb65784098465ecb47492172a8a9f87ac268a9ac8c1000e61be01375",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 9.161416520469054,
+            "sum_pairwise_area": 9.189724617853672,
+            "pair_count_over_1e_9": 38,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1672449.7129055555,
+            "bounds_xyxy": [
+              0.0012102700002358802,
+              0.0010155464062222563,
+              1891.7558555862188,
+              1195.8711831082671
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7392719483293747,
+            "top_pairs": [
+              {
+                "area": 9.161416520469054,
+                "piece_indices": [
+                  0,
+                  41
+                ]
+              },
+              {
+                "area": 0.009800382595832269,
+                "piece_indices": [
+                  7,
+                  35
+                ]
+              },
+              {
+                "area": 0.002332918278228749,
+                "piece_indices": [
+                  26,
+                  40
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "stalled",
+            "iterations": 0,
+            "rolled_back": true,
+            "diagnostics": {
+              "initial_max_pairwise_area": 9.16021728515625,
+              "initial_sum_pairwise_area": 9.160400390625,
+              "best_attempt_max_pairwise_area": 9.16021728515625,
+              "best_attempt_sum_pairwise_area": 9.160400390625,
+              "returned_max_pairwise_area": 9.16021728515625,
+              "returned_sum_pairwise_area": 9.160400390625,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 498,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.151576424
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 9.161416520469054,
+            "sum_pairwise_area": 9.189724617853672,
+            "pair_count_over_1e_9": 38,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1672449.7129055555,
+            "bounds_xyxy": [
+              0.0012102700002358802,
+              0.0010155464062222563,
+              1891.7558555862188,
+              1195.8711831082671
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7392719483293747,
+            "top_pairs": [
+              {
+                "area": 9.161416520469054,
+                "piece_indices": [
+                  0,
+                  41
+                ]
+              },
+              {
+                "area": 0.009800382595832269,
+                "piece_indices": [
+                  7,
+                  35
+                ]
+              },
+              {
+                "area": 0.002332918278228749,
+                "piece_indices": [
+                  26,
+                  40
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 9.161416520469054,
+            "sum_pairwise_area": 9.189724617853672,
+            "pair_count_over_1e_9": 38,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1672449.7129055555,
+            "bounds_xyxy": [
+              0.0012102700002358802,
+              0.0010155464062222563,
+              1891.7558555862188,
+              1195.8711831082671
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7392719483293747,
+            "top_pairs": [
+              {
+                "area": 9.161416520469054,
+                "piece_indices": [
+                  0,
+                  41
+                ]
+              },
+              {
+                "area": 0.009800382595832269,
+                "piece_indices": [
+                  7,
+                  35
+                ]
+              },
+              {
+                "area": 0.002332918278228749,
+                "piece_indices": [
+                  26,
+                  40
+                ]
+              }
+            ]
+          },
+          "effective_status": "stalled",
+          "effective_rolled_back": true,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.15385462436825037
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1672449.712905555,
+            "bounds_xyxy": [
+              6.475821224883475,
+              4.351899069339311,
+              1924.1938495812285,
+              1194.6610817090616
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7326702092856341,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.00096987
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1672449.712905555,
+            "bounds_xyxy": [
+              6.475821224883475,
+              4.351899069339311,
+              1924.1938495812285,
+              1194.6610817090616
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7326702092856341,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1672449.712905555,
+            "bounds_xyxy": [
+              6.475821224883475,
+              4.351899069339311,
+              1924.1938495812285,
+              1194.6610817090616
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7326702092856341,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0032515889033675194
+        }
+      }
+    },
+    {
+      "sample_index": 74,
+      "group": "success_regression",
+      "candidate_index": 336,
+      "input_path": "cases/sample_074.json",
+      "input_sha256": "3e7a0084d4f249084324ba77c7fd0f0a7db41a5758b7b917c17ff873b4fb2225",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 0.023690905548003016,
+            "sum_pairwise_area": 0.05237066872290956,
+            "pair_count_over_1e_9": 42,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1605877.861867525,
+            "bounds_xyxy": [
+              0.0012045467157122403,
+              0.0012229900684346262,
+              1747.1919652647164,
+              1193.3469840103699
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.770204216576097,
+            "top_pairs": [
+              {
+                "area": 0.023690905548003016,
+                "piece_indices": [
+                  6,
+                  28
+                ]
+              },
+              {
+                "area": 0.0053850946305685765,
+                "piece_indices": [
+                  7,
+                  9
+                ]
+              },
+              {
+                "area": 0.0043530556242845206,
+                "piece_indices": [
+                  19,
+                  31
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.00018310546875,
+              "initial_sum_pairwise_area": 0.00018310546875,
+              "best_attempt_max_pairwise_area": 0.00018310546875,
+              "best_attempt_sum_pairwise_area": 0.00018310546875,
+              "returned_max_pairwise_area": 0.00018310546875,
+              "returned_sum_pairwise_area": 0.00018310546875,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.001174866
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.023690905548003016,
+            "sum_pairwise_area": 0.05237066872290956,
+            "pair_count_over_1e_9": 42,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1605877.861867525,
+            "bounds_xyxy": [
+              0.0012045467157122403,
+              0.0012229900684346262,
+              1747.1919652647164,
+              1193.3469840103699
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.770204216576097,
+            "top_pairs": [
+              {
+                "area": 0.023690905548003016,
+                "piece_indices": [
+                  6,
+                  28
+                ]
+              },
+              {
+                "area": 0.0053850946305685765,
+                "piece_indices": [
+                  7,
+                  9
+                ]
+              },
+              {
+                "area": 0.0043530556242845206,
+                "piece_indices": [
+                  19,
+                  31
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.023690905548003016,
+            "sum_pairwise_area": 0.05237066872290956,
+            "pair_count_over_1e_9": 42,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1605877.861867525,
+            "bounds_xyxy": [
+              0.0012045467157122403,
+              0.0012229900684346262,
+              1747.1919652647164,
+              1193.3469840103699
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.770204216576097,
+            "top_pairs": [
+              {
+                "area": 0.023690905548003016,
+                "piece_indices": [
+                  6,
+                  28
+                ]
+              },
+              {
+                "area": 0.0053850946305685765,
+                "piece_indices": [
+                  7,
+                  9
+                ]
+              },
+              {
+                "area": 0.0043530556242845206,
+                "piece_indices": [
+                  19,
+                  31
+                ]
+              }
+            ]
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0034571951255202293
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1605877.861867525,
+            "bounds_xyxy": [
+              4.951756909746109,
+              4.244793351884439,
+              1836.852652873795,
+              1194.5281861415297
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7364786505730669,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.001010632
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1605877.861867525,
+            "bounds_xyxy": [
+              4.951756909746109,
+              4.244793351884439,
+              1836.852652873795,
+              1194.5281861415297
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7364786505730669,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1605877.861867525,
+            "bounds_xyxy": [
+              4.951756909746109,
+              4.244793351884439,
+              1836.852652873795,
+              1194.5281861415297
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7364786505730669,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0032823216170072556
+        }
+      }
+    },
+    {
+      "sample_index": 91,
+      "group": "success_regression",
+      "candidate_index": 20,
+      "input_path": "cases/sample_091.json",
+      "input_sha256": "5cbbe42534270cce50a86714322c540e689a0e707bf60735216cc3fdbd118205",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 0.0022335935682481845,
+            "sum_pairwise_area": 0.02224730685626905,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1334221.1757168062,
+            "bounds_xyxy": [
+              0.0012085838764051005,
+              0.0015637706740108115,
+              1446.5797269750292,
+              1193.3981084841673
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7728603753106079,
+            "top_pairs": [
+              {
+                "area": 0.0022335935682481845,
+                "piece_indices": [
+                  8,
+                  22
+                ]
+              },
+              {
+                "area": 0.0016849349068795332,
+                "piece_indices": [
+                  28,
+                  38
+                ]
+              },
+              {
+                "area": 0.0013725800010944162,
+                "piece_indices": [
+                  6,
+                  20
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.000274658203125,
+              "initial_sum_pairwise_area": 0.000396728515625,
+              "best_attempt_max_pairwise_area": 0.000274658203125,
+              "best_attempt_sum_pairwise_area": 0.000396728515625,
+              "returned_max_pairwise_area": 0.000274658203125,
+              "returned_sum_pairwise_area": 0.000396728515625,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.000894083
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0022335935682481845,
+            "sum_pairwise_area": 0.02224730685626905,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1334221.1757168062,
+            "bounds_xyxy": [
+              0.0012085838764051005,
+              0.0015637706740108115,
+              1446.5797269750292,
+              1193.3981084841673
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7728603753106079,
+            "top_pairs": [
+              {
+                "area": 0.0022335935682481845,
+                "piece_indices": [
+                  8,
+                  22
+                ]
+              },
+              {
+                "area": 0.0016849349068795332,
+                "piece_indices": [
+                  28,
+                  38
+                ]
+              },
+              {
+                "area": 0.0013725800010944162,
+                "piece_indices": [
+                  6,
+                  20
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0022335935682481845,
+            "sum_pairwise_area": 0.02224730685626905,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1334221.1757168062,
+            "bounds_xyxy": [
+              0.0012085838764051005,
+              0.0015637706740108115,
+              1446.5797269750292,
+              1193.3981084841673
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7728603753106079,
+            "top_pairs": [
+              {
+                "area": 0.0022335935682481845,
+                "piece_indices": [
+                  8,
+                  22
+                ]
+              },
+              {
+                "area": 0.0016849349068795332,
+                "piece_indices": [
+                  28,
+                  38
+                ]
+              },
+              {
+                "area": 0.0013725800010944162,
+                "piece_indices": [
+                  6,
+                  20
+                ]
+              }
+            ]
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.003143620677292347
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1334221.175716806,
+            "bounds_xyxy": [
+              4.99568653088582,
+              4.8887600997354355,
+              1558.5378906993574,
+              1194.7017941230972
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7218152462124382,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.000704175
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1334221.175716806,
+            "bounds_xyxy": [
+              4.99568653088582,
+              4.8887600997354355,
+              1558.5378906993574,
+              1194.7017941230972
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7218152462124382,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1334221.175716806,
+            "bounds_xyxy": [
+              4.99568653088582,
+              4.8887600997354355,
+              1558.5378906993574,
+              1194.7017941230972
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7218152462124382,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0029728030785918236
+        }
+      }
+    },
+    {
+      "sample_index": 109,
+      "group": "success_regression",
+      "candidate_index": 460,
+      "input_path": "cases/sample_109.json",
+      "input_sha256": "cb46cdd23b41094d545903291b7512d4cebc1f06552e062f5a98dfbf7af178b7",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 0.004904574809285144,
+            "sum_pairwise_area": 0.0317104189842039,
+            "pair_count_over_1e_9": 43,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 954180.0355919623,
+            "bounds_xyxy": [
+              0.0011808873033487544,
+              0.0012713002216742098,
+              1036.2444992053106,
+              1193.5233288629106
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7715039121748275,
+            "top_pairs": [
+              {
+                "area": 0.004904574809285144,
+                "piece_indices": [
+                  34,
+                  38
+                ]
+              },
+              {
+                "area": 0.003981685771327659,
+                "piece_indices": [
+                  35,
+                  45
+                ]
+              },
+              {
+                "area": 0.002123166984914049,
+                "piece_indices": [
+                  9,
+                  23
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.001556396484375,
+              "initial_sum_pairwise_area": 0.00335693359375,
+              "best_attempt_max_pairwise_area": 0.001556396484375,
+              "best_attempt_sum_pairwise_area": 0.00335693359375,
+              "returned_max_pairwise_area": 0.001556396484375,
+              "returned_sum_pairwise_area": 0.00335693359375,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.000748863
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.004904574809285144,
+            "sum_pairwise_area": 0.0317104189842039,
+            "pair_count_over_1e_9": 43,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 954180.0355919623,
+            "bounds_xyxy": [
+              0.0011808873033487544,
+              0.0012713002216742098,
+              1036.2444992053106,
+              1193.5233288629106
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7715039121748275,
+            "top_pairs": [
+              {
+                "area": 0.004904574809285144,
+                "piece_indices": [
+                  34,
+                  38
+                ]
+              },
+              {
+                "area": 0.003981685771327659,
+                "piece_indices": [
+                  35,
+                  45
+                ]
+              },
+              {
+                "area": 0.002123166984914049,
+                "piece_indices": [
+                  9,
+                  23
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.004904574809285144,
+            "sum_pairwise_area": 0.0317104189842039,
+            "pair_count_over_1e_9": 43,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 954180.0355919623,
+            "bounds_xyxy": [
+              0.0011808873033487544,
+              0.0012713002216742098,
+              1036.2444992053106,
+              1193.5233288629106
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7715039121748275,
+            "top_pairs": [
+              {
+                "area": 0.004904574809285144,
+                "piece_indices": [
+                  34,
+                  38
+                ]
+              },
+              {
+                "area": 0.003981685771327659,
+                "piece_indices": [
+                  35,
+                  45
+                ]
+              },
+              {
+                "area": 0.002123166984914049,
+                "piece_indices": [
+                  9,
+                  23
+                ]
+              }
+            ]
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.003005407750606537
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 954180.0355919623,
+            "bounds_xyxy": [
+              4.19671521835636,
+              4.743815020274496,
+              1124.5772113879318,
+              1194.6890945414711
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.715711169764273,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.000612467
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 954180.0355919623,
+            "bounds_xyxy": [
+              4.19671521835636,
+              4.743815020274496,
+              1124.5772113879318,
+              1194.6890945414711
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.715711169764273,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 954180.0355919623,
+            "bounds_xyxy": [
+              4.19671521835636,
+              4.743815020274496,
+              1124.5772113879318,
+              1194.6890945414711
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.715711169764273,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0028768321499228477
+        }
+      }
+    },
+    {
+      "sample_index": 127,
+      "group": "success_regression",
+      "candidate_index": 183,
+      "input_path": "cases/sample_127.json",
+      "input_sha256": "5a99b10bb2dfd14bbbf3ccc9352319103e7fd23acb234841dfa9d4859a58e098",
+      "variants": {
+        "enhanced_actions": {
+          "before": {
+            "max_pairwise_area": 0.009565710804410814,
+            "sum_pairwise_area": 0.025067699995411023,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1211715.8818112186,
+            "bounds_xyxy": [
+              0.0010816583832564675,
+              0.00125944778115894,
+              1366.9718562133437,
+              1192.9654339577196
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7430433793231584,
+            "top_pairs": [
+              {
+                "area": 0.009565710804410814,
+                "piece_indices": [
+                  15,
+                  18
+                ]
+              },
+              {
+                "area": 0.0017703540359458375,
+                "piece_indices": [
+                  7,
+                  36
+                ]
+              },
+              {
+                "area": 0.0017175602880207582,
+                "piece_indices": [
+                  17,
+                  46
+                ]
+              }
+            ]
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.003021240234375,
+              "initial_sum_pairwise_area": 0.007904052734375,
+              "best_attempt_max_pairwise_area": 0.003021240234375,
+              "best_attempt_sum_pairwise_area": 0.007904052734375,
+              "returned_max_pairwise_area": 0.003021240234375,
+              "returned_sum_pairwise_area": 0.007904052734375,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.000975506
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.009565710804410814,
+            "sum_pairwise_area": 0.025067699995411023,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1211715.8818112186,
+            "bounds_xyxy": [
+              0.0010816583832564675,
+              0.00125944778115894,
+              1366.9718562133437,
+              1192.9654339577196
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7430433793231584,
+            "top_pairs": [
+              {
+                "area": 0.009565710804410814,
+                "piece_indices": [
+                  15,
+                  18
+                ]
+              },
+              {
+                "area": 0.0017703540359458375,
+                "piece_indices": [
+                  7,
+                  36
+                ]
+              },
+              {
+                "area": 0.0017175602880207582,
+                "piece_indices": [
+                  17,
+                  46
+                ]
+              }
+            ]
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.009565710804410814,
+            "sum_pairwise_area": 0.025067699995411023,
+            "pair_count_over_1e_9": 40,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1211715.8818112186,
+            "bounds_xyxy": [
+              0.0010816583832564675,
+              0.00125944778115894,
+              1366.9718562133437,
+              1192.9654339577196
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": false,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7430433793231584,
+            "top_pairs": [
+              {
+                "area": 0.009565710804410814,
+                "piece_indices": [
+                  15,
+                  18
+                ]
+              },
+              {
+                "area": 0.0017703540359458375,
+                "piece_indices": [
+                  7,
+                  36
+                ]
+              },
+              {
+                "area": 0.0017175602880207582,
+                "piece_indices": [
+                  17,
+                  46
+                ]
+              }
+            ]
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0032470086589455605
+        },
+        "gt_actions": {
+          "before": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1211715.8818112186,
+            "bounds_xyxy": [
+              4.643502846869239,
+              5.868651027853161,
+              1406.1623788537502,
+              1194.6248797904211
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7272923899031688,
+            "top_pairs": []
+          },
+          "native": {
+            "status": "converged",
+            "iterations": 0,
+            "rolled_back": false,
+            "diagnostics": {
+              "initial_max_pairwise_area": 0.0,
+              "initial_sum_pairwise_area": 0.0,
+              "best_attempt_max_pairwise_area": 0.0,
+              "best_attempt_sum_pairwise_area": 0.0,
+              "returned_max_pairwise_area": 0.0,
+              "returned_sum_pairwise_area": 0.0,
+              "returned_within_bounds": true,
+              "initial_geometry_measured": true,
+              "candidate_evaluations": 0,
+              "clipper_decimal_precision": 2,
+              "separation_clearance": 0.015625,
+              "evaluation_limit": 100000,
+              "time_limit_seconds": 8.0,
+              "elapsed_seconds": 0.000844099
+            }
+          },
+          "native_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1211715.8818112186,
+            "bounds_xyxy": [
+              4.643502846869239,
+              5.868651027853161,
+              1406.1623788537502,
+              1194.6248797904211
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7272923899031688,
+            "top_pairs": []
+          },
+          "guard_checks": {
+            "known_native_status": true,
+            "bounded_iterations": true,
+            "native_diagnostics_available": true,
+            "finite_actions_and_piece_count": true,
+            "rigid_shapes_preserved": true,
+            "directions_preserved": true,
+            "native_rollback_flag_consistent": true,
+            "native_failure_restores_original_actions": true,
+            "no_new_height_violation": true,
+            "no_new_width_violation": true,
+            "sum_overlap_not_worse": true,
+            "native_success_meets_independent_eps": true,
+            "native_success_inside_reference_bounds": true,
+            "success_regression_reference_50_preserved": true,
+            "original_gt_strict_reference": true,
+            "strict_original_gt_actions_unchanged": true
+          },
+          "guard_pass": true,
+          "effective_after": {
+            "max_pairwise_area": 0.0,
+            "sum_pairwise_area": 0,
+            "pair_count_over_1e_9": 0,
+            "pair_count_over_50": 0,
+            "total_polygon_area": 1211715.8818112186,
+            "bounds_xyxy": [
+              4.643502846869239,
+              5.868651027853161,
+              1406.1623788537502,
+              1194.6248797904211
+            ],
+            "height_violation": 0.0,
+            "width_violation": 0.0,
+            "in_bounds": true,
+            "strict_zero_overlap": true,
+            "float64_reference_max_pair_le_50": true,
+            "bounding_box_utilization": 0.7272923899031688,
+            "top_pairs": []
+          },
+          "effective_status": "converged",
+          "effective_rolled_back": false,
+          "effective_displacement": {
+            "max_translation": 0.0,
+            "sum_translation": 0.0,
+            "moved_piece_count": 0
+          },
+          "effective_safety_pass": true,
+          "native_elapsed_seconds": 0.0030981171876192093
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,3142 @@
+{
+  "scope": "Synthetic repair failure and geometry controls; no dataset ablation",
+  "official_metric_threshold_unchanged": 50,
+  "strict_audit_tolerance": 1e-09,
+  "worker_timeout_seconds": 10.0,
+  "build_manifest_sha256": "3a28a5620e1e43fd6bacce71a8b79c38a50bf4144e0bc0c7bdb6b042ba23543c",
+  "gate_pass": true,
+  "rows": [
+    {
+      "name": "feasible_shifted_keeps_actions",
+      "input": {
+        "name": "feasible_shifted_keeps_actions",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              3.0,
+              0.0
+            ],
+            [
+              3.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              3.0
+            ],
+            [
+              0.0,
+              3.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0,
+          1
+        ],
+        "actions_xy": [
+          [
+            1.0,
+            1.0
+          ],
+          [
+            3.0,
+            1.0
+          ]
+        ],
+        "rotates": [
+          0.0,
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": true
+      },
+      "input_sha256": "28bab9345e3f4cad070cd02774249b7dbb9120f7b064ee138456e99acfd150c1",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "bounds_xyxy": [
+          1.0,
+          1.0,
+          6.0,
+          4.0
+        ],
+        "in_bounds": true
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              3.0,
+              1.0
+            ]
+          ],
+          "status": "converged",
+          "iterations": 0,
+          "rolled_back": false,
+          "diagnostics": {
+            "initial_max_pairwise_area": 0.0,
+            "initial_sum_pairwise_area": 0.0,
+            "best_attempt_max_pairwise_area": 0.0,
+            "best_attempt_sum_pairwise_area": 0.0,
+            "returned_max_pairwise_area": 0.0,
+            "returned_sum_pairwise_area": 0.0,
+            "returned_within_bounds": true,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 0,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 8.533e-06
+          }
+        },
+        "elapsed_seconds": 3.7151388823986053e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "bounds_xyxy": [
+          1.0,
+          1.0,
+          6.0,
+          4.0
+        ],
+        "in_bounds": true
+      }
+    },
+    {
+      "name": "feasible_rotations_keep_actions",
+      "input": {
+        "name": "feasible_rotations_keep_actions",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              3.0,
+              0.0
+            ],
+            [
+              3.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0,
+          0
+        ],
+        "actions_xy": [
+          [
+            2.0,
+            1.0
+          ],
+          [
+            7.0,
+            1.0
+          ]
+        ],
+        "rotates": [
+          0.6457718232379019,
+          1.5707963267948966
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": true
+      },
+      "input_sha256": "66b596f507ba0fd21eff56fb10663388e6c5d2f6b73465e083d658f646759fb4",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "bounds_xyxy": [
+          1.3981849768479517,
+          1.0,
+          7.0,
+          4.0
+        ],
+        "in_bounds": true
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              2.0,
+              1.0
+            ],
+            [
+              7.0,
+              1.0
+            ]
+          ],
+          "status": "converged",
+          "iterations": 0,
+          "rolled_back": false,
+          "diagnostics": {
+            "initial_max_pairwise_area": 0.0,
+            "initial_sum_pairwise_area": 0.0,
+            "best_attempt_max_pairwise_area": 0.0,
+            "best_attempt_sum_pairwise_area": 0.0,
+            "returned_max_pairwise_area": 0.0,
+            "returned_sum_pairwise_area": 0.0,
+            "returned_within_bounds": true,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 0,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 8.379e-06
+          }
+        },
+        "elapsed_seconds": 3.570783883333206e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "bounds_xyxy": [
+          1.3981849768479517,
+          1.0,
+          7.0,
+          4.0
+        ],
+        "in_bounds": true
+      }
+    },
+    {
+      "name": "concave_void_is_not_collision",
+      "input": {
+        "name": "concave_void_is_not_collision",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              3.0,
+              0.0
+            ],
+            [
+              3.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              3.0
+            ],
+            [
+              0.0,
+              3.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0,
+          1
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.5,
+            1.5
+          ]
+        ],
+        "rotates": [
+          0.0,
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": true
+      },
+      "input_sha256": "d58b28a72c56e7bb5b086c245cd49576e2976bdd3c1522899696160396a9fde6",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          3.0,
+          3.0
+        ],
+        "in_bounds": true
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.5,
+              1.5
+            ]
+          ],
+          "status": "converged",
+          "iterations": 0,
+          "rolled_back": false,
+          "diagnostics": {
+            "initial_max_pairwise_area": 0.0,
+            "initial_sum_pairwise_area": 0.0,
+            "best_attempt_max_pairwise_area": 0.0,
+            "best_attempt_sum_pairwise_area": 0.0,
+            "returned_max_pairwise_area": 0.0,
+            "returned_sum_pairwise_area": 0.0,
+            "returned_within_bounds": true,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 0,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 2.6394e-05
+          }
+        },
+        "elapsed_seconds": 5.885865539312363e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          3.0,
+          3.0
+        ],
+        "in_bounds": true
+      }
+    },
+    {
+      "name": "touching_keeps_actions",
+      "input": {
+        "name": "touching_keeps_actions",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0,
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0,
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": true
+      },
+      "input_sha256": "3fc23c1e670b0b7ee2254f0fd9515ba3f7e84cfd10c3e631852d9db890ef8a1e",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          2.0,
+          1.0
+        ],
+        "in_bounds": true
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ]
+          ],
+          "status": "converged",
+          "iterations": 0,
+          "rolled_back": false,
+          "diagnostics": {
+            "initial_max_pairwise_area": 0.0,
+            "initial_sum_pairwise_area": 0.0,
+            "best_attempt_max_pairwise_area": 0.0,
+            "best_attempt_sum_pairwise_area": 0.0,
+            "returned_max_pairwise_area": 0.0,
+            "returned_sum_pairwise_area": 0.0,
+            "returned_within_bounds": true,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 0,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 7.323e-06
+          }
+        },
+        "elapsed_seconds": 3.244820982217789e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          2.0,
+          1.0
+        ],
+        "in_bounds": true
+      }
+    },
+    {
+      "name": "overlap_below_eps_keeps_actions",
+      "input": {
+        "name": "overlap_below_eps_keeps_actions",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0,
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.999,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0,
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": true
+      },
+      "input_sha256": "7fc86842a17c64b3f29d7d80d2c562fee865af8ca4563568df487e9cf9766e34",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 0.0010000000000000009,
+        "sum_pairwise_area": 0.0010000000000000009,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          1.999,
+          1.0
+        ],
+        "in_bounds": true
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.999,
+              0.0
+            ]
+          ],
+          "status": "converged",
+          "iterations": 0,
+          "rolled_back": false,
+          "diagnostics": {
+            "initial_max_pairwise_area": 0.0,
+            "initial_sum_pairwise_area": 0.0,
+            "best_attempt_max_pairwise_area": 0.0,
+            "best_attempt_sum_pairwise_area": 0.0,
+            "returned_max_pairwise_area": 0.0,
+            "returned_sum_pairwise_area": 0.0,
+            "returned_within_bounds": true,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 0,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 2.0051e-05
+          }
+        },
+        "elapsed_seconds": 4.2743980884552e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 0.0010000000000000009,
+        "sum_pairwise_area": 0.0010000000000000009,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          1.999,
+          1.0
+        ],
+        "in_bounds": true
+      }
+    },
+    {
+      "name": "rotated_rectangle_overlap",
+      "input": {
+        "name": "rotated_rectangle_overlap",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              3.0,
+              0.0
+            ],
+            [
+              3.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0,
+          0
+        ],
+        "actions_xy": [
+          [
+            2.0,
+            1.0
+          ],
+          [
+            3.0,
+            2.0
+          ]
+        ],
+        "rotates": [
+          0.6457718232379019,
+          1.5707963267948966
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false
+      },
+      "input_sha256": "d60b08fa6d9a0cd933483a6e0f65c74e5e200f99958b0669ba1174188da7d72b",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 0.6289126832076226,
+        "sum_pairwise_area": 0.6289126832076226,
+        "bounds_xyxy": [
+          1.3981849768479517,
+          1.0,
+          4.395906530141879,
+          5.0
+        ],
+        "in_bounds": true
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              2.24638442850557,
+              0.673036820023779
+            ],
+            [
+              2.75361557149443,
+              2.326963179976221
+            ]
+          ],
+          "status": "converged",
+          "iterations": 1,
+          "rolled_back": false,
+          "diagnostics": {
+            "initial_max_pairwise_area": 0.62109375,
+            "initial_sum_pairwise_area": 0.62109375,
+            "best_attempt_max_pairwise_area": 0.0,
+            "best_attempt_sum_pairwise_area": 0.0,
+            "returned_max_pairwise_area": 0.0,
+            "returned_sum_pairwise_area": 0.0,
+            "returned_within_bounds": true,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 23,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 5.3542e-05
+          }
+        },
+        "elapsed_seconds": 7.897336035966873e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "bounds_xyxy": [
+          1.6445694053535218,
+          0.673036820023779,
+          4.642290958647449,
+          5.326963179976222
+        ],
+        "in_bounds": true
+      }
+    },
+    {
+      "name": "reversed_winding_concave_overlap",
+      "input": {
+        "name": "reversed_winding_concave_overlap",
+        "polygons": [
+          [
+            [
+              0.0,
+              3.0
+            ],
+            [
+              1.0,
+              3.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              3.0,
+              1.0
+            ],
+            [
+              3.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              3.0,
+              0.0
+            ],
+            [
+              3.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              3.0
+            ],
+            [
+              0.0,
+              3.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0,
+          1
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.7,
+            0.7
+          ]
+        ],
+        "rotates": [
+          0.0,
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false
+      },
+      "input_sha256": "02f21de4fab25a7abbef498eb99ffeee6d2080e909d3bfe182c2d74f57b015b2",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 1.29,
+        "sum_pairwise_area": 1.29,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          3.7,
+          3.7
+        ],
+        "in_bounds": true
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.7,
+              3.0
+            ]
+          ],
+          "status": "converged",
+          "iterations": 1,
+          "rolled_back": false,
+          "diagnostics": {
+            "initial_max_pairwise_area": 1.275634765625,
+            "initial_sum_pairwise_area": 1.275634765625,
+            "best_attempt_max_pairwise_area": 0.0,
+            "best_attempt_sum_pairwise_area": 0.0,
+            "returned_max_pairwise_area": 0.0,
+            "returned_sum_pairwise_area": 0.0,
+            "returned_within_bounds": true,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 5,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 2.6837e-05
+          }
+        },
+        "elapsed_seconds": 4.790257662534714e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          3.7,
+          6.0
+        ],
+        "in_bounds": true
+      }
+    },
+    {
+      "name": "one_rotated_piece_keeps_actions",
+      "input": {
+        "name": "one_rotated_piece_keeps_actions",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              3.0,
+              0.0
+            ],
+            [
+              3.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            2.0,
+            1.0
+          ]
+        ],
+        "rotates": [
+          0.6457718232379019
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": true
+      },
+      "input_sha256": "7aa5a345af95b49f7dcef918b0d351a39be2c76881824ff5dcbb2256e304dd02",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0,
+        "bounds_xyxy": [
+          1.3981849768479517,
+          1.0,
+          4.395906530141879,
+          3.604080579503438
+        ],
+        "in_bounds": true
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              2.0,
+              1.0
+            ]
+          ],
+          "status": "converged",
+          "iterations": 0,
+          "rolled_back": false,
+          "diagnostics": {
+            "initial_max_pairwise_area": 0.0,
+            "initial_sum_pairwise_area": 0.0,
+            "best_attempt_max_pairwise_area": 0.0,
+            "best_attempt_sum_pairwise_area": 0.0,
+            "returned_max_pairwise_area": 0.0,
+            "returned_sum_pairwise_area": 0.0,
+            "returned_within_bounds": true,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 0,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 8.363e-06
+          }
+        },
+        "elapsed_seconds": 3.456138074398041e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0,
+        "bounds_xyxy": [
+          1.3981849768479517,
+          1.0,
+          4.395906530141879,
+          3.604080579503438
+        ],
+        "in_bounds": true
+      }
+    },
+    {
+      "name": "negative_origin_is_not_success",
+      "input": {
+        "name": "negative_origin_is_not_success",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            -0.25,
+            1.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "infeasible_bounds",
+        "expect_unchanged": false
+      },
+      "input_sha256": "981aded3584f8024d19dfc8b70ae92087e19467934d81b64843fda616d4afd3c",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0,
+        "bounds_xyxy": [
+          -0.25,
+          1.0,
+          0.75,
+          2.0
+        ],
+        "in_bounds": false
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              -0.25,
+              1.0
+            ]
+          ],
+          "status": "infeasible_bounds",
+          "iterations": 0,
+          "rolled_back": true,
+          "diagnostics": {
+            "initial_max_pairwise_area": 0.0,
+            "initial_sum_pairwise_area": 0.0,
+            "best_attempt_max_pairwise_area": 0.0,
+            "best_attempt_sum_pairwise_area": 0.0,
+            "returned_max_pairwise_area": 0.0,
+            "returned_sum_pairwise_area": 0.0,
+            "returned_within_bounds": false,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 0,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 8.483e-06
+          }
+        },
+        "elapsed_seconds": 2.8738752007484436e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0,
+        "bounds_xyxy": [
+          -0.25,
+          1.0,
+          0.75,
+          2.0
+        ],
+        "in_bounds": false
+      }
+    },
+    {
+      "name": "upper_bound_is_not_success",
+      "input": {
+        "name": "upper_bound_is_not_success",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            9.25,
+            1.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "infeasible_bounds",
+        "expect_unchanged": false
+      },
+      "input_sha256": "dfc8dabf0ffb745d31c1c077f31e3fec37962a5abf1e2231fcba4e27c4741668",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0,
+        "bounds_xyxy": [
+          9.25,
+          1.0,
+          10.25,
+          2.0
+        ],
+        "in_bounds": false
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              9.25,
+              1.0
+            ]
+          ],
+          "status": "infeasible_bounds",
+          "iterations": 0,
+          "rolled_back": true,
+          "diagnostics": {
+            "initial_max_pairwise_area": 0.0,
+            "initial_sum_pairwise_area": 0.0,
+            "best_attempt_max_pairwise_area": 0.0,
+            "best_attempt_sum_pairwise_area": 0.0,
+            "returned_max_pairwise_area": 0.0,
+            "returned_sum_pairwise_area": 0.0,
+            "returned_within_bounds": false,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 0,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 8.85e-06
+          }
+        },
+        "elapsed_seconds": 3.2559968531131744e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0,
+        "bounds_xyxy": [
+          9.25,
+          1.0,
+          10.25,
+          2.0
+        ],
+        "in_bounds": false
+      }
+    },
+    {
+      "name": "oversized_rotated_piece",
+      "input": {
+        "name": "oversized_rotated_piece",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              3.0,
+              0.0
+            ],
+            [
+              3.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            1.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          1.5707963267948966
+        ],
+        "width": 2.0,
+        "height": 2.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "infeasible_bounds",
+        "expect_unchanged": false
+      },
+      "input_sha256": "f996f8687a70ffa3494b53ae2ec5de3447c39483bc7abe928cdcee752ce9ada1",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          1.0000000000000002,
+          3.0
+        ],
+        "in_bounds": false
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              1.0,
+              0.0
+            ]
+          ],
+          "status": "infeasible_bounds",
+          "iterations": 0,
+          "rolled_back": true,
+          "diagnostics": {
+            "initial_max_pairwise_area": 0.0,
+            "initial_sum_pairwise_area": 0.0,
+            "best_attempt_max_pairwise_area": 0.0,
+            "best_attempt_sum_pairwise_area": 0.0,
+            "returned_max_pairwise_area": 0.0,
+            "returned_sum_pairwise_area": 0.0,
+            "returned_within_bounds": false,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 0,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 6.941e-06
+          }
+        },
+        "elapsed_seconds": 2.8120353817939758e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          1.0000000000000002,
+          3.0
+        ],
+        "in_bounds": false
+      }
+    },
+    {
+      "name": "stalled_fixed_full_box",
+      "input": {
+        "name": "stalled_fixed_full_box",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0,
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0,
+          0.0
+        ],
+        "width": 1.0,
+        "height": 1.0,
+        "eps": 0.0,
+        "max_iterations": 2000,
+        "expected_status": "stalled",
+        "expect_unchanged": false
+      },
+      "input_sha256": "c33561b41deb6fea2c06a133d528e84b472c0aa2c20a57224b08ef9cddd5fc12",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 1.0,
+        "sum_pairwise_area": 1.0,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "in_bounds": true
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "status": "stalled",
+          "iterations": 0,
+          "rolled_back": true,
+          "diagnostics": {
+            "initial_max_pairwise_area": 1.0,
+            "initial_sum_pairwise_area": 1.0,
+            "best_attempt_max_pairwise_area": 1.0,
+            "best_attempt_sum_pairwise_area": 1.0,
+            "returned_max_pairwise_area": 1.0,
+            "returned_sum_pairwise_area": 1.0,
+            "returned_within_bounds": true,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 0,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 2.3081e-05
+          }
+        },
+        "elapsed_seconds": 4.5095570385456085e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 1.0,
+        "sum_pairwise_area": 1.0,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "in_bounds": true
+      }
+    },
+    {
+      "name": "stalled_overfull_layout_rolls_back",
+      "input": {
+        "name": "stalled_overfull_layout_rolls_back",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0,
+          0,
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "width": 2.0,
+        "height": 1.0,
+        "eps": 0.0,
+        "max_iterations": 2000,
+        "expected_status": "stalled",
+        "expect_unchanged": false
+      },
+      "input_sha256": "aaee76877cc94c4dfcfef5f60c53bf57d9a1de0f49577e21e4813d76eb70b97a",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 1.0,
+        "sum_pairwise_area": 3.0,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "in_bounds": true
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "status": "stalled",
+          "iterations": 1,
+          "rolled_back": true,
+          "diagnostics": {
+            "initial_max_pairwise_area": 1.0,
+            "initial_sum_pairwise_area": 3.0,
+            "best_attempt_max_pairwise_area": 1.0,
+            "best_attempt_sum_pairwise_area": 1.0,
+            "returned_max_pairwise_area": 1.0,
+            "returned_sum_pairwise_area": 3.0,
+            "returned_within_bounds": true,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 8,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 5.8342e-05
+          }
+        },
+        "elapsed_seconds": 7.757358253002167e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 1.0,
+        "sum_pairwise_area": 3.0,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "in_bounds": true
+      }
+    },
+    {
+      "name": "zero_budget_overlap_rolls_back",
+      "input": {
+        "name": "zero_budget_overlap_rolls_back",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0,
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.25,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0,
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.0,
+        "max_iterations": 0,
+        "expected_status": "iteration_limit",
+        "expect_unchanged": false
+      },
+      "input_sha256": "bebde06cb75b44fc954a176329576a1fc905b6ad989220ff63de887a4bfacc2b",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 0.75,
+        "sum_pairwise_area": 0.75,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          1.25,
+          1.0
+        ],
+        "in_bounds": true
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.25,
+              0.0
+            ]
+          ],
+          "status": "iteration_limit",
+          "iterations": 0,
+          "rolled_back": true,
+          "diagnostics": {
+            "initial_max_pairwise_area": 0.75,
+            "initial_sum_pairwise_area": 0.75,
+            "best_attempt_max_pairwise_area": 0.75,
+            "best_attempt_sum_pairwise_area": 0.75,
+            "returned_max_pairwise_area": 0.75,
+            "returned_sum_pairwise_area": 0.75,
+            "returned_within_bounds": true,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 0,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 2.1567e-05
+          }
+        },
+        "elapsed_seconds": 4.255864769220352e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 0.75,
+        "sum_pairwise_area": 0.75,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          1.25,
+          1.0
+        ],
+        "in_bounds": true
+      }
+    },
+    {
+      "name": "zero_budget_feasible_is_success",
+      "input": {
+        "name": "zero_budget_feasible_is_success",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0,
+          0
+        ],
+        "actions_xy": [
+          [
+            1.0,
+            1.0
+          ],
+          [
+            3.0,
+            1.0
+          ]
+        ],
+        "rotates": [
+          0.0,
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 0,
+        "expected_status": "converged",
+        "expect_unchanged": true
+      },
+      "input_sha256": "cb4861da7664185ad7ca50a6da26ac17a0beb03cdd2b74892a44339ca619a610",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "bounds_xyxy": [
+          1.0,
+          1.0,
+          4.0,
+          2.0
+        ],
+        "in_bounds": true
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              3.0,
+              1.0
+            ]
+          ],
+          "status": "converged",
+          "iterations": 0,
+          "rolled_back": false,
+          "diagnostics": {
+            "initial_max_pairwise_area": 0.0,
+            "initial_sum_pairwise_area": 0.0,
+            "best_attempt_max_pairwise_area": 0.0,
+            "best_attempt_sum_pairwise_area": 0.0,
+            "returned_max_pairwise_area": 0.0,
+            "returned_sum_pairwise_area": 0.0,
+            "returned_within_bounds": true,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 0,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 8.14e-06
+          }
+        },
+        "elapsed_seconds": 2.911686897277832e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 0.0,
+        "sum_pairwise_area": 0.0,
+        "bounds_xyxy": [
+          1.0,
+          1.0,
+          4.0,
+          2.0
+        ],
+        "in_bounds": true
+      }
+    },
+    {
+      "name": "one_round_budget_rolls_back",
+      "input": {
+        "name": "one_round_budget_rolls_back",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "width": 5.0,
+        "height": 1.0,
+        "eps": 0.0,
+        "max_iterations": 1,
+        "expected_status": "iteration_limit",
+        "expect_unchanged": false
+      },
+      "input_sha256": "f46d4bb8269a7f864be8ccd86b0344bb1e0ea76e6a1a9b85c57ed24b53ff92f9",
+      "status": "completed",
+      "gate_pass": true,
+      "before": {
+        "max_pairwise_area": 1.0,
+        "sum_pairwise_area": 10.0,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "in_bounds": true
+      },
+      "output": {
+        "kind": "result",
+        "result": {
+          "actions_xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "status": "iteration_limit",
+          "iterations": 1,
+          "rolled_back": true,
+          "diagnostics": {
+            "initial_max_pairwise_area": 1.0,
+            "initial_sum_pairwise_area": 10.0,
+            "best_attempt_max_pairwise_area": 1.0,
+            "best_attempt_sum_pairwise_area": 6.0,
+            "returned_max_pairwise_area": 1.0,
+            "returned_sum_pairwise_area": 10.0,
+            "returned_within_bounds": true,
+            "initial_geometry_measured": true,
+            "candidate_evaluations": 20,
+            "clipper_decimal_precision": 2,
+            "separation_clearance": 0.015625,
+            "evaluation_limit": 100000,
+            "time_limit_seconds": 8.0,
+            "elapsed_seconds": 0.000221149
+          }
+        },
+        "elapsed_seconds": 0.00024280976504087448,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "caller_inputs_unchanged": true,
+        "finite_actions_and_piece_count": true,
+        "explicit_known_status": true,
+        "expected_status": true,
+        "bounded_iterations": true,
+        "diagnostics_available": true,
+        "rollback_flag_consistent": true,
+        "all_failure_actions_rolled_back": true,
+        "successful_geometry_meets_eps": true,
+        "successful_geometry_in_bounds": true,
+        "feasible_actions_preserved": true
+      },
+      "after": {
+        "max_pairwise_area": 1.0,
+        "sum_pairwise_area": 10.0,
+        "bounds_xyxy": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "in_bounds": true
+      }
+    },
+    {
+      "name": "reject_empty_piece_list",
+      "input": {
+        "name": "reject_empty_piece_list",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "empty_piece_list"
+      },
+      "input_sha256": "821a551aa609ae1b8b9637915e9ced8b53c93dc9c59f44152e4f0478f2617fd7",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair dimensions, epsilon or iteration budget",
+        "elapsed_seconds": 6.357487291097641e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_missing_rotation",
+      "input": {
+        "name": "reject_missing_rotation",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "missing_rotation"
+      },
+      "input_sha256": "bb01e84c6ff24a9d81d557e41b36a1c659c985d538200624795eca9e49233cd9",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair dimensions, epsilon or iteration budget",
+        "elapsed_seconds": 6.622821092605591e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_missing_translation",
+      "input": {
+        "name": "reject_missing_translation",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "missing_translation"
+      },
+      "input_sha256": "675ff194df6f464bb6b19258076db3fef9c0c35dd0f51907f0e9e964c644e6fa",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair dimensions, epsilon or iteration budget",
+        "elapsed_seconds": 6.424263119697571e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_negative_polygon_id",
+      "input": {
+        "name": "reject_negative_polygon_id",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "negative_polygon_id"
+      },
+      "input_sha256": "8c6eb7d4000a062e65bfafd55545b93385cc4142f52c0e3872108164bfe6c6f0",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair input",
+        "elapsed_seconds": 7.377751171588898e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_out_of_range_polygon_id",
+      "input": {
+        "name": "reject_out_of_range_polygon_id",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "out_of_range_polygon_id"
+      },
+      "input_sha256": "4b3ceddf0205d3454c290135bac648641968b3ee2282443426262580ac18078a",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair input",
+        "elapsed_seconds": 6.192643195390701e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_nonfinite_rotation",
+      "input": {
+        "name": "reject_nonfinite_rotation",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "nonfinite_rotation"
+      },
+      "input_sha256": "6f9f8af69e0a53268675a98797bf0f754ca6b3421d65d92ad9aad992386dd225",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair input",
+        "elapsed_seconds": 9.343959391117096e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_nonfinite_translation",
+      "input": {
+        "name": "reject_nonfinite_translation",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "nonfinite_translation"
+      },
+      "input_sha256": "1f89b42158f648bc8e9bf22a0d70da05d163ee196d4df5353d4d123c63c3fa24",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair input",
+        "elapsed_seconds": 6.0957856476306915e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_nonfinite_vertex",
+      "input": {
+        "name": "reject_nonfinite_vertex",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "nonfinite_vertex"
+      },
+      "input_sha256": "cfa7072f8821f644037205df716c3fa20dd897c50d0a03ceea397392a5c9d1cf",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid polygon coordinate",
+        "elapsed_seconds": 6.07222318649292e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_too_few_vertices",
+      "input": {
+        "name": "reject_too_few_vertices",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "too_few_vertices"
+      },
+      "input_sha256": "40350ec1db04a0e6be34ea35cc98eb884bebff1a9a0d689f63673c2a692330e6",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair input",
+        "elapsed_seconds": 6.0092657804489136e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_degenerate_polygon",
+      "input": {
+        "name": "reject_degenerate_polygon",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "degenerate_polygon"
+      },
+      "input_sha256": "bdafe3a7542dbe340a1db44c342a73d019135b33efad430b252ae6f64596e033",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Degenerate polygon",
+        "elapsed_seconds": 7.972773164510727e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_zero_area_self_crossing_polygon",
+      "input": {
+        "name": "reject_zero_area_self_crossing_polygon",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "zero_area_self_crossing_polygon"
+      },
+      "input_sha256": "98a207adea3278523ed21f0c0bfb6e4bbfdb5f2f0d8844d6b00de494cc5fe394",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Degenerate polygon",
+        "elapsed_seconds": 6.363634020090103e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_nonfinite_width",
+      "input": {
+        "name": "reject_nonfinite_width",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "nonfinite_width"
+      },
+      "input_sha256": "70a252b00c1f12d6feb90530e8715eabfcc0c26fb8ead5df06982f2a1d382403",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair dimensions, epsilon or iteration budget",
+        "elapsed_seconds": 6.763171404600143e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_zero_width",
+      "input": {
+        "name": "reject_zero_width",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "zero_width"
+      },
+      "input_sha256": "8e0bb4ab6a14108d10b8d6f0ec62d393ff918f0bc4ab7bbe1159ef1009fda843",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair dimensions, epsilon or iteration budget",
+        "elapsed_seconds": 6.0364603996276855e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_negative_height",
+      "input": {
+        "name": "reject_negative_height",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "negative_height"
+      },
+      "input_sha256": "82240da158692c22ccb536fedd6ddf944e7d17fbf306858aad43b250945d920c",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair dimensions, epsilon or iteration budget",
+        "elapsed_seconds": 5.8230943977832794e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_nonfinite_eps",
+      "input": {
+        "name": "reject_nonfinite_eps",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "nonfinite_eps"
+      },
+      "input_sha256": "4f6df26c52100bde9b812aa26158b4f0c7f388d16b8bca297888feaedf68737c",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair dimensions, epsilon or iteration budget",
+        "elapsed_seconds": 7.221754640340805e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_negative_eps",
+      "input": {
+        "name": "reject_negative_eps",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "negative_eps"
+      },
+      "input_sha256": "096bbf670b2c94aac98c095a4b3916a087f8a378cad6b46771cfa015335fc69d",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair dimensions, epsilon or iteration budget",
+        "elapsed_seconds": 6.048660725355148e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_negative_iteration_limit",
+      "input": {
+        "name": "reject_negative_iteration_limit",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "negative_iteration_limit"
+      },
+      "input_sha256": "6459b0333b08c02f23402d215e391310dcc556b7486bd0a1bb3c333adf8ff03b",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair dimensions, epsilon or iteration budget",
+        "elapsed_seconds": 6.070174276828766e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    },
+    {
+      "name": "reject_unbounded_iteration_limit",
+      "input": {
+        "name": "reject_unbounded_iteration_limit",
+        "polygons": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "polygon_ids": [
+          0
+        ],
+        "actions_xy": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rotates": [
+          0.0
+        ],
+        "width": 10.0,
+        "height": 6.0,
+        "eps": 0.01,
+        "max_iterations": 2000,
+        "expected_status": "converged",
+        "expect_unchanged": false,
+        "invalid_mutation": "unbounded_iteration_limit"
+      },
+      "input_sha256": "69f764dd1c71e5617b2b3c3790524bbcb07a7bfa3a8eb7ae107d40374a0cb3ad",
+      "status": "completed",
+      "gate_pass": true,
+      "output": {
+        "kind": "exception",
+        "type": "ValueError",
+        "message": "Invalid repair dimensions, epsilon or iteration budget",
+        "elapsed_seconds": 6.133317947387695e-05,
+        "caller_inputs_unchanged": true
+      },
+      "checks": {
+        "invalid_input_rejected": true,
+        "caller_inputs_unchanged": true
+      }
+    }
+  ]
+}
