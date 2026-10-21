@@ -1,0 +1,273 @@
+{
+  "status": "verified",
+  "passed": 18,
+  "cases": [
+    {
+      "name": "convex_repulsion_reduces_overlap",
+      "passed": true,
+      "details": {
+        "repulsion": [
+          [
+            [
+              -0.25,
+              0.0
+            ],
+            [
+              0.25,
+              0.0
+            ]
+          ]
+        ],
+        "max_pairwise_area": [
+          0.5
+        ],
+        "sum_pairwise_area": [
+          0.5
+        ],
+        "colliding_pairs": [
+          1
+        ],
+        "concave_proxy_pairs": [
+          0
+        ],
+        "height_violation": [
+          0.0
+        ],
+        "min_x": [
+          2.0
+        ],
+        "gradient_convention": "repulsion=-grad(Phi), add g^2*h*repulsion",
+        "mtv_method": "full-projection convex SAT; conservative edge-axis proxy for concave contours"
+      }
+    },
+    {
+      "name": "correct_signed_pair_displacement",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "area_weighted_center_conserved",
+      "passed": true,
+      "details": {
+        "repulsion": [
+          [
+            [
+              -0.3333333333333333,
+              0.0
+            ],
+            [
+              0.16666666666666666,
+              0.0
+            ]
+          ]
+        ],
+        "max_pairwise_area": [
+          0.5
+        ],
+        "sum_pairwise_area": [
+          0.5
+        ],
+        "colliding_pairs": [
+          1
+        ],
+        "concave_proxy_pairs": [
+          0
+        ],
+        "height_violation": [
+          0.0
+        ],
+        "min_x": [
+          2.0
+        ],
+        "gradient_convention": "repulsion=-grad(Phi), add g^2*h*repulsion",
+        "mtv_method": "full-projection convex SAT; conservative edge-axis proxy for concave contours"
+      }
+    },
+    {
+      "name": "disjoint_pair_no_repulsion",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "concave_void_not_false_collision",
+      "passed": true,
+      "details": {
+        "repulsion": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        "max_pairwise_area": [
+          0.0
+        ],
+        "sum_pairwise_area": [
+          0.0
+        ],
+        "colliding_pairs": [
+          0
+        ],
+        "concave_proxy_pairs": [
+          0
+        ],
+        "height_violation": [
+          0.0
+        ],
+        "min_x": [
+          0.0
+        ],
+        "gradient_convention": "repulsion=-grad(Phi), add g^2*h*repulsion",
+        "mtv_method": "full-projection convex SAT; conservative edge-axis proxy for concave contours"
+      }
+    },
+    {
+      "name": "only_vertical_strip_walls",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "oversized_piece_retains_boundary_violation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "gap_new_height_violation_rolled_back",
+      "passed": true,
+      "details": {
+        "max_iterations": 3,
+        "iterations_executed": 1,
+        "constraint_step_size": 1.0,
+        "interleaving": "unit repulsion then -x/-y gap",
+        "post_step_size_and_order_are_reconstruction_assumptions": true,
+        "gap_tolerance": 0.001,
+        "overlap_stop_native_area": 0.0,
+        "stopping_motion_tolerance": 0.001,
+        "height": 1200.0,
+        "horizontal_right_wall": null,
+        "statuses": [
+          "native_converged"
+        ],
+        "gap_rollbacks_per_candidate": [
+          1
+        ],
+        "initial_native_geometry": {
+          "max_pairwise_area": [
+            0.0
+          ],
+          "sum_pairwise_area": [
+            0.0
+          ],
+          "colliding_pairs": [
+            0
+          ],
+          "concave_proxy_pairs": [
+            0
+          ],
+          "height_violation": [
+            0.0
+          ],
+          "min_x": [
+            0.0
+          ],
+          "gradient_convention": "repulsion=-grad(Phi), add g^2*h*repulsion",
+          "mtv_method": "full-projection convex SAT; conservative edge-axis proxy for concave contours"
+        },
+        "final_native_geometry": {
+          "max_pairwise_area": [
+            0.0
+          ],
+          "sum_pairwise_area": [
+            0.0
+          ],
+          "colliding_pairs": [
+            0
+          ],
+          "concave_proxy_pairs": [
+            0
+          ],
+          "height_violation": [
+            0.0
+          ],
+          "min_x": [
+            0.0
+          ],
+          "gradient_convention": "repulsion=-grad(Phi), add g^2*h*repulsion",
+          "mtv_method": "full-projection convex SAT; conservative edge-axis proxy for concave contours"
+        },
+        "trace": [
+          {
+            "iteration_1based": 1,
+            "active_candidates": 0,
+            "newly_converged": 1,
+            "gap_rollbacks": 1,
+            "max_pairwise_area": 0.0,
+            "max_height_violation": 0.0,
+            "max_translation_update": 0.0
+          }
+        ],
+        "elapsed_seconds": 0.00037353113293647766,
+        "rotation_components_preserved": true
+      }
+    },
+    {
+      "name": "exact_128_steps_last32_constraints",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "constraint_changes_translation_only",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "eq10_sign_outward",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "prefix_identical_before_constraints",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "unconstrained_release_arithmetic_regression",
+      "passed": true,
+      "details": {
+        "max_abs_difference": 0.0
+      }
+    },
+    {
+      "name": "profile_paper_settings",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "profile_paper_mechanism_release_scale",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "paper_denominators_keep_failures",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "strict_boundary_and_overlap_not_native",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "no_invented_8000_width_wall",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "build_sha256": "de0bb95244eb0b4c36b964e2bff19b748d218e362692956af81e29493ddab44f",
+  "scope": "Formula/scheduling/metric controls only; not checkpoint or paper performance validation"
+}

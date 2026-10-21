@@ -1,0 +1,27 @@
+{
+  "samples": [
+    0,
+    45
+  ],
+  "candidates": 512,
+  "steps": 128,
+  "post_iterations": 100,
+  "seed": 3407,
+  "model_mode": "release default dropout active; held constant",
+  "profiles": [
+    {
+      "name": "release_weights_constraints",
+      "no_constraints": true
+    },
+    {
+      "name": "paper_mechanism_release_scale",
+      "no_constraints": false
+    },
+    {
+      "name": "paper_settings",
+      "no_constraints": false
+    }
+  ],
+  "scope": "Two pre-used development samples, no independent generalization or full paper reproduction",
+  "per_run_timeout_seconds": 600
+}

@@ -1,0 +1,1405 @@
+{
+  "status": "verified",
+  "verified_utc": "2026-10-21T09:17:10.071539+00:00",
+  "paper_full_reproduction": false,
+  "scope": "Integrity and numerical evidence only; two development samples, not an independent benchmark",
+  "planned_runs": 6,
+  "completed_runs": 6,
+  "failed_runs_retained": 0,
+  "planned_candidates_per_stage": {
+    "raw": 3072,
+    "enhanced_float64": 3072,
+    "enhanced_fp32": 3072
+  },
+  "source_clean_and_pinned": true,
+  "upstream_commit": "ff75815e24ec50cd7fa8b2abdec1acfe0b55be95",
+  "checkpoint_sha256": "e3585572100e61c5f3112a8925e7add420b70c8c7a8f23e29be97788ad3c5643",
+  "model_parameters": 10621276,
+  "model_trainable_parameters": 10621244,
+  "state_dict_elements": 10621276,
+  "geometry_absolute_tolerance": 1e-07,
+  "geometry_method": "CPU tensors loaded with weights_only; independent GEOS affinity transforms and all-pairs intersections",
+  "units": {
+    "utilization": "fraction",
+    "unthresholded_overlap": "percent of summed polygon area",
+    "strip_height": 1200.0,
+    "horizontal_right_wall": null
+  },
+  "failure_policy": "All failed/unmeasured runs retain 512 candidates per stage; unmanifested remnants are excluded from measured results",
+  "strict_tolerance_is_local_audit_convention": true,
+  "rotation_scale_scope": "GT encoding metadata; generated directions are not rescaled or reprojected",
+  "verified_output_files": 84,
+  "verified_frozen_inputs": 462,
+  "geometry_candidates": 48,
+  "failed_run_unmanifested_artifacts": 0,
+  "profiles": {
+    "release_weights_constraints": {
+      "raw": {
+        "planned_candidates": 1024,
+        "native_eps50_valid": 18,
+        "reference_eps50_strip_valid": 18,
+        "reference_strict_strip_valid": 1,
+        "reference_strict_overlap_only_valid": 1,
+        "unmeasured_native_candidates": 0,
+        "unmeasured_reference_candidates": 0,
+        "best_native_bbox_utilization_failure_as_zero": 0.37379196286201477,
+        "best_strip_feasible_bbox_utilization_failure_as_zero": 0.37379192833653235,
+        "best_strip_utilization_failure_as_zero": 0.3716325959231236,
+        "mean_unthresholded_pairwise_overlap_percent": 0.46561445237885013,
+        "overlap_measured_candidate_denominator": 1024
+      },
+      "enhanced_float64": {
+        "planned_candidates": 1024,
+        "native_eps50_valid": 25,
+        "reference_eps50_strip_valid": 23,
+        "reference_strict_strip_valid": 4,
+        "reference_strict_overlap_only_valid": 4,
+        "unmeasured_native_candidates": 0,
+        "unmeasured_reference_candidates": 0,
+        "best_native_bbox_utilization_failure_as_zero": 0.38124555349349976,
+        "best_strip_feasible_bbox_utilization_failure_as_zero": 0.38124549856305207,
+        "best_strip_utilization_failure_as_zero": 0.3799198937588976,
+        "mean_unthresholded_pairwise_overlap_percent": 1.348949543899356,
+        "overlap_measured_candidate_denominator": 1024
+      },
+      "enhanced_fp32": {
+        "planned_candidates": 1024,
+        "native_eps50_valid": 25,
+        "reference_eps50_strip_valid": 22,
+        "reference_strict_strip_valid": 2,
+        "reference_strict_overlap_only_valid": 2,
+        "unmeasured_native_candidates": 0,
+        "unmeasured_reference_candidates": 0,
+        "best_native_bbox_utilization_failure_as_zero": 0.38124552369117737,
+        "best_strip_feasible_bbox_utilization_failure_as_zero": 0.38124548830848737,
+        "best_strip_utilization_failure_as_zero": 0.37991987915002046,
+        "mean_unthresholded_pairwise_overlap_percent": 1.3489495102858386,
+        "overlap_measured_candidate_denominator": 1024
+      }
+    },
+    "paper_mechanism_release_scale": {
+      "raw": {
+        "planned_candidates": 1024,
+        "native_eps50_valid": 106,
+        "reference_eps50_strip_valid": 69,
+        "reference_strict_strip_valid": 0,
+        "reference_strict_overlap_only_valid": 0,
+        "unmeasured_native_candidates": 0,
+        "unmeasured_reference_candidates": 0,
+        "best_native_bbox_utilization_failure_as_zero": 0.5108755379915237,
+        "best_strip_feasible_bbox_utilization_failure_as_zero": 0.5108755297125389,
+        "best_strip_utilization_failure_as_zero": 0.5074275736246353,
+        "mean_unthresholded_pairwise_overlap_percent": 0.12005648511698908,
+        "overlap_measured_candidate_denominator": 1024
+      },
+      "enhanced_float64": {
+        "planned_candidates": 1024,
+        "native_eps50_valid": 280,
+        "reference_eps50_strip_valid": 265,
+        "reference_strict_strip_valid": 5,
+        "reference_strict_overlap_only_valid": 5,
+        "unmeasured_native_candidates": 0,
+        "unmeasured_reference_candidates": 0,
+        "best_native_bbox_utilization_failure_as_zero": 0.5884989202022552,
+        "best_strip_feasible_bbox_utilization_failure_as_zero": 0.5884989079091975,
+        "best_strip_utilization_failure_as_zero": 0.5865028648609452,
+        "mean_unthresholded_pairwise_overlap_percent": 0.6123724679352257,
+        "overlap_measured_candidate_denominator": 1024
+      },
+      "enhanced_fp32": {
+        "planned_candidates": 1024,
+        "native_eps50_valid": 280,
+        "reference_eps50_strip_valid": 238,
+        "reference_strict_strip_valid": 1,
+        "reference_strict_overlap_only_valid": 1,
+        "unmeasured_native_candidates": 0,
+        "unmeasured_reference_candidates": 0,
+        "best_native_bbox_utilization_failure_as_zero": 0.5884989202022552,
+        "best_strip_feasible_bbox_utilization_failure_as_zero": 0.5884989207014798,
+        "best_strip_utilization_failure_as_zero": 0.58650286923899,
+        "mean_unthresholded_pairwise_overlap_percent": 0.6123724777343064,
+        "overlap_measured_candidate_denominator": 1024
+      }
+    },
+    "paper_settings": {
+      "raw": {
+        "planned_candidates": 1024,
+        "native_eps50_valid": 0,
+        "reference_eps50_strip_valid": 0,
+        "reference_strict_strip_valid": 0,
+        "reference_strict_overlap_only_valid": 0,
+        "unmeasured_native_candidates": 0,
+        "unmeasured_reference_candidates": 0,
+        "best_native_bbox_utilization_failure_as_zero": 0.0,
+        "best_strip_feasible_bbox_utilization_failure_as_zero": 0.0,
+        "best_strip_utilization_failure_as_zero": 0.0,
+        "mean_unthresholded_pairwise_overlap_percent": 2.7657306209533967,
+        "overlap_measured_candidate_denominator": 1024
+      },
+      "enhanced_float64": {
+        "planned_candidates": 1024,
+        "native_eps50_valid": 12,
+        "reference_eps50_strip_valid": 4,
+        "reference_strict_strip_valid": 0,
+        "reference_strict_overlap_only_valid": 0,
+        "unmeasured_native_candidates": 0,
+        "unmeasured_reference_candidates": 0,
+        "best_native_bbox_utilization_failure_as_zero": 0.33132606744766235,
+        "best_strip_feasible_bbox_utilization_failure_as_zero": 0.30839928849178955,
+        "best_strip_utilization_failure_as_zero": 0.30798537696946543,
+        "mean_unthresholded_pairwise_overlap_percent": 1.218638665612791,
+        "overlap_measured_candidate_denominator": 1024
+      },
+      "enhanced_fp32": {
+        "planned_candidates": 1024,
+        "native_eps50_valid": 12,
+        "reference_eps50_strip_valid": 3,
+        "reference_strict_strip_valid": 0,
+        "reference_strict_overlap_only_valid": 0,
+        "unmeasured_native_candidates": 0,
+        "unmeasured_reference_candidates": 0,
+        "best_native_bbox_utilization_failure_as_zero": 0.33132606744766235,
+        "best_strip_feasible_bbox_utilization_failure_as_zero": 0.3083992867810303,
+        "best_strip_utilization_failure_as_zero": 0.3079853773204685,
+        "mean_unthresholded_pairwise_overlap_percent": 1.2186386817440402,
+        "overlap_measured_candidate_denominator": 1024
+      }
+    }
+  },
+  "runs": [
+    {
+      "output": "sample_000_release_weights_constraints",
+      "sample_index": 0,
+      "profile": "release_weights_constraints",
+      "execution_status": "completed",
+      "planned_candidates": 512,
+      "stages": {
+        "raw": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 18,
+          "reference_eps50_strip_valid": 18,
+          "reference_strict_strip_valid": 1,
+          "reference_strict_overlap_only_valid": 1,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.7475839257240295,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.7475838566730647,
+          "best_strip_utilization_failure_as_zero": 0.7432651918462472,
+          "mean_unthresholded_pairwise_overlap_percent": 0.2000074525862749,
+          "overlap_measured_candidate_denominator": 512
+        },
+        "enhanced_float64": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 25,
+          "reference_eps50_strip_valid": 23,
+          "reference_strict_strip_valid": 4,
+          "reference_strict_overlap_only_valid": 4,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.7624911069869995,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.7624909971261041,
+          "best_strip_utilization_failure_as_zero": 0.7598397875177952,
+          "mean_unthresholded_pairwise_overlap_percent": 0.5403897259346078,
+          "overlap_measured_candidate_denominator": 512
+        },
+        "enhanced_fp32": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 25,
+          "reference_eps50_strip_valid": 22,
+          "reference_strict_strip_valid": 2,
+          "reference_strict_overlap_only_valid": 2,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.7624910473823547,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.7624909766169747,
+          "best_strip_utilization_failure_as_zero": 0.7598397583000409,
+          "mean_unthresholded_pairwise_overlap_percent": 0.5403896999371828,
+          "overlap_measured_candidate_denominator": 512
+        }
+      },
+      "geometry_checks": {
+        "raw": [
+          {
+            "candidate_index": 2,
+            "selection_reasons": [
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              3.8683877323391016,
+              5.110842345869408,
+              1468.7162330483525,
+              1197.2353733700875
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 11366.221126444036,
+            "sum_pairwise_area": 12143.020047651093
+          },
+          {
+            "candidate_index": 88,
+            "selection_reasons": [
+              "best_strip"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              3.057182979934055,
+              3.117030852524934,
+              1464.7503944777595,
+              1196.1848348909323
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 28.122012146509626,
+            "sum_pairwise_area": 39.662744902732186
+          },
+          {
+            "candidate_index": 211,
+            "selection_reasons": [
+              "max_pairwise_overlap"
+            ],
+            "maximum_absolute_error": 4.656612873077393e-10,
+            "bounds_xyxy": [
+              3.4145915250029475,
+              4.2727129917589295,
+              1479.006219146711,
+              1197.2314535924497
+            ],
+            "total_polygon_area": 1303710.8223171455,
+            "max_pairwise_area": 11627.907254479072,
+            "sum_pairwise_area": 11634.82835595354
+          }
+        ],
+        "enhanced_float64": [
+          {
+            "candidate_index": 67,
+            "selection_reasons": [
+              "max_pairwise_overlap"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              0.0010000000000047748,
+              -100.02040236645215,
+              1787.217898917955,
+              1199.998566772461
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 21493.461219447472,
+            "sum_pairwise_area": 29957.723706880726
+          },
+          {
+            "candidate_index": 118,
+            "selection_reasons": [
+              "best_strip"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              0.0,
+              0.0016885892167124439,
+              1429.8088927579943,
+              1195.829243875821
+            ],
+            "total_polygon_area": 1303710.822317146,
+            "max_pairwise_area": 0.015173153835245423,
+            "sum_pairwise_area": 0.04268024636010656
+          },
+          {
+            "candidate_index": 291,
+            "selection_reasons": [
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              0.0009999999999976694,
+              -4.803341079996365,
+              1744.0033841965626,
+              1194.5091776418194
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 15763.772864379926,
+            "sum_pairwise_area": 62166.472391900395
+          }
+        ],
+        "enhanced_fp32": [
+          {
+            "candidate_index": 67,
+            "selection_reasons": [
+              "max_pairwise_overlap"
+            ],
+            "maximum_absolute_error": 3.637978807091713e-12,
+            "bounds_xyxy": [
+              0.0009968035080589743,
+              -100.02040220037829,
+              1787.2179067259917,
+              1199.9985175237352
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 21493.46232085543,
+            "sum_pairwise_area": 29957.718619796182
+          },
+          {
+            "candidate_index": 118,
+            "selection_reasons": [
+              "best_strip"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              -4.385116255889443e-06,
+              0.0016849509296719134,
+              1429.8089433526347,
+              1195.8292264197664
+            ],
+            "total_polygon_area": 1303710.822317146,
+            "max_pairwise_area": 0.015173153835245423,
+            "sum_pairwise_area": 0.04270402453899158
+          },
+          {
+            "candidate_index": 291,
+            "selection_reasons": [
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              0.0009984057669996105,
+              -4.803340161172329,
+              1744.0033325868924,
+              1194.5091576570592
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 15763.775773133353,
+            "sum_pairwise_area": 62166.468429551955
+          }
+        ]
+      },
+      "returncode": 0,
+      "elapsed_seconds": 214.98279310949147,
+      "sampler_steps": 128,
+      "constraint_callbacks": 0,
+      "post_iterations": 100,
+      "post_status_counts": {
+        "iteration_limit": 491,
+        "native_converged": 21
+      },
+      "post_gap_rollbacks": 5395,
+      "peak_state_max_abs": 3332.264892578125,
+      "peak_score_max_abs": 2.0520548820495605,
+      "peak_repulsion_max_norm": 0.0,
+      "peak_constraint_displacement_max_norm": 0.0,
+      "gpu_peak_allocated_bytes": 1093885440,
+      "model_parameters": 10621276,
+      "model_trainable_parameters": 10621244,
+      "state_dict_elements": 10621276
+    },
+    {
+      "output": "sample_000_paper_mechanism_release_scale",
+      "sample_index": 0,
+      "profile": "paper_mechanism_release_scale",
+      "execution_status": "completed",
+      "planned_candidates": 512,
+      "stages": {
+        "raw": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 83,
+          "reference_eps50_strip_valid": 57,
+          "reference_strict_strip_valid": 0,
+          "reference_strict_overlap_only_valid": 0,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.558009922504425,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.5580099100433369,
+          "best_strip_utilization_failure_as_zero": 0.554784474328154,
+          "mean_unthresholded_pairwise_overlap_percent": 0.06049642623091691,
+          "overlap_measured_candidate_denominator": 512
+        },
+        "enhanced_float64": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 165,
+          "reference_eps50_strip_valid": 152,
+          "reference_strict_strip_valid": 5,
+          "reference_strict_overlap_only_valid": 5,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.6415256261825562,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.6415256153897851,
+          "best_strip_utilization_failure_as_zero": 0.6375425817984104,
+          "mean_unthresholded_pairwise_overlap_percent": 0.24207668746121058,
+          "overlap_measured_candidate_denominator": 512
+        },
+        "enhanced_fp32": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 165,
+          "reference_eps50_strip_valid": 139,
+          "reference_strict_strip_valid": 1,
+          "reference_strict_overlap_only_valid": 1,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.6415256261825562,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.6415256317140474,
+          "best_strip_utilization_failure_as_zero": 0.6375425760896943,
+          "mean_unthresholded_pairwise_overlap_percent": 0.24207669896832343,
+          "overlap_measured_candidate_denominator": 512
+        }
+      },
+      "geometry_checks": {
+        "raw": [
+          {
+            "candidate_index": 81,
+            "selection_reasons": [
+              "max_pairwise_overlap",
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 0.0,
+            "bounds_xyxy": [
+              -284.7108566306171,
+              -3.6425829764177777,
+              1777.1247048930381,
+              1204.6513611823125
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 2464.866197270739,
+            "sum_pairwise_area": 11211.514711866213
+          },
+          {
+            "candidate_index": 319,
+            "selection_reasons": [
+              "best_strip"
+            ],
+            "maximum_absolute_error": 0.0,
+            "bounds_xyxy": [
+              -249.55554576651298,
+              3.003257188028911,
+              1708.7286808783538,
+              1196.0669594833541
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 39.39188742923695,
+            "sum_pairwise_area": 47.25392024728766
+          }
+        ],
+        "enhanced_float64": [
+          {
+            "candidate_index": 33,
+            "selection_reasons": [
+              "best_strip"
+            ],
+            "maximum_absolute_error": 4.656612873077393e-10,
+            "bounds_xyxy": [
+              -1.4210854715202004e-14,
+              0.001139293107797812,
+              1704.083329147439,
+              1192.550711445818
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 0.006500989921677469,
+            "sum_pairwise_area": 0.03127809651799064
+          },
+          {
+            "candidate_index": 195,
+            "selection_reasons": [
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 0.0,
+            "bounds_xyxy": [
+              0.0,
+              -50.17664339540452,
+              2068.0979659027184,
+              1200.0
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 12275.181456400818,
+            "sum_pairwise_area": 44696.196398315384
+          },
+          {
+            "candidate_index": 243,
+            "selection_reasons": [
+              "max_pairwise_overlap"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              0.0009999999999763531,
+              -1.076974963232118,
+              2149.8625509457984,
+              1185.0539295835904
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 13841.732704668653,
+            "sum_pairwise_area": 19396.237601093973
+          }
+        ],
+        "enhanced_fp32": [
+          {
+            "candidate_index": 33,
+            "selection_reasons": [
+              "best_strip"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              -8.375773177249357e-07,
+              0.001140522191775517,
+              1704.0833435686507,
+              1192.5506716508962
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 0.006483754257678553,
+            "sum_pairwise_area": 0.03130954088622913
+          },
+          {
+            "candidate_index": 195,
+            "selection_reasons": [
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 7.275957614183426e-12,
+            "bounds_xyxy": [
+              7.863980400202308e-07,
+              -50.176643448817835,
+              2068.097939539564,
+              1199.999990116104
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 12275.182098775973,
+            "sum_pairwise_area": 44696.20017531497
+          },
+          {
+            "candidate_index": 243,
+            "selection_reasons": [
+              "max_pairwise_overlap"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              0.0010106372442919564,
+              -1.0769764998261735,
+              2149.862608740591,
+              1185.053873517164
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 13841.734182888722,
+            "sum_pairwise_area": 19396.235825747637
+          }
+        ]
+      },
+      "returncode": 0,
+      "elapsed_seconds": 208.6962117254734,
+      "sampler_steps": 128,
+      "constraint_callbacks": 32,
+      "post_iterations": 100,
+      "post_status_counts": {
+        "iteration_limit": 377,
+        "native_converged": 135
+      },
+      "post_gap_rollbacks": 5051,
+      "peak_state_max_abs": 4141.4345703125,
+      "peak_score_max_abs": 9.545334815979004,
+      "peak_repulsion_max_norm": 848.06640625,
+      "peak_constraint_displacement_max_norm": 2306.764404296875,
+      "gpu_peak_allocated_bytes": 1093885952,
+      "model_parameters": 10621276,
+      "model_trainable_parameters": 10621244,
+      "state_dict_elements": 10621276
+    },
+    {
+      "output": "sample_000_paper_settings",
+      "sample_index": 0,
+      "profile": "paper_settings",
+      "execution_status": "completed",
+      "planned_candidates": 512,
+      "stages": {
+        "raw": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 0,
+          "reference_eps50_strip_valid": 0,
+          "reference_strict_strip_valid": 0,
+          "reference_strict_overlap_only_valid": 0,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_utilization_failure_as_zero": 0.0,
+          "mean_unthresholded_pairwise_overlap_percent": 1.2096141005806558,
+          "overlap_measured_candidate_denominator": 512
+        },
+        "enhanced_float64": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 12,
+          "reference_eps50_strip_valid": 4,
+          "reference_strict_strip_valid": 0,
+          "reference_strict_overlap_only_valid": 0,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.6626521348953247,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.6167985769835791,
+          "best_strip_utilization_failure_as_zero": 0.6159707539389309,
+          "mean_unthresholded_pairwise_overlap_percent": 0.44054208203618717,
+          "overlap_measured_candidate_denominator": 512
+        },
+        "enhanced_fp32": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 12,
+          "reference_eps50_strip_valid": 3,
+          "reference_strict_strip_valid": 0,
+          "reference_strict_overlap_only_valid": 0,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.6626521348953247,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.6167985735620606,
+          "best_strip_utilization_failure_as_zero": 0.615970754640937,
+          "mean_unthresholded_pairwise_overlap_percent": 0.4405421004914373,
+          "overlap_measured_candidate_denominator": 512
+        }
+      },
+      "geometry_checks": {
+        "raw": [
+          {
+            "candidate_index": 0,
+            "selection_reasons": [
+              "no_feasible_fallback"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              -20.5706324473191,
+              -4.832978666340523,
+              1497.2165915031944,
+              1210.6897761441828
+            ],
+            "total_polygon_area": 1303710.822317146,
+            "max_pairwise_area": 1528.0470441675616,
+            "sum_pairwise_area": 9539.026958638897
+          },
+          {
+            "candidate_index": 419,
+            "selection_reasons": [
+              "max_pairwise_overlap",
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 7.275957614183426e-12,
+            "bounds_xyxy": [
+              -24.394075684987087,
+              -37.55519755211364,
+              1482.8920858361091,
+              1208.7136867730499
+            ],
+            "total_polygon_area": 1303710.822317146,
+            "max_pairwise_area": 20248.86076673032,
+            "sum_pairwise_area": 59759.21980121596
+          }
+        ],
+        "enhanced_float64": [
+          {
+            "candidate_index": 366,
+            "selection_reasons": [
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              0.0010000000000047748,
+              -48.90422944659923,
+              1928.0792103571519,
+              1210.1937188184631
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 18502.498157157675,
+            "sum_pairwise_area": 47315.90842772436
+          },
+          {
+            "candidate_index": 385,
+            "selection_reasons": [
+              "max_pairwise_overlap"
+            ],
+            "maximum_absolute_error": 0.0,
+            "bounds_xyxy": [
+              0.0,
+              -22.24799545169327,
+              1777.0309307341522,
+              1182.677171905213
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 26016.14653711422,
+            "sum_pairwise_area": 37182.17680351833
+          },
+          {
+            "candidate_index": 448,
+            "selection_reasons": [
+              "best_strip"
+            ],
+            "maximum_absolute_error": 4.656612873077393e-10,
+            "bounds_xyxy": [
+              0.0,
+              0.0010000000000047748,
+              1763.7617992688008,
+              1198.3904456137755
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 0.005083664510791786,
+            "sum_pairwise_area": 0.02074439166589416
+          }
+        ],
+        "enhanced_fp32": [
+          {
+            "candidate_index": 366,
+            "selection_reasons": [
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              0.0009962199025608243,
+              -48.90423369487934,
+              1928.0791893998387,
+              1210.193753098028
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 18502.499156827525,
+            "sum_pairwise_area": 47315.90629308833
+          },
+          {
+            "candidate_index": 385,
+            "selection_reasons": [
+              "max_pairwise_overlap"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              -1.762877516853223e-06,
+              -22.247995398446434,
+              1777.0309236075755,
+              1182.677198359117
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 26016.14633113747,
+            "sum_pairwise_area": 37182.177047088306
+          },
+          {
+            "candidate_index": 448,
+            "selection_reasons": [
+              "best_strip"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              -4.6495639338672845e-07,
+              0.0009957299541270004,
+              1763.76179679373,
+              1198.3904493572356
+            ],
+            "total_polygon_area": 1303710.8223171458,
+            "max_pairwise_area": 0.005098043783194448,
+            "sum_pairwise_area": 0.02086046738841251
+          }
+        ]
+      },
+      "returncode": 0,
+      "elapsed_seconds": 217.11993376724422,
+      "sampler_steps": 128,
+      "constraint_callbacks": 32,
+      "post_iterations": 100,
+      "post_status_counts": {
+        "iteration_limit": 511,
+        "native_converged": 1
+      },
+      "post_gap_rollbacks": 7270,
+      "peak_state_max_abs": 4133.734375,
+      "peak_score_max_abs": 73.81596374511719,
+      "peak_repulsion_max_norm": 181.3533477783203,
+      "peak_constraint_displacement_max_norm": 29.66582679748535,
+      "gpu_peak_allocated_bytes": 1093885952,
+      "model_parameters": 10621276,
+      "model_trainable_parameters": 10621244,
+      "state_dict_elements": 10621276
+    },
+    {
+      "output": "sample_045_release_weights_constraints",
+      "sample_index": 45,
+      "profile": "release_weights_constraints",
+      "execution_status": "completed",
+      "planned_candidates": 512,
+      "stages": {
+        "raw": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 0,
+          "reference_eps50_strip_valid": 0,
+          "reference_strict_strip_valid": 0,
+          "reference_strict_overlap_only_valid": 0,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_utilization_failure_as_zero": 0.0,
+          "mean_unthresholded_pairwise_overlap_percent": 0.7312214521714254,
+          "overlap_measured_candidate_denominator": 512
+        },
+        "enhanced_float64": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 0,
+          "reference_eps50_strip_valid": 0,
+          "reference_strict_strip_valid": 0,
+          "reference_strict_overlap_only_valid": 0,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_utilization_failure_as_zero": 0.0,
+          "mean_unthresholded_pairwise_overlap_percent": 2.157509361864104,
+          "overlap_measured_candidate_denominator": 512
+        },
+        "enhanced_fp32": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 0,
+          "reference_eps50_strip_valid": 0,
+          "reference_strict_strip_valid": 0,
+          "reference_strict_overlap_only_valid": 0,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_utilization_failure_as_zero": 0.0,
+          "mean_unthresholded_pairwise_overlap_percent": 2.1575093206344946,
+          "overlap_measured_candidate_denominator": 512
+        }
+      },
+      "geometry_checks": {
+        "raw": [
+          {
+            "candidate_index": 0,
+            "selection_reasons": [
+              "no_feasible_fallback"
+            ],
+            "maximum_absolute_error": 6.984919309616089e-10,
+            "bounds_xyxy": [
+              3.4720918156200824,
+              3.109817939888572,
+              2185.0417902595236,
+              1197.708252372999
+            ],
+            "total_polygon_area": 1849680.5076548087,
+            "max_pairwise_area": 6969.944653244784,
+            "sum_pairwise_area": 16366.954024013408
+          },
+          {
+            "candidate_index": 373,
+            "selection_reasons": [
+              "max_pairwise_overlap",
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              4.3126364097874585,
+              4.2222725017705045,
+              2168.3208746820947,
+              1198.1860112505344
+            ],
+            "total_polygon_area": 1849680.5076548092,
+            "max_pairwise_area": 170601.0237046389,
+            "sum_pairwise_area": 173127.7739264122
+          }
+        ],
+        "enhanced_float64": [
+          {
+            "candidate_index": 0,
+            "selection_reasons": [
+              "no_feasible_fallback"
+            ],
+            "maximum_absolute_error": 6.984919309616089e-10,
+            "bounds_xyxy": [
+              0.0009999999999976694,
+              -44.28062240351562,
+              2839.8983197660077,
+              1210.1520468949122
+            ],
+            "total_polygon_area": 1849680.5076548087,
+            "max_pairwise_area": 3554.7129859614256,
+            "sum_pairwise_area": 33341.54708354677
+          },
+          {
+            "candidate_index": 66,
+            "selection_reasons": [
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 4.656612873077393e-10,
+            "bounds_xyxy": [
+              0.0010000000000047748,
+              -101.51369144977022,
+              2602.6549833759686,
+              1212.378367106929
+            ],
+            "total_polygon_area": 1849680.507654809,
+            "max_pairwise_area": 24373.88805831262,
+            "sum_pairwise_area": 186098.05400464
+          },
+          {
+            "candidate_index": 291,
+            "selection_reasons": [
+              "max_pairwise_overlap"
+            ],
+            "maximum_absolute_error": 9.313225746154785e-10,
+            "bounds_xyxy": [
+              0.0010000000000047748,
+              -167.75077477112768,
+              2640.040029682649,
+              1207.1328924857985
+            ],
+            "total_polygon_area": 1849680.5076548087,
+            "max_pairwise_area": 57706.612346195056,
+            "sum_pairwise_area": 115233.9996050195
+          }
+        ],
+        "enhanced_fp32": [
+          {
+            "candidate_index": 0,
+            "selection_reasons": [
+              "no_feasible_fallback"
+            ],
+            "maximum_absolute_error": 4.656612873077393e-10,
+            "bounds_xyxy": [
+              0.001001902222590445,
+              -44.28062270018705,
+              2839.898307855142,
+              1210.1520213782767
+            ],
+            "total_polygon_area": 1849680.5076548087,
+            "max_pairwise_area": 3554.711795448594,
+            "sum_pairwise_area": 33341.54082452779
+          },
+          {
+            "candidate_index": 66,
+            "selection_reasons": [
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 4.656612873077393e-10,
+            "bounds_xyxy": [
+              0.001004180492714113,
+              -101.51369046099751,
+              2602.654984625774,
+              1212.3783712702286
+            ],
+            "total_polygon_area": 1849680.507654809,
+            "max_pairwise_area": 24373.87009976408,
+            "sum_pairwise_area": 186098.03577406285
+          },
+          {
+            "candidate_index": 291,
+            "selection_reasons": [
+              "max_pairwise_overlap"
+            ],
+            "maximum_absolute_error": 4.656612873077393e-10,
+            "bounds_xyxy": [
+              0.000999461902338794,
+              -167.75077460901667,
+              2640.040075714788,
+              1207.1328675215527
+            ],
+            "total_polygon_area": 1849680.5076548087,
+            "max_pairwise_area": 57706.612236677305,
+            "sum_pairwise_area": 115234.008516962
+          }
+        ]
+      },
+      "returncode": 0,
+      "elapsed_seconds": 243.37960168439895,
+      "sampler_steps": 128,
+      "constraint_callbacks": 0,
+      "post_iterations": 100,
+      "post_status_counts": {
+        "iteration_limit": 512
+      },
+      "post_gap_rollbacks": 6176,
+      "peak_state_max_abs": 4352.41357421875,
+      "peak_score_max_abs": 2.3789453506469727,
+      "peak_repulsion_max_norm": 0.0,
+      "peak_constraint_displacement_max_norm": 0.0,
+      "gpu_peak_allocated_bytes": 1093885440,
+      "model_parameters": 10621276,
+      "model_trainable_parameters": 10621244,
+      "state_dict_elements": 10621276
+    },
+    {
+      "output": "sample_045_paper_mechanism_release_scale",
+      "sample_index": 45,
+      "profile": "paper_mechanism_release_scale",
+      "execution_status": "completed",
+      "planned_candidates": 512,
+      "stages": {
+        "raw": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 23,
+          "reference_eps50_strip_valid": 12,
+          "reference_strict_strip_valid": 0,
+          "reference_strict_overlap_only_valid": 0,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.46374115347862244,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.46374114938174094,
+          "best_strip_utilization_failure_as_zero": 0.4600706729211166,
+          "mean_unthresholded_pairwise_overlap_percent": 0.17961654400306126,
+          "overlap_measured_candidate_denominator": 512
+        },
+        "enhanced_float64": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 115,
+          "reference_eps50_strip_valid": 113,
+          "reference_strict_strip_valid": 0,
+          "reference_strict_overlap_only_valid": 0,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.5354722142219543,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.5354722004286098,
+          "best_strip_utilization_failure_as_zero": 0.53546314792348,
+          "mean_unthresholded_pairwise_overlap_percent": 0.982668248409241,
+          "overlap_measured_candidate_denominator": 512
+        },
+        "enhanced_fp32": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 115,
+          "reference_eps50_strip_valid": 99,
+          "reference_strict_strip_valid": 0,
+          "reference_strict_overlap_only_valid": 0,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.5354722142219543,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.5354722096889122,
+          "best_strip_utilization_failure_as_zero": 0.5354631623882855,
+          "mean_unthresholded_pairwise_overlap_percent": 0.9826682565002893,
+          "overlap_measured_candidate_denominator": 512
+        }
+      },
+      "geometry_checks": {
+        "raw": [
+          {
+            "candidate_index": 179,
+            "selection_reasons": [
+              "best_strip"
+            ],
+            "maximum_absolute_error": 4.656612873077393e-10,
+            "bounds_xyxy": [
+              -636.3865143056978,
+              1.9833571976580373,
+              2713.969232690508,
+              1192.485447084179
+            ],
+            "total_polygon_area": 1849680.507654809,
+            "max_pairwise_area": 7.764778115966484,
+            "sum_pairwise_area": 14.709604216768675
+          },
+          {
+            "candidate_index": 218,
+            "selection_reasons": [
+              "max_pairwise_overlap",
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 6.984919309616089e-10,
+            "bounds_xyxy": [
+              -666.3745249783027,
+              -25.114073894229023,
+              2760.463395370584,
+              1236.1043727081549
+            ],
+            "total_polygon_area": 1849680.5076548087,
+            "max_pairwise_area": 19735.278487860298,
+            "sum_pairwise_area": 45283.00772757475
+          }
+        ],
+        "enhanced_float64": [
+          {
+            "candidate_index": 206,
+            "selection_reasons": [
+              "max_pairwise_overlap",
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 9.313225746154785e-10,
+            "bounds_xyxy": [
+              0.0009999999999976694,
+              -69.38214905227396,
+              3002.909133984815,
+              1242.9331134001454
+            ],
+            "total_polygon_area": 1849680.507654809,
+            "max_pairwise_area": 59732.2786554069,
+            "sum_pairwise_area": 161421.4186331396
+          },
+          {
+            "candidate_index": 363,
+            "selection_reasons": [
+              "best_strip"
+            ],
+            "maximum_absolute_error": 6.984919309616089e-10,
+            "bounds_xyxy": [
+              0.0,
+              0.0011097769812735692,
+              2878.6302643295016,
+              1199.9808229980467
+            ],
+            "total_polygon_area": 1849680.5076548085,
+            "max_pairwise_area": 0.004951020071166525,
+            "sum_pairwise_area": 0.022313623571885873
+          }
+        ],
+        "enhanced_fp32": [
+          {
+            "candidate_index": 206,
+            "selection_reasons": [
+              "max_pairwise_overlap",
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 6.984919309616089e-10,
+            "bounds_xyxy": [
+              0.0009992409787287215,
+              -69.38214819297015,
+              3002.909120194945,
+              1242.9331181055977
+            ],
+            "total_polygon_area": 1849680.5076548087,
+            "max_pairwise_area": 59732.28552922846,
+            "sum_pairwise_area": 161421.43888590063
+          },
+          {
+            "candidate_index": 363,
+            "selection_reasons": [
+              "best_strip"
+            ],
+            "maximum_absolute_error": 6.984919309616089e-10,
+            "bounds_xyxy": [
+              -3.21312330697765e-06,
+              0.0011086016871217907,
+              2878.630183354116,
+              1199.9808334864606
+            ],
+            "total_polygon_area": 1849680.5076548085,
+            "max_pairwise_area": 0.004953151460598469,
+            "sum_pairwise_area": 0.022374597539785848
+          }
+        ]
+      },
+      "returncode": 0,
+      "elapsed_seconds": 231.28190573770553,
+      "sampler_steps": 128,
+      "constraint_callbacks": 32,
+      "post_iterations": 100,
+      "post_status_counts": {
+        "iteration_limit": 413,
+        "native_converged": 99
+      },
+      "post_gap_rollbacks": 6514,
+      "peak_state_max_abs": 5750.23046875,
+      "peak_score_max_abs": 8.7641019821167,
+      "peak_repulsion_max_norm": 4969.6630859375,
+      "peak_constraint_displacement_max_norm": 10304.134765625,
+      "gpu_peak_allocated_bytes": 1093885952,
+      "model_parameters": 10621276,
+      "model_trainable_parameters": 10621244,
+      "state_dict_elements": 10621276
+    },
+    {
+      "output": "sample_045_paper_settings",
+      "sample_index": 45,
+      "profile": "paper_settings",
+      "execution_status": "completed",
+      "planned_candidates": 512,
+      "stages": {
+        "raw": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 0,
+          "reference_eps50_strip_valid": 0,
+          "reference_strict_strip_valid": 0,
+          "reference_strict_overlap_only_valid": 0,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_utilization_failure_as_zero": 0.0,
+          "mean_unthresholded_pairwise_overlap_percent": 4.3218471413261375,
+          "overlap_measured_candidate_denominator": 512
+        },
+        "enhanced_float64": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 0,
+          "reference_eps50_strip_valid": 0,
+          "reference_strict_strip_valid": 0,
+          "reference_strict_overlap_only_valid": 0,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_utilization_failure_as_zero": 0.0,
+          "mean_unthresholded_pairwise_overlap_percent": 1.9967352491893946,
+          "overlap_measured_candidate_denominator": 512
+        },
+        "enhanced_fp32": {
+          "planned_candidates": 512,
+          "native_eps50_valid": 0,
+          "reference_eps50_strip_valid": 0,
+          "reference_strict_strip_valid": 0,
+          "reference_strict_overlap_only_valid": 0,
+          "unmeasured_native_candidates": 0,
+          "unmeasured_reference_candidates": 0,
+          "best_native_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_feasible_bbox_utilization_failure_as_zero": 0.0,
+          "best_strip_utilization_failure_as_zero": 0.0,
+          "mean_unthresholded_pairwise_overlap_percent": 1.996735262996643,
+          "overlap_measured_candidate_denominator": 512
+        }
+      },
+      "geometry_checks": {
+        "raw": [
+          {
+            "candidate_index": 0,
+            "selection_reasons": [
+              "no_feasible_fallback"
+            ],
+            "maximum_absolute_error": 6.984919309616089e-10,
+            "bounds_xyxy": [
+              -44.090289407162174,
+              -85.76141714815611,
+              2244.544940415723,
+              1207.3992840061037
+            ],
+            "total_polygon_area": 1849680.5076548087,
+            "max_pairwise_area": 30788.330411806117,
+            "sum_pairwise_area": 91600.64993510043
+          },
+          {
+            "candidate_index": 240,
+            "selection_reasons": [
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 4.656612873077393e-10,
+            "bounds_xyxy": [
+              -57.59221166665304,
+              -47.04255536877929,
+              2108.7134628433128,
+              1232.3994046112102
+            ],
+            "total_polygon_area": 1849680.5076548087,
+            "max_pairwise_area": 42374.577953340704,
+            "sum_pairwise_area": 192514.71386231124
+          },
+          {
+            "candidate_index": 362,
+            "selection_reasons": [
+              "max_pairwise_overlap"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              -26.188551630668258,
+              -46.43879210527092,
+              2161.5795744679112,
+              1244.1601679878113
+            ],
+            "total_polygon_area": 1849680.5076548092,
+            "max_pairwise_area": 63152.762097270344,
+            "sum_pairwise_area": 162720.3116345831
+          }
+        ],
+        "enhanced_float64": [
+          {
+            "candidate_index": 0,
+            "selection_reasons": [
+              "no_feasible_fallback"
+            ],
+            "maximum_absolute_error": 4.656612873077393e-10,
+            "bounds_xyxy": [
+              0.0009999999999976694,
+              -38.50854320113369,
+              2912.964364003115,
+              1199.9779674072265
+            ],
+            "total_polygon_area": 1849680.507654809,
+            "max_pairwise_area": 787.7980356118901,
+            "sum_pairwise_area": 3957.201711203199
+          },
+          {
+            "candidate_index": 45,
+            "selection_reasons": [
+              "max_pairwise_overlap"
+            ],
+            "maximum_absolute_error": 6.984919309616089e-10,
+            "bounds_xyxy": [
+              0.0010000000000047748,
+              -65.48907978092556,
+              2928.3322463755117,
+              1218.99923764725
+            ],
+            "total_polygon_area": 1849680.5076548087,
+            "max_pairwise_area": 58719.84423579195,
+            "sum_pairwise_area": 97983.43092703729
+          },
+          {
+            "candidate_index": 156,
+            "selection_reasons": [
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "bounds_xyxy": [
+              0.0009999999999976694,
+              -43.333444553919605,
+              3038.7235426467178,
+              1212.0631481344753
+            ],
+            "total_polygon_area": 1849680.507654809,
+            "max_pairwise_area": 15667.005460116778,
+            "sum_pairwise_area": 185420.1041770659
+          }
+        ],
+        "enhanced_fp32": [
+          {
+            "candidate_index": 0,
+            "selection_reasons": [
+              "no_feasible_fallback"
+            ],
+            "maximum_absolute_error": 6.984919309616089e-10,
+            "bounds_xyxy": [
+              0.0010009787889373456,
+              -38.50854314508129,
+              2912.9642554654456,
+              1199.977976427092
+            ],
+            "total_polygon_area": 1849680.5076548087,
+            "max_pairwise_area": 787.7977934088314,
+            "sum_pairwise_area": 3957.2038611776666
+          },
+          {
+            "candidate_index": 45,
+            "selection_reasons": [
+              "max_pairwise_overlap"
+            ],
+            "maximum_absolute_error": 4.656612873077393e-10,
+            "bounds_xyxy": [
+              0.001000040096585053,
+              -65.48907876309451,
+              2928.3321345322065,
+              1218.9992547407019
+            ],
+            "total_polygon_area": 1849680.507654809,
+            "max_pairwise_area": 58719.835657577496,
+            "sum_pairwise_area": 97983.43451194452
+          },
+          {
+            "candidate_index": 156,
+            "selection_reasons": [
+              "max_sum_overlap"
+            ],
+            "maximum_absolute_error": 4.656612873077393e-10,
+            "bounds_xyxy": [
+              0.0010014078934190707,
+              -43.33344876689449,
+              3038.7236617413296,
+              1212.0631358455428
+            ],
+            "total_polygon_area": 1849680.507654809,
+            "max_pairwise_area": 15667.011931161518,
+            "sum_pairwise_area": 185420.1140187943
+          }
+        ]
+      },
+      "returncode": 0,
+      "elapsed_seconds": 249.9713710108772,
+      "sampler_steps": 128,
+      "constraint_callbacks": 32,
+      "post_iterations": 100,
+      "post_status_counts": {
+        "iteration_limit": 512
+      },
+      "post_gap_rollbacks": 7797,
+      "peak_state_max_abs": 4154.15087890625,
+      "peak_score_max_abs": 81.01152801513672,
+      "peak_repulsion_max_norm": 442.4280700683594,
+      "peak_constraint_displacement_max_norm": 72.37249755859375,
+      "gpu_peak_allocated_bytes": 1093885952,
+      "model_parameters": 10621276,
+      "model_trainable_parameters": 10621244,
+      "state_dict_elements": 10621276
+    }
+  ]
+}

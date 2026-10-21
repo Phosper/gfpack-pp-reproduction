@@ -1,0 +1,21 @@
+{
+  "status": "verified",
+  "actual_helper_sha256": "c9f5e4ff225ebae3251fe3885dd340d56de60681fc42290b616c5a639b15f525",
+  "repository_helper_sha256": "52acb81beb2da5a89ada1cbf68ae5ffe8b42e81e2d8ca5858213517bc224da7b",
+  "only_different_definitions": [
+    "parse_args",
+    "run"
+  ],
+  "all_other_module_AST_identical": true,
+  "paper_runner_imports": [
+    "checked_sample",
+    "native_metrics",
+    "sha256",
+    "utc_now",
+    "write_json",
+    "command_snapshot"
+  ],
+  "transitive_ensure_finite_and_global_constants_identical": true,
+  "old_main_was_not_called": true,
+  "scope": "Import-path equivalence; not byte identity of helper entrypoints"
+}

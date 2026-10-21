@@ -1,0 +1,19 @@
+--- repair/main.cpp
++++ paper/main.cpp
+@@ -769,9 +769,16 @@
+ 
+ #include "collision_repair.hpp"
+ 
++#include "paper_constraints.hpp"
++
+ PYBIND11_MODULE(collision_probe, m) {
+     m.doc() = "pybind11 rm_spacing"; // optional module docstring
+     m.def("rm_spacing_all", &rm_spacing_all, "A function that removes spacing");
++    m.def("paper_repulsion_all", &gfpack_paper::repulsion_all,
++          py::arg("ids"), py::arg("rotates"), py::arg("actions"), py::arg("polys"),
++          py::arg("height") = 1200., py::arg("collision_area_eps") = 0.);
++    m.def("paper_gap_xy_all", &gfpack_paper::gap_xy_all);
++
+     m.def("overlap_repair", &gfpack_repair::repair,
+           py::arg("ids"), py::arg("rotates"), py::arg("actions"), py::arg("polys"),
+           py::arg("width"), py::arg("height"), py::arg("eps") = 1.,

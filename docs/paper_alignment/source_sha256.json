@@ -1,0 +1,25 @@
+{
+  "scope": "Repository source snapshot. The executed helper entrypoint differs as documented; all imported logic and constants have identical AST.",
+  "sha256": {
+    "build_collision_probe.py": "596ff694d4683f09b320f757ca72a4a23a718f4aadcf1c95027421989cdd722e",
+    "collision_repair.hpp": "972f8b2ecdd0e20a5ee308ef11780a3a21772e02fa7011a83b6443327d3a31bc",
+    "paper_constraints.hpp": "907db79248233a85aa0657c0c10da6c0294e1162f1b639964d05bdbbae39b8ad",
+    "paper_sampler.py": "76b187fb4dc24dac69488b6260242f0e123d24c7b48c185ea57d45f7a008203f",
+    "paper_enhancement.py": "712b4f69c1c970dadb9dde971c2deddbf1341b9e70b9ea5c732df2af98e633de",
+    "paper_metrics.py": "58829757fcd7c45a55985be12ed83dd8acbf7d5a33d601829344adde3a07930d",
+    "run_paper_alignment.py": "52b522a930cc60f0b6d2e2a0e5e8cd5c897576fcad919e193ec0fc7231fd044c",
+    "run_paper_suite.py": "c3935f59fde18bed8e19c86ae44ce27daa2e613f7c49f0bfc34e03309432d8ee",
+    "check_paper_alignment.py": "5d85e0f4c1808ca3d0cb99afe0209589ffbca63891c3e0ad7b05bf5b892191ad",
+    "verify_paper_alignment.py": "d29f58b7b316bc549dbdada99d9dc7b3157c0a4f4694014b423f639551515a98",
+    "run_inference.py": "52acb81beb2da5a89ada1cbf68ae5ffe8b42e81e2d8ca5858213517bc224da7b"
+  },
+  "executed_frozen_python_sha256": {
+    "run_paper_alignment.py": "52b522a930cc60f0b6d2e2a0e5e8cd5c897576fcad919e193ec0fc7231fd044c",
+    "paper_sampler.py": "76b187fb4dc24dac69488b6260242f0e123d24c7b48c185ea57d45f7a008203f",
+    "paper_metrics.py": "58829757fcd7c45a55985be12ed83dd8acbf7d5a33d601829344adde3a07930d",
+    "paper_enhancement.py": "712b4f69c1c970dadb9dde971c2deddbf1341b9e70b9ea5c732df2af98e633de",
+    "run_inference.py": "c9f5e4ff225ebae3251fe3885dd340d56de60681fc42290b616c5a639b15f525"
+  },
+  "helper_version_evidence": "helper_version.json + helper_version.patch",
+  "cross_run_local_source_bindings": 30
+}

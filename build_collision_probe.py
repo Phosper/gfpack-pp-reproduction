@@ -31,7 +31,11 @@ def main():
     parser.add_argument("--output", type=Path, required=True, help="New isolated build directory")
     parser.add_argument("--repair", action="store_true",
                         help="Also build the isolated bounded collision repair")
+    parser.add_argument("--paper-constraints", action="store_true",
+                        help="Also build the Eq9 translation field and x/y gap primitives (requires --repair)")
     args = parser.parse_args()
+    if args.paper_constraints and not args.repair:
+        parser.error("--paper-constraints requires --repair")
     source = args.source.resolve()
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=source, text=True).strip()
     dirty = subprocess.check_output(["git", "status", "--porcelain"], cwd=source, text=True).strip()
@@ -107,6 +111,22 @@ def main():
         (args.output / "repair.patch").write_text("".join(difflib.unified_diff(
             instrumented.splitlines(True), patched.splitlines(True),
             fromfile="probe/main.cpp", tofile="repair/main.cpp")))
+    if args.paper_constraints:
+        before_paper = patched
+        paper_header = Path(__file__).resolve().with_name("paper_constraints.hpp")
+        shutil.copyfile(paper_header, build / paper_header.name)
+        patched = patched.replace("PYBIND11_MODULE(collision_probe, m)",
+            '#include "paper_constraints.hpp"\n\nPYBIND11_MODULE(collision_probe, m)')
+        paper_binding = r'''
+    m.def("paper_repulsion_all", &gfpack_paper::repulsion_all,
+          py::arg("ids"), py::arg("rotates"), py::arg("actions"), py::arg("polys"),
+          py::arg("height") = 1200., py::arg("collision_area_eps") = 0.);
+    m.def("paper_gap_xy_all", &gfpack_paper::gap_xy_all);
+'''
+        patched = patched.replace(needle, needle + paper_binding)
+        (args.output / "paper.patch").write_text("".join(difflib.unified_diff(
+            before_paper.splitlines(True), patched.splitlines(True),
+            fromfile="repair/main.cpp", tofile="paper/main.cpp")))
     (build / "main.cpp").write_text(patched)
     includes = subprocess.check_output([sys.executable, "-m", "pybind11", "--includes"], text=True).split()
     extension = args.output / ("collision_probe" + sysconfig.get_config_var("EXT_SUFFIX"))
@@ -132,6 +152,11 @@ def main():
                       repair_entry_point="collision_probe.overlap_repair")
     if result.returncode == 0:
         report["extension_sha256"] = sha256(extension)
+    if args.paper_constraints:
+        report.update(paper_header_sha256=sha256(build / "paper_constraints.hpp"),
+                      paper_patch_sha256=sha256(args.output / "paper.patch"),
+                      paper_constraints=True,
+                      paper_entry_point="collision_probe.paper_repulsion_all")
     report["source_unchanged"] = all(sha256(original_dir / name) == digest for name, digest in sources.items())
     (args.output / "build.json").write_text(json.dumps(report, indent=2) + "\n")
     if result.returncode or not report["source_unchanged"]:

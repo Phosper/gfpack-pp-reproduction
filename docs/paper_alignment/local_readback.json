@@ -1,0 +1,17 @@
+{
+  "status": "verified",
+  "archive_sha256": "a3adf4a2c413fdf9b968afbac719f91400864140f4fe0d5b872b646022d89072",
+  "downloaded_output_hashes_checked": 78,
+  "trajectory_outputs_retained_on_server": [
+    "sample_000_paper_mechanism_release_scale/trajectory.pt",
+    "sample_000_paper_settings/trajectory.pt",
+    "sample_000_release_weights_constraints/trajectory.pt",
+    "sample_045_paper_mechanism_release_scale/trajectory.pt",
+    "sample_045_paper_settings/trajectory.pt",
+    "sample_045_release_weights_constraints/trajectory.pt"
+  ],
+  "repository_source_bindings_checked": 30,
+  "helper_AST_equivalence_verified": true,
+  "build_control_header_binding_verified": true,
+  "scope": "Local readback integrity; full inputs and all 84 original outputs were checked on server"
+}
