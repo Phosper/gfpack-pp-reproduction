@@ -1,0 +1,59 @@
+{
+  "created_utc": "2026-10-24T11:41:30.060873+00:00",
+  "samples": [
+    25,
+    45,
+    46,
+    47,
+    54,
+    62,
+    99,
+    115,
+    0,
+    17,
+    35,
+    56,
+    74,
+    91,
+    109,
+    127
+  ],
+  "sources": {
+    "pred": "raw_actions",
+    "gt": "gt_actions"
+  },
+  "planned_inputs": 32,
+  "routes": [
+    "new_repair",
+    "new_repair_compact",
+    "saved_repair_compact"
+  ],
+  "baseline_routes": [
+    "gap_only",
+    "repair_only",
+    "repair_then_gap"
+  ],
+  "height": 1200.0,
+  "horizontal_walls": null,
+  "strict_area_tolerance": 1e-09,
+  "boundary_tolerance": 1e-09,
+  "reference_area50": 50.0,
+  "seconds_per_new_pipeline": 45.0,
+  "compaction_sweeps": 4,
+  "storage": "All action columns cast to float32 before optimization; translations checked in float32 after each move; rotation components then fixed",
+  "repair": "Single-piece translation, four unoriented ray axes, radius16/64/256/1024/4096, nearest free intervals; motion+1000*positive-span-growth",
+  "compact": "Alternating left/right horizontal sweeps inside current aggregate span; endpoints may jump obstacles; no monotonic-collision assumption",
+  "saved_repair_policy": "Same saved round7 repair endpoint, cast to float32; compact only if strictly feasible, otherwise unchanged and explicitly skipped",
+  "new_repair_failure_policy": "Return partial measured layout and explicit status; retain in all32 denominators",
+  "development_caveat": "All16 representatives previously selected and used during development; no independent generalization or 512-candidate evaluation",
+  "sampling": false,
+  "training": false,
+  "runtime": {
+    "python": "3.13.5",
+    "numpy": "2.4.3",
+    "shapely": "2.1.2",
+    "geos": "3.13.1",
+    "platform": "Windows"
+  },
+  "legacy_native_metrics": "Saved Linux official vectors retained in round7; new outputs use independently replayed reference geometry, no Windows calutil build"
+}

@@ -1,0 +1,14 @@
+{
+  "checked_utc": "2026-10-24T11:33:50.752905+00:00",
+  "source": "https://api.github.com/repos/TimHsue/GFPack-pp/commits?per_page=20",
+  "current_main_sha": "ff75815e24ec50cd7fa8b2abdec1acfe0b55be95",
+  "pinned_sha": "ff75815e24ec50cd7fa8b2abdec1acfe0b55be95",
+  "main_changed_since_pinned": false,
+  "latest_commit_date": "2026-10-13T17:07:31Z",
+  "latest_commit_subject": "Fix puzzle generation hangs (#11)",
+  "latest_commit_url": "https://github.com/TimHsue/GFPack-pp/commit/ff75815e24ec50cd7fa8b2abdec1acfe0b55be95",
+  "latest_issue_or_pr_update": "2026-10-14T06:48:57Z",
+  "issues_and_prs_checked": 11,
+  "snapshot_sha256": "2535e0a158d763cb0156f9ce972d7c0a58bdfd69e34991f1aaced8824cc641c8",
+  "web_cache_caveat": "Cached commits/main omitted the latest October commit; fresh API plus git ls-remote independently confirmed pinned HEAD."
+}

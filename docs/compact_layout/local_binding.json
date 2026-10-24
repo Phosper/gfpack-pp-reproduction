@@ -1,0 +1,45 @@
+{
+  "scope": "Round8 fixed16 development inputs, concave repair, FP32-safe compaction and uniform same-candidate two-start selection",
+  "source_sha256": {
+    "compact_layout.py": "3e390b811faef98d3614ccd3249b319e3beb21da8812950a8d531869a28a075e",
+    "translation_intervals.py": "a884a0438909dec187bfa1a0be2f49f52da2be4caef221b925e67e3fef01ed6f",
+    "compact_portfolio.py": "456beaf3dac6d0874d0b24f17bdbbea36e8bc406068273dfa75cf3548502db96",
+    "run_compact_layouts.py": "3fbac882c2a4b454429fa483fa865ddd6013570903b06c443312b18e8c6a1cb3",
+    "run_compact_portfolio.py": "7dcd87e92b09ac508a52a26203b27f6249c9ddbbc77d0fd1517bfffd630b4926",
+    "check_compact_controls.py": "ae3c847bca7b7a96793e1655d447ee6d98a2b554a380e88792fdec05ab91e125",
+    "check_compact_portfolio.py": "8d6c49042245413967d3530e98c8971f558c6f4abc4bb87156d09c243bdd7417",
+    "verify_compact_layouts.py": "faf11697ab67fe91d4353d9093233d2be0fae091d77cc2347dfd061b973389e5",
+    "verify_compact_portfolio.py": "d6388b791b2773158d4a8240138744feb281c9669068c0728195c32ccd09b882",
+    "plot_compact_layouts.py": "fd4d599089c03f75a000e7da82582707934fa31e07163a33bccd8125e890696d",
+    "postprocess_metrics.py": "635a5160c4f8dff9390cdae45242bd9b1b0a196d8e45b1059fb9f82170dbe093",
+    "check_collision_saved_cases.py": "0b1a58706a9232157e525fbbbe47b3e5d1e59a955da3745863f49f5f22b86c12",
+    "requirements_compaction.txt": "efcc1cbbd4beeeb58d580967be29c6a9a04b2b7b95785caf8bfa7944e87b1f71"
+  },
+  "report_sha256": "efd7932c2e18468cbb8ce0cbf6ed8ea606fb6ba7232972c8d17b6e69957d4654",
+  "archive_sha256": "599f6299ac9d77d7ef4441b87eed88f6b9a634c3d17beb8740b79d44e29239f0",
+  "private_inventory_sha256": {
+    "run_v1/inputs.json": "0628052a1e2f9d2ceba27f91df4461ad6958537105dfd7670c42cc027cfb557e",
+    "run_v1/metadata.json": "1282cf04fd98dc81d540d38dc532bef309e9cfa7ec7e299473fa31026ef77a62",
+    "portfolio_v1/inputs.json": "9aa79eb98553f2b65eeec5c5effcd749a79096f4e72a62bdef06da78727b8ed1",
+    "portfolio_v1/metadata.json": "c60a70a6960bb9076b81f2673ab6bedff6206576661fe59bd0a0cb9a19ce3c73",
+    "controls_v1.json": "3382dcd80d5f9c12f3b04347340d8bdaa161562aa168cb554f00aa8b8a33cbac",
+    "portfolio_controls_v1.json": "426719a58622483bf0990a1bc2eb20cbb96c3d84c8310f4da7516f50dff6f913",
+    "verification_v1.json": "042bb1e9ecf6dc3071c84c6e8175bb4381b37c44481319db8494a11427ff0331",
+    "portfolio_verification_v1.json": "7a76555d2cf4e18f3307eee728c9a37176f429c5d1bd441ae07fd039c906d6b3"
+  },
+  "evidence_sha256": {
+    "comparison.png": "71de53835885586c90a4aae3e511799de942ee66fad6f1eb09dc919c2645da6c",
+    "controls.json": "2fc140b26b97c10f059b96fee090a630bd8b0bbd4bc3270706f487c481ba93a0",
+    "plan.json": "e44d563da494e1c81704f5ab3bcb181c84879741c894bef938a519823975540f",
+    "portfolio_controls.json": "2a5e676a63e70396a5ad2e148b6dee992eb21543554616474a1c5af6eb82c95f",
+    "portfolio_plan.json": "9eb4febd227ec7853433c1d5c79ec0a0ec5fde8e8cc204be40513f043b81b586",
+    "portfolio_verification.json": "7a76555d2cf4e18f3307eee728c9a37176f429c5d1bd441ae07fd039c906d6b3",
+    "README.md": "1915036469098c524deb1f922a34e42d02a5a929eed1521adc0b1f28645bf4ff",
+    "upstream_update.json": "d3bda90fbcf7b669384cd39b13a479b69bff378ff50758f4e73ec5725f873608",
+    "verification.json": "042bb1e9ecf6dc3071c84c6e8175bb4381b37c44481319db8494a11427ff0331"
+  },
+  "round7_output_hashes_checked": 195,
+  "raw_output_hashes_checked": 35,
+  "portfolio_output_hashes_checked": 35,
+  "notes": "Full actions and development probes remain private. Public geometry reports are byte copies of independently verified originals. Source bytes match control/run/verifier bindings."
+}

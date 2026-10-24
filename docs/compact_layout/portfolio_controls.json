@@ -1,0 +1,2667 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-24T11:54:57.996595+00:00",
+  "status": "verified",
+  "planned_controls": 7,
+  "passed_controls": 7,
+  "scope": "Selector unit controls plus one real saved sample45 warm-start solver run; not the full32 experiment",
+  "thresholds": {
+    "strict_max_pairwise_area": 1e-09,
+    "boundary": 1e-09,
+    "reference_area": 50.0
+  },
+  "source_sha256": {
+    "check_compact_portfolio.py": "8d6c49042245413967d3530e98c8971f558c6f4abc4bb87156d09c243bdd7417",
+    "compact_portfolio.py": "456beaf3dac6d0874d0b24f17bdbbea36e8bc406068273dfa75cf3548502db96",
+    "run_compact_portfolio.py": "7dcd87e92b09ac508a52a26203b27f6249c9ddbbc77d0fd1517bfffd630b4926",
+    "compact_layout.py": "3e390b811faef98d3614ccd3249b319e3beb21da8812950a8d531869a28a075e",
+    "translation_intervals.py": "a884a0438909dec187bfa1a0be2f49f52da2be4caef221b925e67e3fef01ed6f",
+    "postprocess_metrics.py": "635a5160c4f8dff9390cdae45242bd9b1b0a196d8e45b1059fb9f82170dbe093"
+  },
+  "frozen_manifest_sha256": "9b0fd899a72e29027906751fe9caf4386f760eddf3d17124a5b9fe49732090c6",
+  "versions": {
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "numpy": "2.4.3",
+    "shapely": "2.1.2",
+    "geos": "3.13.1"
+  },
+  "controls": [
+    {
+      "name": "illegal_high_utilization_attempt_rejected",
+      "passed": true,
+      "details": {
+        "synthetic_solver_endpoints": true,
+        "result": {
+          "status": "strict_feasible",
+          "selected_start": "legacy_repair",
+          "attempts": [
+            {
+              "start": "raw",
+              "after": {
+                "status": "measured",
+                "piece_count": 2,
+                "max_pairwise_area": 50.0,
+                "sum_pairwise_area": 50.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 1,
+                "positive_area_pair_count": 1,
+                "total_polygon_area": 200.0,
+                "original_polygon_area": 200.0,
+                "rigid_area_absolute_error": 0.0,
+                "sum_pairwise_overlap_fraction": 0.25,
+                "bounds_xyxy": [
+                  0.0,
+                  0.0,
+                  15.0,
+                  10.0
+                ],
+                "span_x": 15.0,
+                "span_y": 10.0,
+                "bbox_utilization": 1.3333333333333333,
+                "strip_utilization": 0.011111111111111112,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": false,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": false,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [
+                  {
+                    "area": 50.0,
+                    "piece_indices": [
+                      0,
+                      1
+                    ]
+                  }
+                ],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "strict_feasible",
+              "compaction_status": "completed"
+            },
+            {
+              "start": "legacy_repair",
+              "after": {
+                "status": "measured",
+                "piece_count": 2,
+                "max_pairwise_area": 0.0,
+                "sum_pairwise_area": 0.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 0,
+                "positive_area_pair_count": 0,
+                "total_polygon_area": 200.0,
+                "original_polygon_area": 200.0,
+                "rigid_area_absolute_error": 0.0,
+                "sum_pairwise_overlap_fraction": 0.0,
+                "bounds_xyxy": [
+                  0.0,
+                  0.0,
+                  40.0,
+                  10.0
+                ],
+                "span_x": 40.0,
+                "span_y": 10.0,
+                "bbox_utilization": 0.5,
+                "strip_utilization": 0.004166666666666667,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": true,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": true,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "strict_feasible",
+              "compaction_status": "completed"
+            }
+          ],
+          "seed_result": {
+            "repair_status": "strict_feasible",
+            "compaction_status": "completed",
+            "elapsed_seconds": 0.125
+          },
+          "seed_reused_raw_result": false,
+          "selection_rule": "minimum horizontal span among strict stored endpoints; raw wins exact ties",
+          "new_solver_seconds_without_legacy_seed_generation": 0.25
+        },
+        "selected_independent_geometry": {
+          "status": "measured",
+          "piece_count": 2,
+          "max_pairwise_area": 0.0,
+          "sum_pairwise_area": 0.0,
+          "pair_count_over_50": 0,
+          "pair_count_over_1e_9": 0,
+          "positive_area_pair_count": 0,
+          "total_polygon_area": 200.0,
+          "original_polygon_area": 200.0,
+          "rigid_area_absolute_error": 0.0,
+          "sum_pairwise_overlap_fraction": 0.0,
+          "bounds_xyxy": [
+            0.0,
+            0.0,
+            40.0,
+            10.0
+          ],
+          "span_x": 40.0,
+          "span_y": 10.0,
+          "bbox_utilization": 0.5,
+          "strip_utilization": 0.004166666666666667,
+          "strip_height": 1200.0,
+          "height_violation": 0.0,
+          "lower_y_violation": 0.0,
+          "upper_y_violation": 0.0,
+          "within_strip": true,
+          "eps50_overlap_valid": true,
+          "strict_overlap_valid": true,
+          "eps50_strip_valid": true,
+          "strict_strip_valid": true,
+          "zero_rotation_vector_count": 0,
+          "top_pairs": [],
+          "horizontal_domain": "infinite_strip_no_x_wall",
+          "area_eps": 50.0,
+          "strict_area_eps": 1e-09,
+          "boundary_eps": 1e-09
+        }
+      }
+    },
+    {
+      "name": "two_feasible_attempts_choose_minimum_span",
+      "passed": true,
+      "details": {
+        "synthetic_solver_endpoints": true,
+        "forward": {
+          "status": "strict_feasible",
+          "selected_start": "legacy_repair",
+          "attempts": [
+            {
+              "start": "raw",
+              "after": {
+                "status": "measured",
+                "piece_count": 2,
+                "max_pairwise_area": 0.0,
+                "sum_pairwise_area": 0.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 0,
+                "positive_area_pair_count": 0,
+                "total_polygon_area": 200.0,
+                "original_polygon_area": 200.0,
+                "rigid_area_absolute_error": 0.0,
+                "sum_pairwise_overlap_fraction": 0.0,
+                "bounds_xyxy": [
+                  0.0,
+                  0.0,
+                  40.0,
+                  10.0
+                ],
+                "span_x": 40.0,
+                "span_y": 10.0,
+                "bbox_utilization": 0.5,
+                "strip_utilization": 0.004166666666666667,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": true,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": true,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "strict_feasible",
+              "compaction_status": "completed"
+            },
+            {
+              "start": "legacy_repair",
+              "after": {
+                "status": "measured",
+                "piece_count": 2,
+                "max_pairwise_area": 0.0,
+                "sum_pairwise_area": 0.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 0,
+                "positive_area_pair_count": 0,
+                "total_polygon_area": 200.0,
+                "original_polygon_area": 200.0,
+                "rigid_area_absolute_error": 0.0,
+                "sum_pairwise_overlap_fraction": 0.0,
+                "bounds_xyxy": [
+                  0.0,
+                  0.0,
+                  20.0,
+                  10.0
+                ],
+                "span_x": 20.0,
+                "span_y": 10.0,
+                "bbox_utilization": 1.0,
+                "strip_utilization": 0.008333333333333333,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": true,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": true,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "strict_feasible",
+              "compaction_status": "completed"
+            }
+          ],
+          "seed_result": {
+            "repair_status": "strict_feasible",
+            "compaction_status": "completed",
+            "elapsed_seconds": 0.125
+          },
+          "seed_reused_raw_result": false,
+          "selection_rule": "minimum horizontal span among strict stored endpoints; raw wins exact ties",
+          "new_solver_seconds_without_legacy_seed_generation": 0.25
+        },
+        "reversed": {
+          "status": "strict_feasible",
+          "selected_start": "raw",
+          "attempts": [
+            {
+              "start": "raw",
+              "after": {
+                "status": "measured",
+                "piece_count": 2,
+                "max_pairwise_area": 0.0,
+                "sum_pairwise_area": 0.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 0,
+                "positive_area_pair_count": 0,
+                "total_polygon_area": 200.0,
+                "original_polygon_area": 200.0,
+                "rigid_area_absolute_error": 0.0,
+                "sum_pairwise_overlap_fraction": 0.0,
+                "bounds_xyxy": [
+                  0.0,
+                  0.0,
+                  20.0,
+                  10.0
+                ],
+                "span_x": 20.0,
+                "span_y": 10.0,
+                "bbox_utilization": 1.0,
+                "strip_utilization": 0.008333333333333333,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": true,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": true,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "strict_feasible",
+              "compaction_status": "completed"
+            },
+            {
+              "start": "legacy_repair",
+              "after": {
+                "status": "measured",
+                "piece_count": 2,
+                "max_pairwise_area": 0.0,
+                "sum_pairwise_area": 0.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 0,
+                "positive_area_pair_count": 0,
+                "total_polygon_area": 200.0,
+                "original_polygon_area": 200.0,
+                "rigid_area_absolute_error": 0.0,
+                "sum_pairwise_overlap_fraction": 0.0,
+                "bounds_xyxy": [
+                  0.0,
+                  0.0,
+                  40.0,
+                  10.0
+                ],
+                "span_x": 40.0,
+                "span_y": 10.0,
+                "bbox_utilization": 0.5,
+                "strip_utilization": 0.004166666666666667,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": true,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": true,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "strict_feasible",
+              "compaction_status": "completed"
+            }
+          ],
+          "seed_result": {
+            "repair_status": "strict_feasible",
+            "compaction_status": "completed",
+            "elapsed_seconds": 0.125
+          },
+          "seed_reused_raw_result": false,
+          "selection_rule": "minimum horizontal span among strict stored endpoints; raw wins exact ties",
+          "new_solver_seconds_without_legacy_seed_generation": 0.25
+        }
+      }
+    },
+    {
+      "name": "identical_stored_start_reuses_raw_result",
+      "passed": true,
+      "details": {
+        "synthetic_solver_endpoints": true,
+        "result": {
+          "status": "strict_feasible",
+          "selected_start": "raw",
+          "attempts": [
+            {
+              "start": "raw",
+              "after": {
+                "status": "measured",
+                "piece_count": 2,
+                "max_pairwise_area": 0.0,
+                "sum_pairwise_area": 0.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 0,
+                "positive_area_pair_count": 0,
+                "total_polygon_area": 200.0,
+                "original_polygon_area": 200.0,
+                "rigid_area_absolute_error": 0.0,
+                "sum_pairwise_overlap_fraction": 0.0,
+                "bounds_xyxy": [
+                  0.0,
+                  0.0,
+                  20.0,
+                  10.0
+                ],
+                "span_x": 20.0,
+                "span_y": 10.0,
+                "bbox_utilization": 1.0,
+                "strip_utilization": 0.008333333333333333,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": true,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": true,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "strict_feasible",
+              "compaction_status": "completed"
+            },
+            {
+              "start": "legacy_repair",
+              "after": {
+                "status": "measured",
+                "piece_count": 2,
+                "max_pairwise_area": 0.0,
+                "sum_pairwise_area": 0.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 0,
+                "positive_area_pair_count": 0,
+                "total_polygon_area": 200.0,
+                "original_polygon_area": 200.0,
+                "rigid_area_absolute_error": 0.0,
+                "sum_pairwise_overlap_fraction": 0.0,
+                "bounds_xyxy": [
+                  0.0,
+                  0.0,
+                  20.0,
+                  10.0
+                ],
+                "span_x": 20.0,
+                "span_y": 10.0,
+                "bbox_utilization": 1.0,
+                "strip_utilization": 0.008333333333333333,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": true,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": true,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "strict_feasible",
+              "compaction_status": "completed"
+            }
+          ],
+          "seed_result": null,
+          "seed_reused_raw_result": true,
+          "selection_rule": "minimum horizontal span among strict stored endpoints; raw wins exact ties",
+          "new_solver_seconds_without_legacy_seed_generation": 0.125
+        }
+      }
+    },
+    {
+      "name": "distinct_equal_span_attempts_tie_to_raw",
+      "passed": true,
+      "details": {
+        "synthetic_solver_endpoints": true,
+        "result": {
+          "status": "strict_feasible",
+          "selected_start": "raw",
+          "attempts": [
+            {
+              "start": "raw",
+              "after": {
+                "status": "measured",
+                "piece_count": 2,
+                "max_pairwise_area": 0.0,
+                "sum_pairwise_area": 0.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 0,
+                "positive_area_pair_count": 0,
+                "total_polygon_area": 200.0,
+                "original_polygon_area": 200.0,
+                "rigid_area_absolute_error": 0.0,
+                "sum_pairwise_overlap_fraction": 0.0,
+                "bounds_xyxy": [
+                  0.0,
+                  0.0,
+                  20.0,
+                  10.0
+                ],
+                "span_x": 20.0,
+                "span_y": 10.0,
+                "bbox_utilization": 1.0,
+                "strip_utilization": 0.008333333333333333,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": true,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": true,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "strict_feasible",
+              "compaction_status": "completed"
+            },
+            {
+              "start": "legacy_repair",
+              "after": {
+                "status": "measured",
+                "piece_count": 2,
+                "max_pairwise_area": 0.0,
+                "sum_pairwise_area": 0.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 0,
+                "positive_area_pair_count": 0,
+                "total_polygon_area": 200.0,
+                "original_polygon_area": 200.0,
+                "rigid_area_absolute_error": 0.0,
+                "sum_pairwise_overlap_fraction": 0.0,
+                "bounds_xyxy": [
+                  100.0,
+                  0.0,
+                  120.0,
+                  10.0
+                ],
+                "span_x": 20.0,
+                "span_y": 10.0,
+                "bbox_utilization": 1.0,
+                "strip_utilization": 0.008333333333333333,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": true,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": true,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "strict_feasible",
+              "compaction_status": "completed"
+            }
+          ],
+          "seed_result": {
+            "repair_status": "strict_feasible",
+            "compaction_status": "completed",
+            "elapsed_seconds": 0.125
+          },
+          "seed_reused_raw_result": false,
+          "selection_rule": "minimum horizontal span among strict stored endpoints; raw wins exact ties",
+          "new_solver_seconds_without_legacy_seed_generation": 0.25
+        }
+      }
+    },
+    {
+      "name": "changed_stored_seed_rotation_rejected",
+      "passed": true,
+      "details": {
+        "seed_rejected": true,
+        "error_type": "ValueError",
+        "error_message": "Repair seed must preserve the same pieces and stored rotations",
+        "stored_seed_rotation_changed": true
+      }
+    },
+    {
+      "name": "all_failed_portfolio_retains_all32_slots",
+      "passed": true,
+      "details": {
+        "synthetic_solver_endpoints": true,
+        "synthetic_32_slot_aggregation": true,
+        "result": {
+          "status": "no_strict_feasible_attempt",
+          "selected_start": null,
+          "attempts": [
+            {
+              "start": "raw",
+              "after": {
+                "status": "measured",
+                "piece_count": 2,
+                "max_pairwise_area": 50.0,
+                "sum_pairwise_area": 50.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 1,
+                "positive_area_pair_count": 1,
+                "total_polygon_area": 200.0,
+                "original_polygon_area": 200.0,
+                "rigid_area_absolute_error": 0.0,
+                "sum_pairwise_overlap_fraction": 0.25,
+                "bounds_xyxy": [
+                  0.0,
+                  0.0,
+                  15.0,
+                  10.0
+                ],
+                "span_x": 15.0,
+                "span_y": 10.0,
+                "bbox_utilization": 1.3333333333333333,
+                "strip_utilization": 0.011111111111111112,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": false,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": false,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [
+                  {
+                    "area": 50.0,
+                    "piece_indices": [
+                      0,
+                      1
+                    ]
+                  }
+                ],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "stalled",
+              "compaction_status": "completed"
+            },
+            {
+              "start": "legacy_repair",
+              "after": {
+                "status": "measured",
+                "piece_count": 2,
+                "max_pairwise_area": 20.0,
+                "sum_pairwise_area": 20.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 1,
+                "positive_area_pair_count": 1,
+                "total_polygon_area": 200.0,
+                "original_polygon_area": 200.0,
+                "rigid_area_absolute_error": 0.0,
+                "sum_pairwise_overlap_fraction": 0.1,
+                "bounds_xyxy": [
+                  0.0,
+                  0.0,
+                  18.0,
+                  10.0
+                ],
+                "span_x": 18.0,
+                "span_y": 10.0,
+                "bbox_utilization": 1.1111111111111112,
+                "strip_utilization": 0.009259259259259259,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": false,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": false,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [
+                  {
+                    "area": 20.0,
+                    "piece_indices": [
+                      0,
+                      1
+                    ]
+                  }
+                ],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "stalled",
+              "compaction_status": "completed"
+            }
+          ],
+          "seed_result": {
+            "repair_status": "stalled",
+            "compaction_status": "completed",
+            "elapsed_seconds": 0.125
+          },
+          "seed_reused_raw_result": false,
+          "selection_rule": "minimum horizontal span among strict stored endpoints; raw wins exact ties",
+          "new_solver_seconds_without_legacy_seed_generation": 0.25
+        },
+        "aggregate": {
+          "unit": "one frozen selected prediction or GT through one path and output precision",
+          "denominator_note": "Not a 512-candidate rate; failed supplied rows remain in all-planned fractions.",
+          "coverage_note": "The runner must add failed rows for missing planned outputs and verify manifest coverage.",
+          "overall": {
+            "planned_outputs": 32,
+            "measured_outputs": 32,
+            "failed_outputs": 0,
+            "planned_unique_inputs": 32,
+            "planned_unique_samples": 16,
+            "eps50_overlap_valid": {
+              "outputs": 32,
+              "fraction_all_planned": 1.0,
+              "fraction_measured_only": 1.0
+            },
+            "strict_overlap_valid": {
+              "outputs": 0,
+              "fraction_all_planned": 0.0,
+              "fraction_measured_only": 0.0
+            },
+            "eps50_strip_valid": {
+              "outputs": 32,
+              "fraction_all_planned": 1.0,
+              "fraction_measured_only": 1.0
+            },
+            "strict_strip_valid": {
+              "outputs": 0,
+              "fraction_all_planned": 0.0,
+              "fraction_measured_only": 0.0
+            },
+            "within_strip": {
+              "outputs": 32,
+              "fraction_all_planned": 1.0,
+              "fraction_measured_only": 1.0
+            },
+            "max_pairwise_area": {
+              "count": 32,
+              "min": 50.0,
+              "median": 50.0,
+              "mean": 50.0,
+              "max": 50.0
+            },
+            "sum_pairwise_area": {
+              "count": 32,
+              "min": 50.0,
+              "median": 50.0,
+              "mean": 50.0,
+              "max": 50.0
+            },
+            "height_violation": {
+              "count": 32,
+              "min": 0.0,
+              "median": 0.0,
+              "mean": 0.0,
+              "max": 0.0
+            },
+            "bbox_utilization": {
+              "count": 32,
+              "min": 1.3333333333333333,
+              "median": 1.3333333333333333,
+              "mean": 1.3333333333333333,
+              "max": 1.3333333333333333
+            },
+            "strip_utilization": {
+              "count": 32,
+              "min": 0.011111111111111112,
+              "median": 0.011111111111111112,
+              "mean": 0.011111111111111112,
+              "max": 0.011111111111111112
+            },
+            "comparison_count": 0,
+            "comparison_flags": {
+              "overlap_improved": 0,
+              "overlap_worse": 0,
+              "bounds_improved": 0,
+              "bounds_worse": 0,
+              "bbox_utilization_drop": 0,
+              "strip_utilization_drop": 0,
+              "became_eps50_strip_valid": 0,
+              "lost_eps50_strip_validity": 0,
+              "became_strict_strip_valid": 0,
+              "lost_strict_strip_validity": 0,
+              "rotation_unchanged": 0,
+              "x_gauge_only_change": 0
+            },
+            "translation_rms": {
+              "count": 0,
+              "min": null,
+              "median": null,
+              "mean": null,
+              "max": null
+            },
+            "translation_max": {
+              "count": 0,
+              "min": null,
+              "median": null,
+              "mean": null,
+              "max": null
+            },
+            "relative_translation_rms": {
+              "count": 0,
+              "min": null,
+              "median": null,
+              "mean": null,
+              "max": null
+            },
+            "delta_max_pairwise_area": {
+              "count": 0,
+              "min": null,
+              "median": null,
+              "mean": null,
+              "max": null
+            },
+            "delta_sum_pairwise_area": {
+              "count": 0,
+              "min": null,
+              "median": null,
+              "mean": null,
+              "max": null
+            },
+            "delta_height_violation": {
+              "count": 0,
+              "min": null,
+              "median": null,
+              "mean": null,
+              "max": null
+            },
+            "delta_bbox_utilization": {
+              "count": 0,
+              "min": null,
+              "median": null,
+              "mean": null,
+              "max": null
+            },
+            "delta_strip_utilization": {
+              "count": 0,
+              "min": null,
+              "median": null,
+              "mean": null,
+              "max": null
+            },
+            "eps50_strip_valid_strip_utilization": {
+              "conditional_valid_only": {
+                "count": 32,
+                "min": 0.011111111111111112,
+                "median": 0.011111111111111112,
+                "mean": 0.011111111111111112,
+                "max": 0.011111111111111112
+              },
+              "mean_all_planned_failure_zero": 0.011111111111111112
+            },
+            "strict_strip_valid_strip_utilization": {
+              "conditional_valid_only": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "mean_all_planned_failure_zero": 0.0
+            }
+          },
+          "by_path": [
+            {
+              "path": "two_start_compact",
+              "planned_outputs": 32,
+              "measured_outputs": 32,
+              "failed_outputs": 0,
+              "planned_unique_inputs": 32,
+              "planned_unique_samples": 16,
+              "eps50_overlap_valid": {
+                "outputs": 32,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_overlap_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "eps50_strip_valid": {
+                "outputs": 32,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_strip_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "within_strip": {
+                "outputs": 32,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "max_pairwise_area": {
+                "count": 32,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "sum_pairwise_area": {
+                "count": 32,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "height_violation": {
+                "count": 32,
+                "min": 0.0,
+                "median": 0.0,
+                "mean": 0.0,
+                "max": 0.0
+              },
+              "bbox_utilization": {
+                "count": 32,
+                "min": 1.3333333333333333,
+                "median": 1.3333333333333333,
+                "mean": 1.3333333333333333,
+                "max": 1.3333333333333333
+              },
+              "strip_utilization": {
+                "count": 32,
+                "min": 0.011111111111111112,
+                "median": 0.011111111111111112,
+                "mean": 0.011111111111111112,
+                "max": 0.011111111111111112
+              },
+              "comparison_count": 0,
+              "comparison_flags": {
+                "overlap_improved": 0,
+                "overlap_worse": 0,
+                "bounds_improved": 0,
+                "bounds_worse": 0,
+                "bbox_utilization_drop": 0,
+                "strip_utilization_drop": 0,
+                "became_eps50_strip_valid": 0,
+                "lost_eps50_strip_validity": 0,
+                "became_strict_strip_valid": 0,
+                "lost_strict_strip_validity": 0,
+                "rotation_unchanged": 0,
+                "x_gauge_only_change": 0
+              },
+              "translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "translation_max": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "relative_translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_max_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_sum_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_height_violation": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_bbox_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_strip_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "eps50_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 32,
+                  "min": 0.011111111111111112,
+                  "median": 0.011111111111111112,
+                  "mean": 0.011111111111111112,
+                  "max": 0.011111111111111112
+                },
+                "mean_all_planned_failure_zero": 0.011111111111111112
+              },
+              "strict_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 0,
+                  "min": null,
+                  "median": null,
+                  "mean": null,
+                  "max": null
+                },
+                "mean_all_planned_failure_zero": 0.0
+              }
+            }
+          ],
+          "by_source": [
+            {
+              "source": "gt",
+              "planned_outputs": 16,
+              "measured_outputs": 16,
+              "failed_outputs": 0,
+              "planned_unique_inputs": 16,
+              "planned_unique_samples": 16,
+              "eps50_overlap_valid": {
+                "outputs": 16,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_overlap_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "eps50_strip_valid": {
+                "outputs": 16,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_strip_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "within_strip": {
+                "outputs": 16,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "max_pairwise_area": {
+                "count": 16,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "sum_pairwise_area": {
+                "count": 16,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "height_violation": {
+                "count": 16,
+                "min": 0.0,
+                "median": 0.0,
+                "mean": 0.0,
+                "max": 0.0
+              },
+              "bbox_utilization": {
+                "count": 16,
+                "min": 1.3333333333333333,
+                "median": 1.3333333333333333,
+                "mean": 1.3333333333333333,
+                "max": 1.3333333333333333
+              },
+              "strip_utilization": {
+                "count": 16,
+                "min": 0.011111111111111112,
+                "median": 0.011111111111111112,
+                "mean": 0.011111111111111112,
+                "max": 0.011111111111111112
+              },
+              "comparison_count": 0,
+              "comparison_flags": {
+                "overlap_improved": 0,
+                "overlap_worse": 0,
+                "bounds_improved": 0,
+                "bounds_worse": 0,
+                "bbox_utilization_drop": 0,
+                "strip_utilization_drop": 0,
+                "became_eps50_strip_valid": 0,
+                "lost_eps50_strip_validity": 0,
+                "became_strict_strip_valid": 0,
+                "lost_strict_strip_validity": 0,
+                "rotation_unchanged": 0,
+                "x_gauge_only_change": 0
+              },
+              "translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "translation_max": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "relative_translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_max_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_sum_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_height_violation": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_bbox_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_strip_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "eps50_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 16,
+                  "min": 0.011111111111111112,
+                  "median": 0.011111111111111112,
+                  "mean": 0.011111111111111112,
+                  "max": 0.011111111111111112
+                },
+                "mean_all_planned_failure_zero": 0.011111111111111112
+              },
+              "strict_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 0,
+                  "min": null,
+                  "median": null,
+                  "mean": null,
+                  "max": null
+                },
+                "mean_all_planned_failure_zero": 0.0
+              }
+            },
+            {
+              "source": "pred",
+              "planned_outputs": 16,
+              "measured_outputs": 16,
+              "failed_outputs": 0,
+              "planned_unique_inputs": 16,
+              "planned_unique_samples": 16,
+              "eps50_overlap_valid": {
+                "outputs": 16,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_overlap_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "eps50_strip_valid": {
+                "outputs": 16,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_strip_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "within_strip": {
+                "outputs": 16,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "max_pairwise_area": {
+                "count": 16,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "sum_pairwise_area": {
+                "count": 16,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "height_violation": {
+                "count": 16,
+                "min": 0.0,
+                "median": 0.0,
+                "mean": 0.0,
+                "max": 0.0
+              },
+              "bbox_utilization": {
+                "count": 16,
+                "min": 1.3333333333333333,
+                "median": 1.3333333333333333,
+                "mean": 1.3333333333333333,
+                "max": 1.3333333333333333
+              },
+              "strip_utilization": {
+                "count": 16,
+                "min": 0.011111111111111112,
+                "median": 0.011111111111111112,
+                "mean": 0.011111111111111112,
+                "max": 0.011111111111111112
+              },
+              "comparison_count": 0,
+              "comparison_flags": {
+                "overlap_improved": 0,
+                "overlap_worse": 0,
+                "bounds_improved": 0,
+                "bounds_worse": 0,
+                "bbox_utilization_drop": 0,
+                "strip_utilization_drop": 0,
+                "became_eps50_strip_valid": 0,
+                "lost_eps50_strip_validity": 0,
+                "became_strict_strip_valid": 0,
+                "lost_strict_strip_validity": 0,
+                "rotation_unchanged": 0,
+                "x_gauge_only_change": 0
+              },
+              "translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "translation_max": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "relative_translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_max_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_sum_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_height_violation": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_bbox_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_strip_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "eps50_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 16,
+                  "min": 0.011111111111111112,
+                  "median": 0.011111111111111112,
+                  "mean": 0.011111111111111112,
+                  "max": 0.011111111111111112
+                },
+                "mean_all_planned_failure_zero": 0.011111111111111112
+              },
+              "strict_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 0,
+                  "min": null,
+                  "median": null,
+                  "mean": null,
+                  "max": null
+                },
+                "mean_all_planned_failure_zero": 0.0
+              }
+            }
+          ],
+          "by_baseline_group": [
+            {
+              "baseline_group": "failure",
+              "planned_outputs": 16,
+              "measured_outputs": 16,
+              "failed_outputs": 0,
+              "planned_unique_inputs": 16,
+              "planned_unique_samples": 8,
+              "eps50_overlap_valid": {
+                "outputs": 16,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_overlap_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "eps50_strip_valid": {
+                "outputs": 16,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_strip_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "within_strip": {
+                "outputs": 16,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "max_pairwise_area": {
+                "count": 16,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "sum_pairwise_area": {
+                "count": 16,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "height_violation": {
+                "count": 16,
+                "min": 0.0,
+                "median": 0.0,
+                "mean": 0.0,
+                "max": 0.0
+              },
+              "bbox_utilization": {
+                "count": 16,
+                "min": 1.3333333333333333,
+                "median": 1.3333333333333333,
+                "mean": 1.3333333333333333,
+                "max": 1.3333333333333333
+              },
+              "strip_utilization": {
+                "count": 16,
+                "min": 0.011111111111111112,
+                "median": 0.011111111111111112,
+                "mean": 0.011111111111111112,
+                "max": 0.011111111111111112
+              },
+              "comparison_count": 0,
+              "comparison_flags": {
+                "overlap_improved": 0,
+                "overlap_worse": 0,
+                "bounds_improved": 0,
+                "bounds_worse": 0,
+                "bbox_utilization_drop": 0,
+                "strip_utilization_drop": 0,
+                "became_eps50_strip_valid": 0,
+                "lost_eps50_strip_validity": 0,
+                "became_strict_strip_valid": 0,
+                "lost_strict_strip_validity": 0,
+                "rotation_unchanged": 0,
+                "x_gauge_only_change": 0
+              },
+              "translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "translation_max": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "relative_translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_max_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_sum_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_height_violation": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_bbox_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_strip_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "eps50_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 16,
+                  "min": 0.011111111111111112,
+                  "median": 0.011111111111111112,
+                  "mean": 0.011111111111111112,
+                  "max": 0.011111111111111112
+                },
+                "mean_all_planned_failure_zero": 0.011111111111111112
+              },
+              "strict_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 0,
+                  "min": null,
+                  "median": null,
+                  "mean": null,
+                  "max": null
+                },
+                "mean_all_planned_failure_zero": 0.0
+              }
+            },
+            {
+              "baseline_group": "success",
+              "planned_outputs": 16,
+              "measured_outputs": 16,
+              "failed_outputs": 0,
+              "planned_unique_inputs": 16,
+              "planned_unique_samples": 8,
+              "eps50_overlap_valid": {
+                "outputs": 16,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_overlap_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "eps50_strip_valid": {
+                "outputs": 16,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_strip_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "within_strip": {
+                "outputs": 16,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "max_pairwise_area": {
+                "count": 16,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "sum_pairwise_area": {
+                "count": 16,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "height_violation": {
+                "count": 16,
+                "min": 0.0,
+                "median": 0.0,
+                "mean": 0.0,
+                "max": 0.0
+              },
+              "bbox_utilization": {
+                "count": 16,
+                "min": 1.3333333333333333,
+                "median": 1.3333333333333333,
+                "mean": 1.3333333333333333,
+                "max": 1.3333333333333333
+              },
+              "strip_utilization": {
+                "count": 16,
+                "min": 0.011111111111111112,
+                "median": 0.011111111111111112,
+                "mean": 0.011111111111111112,
+                "max": 0.011111111111111112
+              },
+              "comparison_count": 0,
+              "comparison_flags": {
+                "overlap_improved": 0,
+                "overlap_worse": 0,
+                "bounds_improved": 0,
+                "bounds_worse": 0,
+                "bbox_utilization_drop": 0,
+                "strip_utilization_drop": 0,
+                "became_eps50_strip_valid": 0,
+                "lost_eps50_strip_validity": 0,
+                "became_strict_strip_valid": 0,
+                "lost_strict_strip_validity": 0,
+                "rotation_unchanged": 0,
+                "x_gauge_only_change": 0
+              },
+              "translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "translation_max": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "relative_translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_max_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_sum_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_height_violation": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_bbox_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_strip_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "eps50_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 16,
+                  "min": 0.011111111111111112,
+                  "median": 0.011111111111111112,
+                  "mean": 0.011111111111111112,
+                  "max": 0.011111111111111112
+                },
+                "mean_all_planned_failure_zero": 0.011111111111111112
+              },
+              "strict_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 0,
+                  "min": null,
+                  "median": null,
+                  "mean": null,
+                  "max": null
+                },
+                "mean_all_planned_failure_zero": 0.0
+              }
+            }
+          ],
+          "by_output_precision": [
+            {
+              "output_precision": "float32",
+              "planned_outputs": 32,
+              "measured_outputs": 32,
+              "failed_outputs": 0,
+              "planned_unique_inputs": 32,
+              "planned_unique_samples": 16,
+              "eps50_overlap_valid": {
+                "outputs": 32,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_overlap_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "eps50_strip_valid": {
+                "outputs": 32,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_strip_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "within_strip": {
+                "outputs": 32,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "max_pairwise_area": {
+                "count": 32,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "sum_pairwise_area": {
+                "count": 32,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "height_violation": {
+                "count": 32,
+                "min": 0.0,
+                "median": 0.0,
+                "mean": 0.0,
+                "max": 0.0
+              },
+              "bbox_utilization": {
+                "count": 32,
+                "min": 1.3333333333333333,
+                "median": 1.3333333333333333,
+                "mean": 1.3333333333333333,
+                "max": 1.3333333333333333
+              },
+              "strip_utilization": {
+                "count": 32,
+                "min": 0.011111111111111112,
+                "median": 0.011111111111111112,
+                "mean": 0.011111111111111112,
+                "max": 0.011111111111111112
+              },
+              "comparison_count": 0,
+              "comparison_flags": {
+                "overlap_improved": 0,
+                "overlap_worse": 0,
+                "bounds_improved": 0,
+                "bounds_worse": 0,
+                "bbox_utilization_drop": 0,
+                "strip_utilization_drop": 0,
+                "became_eps50_strip_valid": 0,
+                "lost_eps50_strip_validity": 0,
+                "became_strict_strip_valid": 0,
+                "lost_strict_strip_validity": 0,
+                "rotation_unchanged": 0,
+                "x_gauge_only_change": 0
+              },
+              "translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "translation_max": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "relative_translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_max_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_sum_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_height_violation": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_bbox_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_strip_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "eps50_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 32,
+                  "min": 0.011111111111111112,
+                  "median": 0.011111111111111112,
+                  "mean": 0.011111111111111112,
+                  "max": 0.011111111111111112
+                },
+                "mean_all_planned_failure_zero": 0.011111111111111112
+              },
+              "strict_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 0,
+                  "min": null,
+                  "median": null,
+                  "mean": null,
+                  "max": null
+                },
+                "mean_all_planned_failure_zero": 0.0
+              }
+            }
+          ],
+          "by_path_source_group": [
+            {
+              "path": "two_start_compact",
+              "source": "gt",
+              "baseline_group": "failure",
+              "output_precision": "float32",
+              "planned_outputs": 8,
+              "measured_outputs": 8,
+              "failed_outputs": 0,
+              "planned_unique_inputs": 8,
+              "planned_unique_samples": 8,
+              "eps50_overlap_valid": {
+                "outputs": 8,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_overlap_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "eps50_strip_valid": {
+                "outputs": 8,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_strip_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "within_strip": {
+                "outputs": 8,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "max_pairwise_area": {
+                "count": 8,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "sum_pairwise_area": {
+                "count": 8,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "height_violation": {
+                "count": 8,
+                "min": 0.0,
+                "median": 0.0,
+                "mean": 0.0,
+                "max": 0.0
+              },
+              "bbox_utilization": {
+                "count": 8,
+                "min": 1.3333333333333333,
+                "median": 1.3333333333333333,
+                "mean": 1.3333333333333333,
+                "max": 1.3333333333333333
+              },
+              "strip_utilization": {
+                "count": 8,
+                "min": 0.011111111111111112,
+                "median": 0.011111111111111112,
+                "mean": 0.011111111111111112,
+                "max": 0.011111111111111112
+              },
+              "comparison_count": 0,
+              "comparison_flags": {
+                "overlap_improved": 0,
+                "overlap_worse": 0,
+                "bounds_improved": 0,
+                "bounds_worse": 0,
+                "bbox_utilization_drop": 0,
+                "strip_utilization_drop": 0,
+                "became_eps50_strip_valid": 0,
+                "lost_eps50_strip_validity": 0,
+                "became_strict_strip_valid": 0,
+                "lost_strict_strip_validity": 0,
+                "rotation_unchanged": 0,
+                "x_gauge_only_change": 0
+              },
+              "translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "translation_max": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "relative_translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_max_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_sum_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_height_violation": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_bbox_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_strip_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "eps50_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 8,
+                  "min": 0.011111111111111112,
+                  "median": 0.011111111111111112,
+                  "mean": 0.011111111111111112,
+                  "max": 0.011111111111111112
+                },
+                "mean_all_planned_failure_zero": 0.011111111111111112
+              },
+              "strict_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 0,
+                  "min": null,
+                  "median": null,
+                  "mean": null,
+                  "max": null
+                },
+                "mean_all_planned_failure_zero": 0.0
+              }
+            },
+            {
+              "path": "two_start_compact",
+              "source": "gt",
+              "baseline_group": "success",
+              "output_precision": "float32",
+              "planned_outputs": 8,
+              "measured_outputs": 8,
+              "failed_outputs": 0,
+              "planned_unique_inputs": 8,
+              "planned_unique_samples": 8,
+              "eps50_overlap_valid": {
+                "outputs": 8,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_overlap_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "eps50_strip_valid": {
+                "outputs": 8,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_strip_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "within_strip": {
+                "outputs": 8,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "max_pairwise_area": {
+                "count": 8,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "sum_pairwise_area": {
+                "count": 8,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "height_violation": {
+                "count": 8,
+                "min": 0.0,
+                "median": 0.0,
+                "mean": 0.0,
+                "max": 0.0
+              },
+              "bbox_utilization": {
+                "count": 8,
+                "min": 1.3333333333333333,
+                "median": 1.3333333333333333,
+                "mean": 1.3333333333333333,
+                "max": 1.3333333333333333
+              },
+              "strip_utilization": {
+                "count": 8,
+                "min": 0.011111111111111112,
+                "median": 0.011111111111111112,
+                "mean": 0.011111111111111112,
+                "max": 0.011111111111111112
+              },
+              "comparison_count": 0,
+              "comparison_flags": {
+                "overlap_improved": 0,
+                "overlap_worse": 0,
+                "bounds_improved": 0,
+                "bounds_worse": 0,
+                "bbox_utilization_drop": 0,
+                "strip_utilization_drop": 0,
+                "became_eps50_strip_valid": 0,
+                "lost_eps50_strip_validity": 0,
+                "became_strict_strip_valid": 0,
+                "lost_strict_strip_validity": 0,
+                "rotation_unchanged": 0,
+                "x_gauge_only_change": 0
+              },
+              "translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "translation_max": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "relative_translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_max_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_sum_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_height_violation": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_bbox_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_strip_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "eps50_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 8,
+                  "min": 0.011111111111111112,
+                  "median": 0.011111111111111112,
+                  "mean": 0.011111111111111112,
+                  "max": 0.011111111111111112
+                },
+                "mean_all_planned_failure_zero": 0.011111111111111112
+              },
+              "strict_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 0,
+                  "min": null,
+                  "median": null,
+                  "mean": null,
+                  "max": null
+                },
+                "mean_all_planned_failure_zero": 0.0
+              }
+            },
+            {
+              "path": "two_start_compact",
+              "source": "pred",
+              "baseline_group": "failure",
+              "output_precision": "float32",
+              "planned_outputs": 8,
+              "measured_outputs": 8,
+              "failed_outputs": 0,
+              "planned_unique_inputs": 8,
+              "planned_unique_samples": 8,
+              "eps50_overlap_valid": {
+                "outputs": 8,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_overlap_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "eps50_strip_valid": {
+                "outputs": 8,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_strip_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "within_strip": {
+                "outputs": 8,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "max_pairwise_area": {
+                "count": 8,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "sum_pairwise_area": {
+                "count": 8,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "height_violation": {
+                "count": 8,
+                "min": 0.0,
+                "median": 0.0,
+                "mean": 0.0,
+                "max": 0.0
+              },
+              "bbox_utilization": {
+                "count": 8,
+                "min": 1.3333333333333333,
+                "median": 1.3333333333333333,
+                "mean": 1.3333333333333333,
+                "max": 1.3333333333333333
+              },
+              "strip_utilization": {
+                "count": 8,
+                "min": 0.011111111111111112,
+                "median": 0.011111111111111112,
+                "mean": 0.011111111111111112,
+                "max": 0.011111111111111112
+              },
+              "comparison_count": 0,
+              "comparison_flags": {
+                "overlap_improved": 0,
+                "overlap_worse": 0,
+                "bounds_improved": 0,
+                "bounds_worse": 0,
+                "bbox_utilization_drop": 0,
+                "strip_utilization_drop": 0,
+                "became_eps50_strip_valid": 0,
+                "lost_eps50_strip_validity": 0,
+                "became_strict_strip_valid": 0,
+                "lost_strict_strip_validity": 0,
+                "rotation_unchanged": 0,
+                "x_gauge_only_change": 0
+              },
+              "translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "translation_max": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "relative_translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_max_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_sum_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_height_violation": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_bbox_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_strip_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "eps50_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 8,
+                  "min": 0.011111111111111112,
+                  "median": 0.011111111111111112,
+                  "mean": 0.011111111111111112,
+                  "max": 0.011111111111111112
+                },
+                "mean_all_planned_failure_zero": 0.011111111111111112
+              },
+              "strict_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 0,
+                  "min": null,
+                  "median": null,
+                  "mean": null,
+                  "max": null
+                },
+                "mean_all_planned_failure_zero": 0.0
+              }
+            },
+            {
+              "path": "two_start_compact",
+              "source": "pred",
+              "baseline_group": "success",
+              "output_precision": "float32",
+              "planned_outputs": 8,
+              "measured_outputs": 8,
+              "failed_outputs": 0,
+              "planned_unique_inputs": 8,
+              "planned_unique_samples": 8,
+              "eps50_overlap_valid": {
+                "outputs": 8,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_overlap_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "eps50_strip_valid": {
+                "outputs": 8,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "strict_strip_valid": {
+                "outputs": 0,
+                "fraction_all_planned": 0.0,
+                "fraction_measured_only": 0.0
+              },
+              "within_strip": {
+                "outputs": 8,
+                "fraction_all_planned": 1.0,
+                "fraction_measured_only": 1.0
+              },
+              "max_pairwise_area": {
+                "count": 8,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "sum_pairwise_area": {
+                "count": 8,
+                "min": 50.0,
+                "median": 50.0,
+                "mean": 50.0,
+                "max": 50.0
+              },
+              "height_violation": {
+                "count": 8,
+                "min": 0.0,
+                "median": 0.0,
+                "mean": 0.0,
+                "max": 0.0
+              },
+              "bbox_utilization": {
+                "count": 8,
+                "min": 1.3333333333333333,
+                "median": 1.3333333333333333,
+                "mean": 1.3333333333333333,
+                "max": 1.3333333333333333
+              },
+              "strip_utilization": {
+                "count": 8,
+                "min": 0.011111111111111112,
+                "median": 0.011111111111111112,
+                "mean": 0.011111111111111112,
+                "max": 0.011111111111111112
+              },
+              "comparison_count": 0,
+              "comparison_flags": {
+                "overlap_improved": 0,
+                "overlap_worse": 0,
+                "bounds_improved": 0,
+                "bounds_worse": 0,
+                "bbox_utilization_drop": 0,
+                "strip_utilization_drop": 0,
+                "became_eps50_strip_valid": 0,
+                "lost_eps50_strip_validity": 0,
+                "became_strict_strip_valid": 0,
+                "lost_strict_strip_validity": 0,
+                "rotation_unchanged": 0,
+                "x_gauge_only_change": 0
+              },
+              "translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "translation_max": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "relative_translation_rms": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_max_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_sum_pairwise_area": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_height_violation": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_bbox_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "delta_strip_utilization": {
+                "count": 0,
+                "min": null,
+                "median": null,
+                "mean": null,
+                "max": null
+              },
+              "eps50_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 8,
+                  "min": 0.011111111111111112,
+                  "median": 0.011111111111111112,
+                  "mean": 0.011111111111111112,
+                  "max": 0.011111111111111112
+                },
+                "mean_all_planned_failure_zero": 0.011111111111111112
+              },
+              "strict_strip_valid_strip_utilization": {
+                "conditional_valid_only": {
+                  "count": 0,
+                  "min": null,
+                  "median": null,
+                  "mean": null,
+                  "max": null
+                },
+                "mean_all_planned_failure_zero": 0.0
+              }
+            }
+          ]
+        },
+        "meaning": "Measured invalid endpoints retain all planned slots; completed means measured, not feasible"
+      }
+    },
+    {
+      "name": "real_045_legacy_repair_warm_start",
+      "passed": true,
+      "details": {
+        "input_case_sha256": "092154a6f576962adf86decc0756e639abc2ce25d8f7485d5afb928d4589713b",
+        "legacy_seed_job_sha256": "bd4cc632f80055f0d637aae70a3aff9b854a818870af1161f591b41f9e117721",
+        "raw_job_sha256": "914d03e3b90dd1ef14eaf3b227bcb0deadf483a7bba1ea073c173b5bcaa4bda3",
+        "second_attempt_seconds_budget": 12.0,
+        "actual_seed_optimizer_run": true,
+        "result": {
+          "status": "strict_feasible",
+          "selected_start": "legacy_repair",
+          "attempts": [
+            {
+              "start": "raw",
+              "after": {
+                "status": "measured",
+                "piece_count": 48,
+                "max_pairwise_area": 0.0,
+                "sum_pairwise_area": 0.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 0,
+                "positive_area_pair_count": 0,
+                "total_polygon_area": 1849680.5076548085,
+                "original_polygon_area": 1849680.5076548092,
+                "rigid_area_absolute_error": 6.984919309616089e-10,
+                "sum_pairwise_overlap_fraction": 0.0,
+                "bounds_xyxy": [
+                  3.0571659676061245,
+                  3.348681347502179,
+                  2693.526549526019,
+                  1199.034649912801
+                ],
+                "span_x": 2690.469383558413,
+                "span_y": 1195.6859685652987,
+                "bbox_utilization": 0.574978403642946,
+                "strip_utilization": 0.5729113412199542,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": true,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": true,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "strict_feasible",
+              "compaction_status": "completed"
+            },
+            {
+              "start": "legacy_repair",
+              "after": {
+                "status": "measured",
+                "piece_count": 48,
+                "max_pairwise_area": 0.0,
+                "sum_pairwise_area": 0.0,
+                "pair_count_over_50": 0,
+                "pair_count_over_1e_9": 0,
+                "positive_area_pair_count": 0,
+                "total_polygon_area": 1849680.5076548087,
+                "original_polygon_area": 1849680.5076548092,
+                "rigid_area_absolute_error": 4.656612873077393e-10,
+                "sum_pairwise_overlap_fraction": 0.0,
+                "bounds_xyxy": [
+                  3.0571659676061245,
+                  1.8017424054050935e-05,
+                  2171.9629051914994,
+                  1199.5383821453129
+                ],
+                "span_x": 2168.9057392238933,
+                "span_y": 1199.5383641278888,
+                "bbox_utilization": 0.71095465091064,
+                "strip_utilization": 0.7106811491020528,
+                "strip_height": 1200.0,
+                "height_violation": 0.0,
+                "lower_y_violation": 0.0,
+                "upper_y_violation": 0.0,
+                "within_strip": true,
+                "eps50_overlap_valid": true,
+                "strict_overlap_valid": true,
+                "eps50_strip_valid": true,
+                "strict_strip_valid": true,
+                "zero_rotation_vector_count": 0,
+                "top_pairs": [],
+                "horizontal_domain": "infinite_strip_no_x_wall",
+                "area_eps": 50.0,
+                "strict_area_eps": 1e-09,
+                "boundary_eps": 1e-09
+              },
+              "repair_status": "strict_feasible",
+              "compaction_status": "completed"
+            }
+          ],
+          "seed_result": {
+            "repair_status": "strict_feasible",
+            "compaction_status": "completed",
+            "boundary_adjustments": 1,
+            "interval_calls": 1995,
+            "candidate_checks": 173,
+            "elapsed_seconds": 2.5511808000010205,
+            "storage_precision": "float32_at_every_accepted_endpoint",
+            "rotations": "single float32 cast, then fixed throughout optimization",
+            "failure_policy": "return measured partial layout with explicit status; never remove input"
+          },
+          "seed_reused_raw_result": false,
+          "selection_rule": "minimum horizontal span among strict stored endpoints; raw wins exact ties",
+          "new_solver_seconds_without_legacy_seed_generation": 8.721717099993839
+        },
+        "selected_independent_geometry": {
+          "status": "measured",
+          "piece_count": 48,
+          "max_pairwise_area": 0.0,
+          "sum_pairwise_area": 0.0,
+          "pair_count_over_50": 0,
+          "pair_count_over_1e_9": 0,
+          "positive_area_pair_count": 0,
+          "total_polygon_area": 1849680.5076548087,
+          "original_polygon_area": 1849680.5076548092,
+          "rigid_area_absolute_error": 4.656612873077393e-10,
+          "sum_pairwise_overlap_fraction": 0.0,
+          "bounds_xyxy": [
+            3.0571659676061245,
+            1.8017424054050935e-05,
+            2171.9629051914994,
+            1199.5383821453129
+          ],
+          "span_x": 2168.9057392238933,
+          "span_y": 1199.5383641278888,
+          "bbox_utilization": 0.71095465091064,
+          "strip_utilization": 0.7106811491020528,
+          "strip_height": 1200.0,
+          "height_violation": 0.0,
+          "lower_y_violation": 0.0,
+          "upper_y_violation": 0.0,
+          "within_strip": true,
+          "eps50_overlap_valid": true,
+          "strict_overlap_valid": true,
+          "eps50_strip_valid": true,
+          "strict_strip_valid": true,
+          "zero_rotation_vector_count": 0,
+          "top_pairs": [],
+          "horizontal_domain": "infinite_strip_no_x_wall",
+          "area_eps": 50.0,
+          "strict_area_eps": 1e-09,
+          "boundary_eps": 1e-09
+        }
+      }
+    }
+  ],
+  "private_full_controls_sha256": "426719a58622483bf0990a1bc2eb20cbb96c3d84c8310f4da7516f50dff6f913",
+  "redaction": "Stored actions and move endpoints retained in private evidence; metric/status/source-hash records retained."
+}

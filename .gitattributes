@@ -15,3 +15,4 @@ docs/paper_alignment/*.patch -whitespace
 docs/checkpoint_alignment/* -text
 docs/postprocess_ablation/* -text
 docs/postprocess_ablation/*.patch -whitespace
+docs/compact_layout/* -text

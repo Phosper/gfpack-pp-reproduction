@@ -1,0 +1,17 @@
+{
+  "planned_inputs": 32,
+  "height": 1200.0,
+  "horizontal_walls": null,
+  "starts": [
+    "frozen raw candidate",
+    "round7 deterministic repair of that same candidate"
+  ],
+  "policy": "Uniform two-start rule on all16 predictions and GT, no case-specific exception; equal stored starts explicitly reuse the raw result",
+  "selection": "Strict feasible stored float32 endpoints only, choose minimum span; raw wins ties",
+  "seconds_per_attempt": 45.0,
+  "sweeps_per_attempt": 4,
+  "scope": "Paired development analysis, not independent generalization or a 512-candidate rate",
+  "timing_caveat": "New solver costs include both distinct attempts but exclude already recorded legacy seed generation",
+  "reason": "Single-piece local repair can be trapped by neighboring pieces; preserve the cooperative legacy seed as a second deterministic starting point",
+  "original_one_start_results_retained": true
+}
