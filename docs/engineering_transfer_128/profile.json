@@ -1,0 +1,28 @@
+{
+  "samples": [
+    15,
+    1,
+    99,
+    16
+  ],
+  "inputs": 8,
+  "elapsed_seconds": 45.20367739998619,
+  "workers": 1,
+  "independent_ledger_counts": {
+    "moved_piece_pair_rechecks": 70547,
+    "global_strict_compaction_endpoints": 1491,
+    "moves": 1501,
+    "compact_left": 792,
+    "stored_noop_moves": 174,
+    "compact_right": 699,
+    "boundary_adjustments": 1,
+    "pipelines_replayed": 10,
+    "local_repair": 10
+  },
+  "independent_profile_verification_seconds": 10.190493200003402,
+  "maximum_peak_worker_memory_bytes": 49733632,
+  "seed_generation_seconds": 2.216506197117269,
+  "solver_seconds": 39.16187330003595,
+  "contains_gt_controls": true,
+  "no_budget_or_algorithm_changes": true
+}

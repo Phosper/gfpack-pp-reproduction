@@ -1,0 +1,17 @@
+{
+  "run_cost_profile": {
+    "native_seed_generation_seconds_sum": 56.595379987731576,
+    "native_seed_stage_wall_seconds": 60.96284206863493,
+    "native_seed_io_and_overhead_seconds": 4.367462080903351,
+    "solver_seconds_sum": 1031.0456846005109,
+    "io_seconds_sum_including_input_validation": 22.419343600719003,
+    "run_wall_seconds_including_io_and_worker_startup": 648.2240709000034,
+    "completed_inputs_per_run_wall_second": 0.3949251678429127,
+    "maximum_peak_worker_memory_bytes": 50200576,
+    "independent_verification": "Measured separately in sibling completion.json",
+    "timing_scope": "Native seeds generated remotely, solver locally; component sums and measured stage wall times are reported separately"
+  },
+  "verification_seconds": 908.6084138000151,
+  "measured_stage_wall_seconds_sum": 1617.7953267686535,
+  "total_wall_scope": "Sum of native seed, local run (includes I/O/profile replay), final independent verification stages; excludes freezing, network transfer and human preparation"
+}

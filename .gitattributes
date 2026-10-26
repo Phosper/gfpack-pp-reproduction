@@ -16,3 +16,4 @@ docs/checkpoint_alignment/* -text
 docs/postprocess_ablation/* -text
 docs/postprocess_ablation/*.patch -whitespace
 docs/compact_layout/* -text
+docs/engineering_transfer_128/* -text

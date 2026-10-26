@@ -1,0 +1,22 @@
+{
+  "scope": "Frozen engineering transfer 128x1; metric-only independent verification and cost evidence; one GT save failure retained",
+  "frozen_manifest_sha256": "1f1a1e2662c4e11eea2ea0d3a6ad0c491478e339748b7d6aaa3f00d8850c1b5a",
+  "source_sha256": {
+    "freeze_engineering_transfer.py": "caf703f032c82111f87870346cc5cd1394c6e201aca8e777fdc53f5ef3d97be2",
+    "run_engineering_transfer.py": "636440ecfd4289b786fed18310de4cf57a826938963bedc5e3508a2ed3858990",
+    "prepare_transfer_seeds.py": "06de5b6c75b1a609c7585f642b6a235bb045f557678b752ffe97365eb2a6e365",
+    "compact_portfolio.py": "456beaf3dac6d0874d0b24f17bdbbea36e8bc406068273dfa75cf3548502db96",
+    "compact_layout.py": "3e390b811faef98d3614ccd3249b319e3beb21da8812950a8d531869a28a075e",
+    "translation_intervals.py": "a884a0438909dec187bfa1a0be2f49f52da2be4caef221b925e67e3fef01ed6f",
+    "postprocess_metrics.py": "635a5160c4f8dff9390cdae45242bd9b1b0a196d8e45b1059fb9f82170dbe093",
+    "check_collision_saved_cases.py": "0b1a58706a9232157e525fbbbe47b3e5d1e59a955da3745863f49f5f22b86c12",
+    "verify_engineering_transfer.py": "165ced8dc2e4c3d35f5cf657d16a4860fc999280b1d31b307981550765ae2bd6",
+    "verify_compact_layouts.py": "faf11697ab67fe91d4353d9093233d2be0fae091d77cc2347dfd061b973389e5",
+    "verify_compact_portfolio.py": "d6388b791b2773158d4a8240138744feb281c9669068c0728195c32ccd09b882"
+  },
+  "evidence_sha256": {
+    "cost.json": "e6c2ee7007d069c77e3df6abe8a2e02a248ed761c56361406d25916cad9c3e7b",
+    "profile.json": "be0dcc6926b0baaefd300005fd8dac2e048349cd295ddac06014db67f1ca6b9a",
+    "verification.json": "9200498948b8b014ee4d40bfb5c4b33b3495737e519e887c73fd51fcffe3a7f7"
+  }
+}
