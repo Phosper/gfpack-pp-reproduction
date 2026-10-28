@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "status": "draft_not_an_executable_run_config",
+  "created_date": "2026-10-28",
+  "branch": "codex/paper-reproduction",
+  "starting_commit": "f7a9b3830edc5e6c757b159342d6f222d32093b9",
+  "paper_url": "https://arxiv.org/html/2406.07579v2",
+  "upstream_commit": "ff75815e24ec50cd7fa8b2abdec1acfe0b55be95",
+  "first_target": "Dental_main_experiments_with_arbitrary_rotation",
+  "known_release_assets": {
+    "evidence": "docs/checkpoint_alignment/checkpoint_audit.json",
+    "checkpoint": {
+      "archive_path": "data/ckpt/dental.pth",
+      "sha256": "e3585572100e61c5f3112a8925e7add420b70c8c7a8f23e29be97788ad3c5643",
+      "paper_checkpoint_identity": "unconfirmed"
+    },
+    "test_dataset": {
+      "archive_path": "data/test/dental_test.pkl",
+      "sha256": "dffdd191803ddfeb7701d9012b1f38dd88f01ee9333747a19ba86e18870848e0",
+      "paper_test_split_identity": "unconfirmed"
+    }
+  },
+  "planned_dental_evaluation": {
+    "instances": 128,
+    "polygons_per_instance": 48,
+    "strip_height": 1200,
+    "horizontal_right_wall": null,
+    "candidate_counts": [128, 512],
+    "planned_candidates_per_run": {"b128": 16384, "b512": 65536},
+    "method_config": null,
+    "seeds": null,
+    "repeat_count": null,
+    "model_mode": null,
+    "hardware": null,
+    "acceptance_tolerance": null,
+    "note": "Freeze unresolved run settings before evaluation; null is not an executable default."
+  },
+  "criteria": {
+    "official_native": {
+      "definition": "Replay the pinned native implementation and its actual candidate-valid output.",
+      "paper_equivalence": "unconfirmed"
+    },
+    "reference_area_50": {
+      "max_pair_overlap_area_lte": 50,
+      "require_strip_containment": true,
+      "boundary_tolerance": null,
+      "paper_equivalence": "not_established"
+    },
+    "strict_project_diagnostic": {
+      "max_pair_overlap_area_lte": 1e-9,
+      "max_boundary_violation_lte": 1e-9,
+      "require_saved_float32_actions_recheck": true,
+      "paper_equivalence": "not_a_paper_specified_tolerance"
+    }
+  },
+  "candidate_selection": {
+    "scope": "Evaluate every planned candidate; select independently for each criterion.",
+    "objective": "Maximum nominal strip utilization among candidates passing that criterion.",
+    "tie_breaker": "Lowest original candidate index.",
+    "no_valid_candidate": "Record no_valid_candidate; do not substitute an invalid layout as a successful result."
+  },
+  "required_metrics": [
+    "planned_completed_missing_and_execution_failed_counts",
+    "candidate_valid_fraction_over_planned_candidates",
+    "instance_at_least_one_valid_fraction_over_planned_instances",
+    "valid_instance_best_utilization_min_mean_max",
+    "all_instance_best_utilization_mean_failure_counted_as_zero",
+    "max_pair_overlap_area_and_sum_of_pair_areas",
+    "boundary_violation_and_horizontal_span",
+    "raw_and_enhanced_and_saved_coordinate_metrics"
+  ],
+  "utilization": {
+    "nominal_strip": "sum_polygon_area / (strip_height * horizontal_span)",
+    "native_bbox": "Report separately using the pinned implementation.",
+    "invalid_candidate": "Nominal utilization is diagnostic only, not a feasible packing score.",
+    "paper_formula": "The paper uses union area; equality with sum area holds for non-overlapping layouts."
+  },
+  "timing_components": ["preparation", "sampling", "collision_repair", "gap_compression", "selection", "geometry_evaluation", "io"],
+  "historical_evidence": {
+    "official_baseline": "docs/DIAGNOSIS.md",
+    "round5_completed_probes": "docs/paper_alignment/verification.json",
+    "round6_asset_audit": "docs/checkpoint_alignment/checkpoint_audit.json",
+    "engineering_128x1_completed": "docs/engineering_transfer_128/verification.json"
+  },
+  "unresolved": [
+    "Architecture and training configuration corresponding to the paper model description.",
+    "Exact training configuration of the released checkpoint.",
+    "Exact paper test instances and collision-validity tolerances.",
+    "Nonconvex separation implementation and enhancement step/order/convergence details.",
+    "Runtime resources and complete round5 trajectory locations."
+  ]
+}

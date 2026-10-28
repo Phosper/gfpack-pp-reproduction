@@ -4,6 +4,8 @@ The paper supplies a 100-iteration ceiling but no post-gradient step size,
 stopping tolerances, or exact interleaving. We declare a unit repulsion step,
 then x/y gap removal each iteration. The gap primitive is checked independently
 with native unthresholded overlap/bounds; unsafe gap moves are rolled back.
+This remains the default legacy_unit policy. The optional guarded_backtracking
+policy adds independently measured step acceptance in its own module.
 """
 import math
 import time
@@ -20,7 +22,14 @@ def field(native, polygons, ids, actions, height=1200.):
     return result, angles
 
 
-def enhance(native, polygons, ids, actions, max_iterations=100, height=1200.):
+def enhance(native, polygons, ids, actions, max_iterations=100, height=1200., *,
+            policy="legacy_unit"):
+    # Keep the historical round-5 path replayable, without changing its output.
+    if policy == "guarded_backtracking":
+        from paper_guarded_enhancement import enhance_guarded
+        return enhance_guarded(native, polygons, ids, actions, max_iterations, height)
+    if policy != "legacy_unit":
+        raise ValueError("Unknown post policy: %s" % policy)
     if type(max_iterations) is not int or not 0 <= max_iterations <= 100:
         raise ValueError("post iterations must be in [0,100]")
     a = np.array(actions, dtype=np.float64, copy=True)

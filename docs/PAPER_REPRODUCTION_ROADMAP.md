@@ -2,6 +2,8 @@
 
 规划日期：2026-10-26。工程算法冻结点：`6e1338d`；官方源码：`ff75815e24ec50cd7fa8b2abdec1acfe0b55be95`。本轮只制定路线，没有启动新评测、训练或对外联系。
 
+2026-10-28状态更新：独立分支 `codex/paper-reproduction` 已建立，最新执行状态见 [完整复现进度](FULL_PAPER_REPRODUCTION.md)。下文E1的128×1工程验证已完成，结果见 [验证报告](ENGINEERING_TRANSFER_128.md)；P0评价合同已建立[草案](../configs/paper_reproduction/evaluation_contract.json)，方法配置、重复种子和硬件等仍待实际固定。下文保留原规划，涉及“待做128×1”的内容不再作为新待办。
+
 ## 目标与已有基础
 
 首个目标为**支持任意旋转的Dental主实验复现**，之后扩展训练消融和其它任务。完成Dental时只称“Dental主实验复现”，不直接称整篇论文复现。

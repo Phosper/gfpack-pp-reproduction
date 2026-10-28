@@ -2,6 +2,14 @@
 
 基于 [TimHsue/GFPack-pp](https://github.com/TimHsue/GFPack-pp) 的官方权重推理复现。这里保存课程作业的准备、构建和推理脚本，不包含官方源码副本、权重、数据和运行环境。论文见 [arXiv:2406.07579](https://arxiv.org/abs/2406.07579)。
 
+## 独立论文复现分支
+
+`codex/paper-reproduction` 于2026-10-28从 `f7a9b3830edc5e6c757b159342d6f222d32093b9` 建立，承接第五轮论文对齐实现和全部已有实验记录，目标覆盖主实验、训练、消融与泛化实验。当前仍处于复现排查阶段。
+
+执行入口见 [完整复现进度与任务](docs/FULL_PAPER_REPRODUCTION.md)，首阶段评价草案见 [evaluation_contract.json](configs/paper_reproduction/evaluation_contract.json)。第五轮测试已经完成，接下来先分析已有失败证据；128×1工程验证也已完成，不作为新的待办重复安排。
+
+本分支新增可选的 [碰撞移动接受规则与固定候选回放](docs/PAPER_COLLISION_ACCEPTANCE.md)：保留原方向和面积权重，用回溯步长拒绝交叠/越界恶化，并记录修正、压缩、float32 保存三个阶段。该数值规则是明确标注的重建变体，不是作者确认的原版实现。
+
 ## 获取源码与资源
 
 ```bash

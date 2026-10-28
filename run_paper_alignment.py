@@ -68,6 +68,9 @@ def main():
     parser.add_argument("--smoke",action="store_true")
     parser.add_argument("--no-constraints",action="store_true")
     parser.add_argument("--post-iterations",type=int,default=100)
+    parser.add_argument("--post-policy",choices=("legacy_unit","guarded_backtracking"),
+                        default="legacy_unit",
+                        help="Explicit numerical reconstruction policy; neither is an author-confirmed post solver")
     args=parser.parse_args()
     sys.dont_write_bytecode=True
     if args.candidates<1 or args.candidates>512 or (args.candidates!=512 and not args.smoke):
@@ -104,13 +107,15 @@ def main():
     inputs+=sorted((root/"extensions").glob("*.so"))
     inputs+=sorted((root/"resources/data/polygons").glob("*.txt"))
     inputs+=[Path(__file__).resolve().with_name(name) for name in
-             ("run_paper_alignment.py","paper_sampler.py","paper_metrics.py","paper_enhancement.py","run_inference.py")]
+             ("run_paper_alignment.py","paper_sampler.py","paper_metrics.py","paper_enhancement.py",
+              "paper_guarded_enhancement.py","run_inference.py")]
     frozen={str(p):sha256(p) for p in inputs}
     out.mkdir(parents=True,exist_ok=False)
     started=time.perf_counter();settings=profile_settings(args.profile)
     meta={"status":"running","started_utc":utc_now(),"profile":settings,"sample_index":args.sample_index,
           "planned_candidates":args.candidates,"smoke":args.smoke,"seed":3407,
           "constraints_enabled":not args.no_constraints,"post_iterations":args.post_iterations,
+          "post_policy":args.post_policy,
           "checkpoint_sha256":sha256(checkpoint),"input_sha256":frozen,
           "paper_full_reproduction":False,"checkpoint_training_configuration_verified":False,
           "architecture_boundary_encoder_matches_paper":False,
@@ -121,7 +126,9 @@ def main():
           "software":{"python":sys.version,"pytorch":str(torch.__version__),"cuda":torch.version.cuda},
           "geometry_assumptions":["native Clipper precision2 retained", "convex SAT MTV; concave edge-axis conservative proxy",
               "only translation collision gradients; no documented rotation gradient",
-              "height1200, no horizontal right wall", "post unit step then x/y gap; unspecified by paper"]}
+              "height1200, no horizontal right wall",
+              ("post unit step then x/y gap; unspecified by paper" if args.post_policy=="legacy_unit" else
+               "post same-field backtracking then guarded x/y gap; our numerical reconstruction, unspecified by paper")]}
     try:
         torch.set_num_threads(16);evaluation.setRandomSeed(3407);np.random.seed(3407)
         torch.backends.cudnn.benchmark=False
@@ -156,9 +163,10 @@ def main():
         post_input=raw.numpy().astype(np.float64,copy=True)
         post_input[:,:,0]-=np.asarray(raw_native["bounding_boxes_xyxy"])[:,0,None]
         if args.post_iterations:
-            final,post=enhance(collision_probe,polygons,id_list,post_input,args.post_iterations,1200.)
+            final,post=enhance(collision_probe,polygons,id_list,post_input,args.post_iterations,1200.,
+                               policy=args.post_policy)
         else:
-            final=post_input;post={"iterations_executed":0,"reason":"post disabled"}
+            final=post_input;post={"iterations_executed":0,"reason":"post disabled","requested_policy":args.post_policy}
         torch.save(torch.tensor(final,dtype=torch.float64),out/"predictions_enhanced_float64.pt")
         # Persist and independently evaluate the FP32 storage conversion as well.
         final32=torch.tensor(final,dtype=torch.float32)
