@@ -2,10 +2,12 @@
 """Replay corrected paper geometry on authenticated saved raw candidates.
 
 No CUDA, released model, resampling, or historical native extension is needed.
-The correction retains unit collision steps and the 100-iteration ceiling.
+The baseline retains unit collision steps and the 100-iteration ceiling.
+Non-unit steps must be requested explicitly and are labelled numerical probes.
 """
 import argparse
 import json
+import math
 from pathlib import Path
 import sys
 import time
@@ -36,12 +38,15 @@ def verified_source(source):
     return meta, frozen
 
 
-def run(source, out, iterations=100, candidate_limit=None, result_dtype="float64"):
+def run(source, out, iterations=100, candidate_limit=None, result_dtype="float64", post_step_size=1.):
     source, out = Path(source).resolve(), Path(out).resolve()
     if type(iterations) is not int or not 0 <= iterations <= 100:
         raise ValueError("post iterations must be in [0,100]")
     if result_dtype not in ("float64", "fp32"):
         raise ValueError("Result dtype must be float64 or fp32")
+    if isinstance(post_step_size, bool) or not math.isfinite(post_step_size) or post_step_size<=0:
+        raise ValueError("Post step must be positive and finite")
+    policy = "legacy_unit" if post_step_size==1. else "paper_fixed_step"
     if out.exists() or source == out or source in out.parents or out in source.parents:
         raise ValueError("Output must be new and outside the source tree")
     original, frozen = verified_source(source)
@@ -49,7 +54,7 @@ def run(source, out, iterations=100, candidate_limit=None, result_dtype="float64
     import torch
     import shapely
     from paper_sat_geometry import PaperSATGeometry
-    from paper_enhancement import enhance
+    from paper_enhancement import enhance_chunked
 
     sample = json.loads((source / "input_sample.json").read_text(encoding="utf-8"))
     geometry = json.loads((source / "input_geometry.json").read_text(encoding="utf-8"))
@@ -80,7 +85,8 @@ def run(source, out, iterations=100, candidate_limit=None, result_dtype="float64
             "source_geometry_backend": original.get("geometry_backend", "legacy_native"),
             "source_planned_candidates": count, "planned_candidates": used,
             "candidate_indices": list(range(used)), "subset_smoke": used < count,
-            "geometry_backend": "paper_sat", "post_policy": "legacy_unit",
+            "geometry_backend": "paper_sat", "post_policy": policy,
+            "post_step_size": float(post_step_size),
             "primary_result_dtype": result_dtype,
             "post_iterations": iterations, "input_sha256": frozen,
             "model_executed": False, "paper_full_reproduction": False,
@@ -92,8 +98,8 @@ def run(source, out, iterations=100, candidate_limit=None, result_dtype="float64
     try:
         before = reference_report(polygons, ids, actions)
         write_json(out / "post_input_reference.json", before)
-        final, post = enhance(PaperSATGeometry(), polygons, ids, actions, iterations,
-                              policy="legacy_unit", trace_candidates=True)
+        final, post = enhance_chunked(PaperSATGeometry(), polygons, ids, actions, iterations,
+                              policy=policy, trace_candidates=True,post_step_size=post_step_size)
         write_json(out / "post.json", post)
         reports = {}
         for label, dtype in (("float64", torch.float64), ("fp32", torch.float32)):
@@ -157,8 +163,9 @@ def main():
     parser.add_argument("--post-iterations", type=int, default=100)
     parser.add_argument("--candidate-limit", type=int, help="Explicit first-N smoke subset; never a full batch claim")
     parser.add_argument("--result-dtype", choices=("float64", "fp32"), default="float64")
+    parser.add_argument("--post-step-size",type=float,default=1.,help="Explicit numerical probe; paper does not specify this step")
     args = parser.parse_args()
-    result = run(args.source_run, args.output, args.post_iterations, args.candidate_limit, args.result_dtype)
+    result = run(args.source_run, args.output, args.post_iterations, args.candidate_limit, args.result_dtype,args.post_step_size)
     print(json.dumps({k: result[k] for k in ("status", "sample_index", "planned_candidates",
                      "source_planned_candidates", "subset_smoke", "elapsed_seconds")}))
 

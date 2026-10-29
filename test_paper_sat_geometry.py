@@ -7,6 +7,7 @@ from shapely import affinity
 from shapely.geometry import Polygon
 
 from paper_sat_geometry import PaperSATGeometry, convex_sat_displacement, measure_shapes, _ear_triangles
+from paper_enhancement import enhance, enhance_chunked, field
 
 
 def rectangle(x=0., y=0., w=1., h=1.):
@@ -96,6 +97,80 @@ class PaperSATGeometryTests(unittest.TestCase):
     def test_invalid_contours_fail_without_repair(self):
         with self.assertRaises(ValueError):
             self.field([[(0.,0.),(1.,1.),(0.,1.),(1.,0.)]])
+
+    def test_negative_y_search_can_enter_strip_from_above(self):
+        native = PaperSATGeometry(height=2.)
+        xy = [[[0., 1.25]]]
+        out = native.paper_gap_xy_all([0], [[0.]], xy, [rectangle()])
+        self.assertLess(out[0][0][1], xy[0][0][1])
+        self.assertEqual(native.last_gap_trace[0]["after_y"]["height_violation"], 0.)
+
+    def test_above_strip_entry_is_not_committed_through_an_obstacle(self):
+        native = PaperSATGeometry(height=2.)
+        # The upper piece must move down .25 to enter the strip, but a fixed
+        # full-width lower piece occupies that required space.
+        xy = [[[0.,0.], [0.,1.25]]]
+        out = native.paper_gap_xy_all([0,1], [[0.,0.]], xy,
+                                       [rectangle(w=1.,h=1.25),rectangle()])
+        self.assertEqual(out, xy)
+
+    def test_measurement_does_not_construct_a_repulsion_field(self):
+        native = PaperSATGeometry()
+        polygons = [L_SHAPE, rectangle(.9,1.5)]
+        a = np.array([[[0.,0.,1.,0.],[0.,0.,1.,0.]]])
+        expected,_ = field(native,polygons,[0,1],a)
+        measured,_ = field(native,polygons,[0,1],a,compute_repulsion=False)
+        for key in measured:
+            self.assertEqual(measured[key], expected[key])
+        self.assertNotIn("repulsion",measured)
+
+    def test_reference_stops_on_the_same_tolerance_as_result_selection(self):
+        class TinyResidual(PaperSATGeometry):
+            def paper_repulsion_all(self,*args,**kwargs):
+                r = self.paper_measure_all(*args,**kwargs)
+                r["repulsion"] = [[[0.,0.]]]
+                return r
+            def paper_measure_all(self,*unused,**kwargs):
+                return {"max_pairwise_area":[1e-13],"sum_pairwise_area":[1e-13],
+                        "height_violation":[0.],"min_x":[0.]}
+            def paper_gap_xy_all(self,ids,angles,xy,polygons):
+                return xy
+        _,post = enhance(TinyResidual(),[rectangle()],[0],np.array([[[0.,0.,1.,0.]]]),100)
+        self.assertEqual(post["iterations_executed"],1)
+        self.assertEqual(post["statuses"],["reference_converged"])
+        self.assertEqual(post["overlap_stop_native_area"],1e-9)
+
+    def test_chunking_preserves_candidate_outputs_and_budget(self):
+        a=np.array([[[0.,0.,1.,0.],[.5,0.,1.,0.]],
+                    [[0.,0.,1.,0.],[2.,0.,1.,0.]]])
+        whole, old = enhance(PaperSATGeometry(),[rectangle()],[0,0],a,5)
+        chunks,new = enhance_chunked(PaperSATGeometry(),[rectangle()],[0,0],a,5)
+        np.testing.assert_array_equal(whole,chunks)
+        self.assertEqual(old["statuses"],new["statuses"])
+        self.assertEqual(new["iterations_executed"],old["iterations_executed"])
+        self.assertEqual([c["candidate_indices"] for c in new["chunks"]],[[0],[1]])
+        self.assertTrue(all(c["post"]["iterations_executed"]<=5 for c in new["chunks"]))
+
+    def test_explicit_half_step_changes_only_fixed_gradient_magnitude(self):
+        class NoGap(PaperSATGeometry):
+            def paper_gap_xy_all(self,ids,rotates,xy,polys):
+                return xy
+        a=np.array([[[0.,0.,1.,0.],[.5,0.,1.,0.]]])
+        out,post=enhance(NoGap(),[rectangle()],[0,0],a,1,
+                         policy="paper_fixed_step",post_step_size=.5)
+        self.assertAlmostEqual(out[0,1,0]-out[0,0,0],.75)
+        self.assertEqual(post["constraint_step_size"],.5)
+        with self.assertRaises(ValueError):
+            enhance(NoGap(),[rectangle()],[0,0],a,1,post_step_size=.5)
+
+    def test_failure_diagnosis_distinguishes_overlap_boundary_and_oversize(self):
+        from paper_failure_diagnostics import diagnose_layout
+        overlap=diagnose_layout([rectangle()],[0,0],[[0.,0.,1.,0.],[.5,0.,1.,0.]])
+        self.assertEqual(overlap["reason_codes"],["pair_overlap"])
+        boundary=diagnose_layout([rectangle()],[0],[[0.,-.1,1.,0.]])
+        self.assertEqual(boundary["reason_codes"],["strip_boundary"])
+        tall=diagnose_layout([rectangle(h=1201.)],[0],[[0.,0.,1.,0.]])
+        self.assertEqual(tall["fixed_rotation_impossible_piece_indices"],[0])
 
 
 if __name__ == "__main__":

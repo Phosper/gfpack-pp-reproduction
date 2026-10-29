@@ -1,0 +1,622 @@
+{
+  "date": "2026-10-29",
+  "parent_commit": "0a4b914",
+  "paper_full_reproduction": false,
+  "scope": "Round5 paper_settings fixed candidates 0..3 from samples 0 and45; two fixed post-step probes, 100-iteration ceiling",
+  "model_executed": false,
+  "unique_input_candidates": 8,
+  "whole_source_raw_metric_candidates": 1024,
+  "strict_area_epsilon": 1e-09,
+  "boundary_tolerance": 1e-09,
+  "primary_result_dtype": "float64",
+  "unit_tests_passed": 42,
+  "test_count_is_not_dental_sample_count": true,
+  "frozen_execution_code_sha256": {
+    "paper_enhancement.py": "267a0fc8aeb75f0d766d4849bc40bce2aaf26ad4a41187292a5ca37a63ab594c",
+    "paper_failure_diagnostics.py": "26e70c182989d5d13c1c94472daac12a222e512304c93369c8cb7fdbe0bca894",
+    "paper_guarded_enhancement.py": "112bf0a6fdfdc01f47c740fbe913d9e4ce5da9c235b34f30b036e4f80db23e17",
+    "paper_metrics.py": "58829757fcd7c45a55985be12ed83dd8acbf7d5a33d601829344adde3a07930d",
+    "paper_sampler.py": "76b187fb4dc24dac69488b6260242f0e123d24c7b48c185ea57d45f7a008203f",
+    "paper_sat_geometry.py": "87766bddd83ac22c484d259837a2f0776bab22df43586da2b913cd95425ecadc",
+    "paper_selection.py": "ee32b756a6c7d1fd95026d95a4337e476929969882ae0d9367bb65927dfd5038",
+    "replay_paper_enhancement.py": "f3e8f299bd6863712ffea46ec1b90820257710accb427c3715c9abf375dd4f83",
+    "replay_paper_geometry.py": "d8ff966becbf07fb28abe3e6c832a3044eed3bfaf8186302fb48feb06d6bf2e8",
+    "run_inference.py": "52acb81beb2da5a89ada1cbf68ae5ffe8b42e81e2d8ca5858213517bc224da7b",
+    "run_paper_alignment.py": "063c76dd9ee8cf969d444a711b69973b903aa794a0b3a95438d6b5cad7bb383c"
+  },
+  "package_extraction": {
+    "archive": "GFPack_paper_replay_fde10c2_20261029.zip",
+    "files": [
+      {
+        "path": "source_runs/sample_000_paper_settings/input_sample.json",
+        "sha256": "19fa992093496c63b2d244a1d0bbd03658608ac014e6f39a52c2d978ee27355c",
+        "bytes": 11846
+      },
+      {
+        "path": "source_runs/sample_000_paper_settings/input_geometry.json",
+        "sha256": "01af154565706b5d2589f6a64a2aa832af785133a5389dafe8623db8281c513b",
+        "bytes": 1044181
+      },
+      {
+        "path": "source_runs/sample_000_paper_settings/predictions_raw.pt",
+        "sha256": "8e4e3f3d47f09304cff42ad04358ae301f8189d78a74e3c8aa4817528e6018bb",
+        "bytes": 394436
+      },
+      {
+        "path": "source_runs/sample_000_paper_settings/raw_metrics.json",
+        "sha256": "3f5a5e29ea16b45d471c384204010243d0d7fdc0b70734c9a9dd3f1da811176c",
+        "bytes": 885681
+      },
+      {
+        "path": "source_runs/sample_000_paper_settings/metadata.json",
+        "sha256": "8d50be088674e1e09e25c15a2009462ff45d5475a306cb2b0063d339485ec6bc",
+        "bytes": 82004
+      },
+      {
+        "path": "source_runs/sample_000_paper_settings/predictions_enhanced_float64.pt",
+        "sha256": "33daa6d4c9b916ca0474bdb67f86fa6486d1ce1e9528e702fadcc77bfa5b3d29",
+        "bytes": 787781
+      },
+      {
+        "path": "source_runs/sample_000_paper_settings/predictions_enhanced_fp32.pt",
+        "sha256": "82201ef8e130597c9533855ee685e6ef7e23084976697ec40fb3395a8a5b747a",
+        "bytes": 394550
+      },
+      {
+        "path": "source_runs/sample_000_paper_settings/sampler.json",
+        "sha256": "c3684495210ad13f28d29931b194ff6537b24f1f9c5fc5587a1680b7527890c8",
+        "bytes": 63874
+      },
+      {
+        "path": "source_runs/sample_000_paper_settings/post.json",
+        "sha256": "5ae6036bc86da23da879189420d7df7b33238c0149d000f7a9ad5bb695920e89",
+        "bytes": 171805
+      },
+      {
+        "path": "source_runs/sample_045_paper_settings/input_sample.json",
+        "sha256": "a2149d38fafce13fd8793319a07391e83da05346a2b387e917c47ff5cfd7fddc",
+        "bytes": 11748
+      },
+      {
+        "path": "source_runs/sample_045_paper_settings/input_geometry.json",
+        "sha256": "01af154565706b5d2589f6a64a2aa832af785133a5389dafe8623db8281c513b",
+        "bytes": 1044181
+      },
+      {
+        "path": "source_runs/sample_045_paper_settings/predictions_raw.pt",
+        "sha256": "c9b98daaf92588e349f10a2d30093cf664eb5a4384d38630adf2123d63db56d4",
+        "bytes": 394436
+      },
+      {
+        "path": "source_runs/sample_045_paper_settings/raw_metrics.json",
+        "sha256": "cc80bde8d37310d67e2d7b36a087205a216839259793dff91f2603fee9272930",
+        "bytes": 884616
+      },
+      {
+        "path": "source_runs/sample_045_paper_settings/metadata.json",
+        "sha256": "870b266c26b119fa6671f9f0cec03cdfc80dde0669e0e54021f90b037450a8e4",
+        "bytes": 81845
+      },
+      {
+        "path": "source_runs/sample_045_paper_settings/predictions_enhanced_float64.pt",
+        "sha256": "31366b924d4ca61ae14b4a52c181973c7aec53a1bdb23ef0b2dcd2ed4efad6ad",
+        "bytes": 787781
+      },
+      {
+        "path": "source_runs/sample_045_paper_settings/predictions_enhanced_fp32.pt",
+        "sha256": "0f710cc539ccb97a936857c1519fae2cb1f088c3d1fa571dde2a10212099248d",
+        "bytes": 394550
+      },
+      {
+        "path": "source_runs/sample_045_paper_settings/sampler.json",
+        "sha256": "763099f413848ea248addfed36c4416ba01a8cc321cc1ab0af6fa5e9e8e46c25",
+        "bytes": 63758
+      },
+      {
+        "path": "source_runs/sample_045_paper_settings/post.json",
+        "sha256": "1a95d692de9908e20708afac1a392f0afd116353850bd8f4ffb322013f48d01b",
+        "bytes": 171762
+      }
+    ]
+  },
+  "source_runs": [
+    {
+      "sample_index": 0,
+      "planned_candidates": 512,
+      "checkpoint_sha256": "e3585572100e61c5f3112a8925e7add420b70c8c7a8f23e29be97788ad3c5643",
+      "profile": "paper_settings",
+      "raw_mean_sum_pairwise_overlap_percent": 1.2096141005806558,
+      "raw_strict_valid": 0,
+      "source_metadata_sha256": "8d50be088674e1e09e25c15a2009462ff45d5475a306cb2b0063d339485ec6bc"
+    },
+    {
+      "sample_index": 45,
+      "planned_candidates": 512,
+      "checkpoint_sha256": "e3585572100e61c5f3112a8925e7add420b70c8c7a8f23e29be97788ad3c5643",
+      "profile": "paper_settings",
+      "raw_mean_sum_pairwise_overlap_percent": 4.3218471413261375,
+      "raw_strict_valid": 0,
+      "source_metadata_sha256": "870b266c26b119fa6671f9f0cec03cdfc80dde0669e0e54021f90b037450a8e4"
+    }
+  ],
+  "replays": [
+    {
+      "sample_index": 0,
+      "candidate_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "source_planned_candidates": 512,
+      "post_step_size": 1.0,
+      "frozen_rerun_matches_exploratory_coordinates_exactly": true,
+      "elapsed_seconds": 271.6640410000109,
+      "historical_saved_results": {
+        "float64": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.002321016312290083,
+          "mean_max_pairwise_area_all_candidates": 987.0650015772944,
+          "max_pairwise_area": 1455.2302639135576,
+          "max_height_violation": 41.36011984801388,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        },
+        "fp32": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0023210173793429046,
+          "mean_max_pairwise_area_all_candidates": 987.0667079807585,
+          "max_pairwise_area": 1455.2336983319537,
+          "max_height_violation": 41.360119129206794,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        }
+      },
+      "corrected_geometry": {
+        "float64": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0007716525401048491,
+          "mean_max_pairwise_area_all_candidates": 787.1417143896523,
+          "max_pairwise_area": 2923.8858318190287,
+          "max_height_violation": 3.6441411085237547,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        },
+        "fp32": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0007716529400240309,
+          "mean_max_pairwise_area_all_candidates": 787.14205351597,
+          "max_pairwise_area": 2923.888790363431,
+          "max_height_violation": 3.6441394268633474,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        }
+      },
+      "iterations_per_candidate": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "metadata_sha256": "7fbeef7f5008792057ef24967d924307a7ff6f2d47c26b56633723b19cac0e87",
+      "output_sha256": {
+        "comparison.json": "9a3c2d7fedcfc54155b9aaf8b674ec8af8bfe6a68a55aa828b74f7753f4e8f15",
+        "float64_reference.json": "ee46e369462816a522d1669ab141e6affb8338c22aa3aa9c9e86fc2ad723a6d1",
+        "fp32_reference.json": "ff1d2e36aa1a6f871436d1707233a8949d15d8ead3d9e66486b3211a2d06a390",
+        "historical_float64_reference.json": "863aa6869827ac03bbd05d19c78d8cc07a2debf63a6ac44461c4068ef76110ef",
+        "historical_fp32_reference.json": "3c68fa0ae9e27ede8304d37adc0b1a63ef869e3f558458b20168dd64c39cdb39",
+        "post.json": "29043df2d3b39e3f54436456bc87ca5b8b6fc210dddda3223313ad09610e08ab",
+        "post_input_reference.json": "2f0149fab651913dc702e4ce08870bdfb298e3e2ad05dd123e98aaa3f05b53f4",
+        "predictions_enhanced_float64.pt": "6af51cc18af4f55d2087d5f9bbed9664eaa83b84afd523d3a662257b5dab8048",
+        "predictions_enhanced_fp32.pt": "855d492c0c94ea562a6ff3f8d07bbd0c8569939a1136ecb834dbf48b9420bcdd",
+        "selected_result.json": "edbb53b7ca7f689632f1ea5d103f85b5620fb8339a5740138b799d1581e1f7d9"
+      }
+    },
+    {
+      "sample_index": 0,
+      "candidate_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "source_planned_candidates": 512,
+      "post_step_size": 0.5,
+      "frozen_rerun_matches_exploratory_coordinates_exactly": true,
+      "elapsed_seconds": 248.66404730000068,
+      "historical_saved_results": {
+        "float64": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.002321016312290083,
+          "mean_max_pairwise_area_all_candidates": 987.0650015772944,
+          "max_pairwise_area": 1455.2302639135576,
+          "max_height_violation": 41.36011984801388,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        },
+        "fp32": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0023210173793429046,
+          "mean_max_pairwise_area_all_candidates": 987.0667079807585,
+          "max_pairwise_area": 1455.2336983319537,
+          "max_height_violation": 41.360119129206794,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        }
+      },
+      "corrected_geometry": {
+        "float64": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0008289910018310783,
+          "mean_max_pairwise_area_all_candidates": 428.6022836838842,
+          "max_pairwise_area": 1246.374943191639,
+          "max_height_violation": 8.764658301778471,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        },
+        "fp32": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0008289926394197508,
+          "mean_max_pairwise_area_all_candidates": 428.6035306948446,
+          "max_pairwise_area": 1246.3741011118248,
+          "max_height_violation": 8.76465906492487,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        }
+      },
+      "iterations_per_candidate": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "metadata_sha256": "19a3c43ba312ac9c605308e1d9874fcc68584e882eaf85c9cfaa2c92f83e47dd",
+      "output_sha256": {
+        "comparison.json": "3a3f0abd4fb12ffc8bd7fac4bceea40283687d9b53c2204bf9b87b7ba586209a",
+        "float64_reference.json": "220d08b8c80814612e58b2dc3143fac51a847b373e4c040cee27fdb6fd0627d5",
+        "fp32_reference.json": "569cdb0f13743aea24e640a6a05235f4ebf6335c4fcc6a9f9b4b763778b71b61",
+        "historical_float64_reference.json": "863aa6869827ac03bbd05d19c78d8cc07a2debf63a6ac44461c4068ef76110ef",
+        "historical_fp32_reference.json": "3c68fa0ae9e27ede8304d37adc0b1a63ef869e3f558458b20168dd64c39cdb39",
+        "post.json": "71361d0d317df1776448b46a97cf21e92a67224dafab252fe9bff2b05d760e8f",
+        "post_input_reference.json": "2f0149fab651913dc702e4ce08870bdfb298e3e2ad05dd123e98aaa3f05b53f4",
+        "predictions_enhanced_float64.pt": "915c2370d0a8233dde5811e71040722da2d09b1c323b431babdc4b7aec904300",
+        "predictions_enhanced_fp32.pt": "0e06cb9e5fa5633549917ed66a4308d20988cdf72baf26697fd3df78aebca430",
+        "selected_result.json": "edbb53b7ca7f689632f1ea5d103f85b5620fb8339a5740138b799d1581e1f7d9"
+      }
+    },
+    {
+      "sample_index": 45,
+      "candidate_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "source_planned_candidates": 512,
+      "post_step_size": 1.0,
+      "frozen_rerun_matches_exploratory_coordinates_exactly": true,
+      "elapsed_seconds": 317.729317899968,
+      "historical_saved_results": {
+        "float64": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.012495414041477611,
+          "mean_max_pairwise_area_all_candidates": 3375.2038985996633,
+          "max_pairwise_area": 5261.510486860117,
+          "max_height_violation": 84.21530146238501,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        },
+        "fp32": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.012495407260938708,
+          "mean_max_pairwise_area_all_candidates": 3375.203941536883,
+          "max_pairwise_area": 5261.508546549177,
+          "max_height_violation": 84.21530097806595,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        }
+      },
+      "corrected_geometry": {
+        "float64": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.005991543489664821,
+          "mean_max_pairwise_area_all_candidates": 6893.9980438531475,
+          "max_pairwise_area": 22643.725332056078,
+          "max_height_violation": 17.380477051199478,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        },
+        "fp32": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.005991547060960837,
+          "mean_max_pairwise_area_all_candidates": 6893.9963356785365,
+          "max_pairwise_area": 22643.72307435977,
+          "max_height_violation": 17.380467883933534,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        }
+      },
+      "iterations_per_candidate": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "metadata_sha256": "4ce3cd4a796a4734be46d35886586e1a9f327db0a22733c9ca4fd3f2a46c1e9b",
+      "output_sha256": {
+        "comparison.json": "f5f9004fd72a94b695e1772b1e3ca7d6f2ddd8cd92b56786ac365b9442d4ffc1",
+        "float64_reference.json": "ff8e8e79ccee781256921b686b0a12771294634654b3d3c7a365faa5afcfbb34",
+        "fp32_reference.json": "a6fd4d29618b7349bb4e872a9c39631999a458783fdf777fdfb634f74f1cb1a8",
+        "historical_float64_reference.json": "38d19a895d2e507791c6ab498b42374de06f39cf90fcb7f4012ac6fa4a3bc9c9",
+        "historical_fp32_reference.json": "1d49e39afa669be651e3e8cada5007f9f0951e389d210da2843330323f39e209",
+        "post.json": "34ebac507a3ddbffe354cb8f41d2cff79602e50a8accd016f0bc53a3644fec03",
+        "post_input_reference.json": "668d6b2a73a6faa9bbf154fe2ec1c9fef4e2ddc6af1ec96242e7a09db2e7031c",
+        "predictions_enhanced_float64.pt": "2fb83549da47d7b46369fb9382414774f238368834ec4dc57d23019124c4f3e1",
+        "predictions_enhanced_fp32.pt": "6bb081b4f6ae32fdd0ffda1d151178d31c25332247c51c3f06aa10ed96295de6",
+        "selected_result.json": "edbb53b7ca7f689632f1ea5d103f85b5620fb8339a5740138b799d1581e1f7d9"
+      }
+    },
+    {
+      "sample_index": 45,
+      "candidate_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "source_planned_candidates": 512,
+      "post_step_size": 0.5,
+      "frozen_rerun_matches_exploratory_coordinates_exactly": true,
+      "elapsed_seconds": 288.6056380000082,
+      "historical_saved_results": {
+        "float64": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.012495414041477611,
+          "mean_max_pairwise_area_all_candidates": 3375.2038985996633,
+          "max_pairwise_area": 5261.510486860117,
+          "max_height_violation": 84.21530146238501,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        },
+        "fp32": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.012495407260938708,
+          "mean_max_pairwise_area_all_candidates": 3375.203941536883,
+          "max_pairwise_area": 5261.508546549177,
+          "max_height_violation": 84.21530097806595,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        }
+      },
+      "corrected_geometry": {
+        "float64": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.006855850402736626,
+          "mean_max_pairwise_area_all_candidates": 4502.527921436174,
+          "max_pairwise_area": 11396.374918887635,
+          "max_height_violation": 30.67563914137645,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        },
+        "fp32": {
+          "candidate_count": 4,
+          "feasible_count": 0,
+          "feasible_fraction": 0.0,
+          "best_feasible_candidate_index": null,
+          "best_feasible_strip_utilization": null,
+          "mean_sum_pairwise_overlap_fraction_all_candidates": 0.006855852581845706,
+          "mean_max_pairwise_area_all_candidates": 4502.532681139396,
+          "max_pairwise_area": 11396.374181966054,
+          "max_height_violation": 30.675620255075728,
+          "semantics": {
+            "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+            "strict_area_epsilon": 1e-09,
+            "boundary_tolerance": 1e-09,
+            "strip_height": 1200.0,
+            "horizontal_right_wall": null,
+            "criterion_is_project_convention_not_paper_constant": true,
+            "sum_pairwise_area": "multiway intersections may be counted more than once"
+          }
+        }
+      },
+      "iterations_per_candidate": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "metadata_sha256": "ff597a22fb003e40fbf235aa796570e1b26e094992502f90aeb3afb8f18f007b",
+      "output_sha256": {
+        "comparison.json": "09dfb6854059f28c94502844f4794d889ca0cc2c6c2ef3bec6050057817739eb",
+        "float64_reference.json": "30e7b8ca58d0fd61547ce58abe10327dc0864985a1ff49a53f15bcd5cf9103f4",
+        "fp32_reference.json": "23d6467e3f76251b088dba39dd470e0d171d5482be9e9597861b3a09f21743ff",
+        "historical_float64_reference.json": "38d19a895d2e507791c6ab498b42374de06f39cf90fcb7f4012ac6fa4a3bc9c9",
+        "historical_fp32_reference.json": "1d49e39afa669be651e3e8cada5007f9f0951e389d210da2843330323f39e209",
+        "post.json": "d85baaee3d4d211186f4217077332202cbc44edf046ece97ef06317250e83488",
+        "post_input_reference.json": "668d6b2a73a6faa9bbf154fe2ec1c9fef4e2ddc6af1ec96242e7a09db2e7031c",
+        "predictions_enhanced_float64.pt": "1d9858c5710172a67c88144d9139c92350f520bc36d526b1b1b4403b92a558c9",
+        "predictions_enhanced_fp32.pt": "f4739afd34b842a4052c11787a683a7b7ab82acf4fbbd4f51a264313fd7f0b3d",
+        "selected_result.json": "edbb53b7ca7f689632f1ea5d103f85b5620fb8339a5740138b799d1581e1f7d9"
+      }
+    }
+  ],
+  "speed_only_regression": {
+    "same_coordinates_and_geometry_trace": true
+  },
+  "speed_only_seconds": {
+    "before": 37.67614659998799,
+    "after": 15.25037780002458
+  },
+  "conclusion": "Neither fixed step yields a strict feasible result among these eight inputs. Half-step not promoted. Do not confuse with four engineering-transfer controls.",
+  "software": {
+    "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.5.3",
+    "shapely": "2.1.2",
+    "torch": "2.14.0+cpu"
+  }
+}

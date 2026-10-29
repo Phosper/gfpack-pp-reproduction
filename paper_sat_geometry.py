@@ -19,6 +19,7 @@ from functools import lru_cache
 import math
 
 import numpy as np
+import shapely
 from shapely import affinity
 from shapely.geometry import MultiPoint, Point, Polygon
 from shapely.ops import nearest_points, unary_union
@@ -116,13 +117,14 @@ def _obstacle(a_key, a_angle, b_key, b_angle):
     a_parts, b_parts = _contour(a_key)[2], _contour(b_key)[2]
     a_parts = [_placed(p, a_angle, (0., 0.)) for p in a_parts]
     b_parts = [_placed(p, b_angle, (0., 0.)) for p in b_parts]
-    cells = []
-    for a in a_parts:
-        av = np.asarray(a.exterior.coords[:-1])
-        for b in b_parts:
-            bv = np.asarray(b.exterior.coords[:-1])
-            differences = (bv[:, None, :] - av[None, :, :]).reshape(-1, 2)
-            cells.append(MultiPoint(differences).convex_hull)
+    # Each decomposition is either one convex polygon or all triangles.
+    # Preserve the original a-major/b-minor order and vertex subtraction,
+    # while batching the same GEOS convex-hull calls in C.
+    av = np.asarray([np.asarray(a.exterior.coords[:-1]) for a in a_parts])
+    bv = np.asarray([np.asarray(b.exterior.coords[:-1]) for b in b_parts])
+    differences = (bv[None, :, :, None, :] - av[:, None, None, :, :])
+    points = differences.reshape(len(a_parts)*len(b_parts), -1, 2)
+    cells = shapely.convex_hull(shapely.multipoints(points))
     obstacle = unary_union(cells)
     if not obstacle.is_valid or obstacle.is_empty:
         raise ValueError("Invalid configuration-space union")
@@ -164,10 +166,30 @@ def _intersection(a, b):
     return float(a.intersection(b).area)
 
 
+def _pair_areas(shapes):
+    """Same ordered pair intersections, avoiding Python calls for empty boxes."""
+    shapes = np.asarray(shapes, dtype=object)
+    bounds = shapely.bounds(shapes)
+    i, j = np.triu_indices(len(shapes), 1)
+    possible = ((bounds[i, 2] > bounds[j, 0]) & (bounds[j, 2] > bounds[i, 0]) &
+                (bounds[i, 3] > bounds[j, 1]) & (bounds[j, 3] > bounds[i, 1]))
+    i, j = i[possible], j[possible]
+    areas = shapely.area(shapely.intersection(shapes[i], shapes[j]))
+    return bounds, i, j, areas
+
+
+def _overlaps_any(candidate, shapes, bounds, own_index):
+    box = candidate.bounds
+    possible = ((bounds[:, 2] > box[0]) & (bounds[:, 0] < box[2]) &
+                (bounds[:, 3] > box[1]) & (bounds[:, 1] < box[3]))
+    possible[own_index] = False
+    return bool(np.any(shapely.area(shapely.intersection(candidate, shapes[possible])) > 0.))
+
+
 def measure_shapes(shapes, height=1200.):
-    areas = [_intersection(a, b) for i, a in enumerate(shapes) for b in shapes[i+1:]]
-    bounds = [min(p.bounds[0] for p in shapes), min(p.bounds[1] for p in shapes),
-              max(p.bounds[2] for p in shapes), max(p.bounds[3] for p in shapes)]
+    boxes, _, _, areas = _pair_areas(shapes)
+    bounds = [float(boxes[:, 0].min()), float(boxes[:, 1].min()),
+              float(boxes[:, 2].max()), float(boxes[:, 3].max())]
     return {"max_pairwise_area": max(areas, default=0.),
             "sum_pairwise_area": math.fsum(areas), "bounds_xyxy": bounds,
             "height_violation": max(0., -bounds[1], bounds[3]-height),
@@ -208,14 +230,15 @@ class PaperSATGeometry:
         areas = np.asarray([r[0].area for r in records])
         for rotation, translations in zip(angles, xy):
             shapes = [_placed(r[0], angle, t) for r, angle, t in zip(records, rotation, translations)]
+            boxes, pair_i, pair_j, pair_areas = _pair_areas(shapes)
             force = np.zeros_like(translations)
             maximum, total, count, concave_count, violation = 0., 0., 0, 0, 0.
             for i, shape in enumerate(shapes):
-                below, above = max(0., -shape.bounds[1]), max(0., shape.bounds[3]-height)
+                below, above = max(0., -boxes[i, 1]), max(0., boxes[i, 3]-height)
                 force[i, 1] += below - above
                 violation = max(violation, below, above)
-                for j in range(i+1, len(ids)):
-                    area = _intersection(shape, shapes[j])
+                for position in np.flatnonzero(pair_i == i):
+                    j, area = int(pair_j[position]), float(pair_areas[position])
                     maximum, total = max(maximum, area), total+area
                     if area <= collision_area_eps:
                         continue
@@ -244,26 +267,45 @@ class PaperSATGeometry:
                       collision_detection="unquantized GEOS float64 intersection area")
         return result
 
+    def paper_measure_all(self, ids, rotates, actions, polygons, height=1200., collision_area_eps=0.):
+        """Diagnostic-only query; never constructs or applies a collision field."""
+        if not math.isfinite(height) or height <= 0 or collision_area_eps != 0.:
+            raise ValueError("Invalid measurement height/threshold")
+        _, records, angles, xy = self._validate(ids, rotates, actions, polygons)
+        result = {k: [] for k in ("max_pairwise_area", "sum_pairwise_area", "height_violation", "min_x")}
+        for rotation, translations in zip(angles, xy):
+            shapes = [_placed(r[0], angle, t) for r, angle, t in zip(records, rotation, translations)]
+            boxes, _, _, areas = _pair_areas(shapes)
+            total = 0.
+            for value in areas:
+                total += float(value)  # preserve the field's sequential summation
+            result["max_pairwise_area"].append(float(max(areas, default=0.)))
+            result["sum_pairwise_area"].append(total)
+            result["height_violation"].append(float(max(0., -boxes[:, 1].min(), boxes[:, 3].max()-height)))
+            result["min_x"].append(float(boxes[:, 0].min()))
+        return result
+
     def paper_gap_xy_all(self, ids, rotates, actions, polygons):
         keys, records, angles, xy = self._validate(ids, rotates, actions, polygons)
         output = xy.copy()
         traces = []
         for batch, (rotation, translations) in enumerate(zip(angles, output)):
-            shapes = [_placed(r[0], angle, t) for r, angle, t in zip(records, rotation, translations)]
+            shapes = np.asarray([_placed(r[0], angle, t) for r, angle, t in zip(records, rotation, translations)], dtype=object)
+            boxes = shapely.bounds(shapes)
             trace = {"candidate_index": batch, "before": measure_shapes(shapes, self.height)}
             for axis, label in ((0, "after_x"), (1, "after_y")):
                 skipped_colliding = 0
                 for i in sorted(range(len(ids)), key=lambda k: (shapes[k].bounds[axis], k)):
-                    # Binary gap search needs a feasible start. It cannot repair
-                    # collisions, and an invalid start is never treated as feasible.
-                    if any(_intersection(shapes[i], other) > 0 for j, other in enumerate(shapes) if i != j):
-                        skipped_colliding += 1
-                        continue
                     box = shapes[i].bounds
-                    if box[0] < 0 or box[1] < 0 or box[3] > self.height:
+                    # Negative y can bring an above-strip piece back inside.
+                    # Rejecting that piece before searching would disable a
+                    # valid paper-specified -y gap move. The feasible seed is
+                    # checked against all polygons before it can be committed.
+                    if box[0] < 0 or box[1] < 0 or (axis == 0 and box[3] > self.height):
                         continue
                     upper = float(box[axis])
-                    if upper <= 0:
+                    low = max(0., float(box[3]-self.height)) if axis == 1 else 0.
+                    if upper < low:
                         continue
                     start = translations[i].copy()
 
@@ -273,12 +315,13 @@ class PaperSATGeometry:
                         candidate = _placed(records[i][0], rotation[i], candidate_xy)
                         b = candidate.bounds
                         valid = (b[0] >= 0 and b[1] >= 0 and b[3] <= self.height and
-                                 not any(_intersection(candidate, other) > 0
-                                         for j, other in enumerate(shapes) if i != j))
+                                 not _overlaps_any(candidate, shapes, boxes, i))
                         return valid, candidate_xy, candidate
 
-                    low = 0.
-                    accepted_xy, accepted_shape = start, shapes[i]
+                    valid, accepted_xy, accepted_shape = trial(low)
+                    if not valid:
+                        skipped_colliding += int(_overlaps_any(accepted_shape, shapes, boxes, i))
+                        continue
                     valid, candidate_xy, candidate = trial(upper)
                     if valid:
                         accepted_xy, accepted_shape = candidate_xy, candidate
@@ -297,6 +340,7 @@ class PaperSATGeometry:
                                 upper = mid
                     translations[i] = accepted_xy
                     shapes[i] = accepted_shape
+                    boxes[i] = accepted_shape.bounds
                 trace[label] = measure_shapes(shapes, self.height)
                 trace[label+"_skipped_colliding_pieces"] = skipped_colliding
             traces.append(trace)

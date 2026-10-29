@@ -16,7 +16,7 @@ import traceback
 
 from run_inference import checked_sample, native_metrics, sha256, utc_now, write_json, command_snapshot
 from paper_sampler import PROFILES, sample_paper, profile_settings, marginal_prob
-from paper_enhancement import field, enhance
+from paper_enhancement import field, enhance_chunked
 from paper_metrics import sample_metrics, aggregate_metrics
 from paper_selection import select_saved_result
 
@@ -76,7 +76,9 @@ def main():
     parser.add_argument("--geometry-backend",choices=("paper_sat","legacy_native"),
                         default="paper_sat",
                         help="Reference SAT/minimum-translation geometry, or unchanged historical native proxy")
-    parser.add_argument("--post-policy",choices=("legacy_unit","guarded_backtracking"),
+    parser.add_argument("--post-step-size",type=float,default=1.,
+                        help="Fixed post-gradient step; paper does not specify it. Non-unit requires paper_fixed_step")
+    parser.add_argument("--post-policy",choices=("legacy_unit","paper_fixed_step","guarded_backtracking"),
                         default="legacy_unit",
                         help="Explicit numerical reconstruction policy; neither is an author-confirmed post solver")
     args=parser.parse_args()
@@ -85,6 +87,9 @@ def main():
         parser.error("Use 128 or 512 candidates, or explicitly mark a reduced run --smoke")
     if not 0<=args.post_iterations<=100 or args.sample_index<0:
         parser.error("Invalid post budget or sample index")
+    if (not math.isfinite(args.post_step_size) or args.post_step_size<=0 or
+            (args.post_policy!="paper_fixed_step" and args.post_step_size!=1.)):
+        parser.error("Use a positive finite post step; non-unit steps require --post-policy paper_fixed_step")
     root=args.root.resolve();extension=args.extension.resolve();out=args.output.resolve()
     upstream=root/"upstream"
     if out.exists() or upstream==out or upstream in out.parents or out in root.parents:
@@ -125,6 +130,7 @@ def main():
           "planned_candidates":args.candidates,"smoke":args.smoke,"seed":3407,
           "constraints_enabled":not args.no_constraints,"post_iterations":args.post_iterations,
           "post_policy":args.post_policy,
+          "post_step_size":args.post_step_size,
           "geometry_backend":args.geometry_backend,
           "primary_result_dtype":args.result_dtype,
           "checkpoint_sha256":sha256(checkpoint),"input_sha256":frozen,
@@ -142,7 +148,7 @@ def main():
               ["native Clipper precision2 retained", "convex SAT MTV; concave edge-axis conservative proxy"])+[
               "only translation collision gradients; no documented rotation gradient",
               "height1200, no horizontal right wall",
-              ("post unit step then x/y gap; unspecified by paper" if args.post_policy=="legacy_unit" else
+              ("post fixed step then x/y gap; step size/order unspecified by paper" if args.post_policy!="guarded_backtracking" else
                "post same-field backtracking then guarded x/y gap; our numerical reconstruction, unspecified by paper")]}
     try:
         import shapely
@@ -190,8 +196,8 @@ def main():
         post_input=raw.numpy().astype(np.float64,copy=True)
         post_input[:,:,0]-=np.asarray(raw_native["bounding_boxes_xyxy"])[:,0,None]
         if args.post_iterations:
-            final,post=enhance(geometry_backend,polygons,id_list,post_input,args.post_iterations,1200.,
-                               policy=args.post_policy,trace_candidates=True)
+            final,post=enhance_chunked(geometry_backend,polygons,id_list,post_input,args.post_iterations,1200.,
+                               policy=args.post_policy,trace_candidates=True,post_step_size=args.post_step_size)
         else:
             final=post_input;post={"iterations_executed":0,"reason":"post disabled","requested_policy":args.post_policy}
         torch.save(torch.tensor(final,dtype=torch.float64),out/"predictions_enhanced_float64.pt")
