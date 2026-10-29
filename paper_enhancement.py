@@ -31,8 +31,12 @@ def enhance(native, polygons, ids, actions, max_iterations=100, height=1200., *,
             policy="legacy_unit", trace_candidates=False, post_step_size=1.):
     if isinstance(post_step_size, bool) or not math.isfinite(post_step_size) or post_step_size <= 0:
         raise ValueError("post_step_size must be positive and finite")
-    if policy != "paper_fixed_step" and post_step_size != 1.:
+    if policy not in ("paper_fixed_step","paper_potential_descent") and post_step_size != 1.:
         raise ValueError("Non-unit steps require the explicit paper_fixed_step numerical probe")
+    if policy=="paper_potential_descent":
+        from paper_potential_enhancement import enhance_potential
+        return enhance_potential(native,polygons,ids,actions,max_iterations,height,
+            initial_step=post_step_size,trace_candidates=trace_candidates)
     # Keep the historical round-5 path replayable, without changing its output.
     if policy == "guarded_backtracking":
         from paper_guarded_enhancement import enhance_guarded

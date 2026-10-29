@@ -38,7 +38,7 @@ def verified_source(source):
     return meta, frozen
 
 
-def run(source, out, iterations=100, candidate_limit=None, result_dtype="float64", post_step_size=1.):
+def run(source, out, iterations=100, candidate_limit=None, result_dtype="float64", post_step_size=1.,post_policy=None):
     source, out = Path(source).resolve(), Path(out).resolve()
     if type(iterations) is not int or not 0 <= iterations <= 100:
         raise ValueError("post iterations must be in [0,100]")
@@ -46,7 +46,9 @@ def run(source, out, iterations=100, candidate_limit=None, result_dtype="float64
         raise ValueError("Result dtype must be float64 or fp32")
     if isinstance(post_step_size, bool) or not math.isfinite(post_step_size) or post_step_size<=0:
         raise ValueError("Post step must be positive and finite")
-    policy = "legacy_unit" if post_step_size==1. else "paper_fixed_step"
+    policy = post_policy or ("legacy_unit" if post_step_size==1. else "paper_fixed_step")
+    if policy not in ("legacy_unit","paper_fixed_step","paper_potential_descent"):
+        raise ValueError("Unknown reference replay policy")
     if out.exists() or source == out or source in out.parents or out in source.parents:
         raise ValueError("Output must be new and outside the source tree")
     original, frozen = verified_source(source)
@@ -75,7 +77,7 @@ def run(source, out, iterations=100, candidate_limit=None, result_dtype="float64
     actions = raw[:used].numpy().astype(np.float64, copy=True)
     actions[:, :, 0] -= np.asarray(min_x[:used])[:, None]
     for name in ("replay_paper_geometry.py", "replay_paper_enhancement.py", "paper_enhancement.py",
-                 "paper_sat_geometry.py", "run_paper_alignment.py", "paper_metrics.py", "run_inference.py"):
+                 "paper_sat_geometry.py", "paper_potential_enhancement.py", "run_paper_alignment.py", "paper_metrics.py", "run_inference.py"):
         path = Path(__file__).resolve().with_name(name)
         frozen[str(path)] = sha256(path)
     out.mkdir(parents=True, exist_ok=False)
@@ -164,8 +166,9 @@ def main():
     parser.add_argument("--candidate-limit", type=int, help="Explicit first-N smoke subset; never a full batch claim")
     parser.add_argument("--result-dtype", choices=("float64", "fp32"), default="float64")
     parser.add_argument("--post-step-size",type=float,default=1.,help="Explicit numerical probe; paper does not specify this step")
+    parser.add_argument("--post-policy",choices=("legacy_unit","paper_fixed_step","paper_potential_descent"))
     args = parser.parse_args()
-    result = run(args.source_run, args.output, args.post_iterations, args.candidate_limit, args.result_dtype,args.post_step_size)
+    result = run(args.source_run, args.output, args.post_iterations, args.candidate_limit, args.result_dtype,args.post_step_size,args.post_policy)
     print(json.dumps({k: result[k] for k in ("status", "sample_index", "planned_candidates",
                      "source_planned_candidates", "subset_smoke", "elapsed_seconds")}))
 

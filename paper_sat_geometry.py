@@ -226,16 +226,20 @@ class PaperSATGeometry:
         self.height = float(height)
         keys, records, angles, xy = self._validate(ids, rotates, actions, polygons)
         result = {key: [] for key in ("repulsion", "max_pairwise_area", "sum_pairwise_area",
-                  "colliding_pairs", "concave_proxy_pairs", "concave_mtv_pairs", "height_violation", "min_x")}
+                  "colliding_pairs", "concave_proxy_pairs", "concave_mtv_pairs", "height_violation", "min_x",
+                  "collision_potential", "mass_weighted_force_norm_squared")}
         areas = np.asarray([r[0].area for r in records])
+        mass=areas/areas.sum()
         for rotation, translations in zip(angles, xy):
             shapes = [_placed(r[0], angle, t) for r, angle, t in zip(records, rotation, translations)]
             boxes, pair_i, pair_j, pair_areas = _pair_areas(shapes)
             force = np.zeros_like(translations)
             maximum, total, count, concave_count, violation = 0., 0., 0, 0, 0.
+            potential=0.
             for i, shape in enumerate(shapes):
                 below, above = max(0., -boxes[i, 1]), max(0., boxes[i, 3]-height)
                 force[i, 1] += below - above
+                potential+=.5*mass[i]*(below*below+above*above)
                 violation = max(violation, below, above)
                 for position in np.flatnonzero(pair_i == i):
                     j, area = int(pair_j[position]), float(pair_areas[position])
@@ -252,11 +256,14 @@ class PaperSATGeometry:
                         nearest = nearest_points(Point(relative), obstacle.boundary)[1]
                         displacement = np.asarray(nearest.coords[0]) - relative
                     weight = areas[j] / (areas[i]+areas[j])
+                    potential+=.5*mass[i]*weight*float(np.dot(displacement,displacement))
                     force[i] += weight * displacement
                     force[j] -= (1.-weight) * displacement
             values = dict(repulsion=force.tolist(), max_pairwise_area=maximum,
                           sum_pairwise_area=total, colliding_pairs=count, concave_proxy_pairs=0,
                           concave_mtv_pairs=concave_count, height_violation=violation,
+                          collision_potential=float(potential),
+                          mass_weighted_force_norm_squared=float(np.sum(mass[:,None]*force*force)),
                           min_x=min(p.bounds[0] for p in shapes))
             for key, value in values.items():
                 result[key].append(value)
@@ -264,6 +271,7 @@ class PaperSATGeometry:
                       mtv_method="convex SAT; validated convex decomposition and translation-obstacle union for concave pairs",
                       geometry_backend="paper_sat_float64_reference",
                       author_implementation_confirmed=False,
+                      potential_definition="area-normalized squared separating displacement and squared y-wall violation; our field-consistent scalar, not author-confirmed Phi",
                       collision_detection="unquantized GEOS float64 intersection area")
         return result
 

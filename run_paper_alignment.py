@@ -81,7 +81,7 @@ def main():
                         help="Reference SAT/minimum-translation geometry, or unchanged historical native proxy")
     parser.add_argument("--post-step-size",type=float,default=1.,
                         help="Fixed post-gradient step; paper does not specify it. Non-unit requires paper_fixed_step")
-    parser.add_argument("--post-policy",choices=("legacy_unit","paper_fixed_step","guarded_backtracking"),
+    parser.add_argument("--post-policy",choices=("legacy_unit","paper_fixed_step","paper_potential_descent","guarded_backtracking"),
                         default="legacy_unit",
                         help="Explicit numerical reconstruction policy; neither is an author-confirmed post solver")
     args=parser.parse_args()
@@ -91,10 +91,12 @@ def main():
     if not 0<=args.post_iterations<=100 or args.sample_index<0:
         parser.error("Invalid post budget or sample index")
     if (not math.isfinite(args.post_step_size) or args.post_step_size<=0 or
-            (args.post_policy!="paper_fixed_step" and args.post_step_size!=1.)):
+            (args.post_policy not in ("paper_fixed_step","paper_potential_descent") and args.post_step_size!=1.)):
         parser.error("Use a positive finite post step; non-unit steps require --post-policy paper_fixed_step")
     if args.sampling_noise_seed is not None and args.profile=="release_weights_constraints":
         parser.error("Common Gaussian draws require a paper-mechanism profile")
+    if args.post_policy=="paper_potential_descent" and args.geometry_backend!="paper_sat":
+        parser.error("Potential descent requires --geometry-backend paper_sat")
     root=args.root.resolve();extension=args.extension.resolve();out=args.output.resolve()
     upstream=root/"upstream"
     if out.exists() or upstream==out or upstream in out.parents or out in root.parents:
@@ -128,6 +130,7 @@ def main():
              ("run_paper_alignment.py","paper_sampler.py","paper_metrics.py","paper_enhancement.py",
               "paper_sat_geometry.py","paper_selection.py",
               "paper_sampling_noise.py",
+              "paper_potential_enhancement.py",
               "paper_guarded_enhancement.py","run_inference.py")]
     frozen={str(p):sha256(p) for p in inputs}
     out.mkdir(parents=True,exist_ok=False)
@@ -158,7 +161,9 @@ def main():
               ["native Clipper precision2 retained", "convex SAT MTV; concave edge-axis conservative proxy"])+[
               "only translation collision gradients; no documented rotation gradient",
               "height1200, no horizontal right wall",
-              ("post fixed step then x/y gap; step size/order unspecified by paper" if args.post_policy!="guarded_backtracking" else
+              ("post potential-controlled step along same field then x/y gap; our surrogate and Armijo rule, not specified by paper"
+               if args.post_policy=="paper_potential_descent" else
+               "post fixed step then x/y gap; step size/order unspecified by paper" if args.post_policy!="guarded_backtracking" else
                "post same-field backtracking then guarded x/y gap; our numerical reconstruction, unspecified by paper")]}
     try:
         import shapely

@@ -19,7 +19,8 @@ CELLS = (
 )
 CODE = ("run_generation_diagnosis.py", "verify_generation_diagnosis.py", "run_paper_alignment.py",
     "run_inference.py", "paper_sampler.py", "paper_sampling_noise.py", "paper_metrics.py",
-    "paper_selection.py", "paper_enhancement.py", "paper_guarded_enhancement.py", "paper_sat_geometry.py")
+    "paper_selection.py", "paper_enhancement.py", "paper_guarded_enhancement.py", "paper_sat_geometry.py",
+    "paper_potential_enhancement.py")
 CHECKPOINT_SHA="e3585572100e61c5f3112a8925e7add420b70c8c7a8f23e29be97788ad3c5643"
 DATASET_SHA="dffdd191803ddfeb7701d9012b1f38dd88f01ee9333747a19ba86e18870848e0"
 

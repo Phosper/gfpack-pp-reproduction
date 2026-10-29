@@ -1,0 +1,428 @@
+{
+  "date": "2026-10-29",
+  "parent_commit": "cf37c8b",
+  "paper_full_reproduction": false,
+  "automatic_checks_passed": 51,
+  "potential_probe_unique_saved_inputs": 8,
+  "potential_is_our_field_consistent_surrogate_not_author_confirmed_phi": true,
+  "potential_replays": [
+    {
+      "sample_index": 0,
+      "candidate_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "initial_trial_step": 1,
+      "same_field_collision_potential_nonincrease": true,
+      "float64": {
+        "candidate_count": 4,
+        "feasible_count": 0,
+        "feasible_fraction": 0.0,
+        "best_feasible_candidate_index": null,
+        "best_feasible_strip_utilization": null,
+        "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0006168479671908568,
+        "mean_max_pairwise_area_all_candidates": 360.4017220989293,
+        "max_pairwise_area": 1201.4226046394429,
+        "max_height_violation": 5.680145795767231,
+        "semantics": {
+          "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+          "strict_area_epsilon": 1e-09,
+          "boundary_tolerance": 1e-09,
+          "strip_height": 1200.0,
+          "horizontal_right_wall": null,
+          "criterion_is_project_convention_not_paper_constant": true,
+          "sum_pairwise_area": "multiway intersections may be counted more than once"
+        }
+      },
+      "fp32": {
+        "candidate_count": 4,
+        "feasible_count": 0,
+        "feasible_fraction": 0.0,
+        "best_feasible_candidate_index": null,
+        "best_feasible_strip_utilization": null,
+        "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0006168470255471312,
+        "mean_max_pairwise_area_all_candidates": 360.4011468974016,
+        "max_pairwise_area": 1201.4209329378825,
+        "max_height_violation": 5.680146354353582,
+        "semantics": {
+          "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+          "strict_area_epsilon": 1e-09,
+          "boundary_tolerance": 1e-09,
+          "strip_height": 1200.0,
+          "horizontal_right_wall": null,
+          "criterion_is_project_convention_not_paper_constant": true,
+          "sum_pairwise_area": "multiway intersections may be counted more than once"
+        }
+      },
+      "metadata_sha256": "58f82bc6a3cb11fd73a045f3cd0eb859594fdbbf888ecee168f7cc6231fd0edf",
+      "post_sha256": "b3ca828e3a77e847ff250ab17d2d82a22319080248d8c626f3970fbb7cce50bd",
+      "source_code_sha256": {
+        "replay_paper_geometry.py": "6ada861f9414afc3f426e41a5ea7ff5b7653f5d6a5fa53f7fe41f461433d6bfc",
+        "replay_paper_enhancement.py": "f3e8f299bd6863712ffea46ec1b90820257710accb427c3715c9abf375dd4f83",
+        "paper_enhancement.py": "b9e85a2f1b079f950328ab4fb948c96f149ab86927ccfe17f4aa2a02d6f12e02",
+        "paper_sat_geometry.py": "ee4d58b437578343ea1186bbe57edf4afe1460a97a936670f72e1f71aeaa1e65",
+        "paper_potential_enhancement.py": "391feee805785411faf990187c6822e8fa431d178e3500ba0ee4bb7e9dc26a0c",
+        "run_paper_alignment.py": "12918a531e1d92ef51e5a6b387205bf39cc605e82319c719d0a20f0f057632d6",
+        "paper_metrics.py": "58829757fcd7c45a55985be12ed83dd8acbf7d5a33d601829344adde3a07930d",
+        "run_inference.py": "52acb81beb2da5a89ada1cbf68ae5ffe8b42e81e2d8ca5858213517bc224da7b"
+      }
+    },
+    {
+      "sample_index": 45,
+      "candidate_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "initial_trial_step": 1,
+      "same_field_collision_potential_nonincrease": true,
+      "float64": {
+        "candidate_count": 4,
+        "feasible_count": 0,
+        "feasible_fraction": 0.0,
+        "best_feasible_candidate_index": null,
+        "best_feasible_strip_utilization": null,
+        "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0035867197207700057,
+        "mean_max_pairwise_area_all_candidates": 3523.6637074026403,
+        "max_pairwise_area": 11250.968456325565,
+        "max_height_violation": 27.807080289193436,
+        "semantics": {
+          "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+          "strict_area_epsilon": 1e-09,
+          "boundary_tolerance": 1e-09,
+          "strip_height": 1200.0,
+          "horizontal_right_wall": null,
+          "criterion_is_project_convention_not_paper_constant": true,
+          "sum_pairwise_area": "multiway intersections may be counted more than once"
+        }
+      },
+      "fp32": {
+        "candidate_count": 4,
+        "feasible_count": 0,
+        "feasible_fraction": 0.0,
+        "best_feasible_candidate_index": null,
+        "best_feasible_strip_utilization": null,
+        "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0035867188174829785,
+        "mean_max_pairwise_area_all_candidates": 3523.6640149781174,
+        "max_pairwise_area": 11250.967477840293,
+        "max_height_violation": 27.807056606994138,
+        "semantics": {
+          "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+          "strict_area_epsilon": 1e-09,
+          "boundary_tolerance": 1e-09,
+          "strip_height": 1200.0,
+          "horizontal_right_wall": null,
+          "criterion_is_project_convention_not_paper_constant": true,
+          "sum_pairwise_area": "multiway intersections may be counted more than once"
+        }
+      },
+      "metadata_sha256": "b95970cd7d565ab4976946d799732143cf9a103d41c70d0b6a6aba98469f8b39",
+      "post_sha256": "e718c4722d9ace25faaaa174b46a9bd85aea8d9f0936da8dea4cb999095a66c2",
+      "source_code_sha256": {
+        "replay_paper_geometry.py": "6ada861f9414afc3f426e41a5ea7ff5b7653f5d6a5fa53f7fe41f461433d6bfc",
+        "replay_paper_enhancement.py": "f3e8f299bd6863712ffea46ec1b90820257710accb427c3715c9abf375dd4f83",
+        "paper_enhancement.py": "b9e85a2f1b079f950328ab4fb948c96f149ab86927ccfe17f4aa2a02d6f12e02",
+        "paper_sat_geometry.py": "ee4d58b437578343ea1186bbe57edf4afe1460a97a936670f72e1f71aeaa1e65",
+        "paper_potential_enhancement.py": "391feee805785411faf990187c6822e8fa431d178e3500ba0ee4bb7e9dc26a0c",
+        "run_paper_alignment.py": "12918a531e1d92ef51e5a6b387205bf39cc605e82319c719d0a20f0f057632d6",
+        "paper_metrics.py": "58829757fcd7c45a55985be12ed83dd8acbf7d5a33d601829344adde3a07930d",
+        "run_inference.py": "52acb81beb2da5a89ada1cbf68ae5ffe8b42e81e2d8ca5858213517bc224da7b"
+      }
+    },
+    {
+      "sample_index": 0,
+      "candidate_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "initial_trial_step": 4,
+      "same_field_collision_potential_nonincrease": true,
+      "float64": {
+        "candidate_count": 4,
+        "feasible_count": 0,
+        "feasible_fraction": 0.0,
+        "best_feasible_candidate_index": null,
+        "best_feasible_strip_utilization": null,
+        "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0005209987821054571,
+        "mean_max_pairwise_area_all_candidates": 303.53583448755666,
+        "max_pairwise_area": 1166.3022216734594,
+        "max_height_violation": 4.840094568144487,
+        "semantics": {
+          "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+          "strict_area_epsilon": 1e-09,
+          "boundary_tolerance": 1e-09,
+          "strip_height": 1200.0,
+          "horizontal_right_wall": null,
+          "criterion_is_project_convention_not_paper_constant": true,
+          "sum_pairwise_area": "multiway intersections may be counted more than once"
+        }
+      },
+      "fp32": {
+        "candidate_count": 4,
+        "feasible_count": 0,
+        "feasible_fraction": 0.0,
+        "best_feasible_candidate_index": null,
+        "best_feasible_strip_utilization": null,
+        "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0005209986473955378,
+        "mean_max_pairwise_area_all_candidates": 303.5367113062934,
+        "max_pairwise_area": 1166.305394243846,
+        "max_height_violation": 4.840092796003972,
+        "semantics": {
+          "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+          "strict_area_epsilon": 1e-09,
+          "boundary_tolerance": 1e-09,
+          "strip_height": 1200.0,
+          "horizontal_right_wall": null,
+          "criterion_is_project_convention_not_paper_constant": true,
+          "sum_pairwise_area": "multiway intersections may be counted more than once"
+        }
+      },
+      "metadata_sha256": "022d988180f7478a1c7e80fd2c23e214fefeb0449e8b063e1a6798858d22c866",
+      "post_sha256": "b71efff7365c752f6c4fb6395ba8d75f1eca2fc973cb09a8eecbc720432229f0",
+      "source_code_sha256": {
+        "replay_paper_geometry.py": "6ada861f9414afc3f426e41a5ea7ff5b7653f5d6a5fa53f7fe41f461433d6bfc",
+        "replay_paper_enhancement.py": "f3e8f299bd6863712ffea46ec1b90820257710accb427c3715c9abf375dd4f83",
+        "paper_enhancement.py": "b9e85a2f1b079f950328ab4fb948c96f149ab86927ccfe17f4aa2a02d6f12e02",
+        "paper_sat_geometry.py": "ee4d58b437578343ea1186bbe57edf4afe1460a97a936670f72e1f71aeaa1e65",
+        "paper_potential_enhancement.py": "391feee805785411faf990187c6822e8fa431d178e3500ba0ee4bb7e9dc26a0c",
+        "run_paper_alignment.py": "12918a531e1d92ef51e5a6b387205bf39cc605e82319c719d0a20f0f057632d6",
+        "paper_metrics.py": "58829757fcd7c45a55985be12ed83dd8acbf7d5a33d601829344adde3a07930d",
+        "run_inference.py": "52acb81beb2da5a89ada1cbf68ae5ffe8b42e81e2d8ca5858213517bc224da7b"
+      }
+    },
+    {
+      "sample_index": 45,
+      "candidate_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "initial_trial_step": 4,
+      "same_field_collision_potential_nonincrease": true,
+      "float64": {
+        "candidate_count": 4,
+        "feasible_count": 0,
+        "feasible_fraction": 0.0,
+        "best_feasible_candidate_index": null,
+        "best_feasible_strip_utilization": null,
+        "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0016269740468730872,
+        "mean_max_pairwise_area_all_candidates": 731.9263634330841,
+        "max_pairwise_area": 1707.981531278002,
+        "max_height_violation": 6.991566161342007,
+        "semantics": {
+          "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+          "strict_area_epsilon": 1e-09,
+          "boundary_tolerance": 1e-09,
+          "strip_height": 1200.0,
+          "horizontal_right_wall": null,
+          "criterion_is_project_convention_not_paper_constant": true,
+          "sum_pairwise_area": "multiway intersections may be counted more than once"
+        }
+      },
+      "fp32": {
+        "candidate_count": 4,
+        "feasible_count": 0,
+        "feasible_fraction": 0.0,
+        "best_feasible_candidate_index": null,
+        "best_feasible_strip_utilization": null,
+        "mean_sum_pairwise_overlap_fraction_all_candidates": 0.0016269734911450047,
+        "mean_max_pairwise_area_all_candidates": 731.9246543688284,
+        "max_pairwise_area": 1707.9816230161377,
+        "max_height_violation": 6.991551868308534,
+        "semantics": {
+          "geometry": "independent float64 GEOS; saved fp32 first round-tripped",
+          "strict_area_epsilon": 1e-09,
+          "boundary_tolerance": 1e-09,
+          "strip_height": 1200.0,
+          "horizontal_right_wall": null,
+          "criterion_is_project_convention_not_paper_constant": true,
+          "sum_pairwise_area": "multiway intersections may be counted more than once"
+        }
+      },
+      "metadata_sha256": "a0c7805a50a0eb745efabc8a457037d8ec8bbdcb4c10b08455b297eed3f5776c",
+      "post_sha256": "d597aab772c13ab37b9a8e7819c8ded92d633d74093fd74933d0035a28b51960",
+      "source_code_sha256": {
+        "replay_paper_geometry.py": "6ada861f9414afc3f426e41a5ea7ff5b7653f5d6a5fa53f7fe41f461433d6bfc",
+        "replay_paper_enhancement.py": "f3e8f299bd6863712ffea46ec1b90820257710accb427c3715c9abf375dd4f83",
+        "paper_enhancement.py": "b9e85a2f1b079f950328ab4fb948c96f149ab86927ccfe17f4aa2a02d6f12e02",
+        "paper_sat_geometry.py": "ee4d58b437578343ea1186bbe57edf4afe1460a97a936670f72e1f71aeaa1e65",
+        "paper_potential_enhancement.py": "391feee805785411faf990187c6822e8fa431d178e3500ba0ee4bb7e9dc26a0c",
+        "run_paper_alignment.py": "12918a531e1d92ef51e5a6b387205bf39cc605e82319c719d0a20f0f057632d6",
+        "paper_metrics.py": "58829757fcd7c45a55985be12ed83dd8acbf7d5a33d601829344adde3a07930d",
+        "run_inference.py": "52acb81beb2da5a89ada1cbf68ae5ffe8b42e81e2d8ca5858213517bc224da7b"
+      }
+    }
+  ],
+  "actual_cpu_model_probes": [
+    {
+      "name": "paper_train_one_compat",
+      "sample_index": 0,
+      "candidates": 1,
+      "model_executed": true,
+      "weights_loaded": true,
+      "checkpoint_sha256": "e3585572100e61c5f3112a8925e7add420b70c8c7a8f23e29be97788ad3c5643",
+      "model_parameters": 10621276,
+      "model_training_flag": true,
+      "profile": "paper_settings",
+      "sampling_seconds": 94.57890419999603,
+      "elapsed_seconds": 115.3157156999805,
+      "common_noise_sha256": {
+        "initial_standard_normal": "66ab8f6f55b8797465e729f64cbe1f8f16d45d4cd4b02c7ecf80a9ed053e747e",
+        "brownian_standard_normal": "7f66360555f53e75f33ccb481836f69c8009521135f6edae2d4c1d30cdc1544b"
+      },
+      "stages": {
+        "raw": [
+          {
+            "max_pairwise_area": 4813.899754433276,
+            "sum_pairwise_area": 25343.225814008416,
+            "strict_valid": false,
+            "nominal_strip_utilization": 0.7072065811699236,
+            "height_violation": 1.4573402206181072
+          }
+        ],
+        "enhanced_float64": [
+          {
+            "max_pairwise_area": 218.8523980605052,
+            "sum_pairwise_area": 472.17407659307605,
+            "strict_valid": false,
+            "nominal_strip_utilization": 0.6573615544754882,
+            "height_violation": 0.7141567976941587
+          }
+        ],
+        "enhanced_fp32": [
+          {
+            "max_pairwise_area": 218.8560981304691,
+            "sum_pairwise_area": 472.1756975014915,
+            "strict_valid": false,
+            "nominal_strip_utilization": 0.6573615759438193,
+            "height_violation": 0.7141120856026646
+          }
+        ]
+      },
+      "software": {
+        "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+        "torch": "2.14.0+cpu",
+        "torch_geometric": "2.8.1"
+      },
+      "metadata_sha256": "e947f02b0c20aa82d799bdcae7518e1f1045db4af84a405a0472278a8573d945",
+      "verification_sha256": "a2bd8943d45785df328f578c0a925eee4c60a189215b22841224e2a06d21d8bc"
+    },
+    {
+      "name": "paper_eval_one",
+      "sample_index": 0,
+      "candidates": 1,
+      "model_executed": true,
+      "weights_loaded": true,
+      "checkpoint_sha256": "e3585572100e61c5f3112a8925e7add420b70c8c7a8f23e29be97788ad3c5643",
+      "model_parameters": 10621276,
+      "model_training_flag": false,
+      "profile": "paper_settings",
+      "sampling_seconds": 48.151933900022414,
+      "elapsed_seconds": 68.53472809999948,
+      "common_noise_sha256": {
+        "initial_standard_normal": "66ab8f6f55b8797465e729f64cbe1f8f16d45d4cd4b02c7ecf80a9ed053e747e",
+        "brownian_standard_normal": "7f66360555f53e75f33ccb481836f69c8009521135f6edae2d4c1d30cdc1544b"
+      },
+      "stages": {
+        "raw": [
+          {
+            "max_pairwise_area": 2870.1928126953603,
+            "sum_pairwise_area": 14725.848394422665,
+            "strict_valid": false,
+            "nominal_strip_utilization": 0.6852756079787188,
+            "height_violation": 6.254460795313889
+          }
+        ],
+        "enhanced_float64": [
+          {
+            "max_pairwise_area": 16.020463246738704,
+            "sum_pairwise_area": 19.16872890950336,
+            "strict_valid": false,
+            "nominal_strip_utilization": 0.6770966520293646,
+            "height_violation": 0.2869669441906808
+          }
+        ],
+        "enhanced_fp32": [
+          {
+            "max_pairwise_area": 16.020819914814865,
+            "sum_pairwise_area": 19.168953774545155,
+            "strict_valid": false,
+            "nominal_strip_utilization": 0.6770966641614812,
+            "height_violation": 0.2869314984388893
+          }
+        ]
+      },
+      "software": {
+        "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+        "torch": "2.14.0+cpu",
+        "torch_geometric": "2.8.1"
+      },
+      "metadata_sha256": "66e5d7c3308143171cc3ee547ed13288d23ca2642fe2a10a8ec8d92f47b46e3f",
+      "verification_sha256": "a9743e56736d293851db97fb7d269060d772ff8106352b266fb82228eaf7a528"
+    },
+    {
+      "name": "sigma1_train_one",
+      "sample_index": 0,
+      "candidates": 1,
+      "model_executed": true,
+      "weights_loaded": true,
+      "checkpoint_sha256": "e3585572100e61c5f3112a8925e7add420b70c8c7a8f23e29be97788ad3c5643",
+      "model_parameters": 10621276,
+      "model_training_flag": true,
+      "profile": "paper_mechanism_release_scale",
+      "sampling_seconds": 35.2055679000332,
+      "elapsed_seconds": 58.143178800004534,
+      "common_noise_sha256": {
+        "initial_standard_normal": "66ab8f6f55b8797465e729f64cbe1f8f16d45d4cd4b02c7ecf80a9ed053e747e",
+        "brownian_standard_normal": "7f66360555f53e75f33ccb481836f69c8009521135f6edae2d4c1d30cdc1544b"
+      },
+      "stages": {
+        "raw": [
+          {
+            "max_pairwise_area": 194.17868236164833,
+            "sum_pairwise_area": 435.2871101049295,
+            "strict_valid": false,
+            "nominal_strip_utilization": 0.643087626744998,
+            "height_violation": 6.523224587531672
+          }
+        ],
+        "enhanced_float64": [
+          {
+            "max_pairwise_area": 1.0360812652832663,
+            "sum_pairwise_area": 1.9581496479604312,
+            "strict_valid": false,
+            "nominal_strip_utilization": 0.6753834838544496,
+            "height_violation": 0.1536366656924102
+          }
+        ],
+        "enhanced_fp32": [
+          {
+            "max_pairwise_area": 1.0358856119621966,
+            "sum_pairwise_area": 1.9579744378741428,
+            "strict_valid": false,
+            "nominal_strip_utilization": 0.6753834818894818,
+            "height_violation": 0.153637642951594
+          }
+        ]
+      },
+      "software": {
+        "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+        "torch": "2.14.0+cpu",
+        "torch_geometric": "2.8.1"
+      },
+      "metadata_sha256": "0b7a9fda47aea8c6b8e5b3dbe8c6a70d88a773db5e5c62a1159e976753a1136b",
+      "verification_sha256": "305c6ca607a695e011b7cf0e840c96aa31f3a4f8746ea6c657ecf931586d8362"
+    }
+  ],
+  "limits": [
+    "CPU batch1 is not round5 batch512 candidate0 or a 128-instance benchmark.",
+    "CPU PyTorch2.14/PyG2.8.1 differs from the old GPU environment.",
+    "No new policy/configuration proved strict feasibility; defaults remain unchanged."
+  ]
+}
