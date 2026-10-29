@@ -2,6 +2,8 @@
 
 日期：2026-10-28。分支：`codex/paper-reproduction`。
 
+2026-10-29更新：主线已回到 [paper_settings + legacy_unit论文重建基线](PAPER_BASELINE.md)。本文的guarded策略保留为显式对照，不再作为主线推荐。队友回放汇总中，paper_settings样本0/45的新旧策略均无严格有效解，不能把其他配置的有效候选增加视为论文设置的成功。
+
 ## 这次解决什么
 
 第五轮 `paper_enhancement.py` 原来直接执行 `位置 += 碰撞位移`。如果同时推开多个零件导致新的交叠或越界，这一步仍会保留。后面的 rollback 只撤销压缩，不能撤销已经变差的碰撞修正。

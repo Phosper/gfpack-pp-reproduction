@@ -58,11 +58,13 @@ def plot(path,polygons,ids,actions,title):
 
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__)
+    parser=argparse.ArgumentParser(description=__doc__,
+                                   formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("--root",type=Path,required=True)
     parser.add_argument("--extension",type=Path,required=True)
     parser.add_argument("--output",type=Path,required=True)
-    parser.add_argument("--profile",choices=PROFILES,default="paper_mechanism_release_scale")
+    parser.add_argument("--profile",choices=PROFILES,default="paper_settings",
+                        help="Sampling profile; default follows the paper's stated numerical settings")
     parser.add_argument("--sample-index",type=int,default=0)
     parser.add_argument("--candidates",type=int,default=512)
     parser.add_argument("--smoke",action="store_true")
@@ -73,8 +75,8 @@ def main():
                         help="Explicit numerical reconstruction policy; neither is an author-confirmed post solver")
     args=parser.parse_args()
     sys.dont_write_bytecode=True
-    if args.candidates<1 or args.candidates>512 or (args.candidates!=512 and not args.smoke):
-        parser.error("Use 512 candidates, or explicitly mark a reduced run --smoke")
+    if args.candidates<1 or args.candidates>512 or (args.candidates not in (128,512) and not args.smoke):
+        parser.error("Use 128 or 512 candidates, or explicitly mark a reduced run --smoke")
     if not 0<=args.post_iterations<=100 or args.sample_index<0:
         parser.error("Invalid post budget or sample index")
     root=args.root.resolve();extension=args.extension.resolve();out=args.output.resolve()

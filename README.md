@@ -8,7 +8,9 @@
 
 执行入口见 [完整复现进度与任务](docs/FULL_PAPER_REPRODUCTION.md)，首阶段评价草案见 [evaluation_contract.json](configs/paper_reproduction/evaluation_contract.json)。第五轮测试已经完成，接下来先分析已有失败证据；128×1工程验证也已完成，不作为新的待办重复安排。
 
-本分支新增可选的 [碰撞移动接受规则与固定候选回放](docs/PAPER_COLLISION_ACCEPTANCE.md)：保留原方向和面积权重，用回溯步长拒绝交叠/越界恶化，并记录修正、压缩、float32 保存三个阶段。该数值规则是明确标注的重建变体，不是作者确认的原版实现。
+**2026-10-29起，复现主线回到 `paper_settings + legacy_unit`**，见 [论文重建基线与运行命令](docs/PAPER_BASELINE.md)。默认采样配置已切换，正式候选数支持128和512。第五轮已有0、45结果可继续使用；先排查基线失败，不把新增保护规则当作论文原方法。
+
+[碰撞移动接受规则与固定候选回放](docs/PAPER_COLLISION_ACCEPTANCE.md) 保留为显式选择的对照：该数值规则是重建变体，不是作者确认的原版实现。
 
 ## 获取源码与资源
 
