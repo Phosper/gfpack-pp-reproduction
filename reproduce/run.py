@@ -37,7 +37,8 @@ def main():
     parser.add_argument('--post-policy', choices=('simultaneous', 'pairwise'), default='pairwise')
     parser.add_argument('--relaxation', type=float, default=1.75,
                         help='Declared numerical choice for pairwise post updates, not an author parameter')
-    parser.add_argument('--model-mode', choices=('eval', 'train'), default='eval')
+    parser.add_argument('--model-mode', choices=('eval', 'train'), default='train',
+                        help='Default preserves the public entrypoint state; no gradients or training. eval is a diagnostic override.')
     parser.add_argument('--sigma-min', type=float, choices=(.1, 1.), default=.1,
                         help='0.1 = paper; 1 = explicitly labelled public-weight scale diagnostic')
     args = parser.parse_args()
@@ -103,6 +104,7 @@ def main():
             metadata['model_executed'] = True
         model.register_forward_pre_hook(mark_model_executed)
         getattr(model, args.model_mode)()
+        metadata['model_training_flag'] = model.training
         metadata['model_parameters'] = sum(p.numel() for p in model.parameters())
         features = make_features(contours).to(device)
         geometry = Geometry([contours[i] for i in ids])

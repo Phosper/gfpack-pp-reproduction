@@ -1,6 +1,6 @@
 # Dental：以论文方法为主线的独立复现入口
 
-官方原始基线：`ff75815e24ec50cd7fa8b2abdec1acfe0b55be95`。`main`保留该提交；本次工作在`codex/paper-reproduction`。原`src/`、训练代码与C++源码均未改动。新增入口直接实例化原`PolygonPackingTransformer`并严格加载用户提供的`dental.pth`，不引入旧项目、round8、局部半径搜索、双起点或GT替代预测。
+官方原始基线：`ff75815e24ec50cd7fa8b2abdec1acfe0b55be95`。此分支从该提交重新开始，与队友仓库已有主线隔离；当前维护分支为`codex/paper-restart-official`。原`src/`、训练代码与C++源码均未改动。新增入口直接实例化原`PolygonPackingTransformer`并严格加载用户提供的`dental.pth`，不引入旧项目、round8、局部半径搜索、双起点或GT替代预测。
 
 依据：[论文v2](https://arxiv.org/html/2406.07579v2)，尤其[第4.4节](https://arxiv.org/html/2406.07579v2#S4.SS4)、[第5.2节](https://arxiv.org/html/2406.07579v2#S5.SS2)。这是根据论文重建的参考实现，不声称已经获得作者原实验的全部实现细节或复现成绩。
 
@@ -29,7 +29,7 @@ Dental固定高度1200，水平没有8000右墙；整体水平平移只选择坐
 | 收敛 | 严格合法且本轮最大移动不超过1e-6，或达到100轮；逐对版本保留本候选100轮内最紧凑的严格合法端点，避免后续数值抖动覆盖已知合法解。全程未合法则失败；同步版本无有效修正且无压缩移动时记录停滞失败 |
 | 接触数值 | 基础数值余量为1e-7坐标单位；凹件在禁止平移区域外计算该余量，若完整原轮廓验证失败则依次用4/16/64倍余量重算，不直接延长相切方向。二分最大位移也留1e-7余量，避免独立变换后出现约1e-14的高度越界。原轮廓不缩小、不膨胀、不用面积阈值忽略交叠；此余量不是工业加工间距 |
 | 存储 | 后处理与JSON保存使用float64；从保存文件重新读入坐标后再次测量。没有强制回写float32，也不能据此声称float32同样有效 |
-| 推理模式 | 默认`eval()`关闭dropout；论文未明确该状态，公开入口保留train模式。可以用显式`--model-mode train`诊断，必须分别标记 |
+| 推理模式 | 默认保留官方入口的train模式（`model.training=True`），全部采样仍在`torch.no_grad()`下，没有优化器、反向传播或权重训练。`eval()`只允许通过显式`--model-mode eval`选择并单独报告；论文未明确该状态，不把任一种模式擅称为作者论文实验模式。批量入口显式向子进程传递所选模式，并记录逐步实际状态 |
 | 实现后端 | 参考碰撞几何用Python/GEOS，未使用作者Linux原生扩展。数值和运行时间不得冒充论文C++实现的结果 |
 
 最终成功条件为：**最大两两交叠面积=0、两两交叠面积之和=0、条带高度越界=0**。这是针对已保存坐标的数值验收，不是任意输入100轮内必定成功的数学保证；也不把论文表格的`0.00%`等同于作者使用了同一判据。
@@ -59,17 +59,20 @@ python -m reproduce.assets --checkpoint /path/to/dental.pth
 python -m unittest discover -s tests -p test_reproduction.py -v
 
 # 仅验证入口；1个候选不能代替论文每例512候选评测
-python -m reproduce.run --sample-index 0 --candidates 1 --smoke --device cpu --output runs/smoke_sample000
-python -m reproduce.verify runs/smoke_sample000
+python -m reproduce.run --sample-index 0 --candidates 1 --smoke --device cpu --output runs/smoke_sample000_official_mode
+python -m reproduce.verify runs/smoke_sample000_official_mode
+
+# eval只作为独立对照，不覆盖默认模式结果
+python -m reproduce.run --sample-index 0 --candidates 1 --smoke --device cpu --model-mode eval --output runs/smoke_eval
 
 # 同步场对照；与逐对版本分开保存，不能悄悄替换失败结果
 python -m reproduce.run --sample-index 0 --candidates 1 --smoke --device cpu --post-policy simultaneous --output runs/smoke_simultaneous
 
 # GPU先测5例，每例512候选，不能把候选数和测试实例数混淆
-python -m reproduce.benchmark --start 0 --count 5 --device cuda --output runs/paper_first5
+python -m reproduce.benchmark --start 0 --count 5 --device cuda --output runs/paper_first5_official_mode
 
 # 5例核验完成后，再运行完整128例
-python -m reproduce.benchmark --start 0 --count 128 --device cuda --output runs/paper_full128
+python -m reproduce.benchmark --start 0 --count 128 --device cuda --output runs/paper_full128_official_mode
 ```
 
 输出目录必须不存在，不覆盖历史实验。`metadata.json`记录软件版本、实际配置、输入哈希和运行状态；`sampling_trace.json`记录逐步约束开关；`trajectory.pt`保留真实采样轨迹；每候选JSON保留原始指标、最终坐标、修正轨迹及失败状态。
@@ -84,7 +87,7 @@ python -m reproduce.benchmark --start 0 --count 128 --device cuda --output runs/
 
 早期逐对版本还暴露两项真实问题：独立变换的微小边界越界，以及样本3的凹形相切出口。代码增加了完整几何现场记录，并用上述配置空间余量及二分落点余量修复；测试包含该真实角点几何fixture。历史实验均保留对应源码哈希和`frozen_code/`快照，不覆盖、改名或伪造为新版本成功。
 
-2026-10-29，当前版本15项自动检查通过；新运行5个真实实例，每例仅1候选，全部运行完成并独立复核。**2/5严格通过，不是论文每例512候选的全量评测，更不是论文复现成功声明。**
+2026-10-29，初版在`eval()`模式下完成15项自动检查和5个真实实例测试，每例仅1候选，全部运行完成并独立复核。**下表是保留的历史eval结果：2/5严格通过，不代表恢复官方默认模式后的成绩，也不是论文每例512候选的全量评测或复现成功声明。**
 
 | 实例索引 | 原始名义利用率 | 增强后名义利用率 | 最大两两交叠面积 | 两两交叠面积之和 | 严格结果 |
 | --- | ---: | ---: | ---: | ---: | --- |
@@ -105,3 +108,18 @@ python scripts/plot_reproduction.py runs/strict_first5_b1/sample_000
 ```
 
 下一项正式检查是上面的GPU前5例、每例512候选命令。默认配置仍保留论文噪声下限0.1；不能通过把发布尺度1的诊断悄悄改名为论文配置来宣称对齐。
+
+## 默认模式修正
+
+初版默认`eval()`沿用了通用推理习惯，但旧项目已有对照显示它与官方默认入口存在实质差异，不能在严格复现中未经本流程对照就优先采用。现已把单例和批量入口均改为默认保留官方模式；显式eval仍可作为对照运行。该修正只改变模式选择与记录，不修改网络结构、权重、碰撞算法或后处理参数。旧5例结果和其源码快照原样保留。
+
+参考[旧流程模式记录](https://github.com/Phosper/gfpack-pp-reproduction/blob/bda3f0176c1239f491413656ea654565ae187f21/docs/DIAGNOSIS.md)。旧流程的结果不能直接外推到当前流程，也不能据此断言eval必然更差。
+
+修正后16项自动检查通过，包括批量入口对默认模式和显式eval的子进程参数传递。另在当前流程、样本0、每种模式各1候选下真实运行两组，并独立复核保存坐标、实际`model.training`和每步无梯度状态。两组的输入/源码哈希和初始高斯状态一致：
+
+| 模式 | 实际model.training | 启用梯度的采样步数 | 交叠面积之和 | 增强后名义利用率 | 严格结果 |
+| --- | --- | ---: | ---: | ---: | --- |
+| 默认官方模式 | True | 0/128 | 约4.26e-13 | 68.2339% | 失败，不将微小正面积舍入为0 |
+| 显式eval | False | 0/128 | 0 | 66.4591% | 通过 |
+
+这是开发输入的单候选配置检查，不是模式优劣结论；恢复默认模式是为了先保持与官方入口一致。失败候选的名义利用率不计作成功成绩。完整证据见[模式修正记录](experiments/model_mode_baseline_20261029.json)。正式性能结论仍需每例512候选的对照。

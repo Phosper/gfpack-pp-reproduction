@@ -45,6 +45,8 @@ def sample(model, ids, features, geometry, batch_size=512, seed=3407, sigma_min=
             if not torch.isfinite(states).all():
                 raise FloatingPointError(f'Nonfinite state at generation step {index+1}')
             trace.append({'step': index + 1, 'time': float(t), 'dt': float(dt),
+                          'model_training_flag': getattr(model, 'training', None),
+                          'grad_enabled': torch.is_grad_enabled(),
                           'constraint_active': index >= 96, 'collision_pairs': pair_count,
                           'constraint_force_max': float(correction[:, :, :2].norm(dim=-1).max()),
                           'update_seconds': time.perf_counter() - started})

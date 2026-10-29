@@ -2,6 +2,10 @@
 import json
 from pathlib import Path
 import unittest
+import subprocess
+import sys
+import tempfile
+from unittest.mock import patch
 
 import numpy as np
 import torch
@@ -139,6 +143,30 @@ class GeometryTests(unittest.TestCase):
 
 
 class ScheduleTests(unittest.TestCase):
+    def test_benchmark_forwards_official_mode_and_explicit_eval_to_child(self):
+        from reproduce import benchmark
+        for expected, extra in [('train', []), ('eval', ['--model-mode', 'eval'])]:
+            with self.subTest(mode=expected), tempfile.TemporaryDirectory(dir=Path(__file__).parent) as tmp:
+                output = Path(tmp) / 'benchmark'
+                commands = []
+                def fake_run(command, **kwargs):
+                    commands.append(command)
+                    if command[2] == 'reproduce.run':
+                        child = Path(command[command.index('--output') + 1])
+                        child.mkdir()
+                        (child / 'summary.json').write_text(json.dumps({
+                            'sample_success': False, 'selected_metrics': None,
+                            'sample_utilization_failure_zero': 0., 'strict_valid_candidates': 0}), encoding='utf-8')
+                    return subprocess.CompletedProcess(command, 0)
+                argv = ['benchmark', '--count', '1', '--candidates', '1', '--smoke',
+                        '--device', 'cpu', '--output', str(output), *extra]
+                with patch.object(sys, 'argv', argv), patch.object(benchmark.subprocess, 'run', side_effect=fake_run):
+                    benchmark.main()
+                generated = commands[0]
+                self.assertEqual(generated[generated.index('--model-mode') + 1], expected)
+                record = json.loads((output / 'benchmark.json').read_text(encoding='utf-8'))
+                self.assertEqual(record['model_mode'], expected)
+
     def test_high_utilization_invalid_candidate_cannot_win(self):
         from reproduce.run import select_candidate
         self.assertEqual(select_candidate([{'strict_valid': False, 'strip_utilization': .99},
@@ -148,6 +176,7 @@ class ScheduleTests(unittest.TestCase):
     def test_constraint_runs_only_in_last_32_updates(self):
         class DummyModel:
             device = torch.device('cpu')
+            training = True
             def geo_feature(self, data):
                 return None
             def __call__(self, states, *args):
@@ -164,6 +193,8 @@ class ScheduleTests(unittest.TestCase):
         self.assertEqual(geometry.calls, 64)
         self.assertEqual(history.shape, (2, 129, 1, 4))
         self.assertEqual([r['step'] for r in trace if r['constraint_active']], list(range(97, 129)))
+        self.assertTrue(all(r['model_training_flag'] for r in trace))
+        self.assertTrue(all(r['grad_enabled'] is False for r in trace))
 
 
 if __name__ == '__main__':

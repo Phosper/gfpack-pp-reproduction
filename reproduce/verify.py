@@ -46,6 +46,10 @@ def verify(directory):
     trace = read('sampling_trace.json')
     if len(trace) != 128 or [r['step'] for r in trace if r['constraint_active']] != list(range(97, 129)):
         raise ValueError('Invalid late-constraint schedule')
+    if 'model_training_flag' in meta:
+        expected = meta['model_mode'] == 'train'
+        if meta['model_training_flag'] != expected or any(r.get('model_training_flag') != expected or r.get('grad_enabled') is not False for r in trace):
+            raise ValueError('Runtime model mode or no-grad state disagrees with requested configuration')
     measured = []
     for index in range(summary['candidate_count']):
         saved = read(f'candidate_{index:04d}.json')

@@ -1,0 +1,547 @@
+{
+  "client_date": "2026-10-29",
+  "purpose": "Restore public entrypoint mode as default; not proof of a quality improvement or full paper reproduction",
+  "default_model_mode": "train",
+  "eval_requires_explicit_option": true,
+  "sample_index": 0,
+  "candidates_per_mode": 1,
+  "smoke_only": true,
+  "sigma_min": 0.1,
+  "sigma_max": 1000,
+  "sampling_steps": 128,
+  "post_policy": "pairwise",
+  "relaxation": 1.75,
+  "network_and_checkpoint_unchanged": true,
+  "initial_gaussian_states_identical": true,
+  "all_recorded_input_and_code_hashes_identical": true,
+  "automatic_tests_passed": 16,
+  "rows": [
+    {
+      "path": "runs/mode_default_train_one",
+      "model_mode": "train",
+      "actual_model_training_flag": true,
+      "completed": true,
+      "model_executed": true,
+      "grad_enabled_step_count": 0,
+      "mode_flags_consistent_all_steps": true,
+      "input_unchanged": true,
+      "model_weights_changed": false,
+      "independently_verified": true,
+      "raw_metrics": {
+        "max_pair_overlap_area": 3532.771680987519,
+        "sum_pair_overlap_area": 26035.160517239365,
+        "overlap_ratio_percent": 1.9970042490685063,
+        "overlap_pairs": [
+          [
+            0,
+            6,
+            546.8970939136555
+          ],
+          [
+            0,
+            22,
+            434.70101606137837
+          ],
+          [
+            0,
+            27,
+            27.02932028071487
+          ],
+          [
+            0,
+            31,
+            323.4635396075159
+          ],
+          [
+            0,
+            44,
+            354.016991466539
+          ],
+          [
+            1,
+            6,
+            389.11779499614255
+          ],
+          [
+            1,
+            29,
+            102.48680536714998
+          ],
+          [
+            1,
+            44,
+            49.06234869543797
+          ],
+          [
+            1,
+            47,
+            243.69107326149802
+          ],
+          [
+            2,
+            39,
+            65.98983561327661
+          ],
+          [
+            3,
+            4,
+            243.35459439449667
+          ],
+          [
+            4,
+            32,
+            507.87128112828066
+          ],
+          [
+            7,
+            10,
+            55.01977616038694
+          ],
+          [
+            8,
+            31,
+            15.152644243581598
+          ],
+          [
+            9,
+            10,
+            12.130351519174326
+          ],
+          [
+            9,
+            18,
+            62.692757232796154
+          ],
+          [
+            9,
+            43,
+            148.94031594854368
+          ],
+          [
+            10,
+            13,
+            9.24662015774824
+          ],
+          [
+            11,
+            31,
+            558.0018300826094
+          ],
+          [
+            11,
+            33,
+            26.562043042322884
+          ],
+          [
+            12,
+            24,
+            372.74454078567373
+          ],
+          [
+            15,
+            39,
+            1828.2080541499834
+          ],
+          [
+            15,
+            42,
+            1051.9277282726587
+          ],
+          [
+            15,
+            45,
+            2285.16500623693
+          ],
+          [
+            16,
+            23,
+            3532.771680987519
+          ],
+          [
+            16,
+            32,
+            1850.947859415231
+          ],
+          [
+            17,
+            31,
+            331.94319093274476
+          ],
+          [
+            17,
+            45,
+            1367.7304521351086
+          ],
+          [
+            19,
+            40,
+            23.699137020207573
+          ],
+          [
+            20,
+            22,
+            87.71273619862538
+          ],
+          [
+            20,
+            31,
+            434.05481723655686
+          ],
+          [
+            20,
+            36,
+            147.91686135918448
+          ],
+          [
+            20,
+            45,
+            49.37918509621671
+          ],
+          [
+            20,
+            46,
+            1930.7881992107748
+          ],
+          [
+            22,
+            46,
+            2047.582753056279
+          ],
+          [
+            23,
+            32,
+            177.58515335996577
+          ],
+          [
+            23,
+            45,
+            1686.2543524572548
+          ],
+          [
+            24,
+            26,
+            386.3602159963224
+          ],
+          [
+            25,
+            28,
+            20.79354673736556
+          ],
+          [
+            29,
+            47,
+            56.47899926414447
+          ],
+          [
+            31,
+            45,
+            0.15045949887306992
+          ],
+          [
+            33,
+            41,
+            43.3027123481354
+          ],
+          [
+            33,
+            47,
+            205.6275786027291
+          ],
+          [
+            34,
+            39,
+            313.39220610300436
+          ],
+          [
+            35,
+            39,
+            205.85624188615972
+          ],
+          [
+            39,
+            42,
+            1421.3588157184665
+          ]
+        ],
+        "height_violation": 5.355489111203269,
+        "span_x": 1520.085874422593,
+        "strip_utilization": 0.7147133616230521,
+        "part_area": 1303710.8223171458,
+        "strict_valid": false
+      },
+      "enhanced_metrics": {
+        "max_pair_overlap_area": 2.8635575272810424e-13,
+        "sum_pair_overlap_area": 4.2611783229422986e-13,
+        "overlap_ratio_percent": 3.268499616631784e-17,
+        "overlap_pairs": [
+          [
+            10,
+            33,
+            2.8635575272810424e-13
+          ],
+          [
+            13,
+            33,
+            3.545877074584932e-14
+          ],
+          [
+            15,
+            25,
+            2.214917244292077e-14
+          ],
+          [
+            15,
+            42,
+            4.904561344335301e-14
+          ],
+          [
+            35,
+            39,
+            3.3108522934002525e-14
+          ]
+        ],
+        "height_violation": 0.0,
+        "span_x": 1592.2084096918798,
+        "strip_utilization": 0.6823388688636122,
+        "part_area": 1303710.8223171458,
+        "strict_valid": false
+      },
+      "independent_metrics": {
+        "max_pair_overlap_area": 2.8635575272810424e-13,
+        "sum_pair_overlap_area": 4.261177761404859e-13,
+        "height_violation": 0.0,
+        "span_x": 1592.2084096918798,
+        "strip_utilization": 0.6823388688636122,
+        "strict_valid": false
+      },
+      "elapsed_seconds": 151.2126738000079,
+      "metadata_sha256": "3babaf0c50a57102de85752faf46ed12c4c318fc4e69839f12afbaca425049d2"
+    },
+    {
+      "path": "runs/mode_explicit_eval_one",
+      "model_mode": "eval",
+      "actual_model_training_flag": false,
+      "completed": true,
+      "model_executed": true,
+      "grad_enabled_step_count": 0,
+      "mode_flags_consistent_all_steps": true,
+      "input_unchanged": true,
+      "model_weights_changed": false,
+      "independently_verified": true,
+      "raw_metrics": {
+        "max_pair_overlap_area": 2870.1416709063906,
+        "sum_pair_overlap_area": 14725.73396334052,
+        "overlap_ratio_percent": 1.1295245625995334,
+        "overlap_pairs": [
+          [
+            0,
+            12,
+            15.969506188696585
+          ],
+          [
+            0,
+            29,
+            23.73509516408199
+          ],
+          [
+            0,
+            33,
+            52.38072532838889
+          ],
+          [
+            0,
+            44,
+            24.451456848076177
+          ],
+          [
+            2,
+            45,
+            461.2076409640249
+          ],
+          [
+            3,
+            30,
+            7.374058516672258
+          ],
+          [
+            6,
+            11,
+            70.20696652022818
+          ],
+          [
+            7,
+            39,
+            515.6342087553663
+          ],
+          [
+            8,
+            19,
+            32.27765380633119
+          ],
+          [
+            8,
+            22,
+            104.13146567027586
+          ],
+          [
+            9,
+            18,
+            151.81487174126715
+          ],
+          [
+            9,
+            39,
+            170.659119898864
+          ],
+          [
+            11,
+            36,
+            25.27714621472252
+          ],
+          [
+            12,
+            24,
+            87.6816199889587
+          ],
+          [
+            15,
+            31,
+            182.70147686751395
+          ],
+          [
+            15,
+            42,
+            1047.4353788662975
+          ],
+          [
+            15,
+            43,
+            248.857482197533
+          ],
+          [
+            16,
+            32,
+            7.538652057094123
+          ],
+          [
+            17,
+            22,
+            808.5986015163395
+          ],
+          [
+            17,
+            34,
+            766.2622410522492
+          ],
+          [
+            18,
+            39,
+            1263.0846033370524
+          ],
+          [
+            19,
+            22,
+            303.58460003981844
+          ],
+          [
+            19,
+            39,
+            4.6341079491260695
+          ],
+          [
+            20,
+            30,
+            60.85799727308165
+          ],
+          [
+            20,
+            32,
+            161.77217021350822
+          ],
+          [
+            20,
+            35,
+            226.28244768973676
+          ],
+          [
+            20,
+            42,
+            1214.633987466232
+          ],
+          [
+            20,
+            45,
+            2212.1963373449103
+          ],
+          [
+            30,
+            35,
+            63.43561157460423
+          ],
+          [
+            31,
+            34,
+            133.94696599029191
+          ],
+          [
+            32,
+            34,
+            219.9108464896637
+          ],
+          [
+            33,
+            38,
+            8.633328728451668
+          ],
+          [
+            34,
+            42,
+            786.3861957990316
+          ],
+          [
+            37,
+            43,
+            365.31753174438563
+          ],
+          [
+            37,
+            45,
+            2870.1416709063906
+          ],
+          [
+            40,
+            43,
+            26.72019263125395
+          ]
+        ],
+        "height_violation": 6.254315028780638,
+        "span_x": 1585.3864993518198,
+        "strip_utilization": 0.6852749696736221,
+        "part_area": 1303710.8223171458,
+        "strict_valid": false
+      },
+      "enhanced_metrics": {
+        "max_pair_overlap_area": 0.0,
+        "sum_pair_overlap_area": 0.0,
+        "overlap_ratio_percent": 0.0,
+        "overlap_pairs": [],
+        "height_violation": 0.0,
+        "span_x": 1634.7281959048428,
+        "strip_utilization": 0.6645910237468791,
+        "part_area": 1303710.8223171458,
+        "strict_valid": true
+      },
+      "independent_metrics": {
+        "max_pair_overlap_area": 0.0,
+        "sum_pair_overlap_area": 0.0,
+        "height_violation": 0.0,
+        "span_x": 1634.7281959048428,
+        "strip_utilization": 0.6645910237468791,
+        "strict_valid": true
+      },
+      "elapsed_seconds": 144.53989890002413,
+      "metadata_sha256": "f586c4e2a391002c1afefd661efcf80573a1c462c78311868eeeb472098e69c9"
+    }
+  ],
+  "interpretation": "Single-candidate development probe. Preserve public default for baseline comparability; neither this probe nor historical selected samples establish the best mode in the current pipeline."
+}

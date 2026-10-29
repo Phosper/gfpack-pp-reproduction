@@ -1,6 +1,8 @@
 {
   "client_date": "2026-10-29",
   "kind": "CPU development smoke, not paper benchmark",
+  "model_mode": "eval",
+  "historical_eval_results_not_new_default_mode_results": true,
   "planned_instances": 5,
   "candidates_per_instance": 1,
   "steps": 128,

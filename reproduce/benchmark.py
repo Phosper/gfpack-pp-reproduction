@@ -16,6 +16,8 @@ def main():
     parser.add_argument('--device', default='cuda')
     parser.add_argument('--candidates', type=int, default=512)
     parser.add_argument('--smoke', action='store_true')
+    parser.add_argument('--model-mode', choices=('train', 'eval'), default='train',
+                        help='Preserve official default state; eval must be explicitly selected')
     args = parser.parse_args()
     if not 0 <= args.start < 128 or not 1 <= args.count <= 128 - args.start:
         parser.error('Dental test index range must be inside [0,128)')
@@ -27,7 +29,8 @@ def main():
     for index in range(args.start, args.start + args.count):
         target = output / f'sample_{index:03d}'
         command = [sys.executable, '-m', 'reproduce.run', '--sample-index', str(index),
-                   '--candidates', str(args.candidates), '--device', args.device, '--output', str(target)]
+                   '--candidates', str(args.candidates), '--device', args.device,
+                   '--model-mode', args.model_mode, '--output', str(target)]
         if args.smoke:
             command.append('--smoke')
         with (output / f'sample_{index:03d}.log').open('x', encoding='utf-8') as stream:
@@ -35,7 +38,7 @@ def main():
         if result.returncode:
             write_json(output / 'benchmark.json', {'status': 'aborted_on_runtime_error',
                        'failed_sample': index, 'completed_samples': len(records),
-                       'planned_samples': args.count, 'records': records})
+                       'planned_samples': args.count, 'model_mode': args.model_mode, 'records': records})
             raise RuntimeError(f'Sample {index} runtime failed; inspect its log before continuing')
         with (output / f'sample_{index:03d}_verify.log').open('x', encoding='utf-8') as stream:
             verified = subprocess.run([sys.executable, '-m', 'reproduce.verify', str(target)], cwd=ROOT,
@@ -51,6 +54,7 @@ def main():
     successes = [r for r in records if r['sample_success']]
     write_json(output / 'benchmark.json', {'status': 'completed', 'sample_count': len(records),
                'candidates_per_sample': args.candidates, 'smoke_only': args.smoke,
+               'model_mode': args.model_mode,
                'successful_samples': len(successes), 'sample_success_rate': len(successes) / len(records),
                'mean_utilization_failure_zero': sum(r['utilization_failure_zero'] for r in records) / len(records),
                'mean_utilization_on_successes': (sum(r['utilization_failure_zero'] for r in successes) / len(successes)
