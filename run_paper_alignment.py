@@ -70,6 +70,9 @@ def main():
     parser.add_argument("--candidates",type=int,default=512)
     parser.add_argument("--smoke",action="store_true")
     parser.add_argument("--no-constraints",action="store_true")
+    parser.add_argument("--model-mode",choices=("train","eval"),default="train")
+    parser.add_argument("--sampling-noise-seed",type=int,
+                        help="Diagnostic only: save common Gaussian draws independent of model dropout")
     parser.add_argument("--post-iterations",type=int,default=100)
     parser.add_argument("--result-dtype",choices=("float64","fp32"),default="float64",
                         help="Primary saved output precision; both dtypes are independently evaluated")
@@ -90,6 +93,8 @@ def main():
     if (not math.isfinite(args.post_step_size) or args.post_step_size<=0 or
             (args.post_policy!="paper_fixed_step" and args.post_step_size!=1.)):
         parser.error("Use a positive finite post step; non-unit steps require --post-policy paper_fixed_step")
+    if args.sampling_noise_seed is not None and args.profile=="release_weights_constraints":
+        parser.error("Common Gaussian draws require a paper-mechanism profile")
     root=args.root.resolve();extension=args.extension.resolve();out=args.output.resolve()
     upstream=root/"upstream"
     if out.exists() or upstream==out or upstream in out.parents or out in root.parents:
@@ -122,6 +127,7 @@ def main():
     inputs+=[Path(__file__).resolve().with_name(name) for name in
              ("run_paper_alignment.py","paper_sampler.py","paper_metrics.py","paper_enhancement.py",
               "paper_sat_geometry.py","paper_selection.py",
+              "paper_sampling_noise.py",
               "paper_guarded_enhancement.py","run_inference.py")]
     frozen={str(p):sha256(p) for p in inputs}
     out.mkdir(parents=True,exist_ok=False)
@@ -133,13 +139,17 @@ def main():
           "post_step_size":args.post_step_size,
           "geometry_backend":args.geometry_backend,
           "primary_result_dtype":args.result_dtype,
+          "model_training_flag":args.model_mode=="train","sampling_noise_seed":args.sampling_noise_seed,
           "checkpoint_sha256":sha256(checkpoint),"input_sha256":frozen,
           "paper_full_reproduction":False,"checkpoint_training_configuration_verified":False,
           "architecture_boundary_encoder_matches_paper":False,
           "paper_testset_identity_verified":False,
-          "sampling_rng_policy":"seed3407 reset after model initialization; paired new-run comparison, not bitwise equality to historical baseline",
+          "sampling_rng_policy":("saved common Gaussian draws separated from model RNG; not historical RNG replay"
+             if args.sampling_noise_seed is not None else
+             "seed3407 reset after model initialization; paired new-run comparison, not bitwise equality to historical baseline"),
           "rotation_scale_scope":"GT input encoding only; Gaussian prior covers all 4 components and generated directions are not reprojected; training scale provenance unverified",
-          "model_mode":"release_default_train_dropout; held fixed across probes",
+          "model_mode":("release_default_train_dropout; held fixed across probes" if args.model_mode=="train" else
+                        "eval_dropout_disabled; diagnostic choice, not author-confirmed mode"),
           "software":{"python":sys.version,"pytorch":str(torch.__version__),"cuda":torch.version.cuda},
           "geometry_assumptions":(["float64 GEOS intersection; convex SAT minimum displacement",
               "concave minimum translation via convex decomposition/configuration-space union; author implementation unconfirmed",
@@ -172,7 +182,12 @@ def main():
         meta["state_dict_elements"]=sum(v.numel() for v in state.values());del state
         meta["model_parameters"]=sum(p.numel() for p in model.parameters())
         meta["model_trainable_parameters"]=sum(p.numel() for p in model.parameters() if p.requires_grad)
-        model.train();torch.cuda.reset_peak_memory_stats(0)
+        model.train(args.model_mode=="train");torch.cuda.reset_peak_memory_stats(0)
+        noise_plan=None
+        if args.sampling_noise_seed is not None:
+            from paper_sampling_noise import make_noise_plan
+            noise_plan=make_noise_plan(args.candidates,len(id_list),args.sampling_noise_seed)
+            torch.save(noise_plan,out/"sampling_noise.pt")
         callback_log=[]
         def callback(a):
             r,_=field(geometry_backend,polygons,id_list,a.numpy(),1200.)
@@ -187,7 +202,7 @@ def main():
                     "concave_proxy_pairs":sum(r["concave_proxy_pairs"])})
             return r["repulsion"]
         trajectory,raw,sampler=sample_paper(model,ids,features,mask,args.candidates,
-                    None if args.no_constraints else callback,args.profile,seed=3407)
+                    None if args.no_constraints else callback,args.profile,seed=3407,noise_plan=noise_plan)
         raw=raw.detach().cpu();torch.save(raw,out/"predictions_raw.pt");torch.save(trajectory.detach().cpu(),out/"trajectory.pt")
         write_json(out/"sampler.json",sampler);write_json(out/"constraint_callbacks.json",callback_log)
         del trajectory

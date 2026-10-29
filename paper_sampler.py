@@ -129,7 +129,7 @@ def _device_of(model):
 
 def sample_paper(model, ids, features, mask, batch_size=512,
                  collision_callback=None, profile="paper_settings", seed=None,
-                 *, num_steps=NUM_STEPS):
+                 *, num_steps=NUM_STEPS, noise_plan=None):
     """Return ``(trajectory, prediction, diagnostics)`` using the given profile.
 
     ``model`` uses the released seven-argument forward interface and exposes
@@ -148,8 +148,12 @@ def sample_paper(model, ids, features, mask, batch_size=512,
     dropout, without changing the caller's RNG sequence. With seed=None, draws
     use the caller's RNG, permitting release-profile arithmetic regression.
     Exactly 128 steps are required for the named profiles.
+    An optional CPU noise_plan fixes the prior and every Wiener draw separately
+    from dropout RNG. It is a paired diagnostic, not historical RNG replay.
     """
     settings = profile_settings(profile)
+    if noise_plan is not None and profile=="release_weights_constraints":
+        raise ValueError("Explicit Gaussian noise plans are only supported by paper-mechanism profiles")
     if isinstance(num_steps, bool) or num_steps != NUM_STEPS:
         raise ValueError("Named sampling profiles require exactly 128 steps")
     if isinstance(batch_size, bool) or not isinstance(batch_size, int) or batch_size < 1:
@@ -179,6 +183,10 @@ def sample_paper(model, ids, features, mask, batch_size=512,
         raise ValueError("mask must contain at least one active polygon")
 
     poly_count = integer_ids.numel()
+    noise_hashes = None
+    if noise_plan is not None:
+        from paper_sampling_noise import validate_noise_plan
+        noise_hashes = validate_noise_plan(noise_plan,(batch_size,poly_count,4))
     flat_ids = integer_ids.unsqueeze(0).repeat(batch_size, 1).reshape(-1)
     flat_mask = padding.unsqueeze(0).repeat(batch_size, 1).reshape(-1)
     flat_batch = torch.arange(batch_size, device=device, dtype=torch.int64).repeat_interleave(poly_count)
@@ -197,6 +205,9 @@ def sample_paper(model, ids, features, mask, batch_size=512,
         "paper_algorithm_complete": False,
         "paper_algorithm_complete_note": "Sampling configuration only; checkpoint match and enhancement are separate",
         "steps": [],
+        "common_noise_sha256":noise_hashes,
+        "noise_policy":("explicit saved Gaussian draws independent of dropout RNG" if noise_plan is not None else
+                        "historical shared RNG draw order"),
     })
     rng_devices = []
     if device.type == "cuda":
@@ -212,8 +223,11 @@ def sample_paper(model, ids, features, mask, batch_size=512,
             with torch.no_grad():
                 shape = (batch_size, poly_count, 4)
                 # Keep initialization before geo_feature to preserve release RNG order.
-                initial = (torch.randn(shape, device=device) * settings["sigma_max"]
-                           if paper else torch.rand(shape, device=device))
+                if noise_plan is not None:
+                    initial = noise_plan["initial_standard_normal"].to(device)*settings["sigma_max"]
+                else:
+                    initial = (torch.randn(shape, device=device) * settings["sigma_max"]
+                               if paper else torch.rand(shape, device=device))
                 state = initial.reshape(-1, 4)
                 if paper:
                     time_edges = torch.linspace(1.0, 0.01, NUM_STEPS + 1, device=device)
@@ -278,7 +292,9 @@ def sample_paper(model, ids, features, mask, batch_size=512,
                     # Release drift multiplier deliberately does not scale its noise dt.
                     # The pinned code adds noise at all 128 steps despite its last-step comment.
                     delta = drift * effective_dt
-                    state = base + delta + diffusion * torch.sqrt(stochastic_dt) * torch.randn_like(base)
+                    noise = (noise_plan["brownian_standard_normal"][index].to(device).reshape(-1,4)
+                             if noise_plan is not None else torch.randn_like(base))
+                    state = base + delta + diffusion * torch.sqrt(stochastic_dt) * noise
                     # Padded rows do not represent polygons; keep them inert for both profiles.
                     state = state * active
                     _finite(state, "updated actions", step, diagnostics)
