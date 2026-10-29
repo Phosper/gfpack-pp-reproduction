@@ -8,7 +8,11 @@
 
 执行入口见 [完整复现进度与任务](docs/FULL_PAPER_REPRODUCTION.md)，首阶段评价草案见 [evaluation_contract.json](configs/paper_reproduction/evaluation_contract.json)。第五轮测试已经完成，接下来先分析已有失败证据；128×1工程验证也已完成，不作为新的待办重复安排。
 
-**2026-10-29起，复现主线回到 `paper_settings + legacy_unit`**，见 [论文重建基线与运行命令](docs/PAPER_BASELINE.md)。默认采样配置已切换，正式候选数支持128和512。第五轮已有0、45结果可继续使用；先排查基线失败，不把新增保护规则当作论文原方法。
+**2026-10-29几何排查：主线保持 `paper_settings + legacy_unit`，几何后端改为 `paper_sat`**，见 [问题证据、修正范围和回放命令](docs/PAPER_OVERLAP_FIX_20261029.md)。修正凹形全轮廓投影误推、量化漏碰撞、压缩末尾未经检查的正向偏移，以及宽阈值预览选优。未启用guarded碰撞缩步；论文未给出的非凸求解细节仍明确标为本项目实现。此CPU参考后端尚不代表论文的性能或成功率已复现。
+
+第五轮原结果保留为对照，指定 `--geometry-backend legacy_native` 可运行[历史重建基线](docs/PAPER_BASELINE.md)。先用保存坐标回放排查，再扩大生成；正式候选数支持128和512。
+
+主结果默认保存并选择float64坐标，float32转换结果另行验证；实际四个固定坐标控制中两种精度分别2/4与0/4通过。不能混报，不能将这四个单候选结果说成第五轮或完整Dental评测。
 
 [碰撞移动接受规则与固定候选回放](docs/PAPER_COLLISION_ACCEPTANCE.md) 保留为显式选择的对照：该数值规则是重建变体，不是作者确认的原版实现。
 

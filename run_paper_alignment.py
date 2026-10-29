@@ -18,6 +18,7 @@ from run_inference import checked_sample, native_metrics, sha256, utc_now, write
 from paper_sampler import PROFILES, sample_paper, profile_settings, marginal_prob
 from paper_enhancement import field, enhance
 from paper_metrics import sample_metrics, aggregate_metrics
+from paper_selection import select_saved_result
 
 
 def exact_all(polygons, ids, candidates):
@@ -70,6 +71,11 @@ def main():
     parser.add_argument("--smoke",action="store_true")
     parser.add_argument("--no-constraints",action="store_true")
     parser.add_argument("--post-iterations",type=int,default=100)
+    parser.add_argument("--result-dtype",choices=("float64","fp32"),default="float64",
+                        help="Primary saved output precision; both dtypes are independently evaluated")
+    parser.add_argument("--geometry-backend",choices=("paper_sat","legacy_native"),
+                        default="paper_sat",
+                        help="Reference SAT/minimum-translation geometry, or unchanged historical native proxy")
     parser.add_argument("--post-policy",choices=("legacy_unit","guarded_backtracking"),
                         default="legacy_unit",
                         help="Explicit numerical reconstruction policy; neither is an author-confirmed post solver")
@@ -110,6 +116,7 @@ def main():
     inputs+=sorted((root/"resources/data/polygons").glob("*.txt"))
     inputs+=[Path(__file__).resolve().with_name(name) for name in
              ("run_paper_alignment.py","paper_sampler.py","paper_metrics.py","paper_enhancement.py",
+              "paper_sat_geometry.py","paper_selection.py",
               "paper_guarded_enhancement.py","run_inference.py")]
     frozen={str(p):sha256(p) for p in inputs}
     out.mkdir(parents=True,exist_ok=False)
@@ -118,6 +125,8 @@ def main():
           "planned_candidates":args.candidates,"smoke":args.smoke,"seed":3407,
           "constraints_enabled":not args.no_constraints,"post_iterations":args.post_iterations,
           "post_policy":args.post_policy,
+          "geometry_backend":args.geometry_backend,
+          "primary_result_dtype":args.result_dtype,
           "checkpoint_sha256":sha256(checkpoint),"input_sha256":frozen,
           "paper_full_reproduction":False,"checkpoint_training_configuration_verified":False,
           "architecture_boundary_encoder_matches_paper":False,
@@ -126,12 +135,23 @@ def main():
           "rotation_scale_scope":"GT input encoding only; Gaussian prior covers all 4 components and generated directions are not reprojected; training scale provenance unverified",
           "model_mode":"release_default_train_dropout; held fixed across probes",
           "software":{"python":sys.version,"pytorch":str(torch.__version__),"cuda":torch.version.cuda},
-          "geometry_assumptions":["native Clipper precision2 retained", "convex SAT MTV; concave edge-axis conservative proxy",
+          "geometry_assumptions":(["float64 GEOS intersection; convex SAT minimum displacement",
+              "concave minimum translation via convex decomposition/configuration-space union; author implementation unconfirmed",
+              "-x/-y binary search retains a checked feasible endpoint; no unconditional +0.001 shift"]
+              if args.geometry_backend=="paper_sat" else
+              ["native Clipper precision2 retained", "convex SAT MTV; concave edge-axis conservative proxy"])+[
               "only translation collision gradients; no documented rotation gradient",
               "height1200, no horizontal right wall",
               ("post unit step then x/y gap; unspecified by paper" if args.post_policy=="legacy_unit" else
                "post same-field backtracking then guarded x/y gap; our numerical reconstruction, unspecified by paper")]}
     try:
+        import shapely
+        meta["software"].update(shapely=shapely.__version__,geos=shapely.geos_version_string)
+        if args.geometry_backend == "paper_sat":
+            from paper_sat_geometry import PaperSATGeometry
+            geometry_backend = PaperSATGeometry(height=1200.)
+        else:
+            geometry_backend = collision_probe
         torch.set_num_threads(16);evaluation.setRandomSeed(3407);np.random.seed(3407)
         torch.backends.cudnn.benchmark=False
         ids,original_gt,gt,mask,count=checked_sample(torch,evaluation,dataset,args.sample_index)
@@ -149,10 +169,15 @@ def main():
         model.train();torch.cuda.reset_peak_memory_stats(0)
         callback_log=[]
         def callback(a):
-            r,_=field(collision_probe,polygons,id_list,a.numpy(),1200.)
+            r,_=field(geometry_backend,polygons,id_list,a.numpy(),1200.)
             callback_log.append({"callback_index":len(callback_log)+1,
-                    "max_native_pair_area":max(r["max_pairwise_area"]),
+                    "geometry_backend":args.geometry_backend,
+                    "max_pair_area":max(r["max_pairwise_area"]),
+                    **({"max_native_pair_area":max(r["max_pairwise_area"])}
+                       if args.geometry_backend=="legacy_native" else
+                       {"max_reference_pair_area":max(r["max_pairwise_area"])}),
                     "max_height_violation":max(r["height_violation"]),
+                    "concave_mtv_pairs":sum(r.get("concave_mtv_pairs",[])),
                     "concave_proxy_pairs":sum(r["concave_proxy_pairs"])})
             return r["repulsion"]
         trajectory,raw,sampler=sample_paper(model,ids,features,mask,args.candidates,
@@ -165,8 +190,8 @@ def main():
         post_input=raw.numpy().astype(np.float64,copy=True)
         post_input[:,:,0]-=np.asarray(raw_native["bounding_boxes_xyxy"])[:,0,None]
         if args.post_iterations:
-            final,post=enhance(collision_probe,polygons,id_list,post_input,args.post_iterations,1200.,
-                               policy=args.post_policy)
+            final,post=enhance(geometry_backend,polygons,id_list,post_input,args.post_iterations,1200.,
+                               policy=args.post_policy,trace_candidates=True)
         else:
             final=post_input;post={"iterations_executed":0,"reason":"post disabled","requested_policy":args.post_policy}
         torch.save(torch.tensor(final,dtype=torch.float64),out/"predictions_enhanced_float64.pt")
@@ -180,12 +205,18 @@ def main():
             sample=sample_metrics(args.sample_index,native,refs,planned_candidate_count=args.candidates)
             aggregates[label]=aggregate_metrics([sample]);write_json(out/(label+"_metrics.json"),aggregates[label])
         write_json(out/"gt_geometry.json",exact_all(polygons,id_list,[gt.tolist()]))
-        criterion=aggregates["enhanced_float64"]["criteria"]["reference_eps50_fixed_strip"]
-        chosen=criterion["sample_selections"][0]["best"]["reference_strip_utilization"]["candidate_index"]
+        selected=select_saved_result(aggregates,args.result_dtype)
+        write_json(out/"selected_result.json",selected)
+        chosen=selected["candidate_index"]
+        meta["selected_result"]=selected
         meta["preview_candidate_index"]=chosen
-        preview=chosen if chosen is not None else 0
-        plot(out/"enhanced_preview.png",polygons,id_list,final[preview],
-             args.profile+" | candidate "+str(preview)+( " | feasible by local eps50+strip" if chosen is not None else " | fallback: NOT feasible"))
+        preview_actions=final if args.result_dtype=="float64" else final32.tolist()
+        if chosen is not None:
+            plot(out/"enhanced_preview.png",polygons,id_list,preview_actions[chosen],
+                 args.profile+" | candidate "+str(chosen)+" | saved "+args.result_dtype+": strict geometry passed")
+        else:
+            plot(out/"infeasible_diagnostic_candidate_0.png",polygons,id_list,preview_actions[0],
+                 args.profile+" | diagnostic candidate 0 | NO FEASIBLE RESULT")
         meta["metric_summary"]={stage:{key:{k:v for k,v in item.items() if k not in ("sample_selections","utilization")}
                   for key,item in report["criteria"].items()} for stage,report in aggregates.items()}
         meta["status"]="completed"

@@ -23,7 +23,7 @@ def field(native, polygons, ids, actions, height=1200.):
 
 
 def enhance(native, polygons, ids, actions, max_iterations=100, height=1200., *,
-            policy="legacy_unit"):
+            policy="legacy_unit", trace_candidates=False):
     # Keep the historical round-5 path replayable, without changing its output.
     if policy == "guarded_backtracking":
         from paper_guarded_enhancement import enhance_guarded
@@ -74,13 +74,33 @@ def enhance(native, polygons, ids, actions, max_iterations=100, height=1200., *,
         done = active & (moved <= 1e-3) & (np.asarray(checked["max_pairwise_area"]) == 0) & (
             np.asarray(checked["height_violation"]) <= 1e-9)
         for i in np.flatnonzero(done):
-            statuses[int(i)] = "native_converged"
+            statuses[int(i)] = ("reference_converged" if
+                               getattr(native, "geometry_backend", None) == "paper_sat" else
+                               "native_converged")
         active[done] = False
-        log.append({"iteration_1based": iteration+1, "active_candidates": int(active.sum()),
+        record = {"iteration_1based": iteration+1, "active_candidates": int(active.sum()),
                     "newly_converged": int(done.sum()), "gap_rollbacks": int(rollback.sum()),
                     "max_pairwise_area": float(max(checked["max_pairwise_area"])),
                     "max_height_violation": float(max(checked["height_violation"])),
-                    "max_translation_update": float(moved.max())})
+                    "max_translation_update": float(moved.max())}
+        if trace_candidates:
+            def geometry_rows(value):
+                return [{"candidate_index": i, **{key: float(value[key][i]) for key in
+                         ("max_pairwise_area", "sum_pairwise_area", "height_violation", "min_x")}}
+                        for i in range(len(a))]
+            record["candidate_stages"] = {
+                "before_collision": geometry_rows(force),
+                "after_collision_and_x_gauge": geometry_rows(before_gap),
+                "after_gap_trial": geometry_rows(after_gap),
+                "after_accepted_iteration": geometry_rows(checked),
+                "gap_rolled_back": rollback.tolist(),
+                "active_after_iteration": active.tolist(),
+            }
+            # The reference backend records x/y separately. Native legacy
+            # exposes only the combined call, so do not invent substage data.
+            if hasattr(native, "last_gap_trace"):
+                record["candidate_stages"]["gap_substages"] = native.last_gap_trace
+        log.append(record)
         if not active.any():
             break
     final, _ = field(native, polygons, ids, a, height)
@@ -94,4 +114,6 @@ def enhance(native, polygons, ids, actions, max_iterations=100, height=1200., *,
                "initial_native_geometry": {k:v for k,v in initial.items() if k != "repulsion"},
                "final_native_geometry": {k:v for k,v in final.items() if k != "repulsion"},
                "trace": log, "elapsed_seconds": time.perf_counter()-started,
-               "rotation_components_preserved": bool(np.array_equal(a[:, :, 2:], original[:, :, 2:]))}
+               "rotation_components_preserved": bool(np.array_equal(a[:, :, 2:], original[:, :, 2:])),
+               "per_candidate_stage_trace": bool(trace_candidates),
+               "geometry_backend": getattr(native, "geometry_backend", "legacy_native")}

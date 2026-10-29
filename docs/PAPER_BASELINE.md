@@ -1,6 +1,6 @@
-# 回到论文重建基线
+# 第五轮论文重建历史基线
 
-更新时间：2026-10-29。主线配置为 **paper_settings + legacy_unit**。
+更新时间：2026-10-29。本页记录提交5814876的 **paper_settings + legacy_unit + legacy_native** 基线。后续几何错误修正见[排查记录](PAPER_OVERLAP_FIX_20261029.md)，当前入口默认后端为paper_sat；要复跑本页历史方法必须显式指定legacy_native。
 
 这里的“回到论文原版”具体指回到第五轮依据论文描述实现的基线，不表示已经找回作者原始求解器，或已验证整篇论文复现成功。
 
@@ -41,6 +41,8 @@ for i in 0 1 45 46 83; do
     --profile paper_settings \
     --sample-index "$i" \
     --candidates 512 \
+    --geometry-backend legacy_native \
+    --result-dtype fp32 \
     --post-iterations 100 \
     --post-policy legacy_unit
 done
@@ -56,6 +58,6 @@ done
 
 完整保留 `predictions_raw.pt`、两种保存精度的输出、`input_geometry.json`、`input_sample.json`、`sampler.json`、`constraint_callbacks.json`、`post.json`、各阶段metrics和 `metadata.json`。
 
-重点比较原始输出、增强后float64、保存后float32的交叠、越界和各判据有效候选数。用 `enhanced_fp32_metrics.json` 的 `reference_strict_fixed_strip` 查看保存后严格诊断；当前预览仍采用float64面积50判据，不能仅凭图片认定严格成功。
+重点比较原始输出、增强后float64、保存后float32的交叠、越界和各判据有效候选数。用 `enhanced_fp32_metrics.json` 的 `reference_strict_fixed_strip` 查看float32严格诊断。当前入口已修正选优，`selected_result.json`只从所指定保存精度的严格通过者中选择；本页命令显式指定fp32，修正后的主线默认保留float64，两者均单独报告。没有有效候选时仅产生明确标记失败的诊断图。5814876及此前的预览采用float64面积50判据，旧图不能当作严格成功证据。
 
 目前仍需核实：公开模型/训练配置与论文的对应、凹形位移算法、生成时间网格及后处理数值约定。主线切换没有自动消除这些未知项。

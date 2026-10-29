@@ -1,0 +1,197 @@
+{
+  "date": "2026-10-29",
+  "scope": "Four supplied one-candidate engineering-transfer inputs; NOT round5 paper_settings or a new model run",
+  "model_executed": false,
+  "paper_full_reproduction": false,
+  "candidates_per_sample": 1,
+  "method": {
+    "geometry_backend": "paper_sat",
+    "post_policy": "legacy_unit",
+    "max_iterations": 100,
+    "height": 1200,
+    "strict_area_epsilon": 1e-09,
+    "boundary_tolerance": 1e-09
+  },
+  "software": {
+    "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.5.3",
+    "shapely": "2.1.2",
+    "geos": "3.13.1"
+  },
+  "geometry_code_sha256": {
+    "paper_sat_geometry.py": "fe0e659310be562caca65c86c97861adac3f3cef355344e0a7de65fb90575262",
+    "paper_enhancement.py": "965e4145ddaef79fb5bb68342620528e7c0fad89507e1dc4fa23347d2a762b7b"
+  },
+  "unit_tests": {
+    "passed": 35,
+    "is_dental_sample_count": false,
+    "modules": [
+      "test_paper_sat_geometry",
+      "test_replay_paper_geometry",
+      "test_paper_guarded_enhancement",
+      "test_replay_paper_enhancement"
+    ]
+  },
+  "fallback_decomposition_check": {
+    "distinct_supplied_contours": 165,
+    "failed": 0,
+    "maximum_area_difference": 0.0,
+    "note": "ear-clipping fallback directly executed under local GEOS, not a separate Shapely 2.0 environment"
+  },
+  "float64_strict_passed": 2,
+  "fp32_strict_passed": 0,
+  "rows": [
+    {
+      "sample": 1,
+      "candidate_index": 78,
+      "input_sha256": "c8be9616b6f368bf60b95e5fe56408f6a2f280cd04eab1b4da6ffe1e90d33e9e",
+      "scope": "one supplied engineering-transfer raw candidate; NOT round5 paper_settings",
+      "seconds": 174.96937130001606,
+      "iterations": 100,
+      "statuses": [
+        "iteration_limit"
+      ],
+      "before": {
+        "candidate_count": 1,
+        "feasible_count": 0,
+        "max_pairwise_area": 1156.677748052427,
+        "max_height_violation": 0.0,
+        "sum_pairwise_area": 1251.264752732421,
+        "nominal_strip_utilization": 0.7381853334672429
+      },
+      "after_float64": {
+        "candidate_count": 1,
+        "feasible_count": 0,
+        "max_pairwise_area": 3.2387123040537347e-07,
+        "max_height_violation": 0.0001072904291632426,
+        "sum_pairwise_area": 6.464053361745669e-07,
+        "nominal_strip_utilization": 0.7419837796082068
+      },
+      "after_fp32": {
+        "candidate_count": 1,
+        "feasible_count": 0,
+        "max_pairwise_area": 4.921975901814659e-07,
+        "max_height_violation": 0.00010764702982157814,
+        "sum_pairwise_area": 6.919148143820589e-07,
+        "nominal_strip_utilization": 0.7419837771313657
+      },
+      "rotation_components_preserved": true,
+      "area_change_float64": 0.0,
+      "trace_sha256": "5815b945d60128b37c64d620e338f7586b50a48ef3d4930ceb59e29537763a64"
+    },
+    {
+      "sample": 45,
+      "candidate_index": 271,
+      "input_sha256": "092154a6f576962adf86decc0756e639abc2ce25d8f7485d5afb928d4589713b",
+      "scope": "one supplied engineering-transfer raw candidate; NOT round5 paper_settings",
+      "seconds": 199.60207929997705,
+      "iterations": 100,
+      "statuses": [
+        "iteration_limit"
+      ],
+      "before": {
+        "candidate_count": 1,
+        "feasible_count": 0,
+        "max_pairwise_area": 554.0522914306457,
+        "max_height_violation": 0.0,
+        "sum_pairwise_area": 1053.7346662728046,
+        "nominal_strip_utilization": 0.7013609078376372
+      },
+      "after_float64": {
+        "candidate_count": 1,
+        "feasible_count": 0,
+        "max_pairwise_area": 1.1311582161729868e-12,
+        "max_height_violation": 1.5782245554873953e-07,
+        "sum_pairwise_area": 1.4722028172215168e-12,
+        "nominal_strip_utilization": 0.7110715933301777
+      },
+      "after_fp32": {
+        "candidate_count": 1,
+        "feasible_count": 0,
+        "max_pairwise_area": 6.411575702929732e-08,
+        "max_height_violation": 7.461211382064903e-07,
+        "sum_pairwise_area": 2.4314474069601225e-07,
+        "nominal_strip_utilization": 0.7110715768388628
+      },
+      "rotation_components_preserved": true,
+      "area_change_float64": 4.656612873077393e-10,
+      "trace_sha256": "d8b5151189f3d857cc18625357d369ddb295c39620325ab1939ff76a06770856"
+    },
+    {
+      "sample": 46,
+      "candidate_index": 224,
+      "input_sha256": "cc325efb85386a02ebfda290ee2f0ef4143dc38301fc3e7b556f1ef520d32e1d",
+      "scope": "one supplied engineering-transfer raw candidate; NOT round5 paper_settings",
+      "seconds": 191.26834509999026,
+      "iterations": 100,
+      "statuses": [
+        "iteration_limit"
+      ],
+      "before": {
+        "candidate_count": 1,
+        "feasible_count": 0,
+        "max_pairwise_area": 309.59391942545074,
+        "max_height_violation": 0.0,
+        "sum_pairwise_area": 680.9256415230467,
+        "nominal_strip_utilization": 0.7164278808561467
+      },
+      "after_float64": {
+        "candidate_count": 1,
+        "feasible_count": 1,
+        "max_pairwise_area": 6.556569577219147e-22,
+        "max_height_violation": 1.4352963262354024e-12,
+        "sum_pairwise_area": 1.2589591987829048e-21,
+        "nominal_strip_utilization": 0.7290095538607756
+      },
+      "after_fp32": {
+        "candidate_count": 1,
+        "feasible_count": 0,
+        "max_pairwise_area": 5.048899703093693e-07,
+        "max_height_violation": 4.438807309270487e-06,
+        "sum_pairwise_area": 6.108308617832773e-07,
+        "nominal_strip_utilization": 0.7290095370399269
+      },
+      "rotation_components_preserved": true,
+      "area_change_float64": 0.0,
+      "trace_sha256": "30b1b9aed8ef175bb2aa885f84b5a4c0ea2eeed097f19cb14e3ab8323eb38ef3"
+    },
+    {
+      "sample": 83,
+      "candidate_index": 446,
+      "input_sha256": "80015627c1f1283d213580cfadd089be67f4455cdd2312ff8f4298451cbaced7",
+      "scope": "one supplied engineering-transfer raw candidate; NOT round5 paper_settings",
+      "seconds": 192.03045680001378,
+      "iterations": 100,
+      "statuses": [
+        "iteration_limit"
+      ],
+      "before": {
+        "candidate_count": 1,
+        "feasible_count": 0,
+        "max_pairwise_area": 225.4466495715727,
+        "max_height_violation": 0.0,
+        "sum_pairwise_area": 274.29246204295583,
+        "nominal_strip_utilization": 0.7414515510426357
+      },
+      "after_float64": {
+        "candidate_count": 1,
+        "feasible_count": 1,
+        "max_pairwise_area": 2.0194839173657902e-27,
+        "max_height_violation": 0.0,
+        "sum_pairwise_area": 2.0194839173657902e-27,
+        "nominal_strip_utilization": 0.7720978321085695
+      },
+      "after_fp32": {
+        "candidate_count": 1,
+        "feasible_count": 0,
+        "max_pairwise_area": 2.5741277375999994e-08,
+        "max_height_violation": 1.8400140362473394e-06,
+        "sum_pairwise_area": 2.9518560967704778e-08,
+        "nominal_strip_utilization": 0.7720978361168254
+      },
+      "rotation_components_preserved": true,
+      "area_change_float64": 0.0,
+      "trace_sha256": "28514b7fffe1eef86df6a6ee98d4d343f80fc72e2fceb764cf40bfe68f60b144"
+    }
+  ]
+}

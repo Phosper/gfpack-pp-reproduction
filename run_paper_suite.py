@@ -25,6 +25,7 @@ def main():
               ("paper_mechanism_release_scale",False),("paper_settings",False)]
     plan={"samples":[0,45],"candidates":512,"steps":128,"post_iterations":100,
           "seed":3407,"model_mode":"release default dropout active; held constant",
+          "geometry_backend":"legacy_native","post_policy":"legacy_unit",
           "profiles":[{"name":x,"no_constraints":y} for x,y in profiles],
           "scope":"Two pre-used development samples, no independent generalization or full paper reproduction",
           "per_run_timeout_seconds":600,"status":"running","rows":[]}
@@ -36,7 +37,8 @@ def main():
             out=a.output/name
             cmd=[sys.executable,str(Path(__file__).with_name("run_paper_alignment.py")),
                  "--root",str(a.root.resolve()),"--extension",str(a.extension.resolve()),
-                 "--output",str(out.resolve()),"--profile",profile,"--sample-index",str(index)]
+                 "--output",str(out.resolve()),"--profile",profile,"--sample-index",str(index),
+                 "--geometry-backend","legacy_native","--post-policy","legacy_unit"]
             if no_constraints:cmd.append("--no-constraints")
             row={"sample_index":index,"profile":profile,"output":name,"status":"failed"}
             before=time.perf_counter()
