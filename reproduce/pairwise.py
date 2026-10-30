@@ -72,6 +72,7 @@ def enhance_pairwise(geometry, actions, iterations=100, relaxation=1.75):
     trace, best = [], None
     best_iteration = None
     first_strict = None
+    previous_metrics = geometry.measure(result)
     for iteration in range(iterations):
         previous = result[:, :2].copy()
         pair_updates = 0
@@ -120,7 +121,13 @@ def enhance_pairwise(geometry, actions, iterations=100, relaxation=1.75):
                       'minimum_step_fallbacks': fallbacks,
                       'max_rejected_relaxed_overlap_area': rejected_overlap_max,
                       'gap_moves': gap_moves, 'gap_rejected_to_preserve_feasibility': gap_rejected,
+                      'span_x_before_collision': previous_metrics['span_x'],
+                      'span_x_after_collision': before_gap['span_x'],
+                      'span_x_after_gap': measured['span_x'],
+                      'sum_pair_overlap_area_before_collision': previous_metrics['sum_pair_overlap_area'],
+                      'sum_pair_overlap_area_after_collision': before_gap['sum_pair_overlap_area'],
                       **{k: v for k, v in measured.items() if k != 'overlap_pairs'}})
+        previous_metrics = measured
         if measured['strict_valid']:
             if first_strict is None:
                 first_strict = iteration + 1

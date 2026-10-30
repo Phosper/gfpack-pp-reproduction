@@ -44,8 +44,15 @@ def verify(directory):
     if any(sha256(directory / path) != expected for path, expected in meta.get('output_sha256', {}).items()):
         raise ValueError('Outputs no longer match their recorded hashes')
     trace = read('sampling_trace.json')
-    if len(trace) != 128 or [r['step'] for r in trace if r['constraint_active']] != list(range(97, 129)):
+    profile = meta.get('sampling_profile', 'paper')
+    if profile not in ('paper', 'public-source'):
+        raise ValueError('Unknown generation profile')
+    expected_schedule = [] if profile == 'public-source' else list(range(97, 129))
+    if len(trace) != 128 or [r['step'] for r in trace] != list(range(1,129)) or [r['step'] for r in trace if r['constraint_active']] != expected_schedule:
         raise ValueError('Invalid late-constraint schedule')
+    if profile == 'public-source' and (meta['sigma_min'] != 1. or
+        meta.get('constraint_integrator') != 'none-public-source' or not meta.get('not_paper_numerical_profile')):
+        raise ValueError('Public source settings were incorrectly labelled as paper settings')
     if 'model_training_flag' in meta:
         expected = meta['model_mode'] == 'train'
         if meta['model_training_flag'] != expected or any(r.get('model_training_flag') != expected or r.get('grad_enabled') is not False for r in trace):
