@@ -208,7 +208,7 @@ class Oriented:
         return forces, float(energy), collisions
 
     def gap_sweep(self, actions):
-        """Sequential negative-x/negative-y binary endpoint searches, with exact acceptance."""
+        """Try -x/-y moves even from overlap; accept only legal full-contour endpoints."""
         result = np.array(actions, dtype=np.float64, copy=True)
         shapes = self.shapes(result[:, :2])
         bounds = np.asarray([p.bounds for p in shapes])
@@ -230,8 +230,9 @@ class Oriented:
         for axis in (0, 1):
             order = np.argsort(bounds[:, axis], kind='stable')
             for i in order:
-                if not legal(shapes[i], i):
-                    continue
+                # An overlapping start may have a legal compressed endpoint.
+                # This is layout optimization, not collision-free path planning.
+                # Every accepted endpoint still passes legal() below.
                 maximum = max(0., bounds[i, axis])
                 if maximum <= CONTACT_MARGIN:
                     continue

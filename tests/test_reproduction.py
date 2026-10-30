@@ -12,13 +12,15 @@ import torch
 from shapely.affinity import translate
 from shapely.geometry import Polygon
 
-from reproduce.geometry import Geometry, convex_parts, enhance, sat_exit
-from reproduce.pairwise import enhance_pairwise
+from reproduce.geometry import Geometry, SeparationError, convex_parts, enhance, sat_exit
+from reproduce.pairwise import enhance_pairwise, validated_pair_update
 from reproduce.sampling import sample
 from reproduce.verify import measure
 
 SQUARE = [[0., 0.], [2., 0.], [2., 2.], [0., 2.]]
 ELBOW = [[0., 0.], [4., 0.], [4., 1.], [1., 1.], [1., 4.], [0., 4.]]
+NARROW_CAVITY = [[0., 0.], [2., 0.], [2., 8.], [3.2, 8.],
+                 [3.2, 0.], [5.2, 0.], [5.2, 10.], [0., 10.]]
 
 
 class GeometryTests(unittest.TestCase):
@@ -96,6 +98,27 @@ class GeometryTests(unittest.TestCase):
         self.assertTrue(final['strict_valid'])
         self.assertLessEqual(final['span_x'], initial['span_x'])
 
+    def test_gap_can_rescue_overlapping_start_by_accepting_only_legal_endpoints(self):
+        geometry = Geometry([SQUARE] * 3, 5.)
+        poses = np.array([[0., 0., 1., 0.], [5., 0., 1., 0.], [6., 0., 1., 0.]])
+        initial = geometry.measure(poses)
+        moved, count = geometry.oriented(poses).gap_sweep(poses)
+        independent = measure([SQUARE] * 3, json.loads(json.dumps(moved.tolist())), 5.)
+        self.assertFalse(initial['strict_valid'])
+        self.assertTrue(independent['strict_valid'])
+        self.assertEqual(independent['sum_pair_overlap_area'], 0.)
+        self.assertLess(independent['span_x'], initial['span_x'])
+        self.assertGreater(count, 0)
+        np.testing.assert_array_equal(moved[:, 2:], poses[:, 2:])
+
+    def test_gap_never_accepts_illegal_endpoint_when_no_negative_move_is_available(self):
+        geometry = Geometry([SQUARE] * 2, 5.)
+        poses = np.array([[0., 0., 1., 0.], [0., 0., 1., 0.]])
+        moved, count = geometry.oriented(poses).gap_sweep(poses)
+        self.assertEqual(count, 0)
+        np.testing.assert_array_equal(moved, poses)
+        self.assertFalse(measure([SQUARE] * 2, moved.tolist(), 5.)['strict_valid'])
+
     def test_rotated_gap_endpoint_has_nonnegative_independent_wall_distance(self):
         triangle = [[.17, .31], [2.77, .43], [.81, 1.93]]
         geometry = Geometry([triangle], 8.)
@@ -141,8 +164,105 @@ class GeometryTests(unittest.TestCase):
         self.assertFalse(report['metrics']['strict_valid'])
         self.assertEqual(report['status'], 'fixed_orientation_exceeds_height')
 
+    def test_overrelaxed_concave_step_falls_back_to_valid_weighted_endpoints(self):
+        small = [[0., 0.], [1., 0.], [1., 1.], [0., 1.]]
+        geometry = Geometry([small, NARROW_CAVITY], 20.)
+        poses = np.array([[1.1, 3., 1., 0.], [0., 0., 1., 0.]])
+        original = poses.copy()
+        oriented = geometry.oriented(poses)
+        shapes = oriented.shapes(poses[:, :2])
+        vector = oriented.exit_vector(0, 1, poses[:, :2], shapes)
+        total = geometry.areas.sum()
+        unsafe = poses.copy()
+        unsafe[0, :2] += geometry.areas[1] / total * 1.75 * vector
+        unsafe[1, :2] -= geometry.areas[0] / total * 1.75 * vector
+        self.assertGreater(geometry.measure(unsafe)['sum_pair_overlap_area'], .4)
+        first, second, a, b, report = validated_pair_update(
+            geometry, oriented, poses[:, :2], shapes, 0, 1)
+        self.assertEqual(a.intersection(b).area, 0.)
+        self.assertTrue(report['minimum_step_fallback'])
+        self.assertEqual(report['applied_factor'], 1.)
+        updated = poses.copy()
+        updated[0, :2], updated[1, :2] = first, second
+        self.assertTrue(measure([small, NARROW_CAVITY], updated.tolist(), 20.)['strict_valid'])
+        np.testing.assert_allclose(geometry.areas[0] * first + geometry.areas[1] * second,
+                                   geometry.areas[0] * poses[0, :2] + geometry.areas[1] * poses[1, :2],
+                                   atol=1e-12)
+        np.testing.assert_array_equal(poses, original)
+
+    def test_safe_convex_overrelaxation_is_not_unnecessarily_replaced(self):
+        geometry = Geometry([SQUARE, SQUARE], 8.)
+        poses = np.array([[0., 1., 1., 0.], [1., 1., 1., 0.]])
+        oriented = geometry.oriented(poses)
+        _, _, first, second, report = validated_pair_update(
+            geometry, oriented, poses[:, :2], oriented.shapes(poses[:, :2]), 0, 1)
+        self.assertFalse(report['minimum_step_fallback'])
+        self.assertEqual(report['applied_factor'], 1.75)
+        self.assertEqual(first.intersection(second).area, 0.)
+
+    def test_failed_pair_proposals_do_not_mutate_or_silently_accept(self):
+        geometry = Geometry([SQUARE, SQUARE], 8.)
+        poses = np.array([[0., 1., 1., 0.], [1., 1., 1., 0.]])
+        original = poses.copy()
+        oriented = geometry.oriented(poses)
+        with patch.object(oriented, 'exit_vector', return_value=np.zeros(2)):
+            with self.assertRaises(SeparationError) as caught:
+                validated_pair_update(geometry, oriented, poses[:, :2],
+                                      oriented.shapes(poses[:, :2]), 0, 1)
+        self.assertEqual(len(caught.exception.diagnostic['trials']), 2)
+        np.testing.assert_array_equal(poses, original)
+
+    def test_damped_factor_does_not_falsely_report_single_step_separation(self):
+        geometry = Geometry([SQUARE, SQUARE], 8.)
+        poses = np.array([[0., 1., 1., 0.], [1., 1., 1., 0.]])
+        oriented = geometry.oriented(poses)
+        _, _, first, second, report = validated_pair_update(
+            geometry, oriented, poses[:, :2], oriented.shapes(poses[:, :2]), 0, 1, .5)
+        self.assertEqual(report['applied_factor'], .5)
+        self.assertGreater(first.intersection(second).area, 0.)
+        self.assertGreater(report['remaining_pair_overlap_area'], 0.)
+
+    def test_pairwise_trace_records_rejected_relaxation_and_persists_zero(self):
+        small = [[0., 0.], [1., 0.], [1., 1.], [0., 1.]]
+        geometry = Geometry([small, NARROW_CAVITY], 20.)
+        poses = np.array([[1.1, 3., 1., 0.], [0., 0., 1., 0.]])
+        result, report = enhance_pairwise(geometry, poses, iterations=1)
+        self.assertEqual(report['minimum_step_fallbacks'], 1)
+        self.assertGreater(report['trace'][0]['max_rejected_relaxed_overlap_area'], .4)
+        stored = json.loads(json.dumps(result.tolist()))
+        self.assertTrue(measure([small, NARROW_CAVITY], stored, 20.)['strict_valid'])
+        np.testing.assert_array_equal(result[:, 2:], poses[:, 2:])
+
 
 class ScheduleTests(unittest.TestCase):
+    def test_frozen_replay_keeps_original_candidate_ids_and_excludes_invalid_winner(self):
+        from reproduce import replay
+        rectangle = [[0., 0.], [4., 0.], [4., 1.], [0., 1.]]
+        raw = [[[0., 0., 0., 1.], [2., 0., 0., 1.]],
+               [[0., .1, 1., 0.], [5., .1, 1., 0.]]]
+        with tempfile.TemporaryDirectory(dir=Path(__file__).parent) as tmp:
+            folder = Path(tmp)
+            source = folder / 'source'
+            source.mkdir()
+            for name, data in [('metadata.json', {'status': 'completed', 'height': 2.}),
+                               ('input.json', {'contours': [rectangle, rectangle]}), ('raw.json', raw)]:
+                (source / name).write_text(json.dumps(data), encoding='utf-8')
+            for name, extra, count in [('all', [], 2), ('subset', ['--candidate-indices', '1'], 1)]:
+                with self.subTest(scope=name):
+                    output = folder / name
+                    argv = ['replay', '--input', str(source), '--output', str(output),
+                            '--post-policy', 'pairwise', *extra]
+                    with patch.object(sys, 'argv', argv):
+                        replay.main()
+                    report = json.loads((output / 'diagnostic.json').read_text(encoding='utf-8'))
+                    self.assertEqual(report['selected_candidate'], 1)
+                    self.assertEqual(report['candidate_count'], count)
+                    self.assertEqual(report['replayed_all_saved_candidates'], name == 'all')
+                    self.assertEqual(report['strict_valid_candidates'], 1)
+                    self.assertEqual(report['selected_metrics']['sum_pair_overlap_area'], 0.)
+                    self.assertFalse(report['model_sampling_performed'])
+                    self.assertTrue(report['input_unchanged'])
+
     def test_benchmark_forwards_official_mode_and_explicit_eval_to_child(self):
         from reproduce import benchmark
         for expected, extra in [('train', []), ('eval', ['--model-mode', 'eval'])]:

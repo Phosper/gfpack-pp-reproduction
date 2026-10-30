@@ -16,7 +16,7 @@ from src.sde import ve_marginal_prob
 from .assets import CHECKPOINT_SHA256, ROOT, sha256, write_json
 from .data import load_resources, make_features
 from .geometry import Geometry, enhance
-from .pairwise import enhance_pairwise
+from .pairwise import DISPLACEMENT_POLICY, enhance_pairwise
 from .sampling import sample
 
 
@@ -75,6 +75,7 @@ def main():
                 'post_max_iterations': 100,
                 'post_initial_step': args.post_step if args.post_policy == 'simultaneous' else None,
                 'post_policy': args.post_policy, 'relaxation': args.relaxation,
+                'pair_displacement_policy': DISPLACEMENT_POLICY if args.post_policy == 'pairwise' else None,
                 'area_acceptance_tolerance': 0., 'storage': 'JSON float64 coordinates',
                 'checkpoint_sha256': CHECKPOINT_SHA256, 'input_sha256': frozen,
                 'model_executed': False, 'model_weights_changed': False,
@@ -85,8 +86,11 @@ def main():
                     'translation-only geometric constraint; learned score still updates rotations',
                     ('cyclic pairwise splitting with relaxation '+str(args.relaxation)
                      if args.post_policy == 'pairwise' else 'simultaneous field and Armijo halving'),
+                    ('validate actual weighted endpoints, retry minimum separation on unsafe overrelaxation'
+                     if args.post_policy == 'pairwise' else 'accept by declared Armijo energy test'),
                     'post pair order and relaxation are not specified by the paper',
                     'collision updates followed by sequential -x then -y binary search',
+                    'gap moves may start from overlap; only legal full-contour endpoints are accepted',
                     'contact separation margin 1e-7, exact zero-area final acceptance',
                     'standalone Python/GEOS geometry; no claim to run author native C++ callback'],
                 'paper_full_reproduction_claim': False}
