@@ -33,27 +33,29 @@
 
 先准备环境与官方资源，见[环境说明](REPRODUCTION.md#环境与资源)。所有输出目录必须是新目录。不要覆盖已有运行。
 
+本轮首跑两条路径各测前2例（样本0、1），每例512候选，两组共2048个候选。批量入口默认`--count 2`、`--candidates 512`；完整Dental评测需显式指定`--count 128`。
+
 ```bash
 python -m unittest discover -s tests -v
 
-# 首先各跑前5例，每例512候选，使用同一种后处理以分离生成器影响。
-python -m reproduce.benchmark --sampling-profile paper --start 0 --count 5 --device cuda --constraint-threads 4 --post-workers 16 --output runs/dental_paper_first5
-python -m reproduce.benchmark --sampling-profile public-source --start 0 --count 5 --device cuda --post-workers 16 --output runs/dental_public_first5
+# 首先各跑前2例，每例512候选，使用同一种后处理以分离生成器影响。
+python -m reproduce.benchmark --sampling-profile paper --start 0 --count 2 --candidates 512 --device cuda --constraint-threads 4 --post-workers 16 --output runs/dental_paper_first2
+python -m reproduce.benchmark --sampling-profile public-source --start 0 --count 2 --candidates 512 --device cuda --post-workers 16 --output runs/dental_public_first2
 
 # 在相同旧raw上复核后处理，不重新生成，不挑选少数候选代替512。
-python -m reproduce.replay --input runs/dental_paper_first5/sample_000 --output runs/dental_paper_first5_unit/sample_000 --post-policy pairwise --relaxation 1 --workers 16
+python -m reproduce.replay --input runs/dental_paper_first2/sample_000 --output runs/dental_paper_first2_unit/sample_000 --post-policy pairwise --relaxation 1 --workers 16
 
 # 仅用于稳定积分消融，独立保存；不得悄悄改名为原论文配置。
-python -m reproduce.benchmark --sampling-profile paper --constraint-integrator split-flow --constraint-threads 4 --start 0 --count 5 --device cuda --post-workers 16 --output runs/dental_split_first5
+python -m reproduce.benchmark --sampling-profile paper --constraint-integrator split-flow --constraint-threads 4 --start 0 --count 2 --candidates 512 --device cuda --post-workers 16 --output runs/dental_split_first2
 
 # 选定、冻结配置后运行完整128例；以下为论文文字重建默认路径。
 python -m reproduce.benchmark --sampling-profile paper --start 0 --count 128 --device cuda --constraint-threads 4 --post-workers 16 --output runs/dental_paper_full128
 
 # 仅后处理中断且源码/输入未改变时恢复；不重新生成原始候选。
-python -m reproduce.resume runs/dental_paper_first5/sample_000 --workers 16
+python -m reproduce.resume runs/dental_paper_first2/sample_000 --workers 16
 
 # 独立测量每个原始/最终候选，输出跨度变化和交叠变化；不运行模型。
-python -m reproduce.diagnose runs/dental_paper_first5 --output runs/dental_paper_first5_diagnosis.json
+python -m reproduce.diagnose runs/dental_paper_first2 --output runs/dental_paper_first2_diagnosis.json
 ```
 
 `--post-workers`是候选后处理CPU进程数；神经网络仍按候选批量在GPU运行。`constraint-threads`是论文重建路径最后32步独立候选几何计算的线程数，EM与split-flow均支持。不能据此声称已经复现作者C++并行后端或论文运行时间。
@@ -63,6 +65,6 @@ python -m reproduce.diagnose runs/dental_paper_first5 --output runs/dental_paper
 - 先看每例原始候选的最高**名义**利用率，以及交叠分布；非法候选的名义利用率只用于定位问题。
 - 再看每个候选后处理后的合法性和跨度变化，判断是修复扩宽还是压缩不足。
 - 最终只比较每例最优合法候选。分别报告实例成功率、合法候选数、成功样本均值和失败计零均值，不能隐藏失败实例。
-- 前5例用于排查，单候选或8候选只算入口诊断；不能用来判断哪种σ总体最好。正式Dental复现结论需要冻结配置的128×512运行和全部保存坐标核验。
+- 前2例用于初步排查，单候选或8候选只算入口诊断；不能用来判断哪种σ总体最好。正式Dental复现结论需要冻结配置的128×512运行和全部保存坐标核验。
 
 本分支不把自动测试通过、局部碰撞下降或少量实例有合法解称为“复现77.53%”。如果完整跑分仍有差距，下一步应对照作者实际训练/采样配置和原生增强实现；不能只放宽交叠判据以获得相近分数。

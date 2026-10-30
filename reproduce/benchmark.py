@@ -12,7 +12,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--start', type=int, default=0)
-    parser.add_argument('--count', type=int, default=128)
+    parser.add_argument('--count', type=int, default=2,
+                        help='Instances to evaluate (default: 2 for diagnosis; use 128 for full Dental evaluation)')
     parser.add_argument('--device', default='cuda')
     parser.add_argument('--candidates', type=int, default=512)
     parser.add_argument('--smoke', action='store_true')

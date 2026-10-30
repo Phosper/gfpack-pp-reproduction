@@ -2,6 +2,8 @@
 
 > 本仓库新增的Dental论文复现入口、严格零交叠验收及已声明的重建细节，见[复现说明](docs/REPRODUCTION.md)。官方原始`src/`和C++源码保持不变；新增代码在`reproduce/`，没有接入round8或旧项目算法。
 
+> 当前首轮对照：论文配置与公开采样函数各跑2例（样本0、1），每例512候选。命令见[Dental核验流程](docs/DENTAL_VALIDATION.md)。
+
 > Published at ICCV 2025, International Conference on Computer Vision.
 
 ![Teaser](assets/teaser.jpg)

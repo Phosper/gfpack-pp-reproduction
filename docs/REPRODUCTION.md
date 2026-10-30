@@ -72,10 +72,10 @@ python -m reproduce.run --sample-index 0 --candidates 1 --smoke --device cpu --m
 # 同步场对照；与逐对版本分开保存，不能悄悄替换失败结果
 python -m reproduce.run --sample-index 0 --candidates 1 --smoke --device cpu --post-policy simultaneous --output runs/smoke_simultaneous
 
-# GPU先测5例，每例512候选，不能把候选数和测试实例数混淆
-python -m reproduce.benchmark --start 0 --count 5 --device cuda --output runs/paper_first5_official_mode
+# GPU先测2例（样本0、1），每例512候选；批量入口默认也是2例
+python -m reproduce.benchmark --start 0 --count 2 --candidates 512 --device cuda --output runs/paper_first2_official_mode
 
-# 5例核验完成后，再运行完整128例
+# 完成排错并冻结配置后，再运行完整128例
 python -m reproduce.benchmark --start 0 --count 128 --device cuda --output runs/paper_full128_official_mode
 ```
 
@@ -111,7 +111,7 @@ python -m reproduce.benchmark --start 0 --count 128 --device cuda --output runs/
 python scripts/plot_reproduction.py runs/strict_first5_b1/sample_000
 ```
 
-下一项正式检查是上面的GPU前5例、每例512候选命令。默认配置仍保留论文噪声下限0.1；不能通过把发布尺度1的诊断悄悄改名为论文配置来宣称对齐。
+下一项初步排查是上面的GPU前2例、每例512候选命令。默认配置仍保留论文噪声下限0.1；不能通过把发布尺度1的诊断悄悄改名为论文配置来宣称对齐。
 
 ## 默认模式修正
 
